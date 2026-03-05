@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shiprlift</title>
+
+    <!-- Hide Google top banner -->
+    <style>
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+
+      body {
+        top: 0px !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- Google Translate Init -->
+    <script>
+      function loadGoogleTranslate() {
+        if (!window.google || !window.google.translate) return;
+
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+      }
+
+      // Wait until FULL page + React loads
+      window.addEventListener("load", function () {
+        const script = document.createElement("script");
+        script.src =
+          "https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate";
+        script.async = true;
+        document.body.appendChild(script);
+      });
+    </script>
+
+    <!-- React Entry -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

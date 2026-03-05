@@ -1,0 +1,488 @@
+.about{
+    font-family: 'Segoe UI', sans-serif;
+    margin-top: 0%;
+}
+
+/* HERO */
+.about-hero{
+    
+    position:relative;
+      height: 50vh;
+      margin-top: 3px;
+      padding-top: 0%;
+      background-image: url("../assets/bankprif.jpg");
+      box-shadow: 1px 3px 2px rgb(0, 0, 0);
+    filter: brightness(0.95);
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    height:80vh;
+    
+    color:white;
+}
+
+.overlay{
+    /* background:rgba(0,0,0,.65); */
+    background-image: url("../assets/abutimg.png");
+    box-shadow: 1px 3px 2px rgb(0, 0, 0);
+    /* background-position: center; */
+    /* background-size: cover; */
+    filter: brightness(0.5);
+    /* justify-content: end; */
+    /* text-align: start; */
+    background-repeat: no-repeat;
+    /* background-position: top; */
+    background-size:contain;
+    background-attachment: fixed;
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.overlay h1{
+     font-size: 4rem;
+  /* font-family:unset; */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 0rem;
+  margin-top: 0%;
+  text-decoration: solid;
+}
+
+.overlay h2{
+    /* font-size:20px;
+    max-width:700px; */
+    font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* STORY */
+.about-story{
+    margin-top:5vh;
+    margin-bottom:8vh;
+    padding-left: 1%;
+    padding-right: 1%;
+    display:flex;
+    justify-content: center;
+    gap:40px;
+    /* padding:100px 10%; */
+    align-items:center;
+}
+
+.story-right{
+ margin-top: 0%;
+ padding-top: 0%;
+ width: 64%;
+ font-size: 15px;
+}
+
+.story-right h2{
+ text-decoration: solid;
+ text-decoration: underline;
+ color: blue;
+ font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.story-right h2:hover{
+ color: black;
+ text-decoration:underline;
+}
+
+.story-right h4{
+  text-decoration: none;
+  width: 95%;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.story-right h4:hover{
+ color: blue;
+ text-decoration:underline;
+}
+
+.story-left img{
+    width: 480px;
+    height: 65vh;
+    border-radius: 2px;
+    filter: brightness(0.70);
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    border: none;
+    margin-left: 0%;
+}
+
+.story-left img:hover{
+    box-shadow: 2px 2px 2px blue; 
+}
+
+
+
+.mission-box{
+    display:flex;
+    gap:30px;
+    margin-top:30px;
+}
+
+.mission-box div{
+    background:#f4f6f8;
+    padding:20px;
+    border-radius:10px;
+}
+
+.missioncard:hover{
+    transform: translateY(5px);
+}
+
+.missioncard h3:hover{
+ color: blue;
+}
+
+.missioncard p:hover{
+ color: blue;
+ text-decoration: underline;
+}
+
+/* STATS */
+.stats{
+  background-color: #3e7287;
+    color:white;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    /* padding:70px 10%; */
+    box-shadow: 4px 4px 5px rgb(0, 0, 0);
+    margin-top: 8vh;
+    margin-bottom: 0vh;
+    text-align:center;
+
+}
+
+/* .statsdad{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: aqua;
+    width: 400%;
+}
+
+.stat{
+    width: 85%;
+} */
+
+
+.stat:hover{
+    transform: translateY(1px);
+    border: 1px solid white;
+}
+
+.stat h1{
+    font-size:30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.stat h1:hover{
+    color: black;
+}
+
+.stat p{
+ font-family: monospace;
+ text-align: center;
+ text-decoration: solid;
+}
+
+/* VALUES */
+.values{
+    /* padding:100px 10%; */
+    text-align:center;
+    margin-top: 0vh;
+    margin-bottom: 1%;
+    height: 45vh;
+    background-color: #3e7287;
+    box-shadow: 4px 4px 5px rgb(0, 0, 0);
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+.values h2{
+padding-top:5vh;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.values h2:hover{
+color: black;
+}
+
+
+.value-card h3{
+ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.values h3:hover{
+color: black;
+}
+
+.value-card p{
+  font-family: monospace;
+}
+
+.values p:hover{
+color: black;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    margin-top:0px;
+    margin-bottom: 40px;
+    box-shadow: 4px 4px 5px rgb(0, 0, 0);
+    border: 1px solid white;
+}
+
+.values-grid:hover{
+    transform: translateY(1px);
+}
+
+.value-card{
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.value-card:hover{
+    transform:translateY(-10px);
+}
+
+/* SERVICES */
+.about-services h2{
+text-align: center;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: underline; color: blue;
+}
+
+.about-services h2:hover{
+    color: black;
+}
+
+.ourh2{
+ margin-top: 7vh;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: underline;
+}
+
+
+
+
+.Time{
+margin-top: 6vh;
+gap: 4%;
+display: flex;
+justify-content: none;
+padding: 2%;;
+border: 1px solid black;
+box-shadow: 4px 4px 5px rgb(0, 0, 0);
+}
+
+
+
+/* LEADERSHIP */
+.leadership{
+display: flex;
+margin-top: 1vh;
+border: 2px solid black;
+box-shadow: 4px 4px 5px rgb(0, 0, 0);
+}
+
+.leader-card{
+    display:flex;
+    gap:40px;
+    width: 83%;
+    align-items:center;
+    background-color: rgb(152, 135, 112);
+}
+
+
+.leader-card h2{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-decoration: solid, underline;
+}
+
+.leader-card h2:hover{
+ color: black;
+}
+
+.leader-card p{
+    width:88%;
+    font-family: monospace;
+    font-size: 13px;
+    color: white;
+}
+
+.leader-card p:hover{
+ color: black;
+}
+
+.leader-card h4{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-decoration: solid, underline;
+}
+
+.leader-card h4:hover{
+ color: black;
+}
+
+
+.leader-card h5{
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-decoration: solid, underline; 
+}
+
+.leader-card h5:hover{
+ color: black;
+}
+
+.leader-card img{
+    width:50%;
+    border-radius:0%;
+}
+
+.impct{
+ padding-left: 2%;
+ background-color: #3e7287;
+ color: white;
+}
+
+.impct h5:hover{
+ color: black;
+}
+
+.impct h2{
+ /* width: %; */
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.impct h2:hover{
+ color: black;
+}
+
+.impct p{
+ width: 49%;
+ font-family: monospace;
+}
+
+.impct p:hover{
+ color: black;
+}
+
+.impct button{
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+box-shadow: 4px 4px 5px rgb(0, 0, 0);
+}
+
+.impct button:hover{
+   transform: translateY(-5px);
+}
+
+.impctpic{
+    justify-content: end;
+    text-align: end;
+    padding-right: 2%;
+    margin-top: 8vh;
+}
+
+.impct img{
+width: 10%;
+border-radius: 2%;
+border-radius: 50%;
+}
+
+.impctpic {
+  position: relative;
+  display: inline-block;
+  justify-content: end;
+}
+
+/* .impctpic img {
+  width: 10%;
+  border-radius: 50%;
+  cursor: pointer;
+} */
+
+.impctpic .tooltip {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-left: 40%;
+  margin-bottom: 0%;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%; /* above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.impctpic:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.impct img:hover{
+   transform: translateY(-20px);
+}
+
+/* CTA */
+.about-cta{
+ background-color: #3e7287;
+ border: 2px solid black;
+ box-shadow: 4px 4px 5px rgb(0, 0, 0);
+ color:white;
+ text-align:center;
+ padding:80px 20px;
+ margin-top: 1vh;
+}
+
+.about-cta h2{
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: solid;
+ font-size: 45px;
+text-decoration: underline;
+}
+
+.about-cta h2:hover{
+ color: black;
+}
+
+.about-cta p{
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: solid;
+}
+
+.about-cta p:hover{
+ color: black;
+}
+
+.about-cta button{
+    margin-top:20px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   text-decoration: solid;
+   /* font-size: 15px; */
+   box-shadow: 4px 4px 5px white;
+}
+
+.about-cta button:hover{
+   transform: translateY(20px);
+}
