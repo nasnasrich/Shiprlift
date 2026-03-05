@@ -213,13 +213,12 @@ const ShiprliftHome = () => {
   
 
   /* HERO */
-  const heroImages = [ hero2, hero3];
+  const heroImages = [hero1, hero2, hero3];
   const heroWriteUps = [
-    // {
-    //   title: "Welcome To Shiprlift",
-    //   text:
-    //     "We are a leading independent shipping & freight forwarder delivering excellence across air, ocean, road and warehousing.",
-    // },
+    {
+      title: "Welcome To Shiprlift",
+    text:
+    "We are a leading independent shipping & freight forwarder delivering excellence across air, ocean, road and warehousing.",},
     {
       title: "Trusted Worldwide",
       text:
