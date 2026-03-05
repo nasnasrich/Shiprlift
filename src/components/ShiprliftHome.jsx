@@ -1,6 +1,5 @@
 // import React, { useEffect, useState } from "react";
-import React, { useState, useContext, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import "./ShiprliftHome.css";
 import ShiprliftFilter from "./ShiprliftFilter";
 
@@ -32,6 +31,16 @@ import shipepo from "../assets/shipepo.jpg";
 import rseteam from "../assets/rseteam.png";
 import trckin from "../assets/trckin.jpg";
 import sickin from "../assets/sickin.jpg";
+
+
+import {
+  FaPlane,
+  FaShip,
+  FaWarehouse,
+  FaBoxOpen,
+  FaLayerGroup,
+  FaClipboardList
+} from "react-icons/fa";
 
 
 import womanPic from "../assets/woman.jpg";
@@ -213,32 +222,46 @@ const ShiprliftHome = () => {
   
 
   /* HERO */
-  const heroImages = [hero1, hero2, hero3];
-  const heroWriteUps = [
-    {
-      title: "Welcome To Shiprlift",
-    text:
-    "We are a leading independent shipping & freight forwarder delivering excellence across air, ocean, road and warehousing.",},
-    {
-      title: "Trusted Worldwide",
-      text:
-        "Shiprlift connects businesses to international markets through efficient freight forwarding.",
-    },
-    {
-      title: "Moving Cargo With Confidence",
-      text:
-        "From pickup to final destination, we ensure secure handling and smooth supply chain operations.",
-    },
-  ];
 
-  const [heroIndex, setHeroIndex] = useState(0);
+  /* HERO SLIDESHOW */
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+const slides = [hero1, hero2, hero3];
+const [index, setIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIndex((prev) => (prev + 1) % slides.length);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
+
+  // const heroImages = [hero1, hero2, hero3];
+  // const heroWriteUps = [
+  //   {
+  //     title: "Welcome To Shiprlift",
+  //   text:
+  //   "We are a leading independent shipping & freight forwarder delivering excellence across air, ocean, road and warehousing.",},
+  //   {
+  //     title: "Trusted Worldwide",
+  //     text:
+  //       "Shiprlift connects businesses to international markets through efficient freight forwarding.",
+  //   },
+  //   {
+  //     title: "Moving Cargo With Confidence",
+  //     text:
+  //       "From pickup to final destination, we ensure secure handling and smooth supply chain operations.",
+  //   },
+  // ];
+
+  // const [heroIndex, setHeroIndex] = useState(0);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setHeroIndex((prev) => (prev + 1) % heroImages.length);
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const message = encodeURIComponent(
     "Hello Shiprlift, I would like to make an enquiry."
@@ -338,31 +361,46 @@ const [openIndex, setOpenIndex] = useState({});
 
   return (
     <div className="shiprlift-home">
+       <div
+className="hero"
+style={{ backgroundImage: `url(${slides[index]})` }}
+>
+
+<div className="hero-content">
+
+<h1>
+Moving Cargo With Confidence</h1>
+
+<p>
+Shiprlift delivers fast, secure, and reliable cargo transportation across
+international routes. From vessel operations to emergency logistics,
+we move your business forward.
+</p>
+
+<div className="hero-buttons">
+
+<button className="primary-btn">
+ Contact Us
+</button>
+
+<button className="secondary-btn">
+Track Shipment
+</button>
+
+</div>
+
+
+
+</div>
+</div>
+      
+
+<div>
+  
+</div>
+
+
       {/* HERO */}
-      <section className="hero">
-        <div
-          className="hero-bg"
-          style={{ backgroundImage: `url(${heroImages[heroIndex]})` }}
-        />
-        <div className="hero-overlay">
-          <h1>{heroWriteUps[heroIndex].title}</h1>
-          <h4>{heroWriteUps[heroIndex].text}</h4>
-          <div className="hero-buttons">
-            <button
-              className="btn-primary"
-              onClick={() => (window.location.href = "/contact")}
-            >
-              Contact Us
-            </button>
-            <button
-              className="btn-secondary"
-              onClick={() => (window.location.href = "/track")}
-            >
-              Track Shipment
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* WHATSAPP + MAIL */}
       <div className="mog">
@@ -405,87 +443,46 @@ const [openIndex, setOpenIndex] = useState({});
     </section>
     </div>
 
-      <div className="wecome">
-        <div className="wecomemom">
-          <h1>Welcome to Shiprlift Cargo Express</h1>
-          <h5>
-            Shiprlift Cargo Express is a one-stop freight and Courier solution,
-            providing services to companies of all sizes, be it a small delivery
-            across town or an industrial shipment to the other side of the globe.
-          </h5>
-          <h5>
-            Based on a solid financial footing and having invested remarkable
-            amount of money / time on information technology and other over
-            heads, the company’s capabilities of sourcing new clients as well as
-            improving cost efficiency are the key attributes for our success.
-          </h5>
-          <h5>
-            Shiprlift Cargo Express has maintained a significant role in the
-            total transportation arena for over a short time with its
-            professional accredited staff who are our real assets.
-          </h5>
 
-          <div>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ArrowDownwardIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography component="span">Ocean & Air Freight</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  We always provide people a complete solution focused of any
-                  business.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
 
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ArrowDropDownIcon />}
-                aria-controls="panel2-content"
-                id="panel2-header"
-              >
-                <Typography component="span">Customs</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  With Metropulse Customs, our expert brokers can help you clear
-                  goods quickly, minimize import duties, and leverage customs
-                  data to benefit your entire supply chain.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <p>
-              <b>learn more <Link to="/OurServices">→</Link></b>
-            </p>
-          </div>
-        </div>
+<div className="packing-storage-section">
+  <div className="content" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "40px" }}>
+    
+    {/* Text Content */}
+    <div className="text" style={{ flex: "1 1 500px" }}>
+     
 
-        <div className="festimg">
-          <img src={ejetpic} alt="cargo" />
-        </div>
+       <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
+        Welcome to Shiprlift Cargo Express
+      </Typography>
+     
+      <div className="oneli">
+      <li>Shiprlift Cargo Express is a one-stop freight and Courier solution, providing services to companies of all sizes, be it a small delivery across town or an industrial shipment to the other side of the globe.</li>
+      <li>Based on a solid financial footing and having invested remarkable amount of money time on information technology and other over heads, the company’s capabilities of sourcing new clients as well as improving cost efficiency are the key attributes for our success.</li>
+      <li>Shiprlift Cargo Express has maintained a significant role in the total transportation arena for over a short time with its professional accredited staff who are our real assets.</li>
       </div>
 
-      {/* IMAGE + INFO */}
-      <div className="dad">
-        <div className="packing">
-          <div className="bb">
-            <h1>PACKING & STORAGE</h1>
-            <h5>
-              Bringing you industry-specific expertise; whatever you’re shipping,
-              wherever you’re shipping it.
-            </h5>
-            <li>Shipper delivers a professional, efficient service</li>
-            <li>Tailored to the specific needs of your business</li>
-            <li>Our services are designed around you.</li>
-            <div className="care">
-            <h2>Shiprlift Cargo Care</h2>
-            <li>Founded in 2016 by Hussain Futtaim, Shiprlift Cargo Care has grown into a global logistics leader, now led by the fourth Ewals generation.</li>
-            </div>
-            <div className="StarIcon">
+      {/* <Typography style={{paddingTop: 15}}  variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
+        PACKING & STORAGE
+      </Typography> */}
+      
+      {/* <ul style={{ paddingLeft: "20px", marginBottom: "20px", }}>
+        <li>Shipper delivers a professional, efficient service</li>
+        <li>Tailored to the specific needs of your business</li>
+        <li>Our services are designed around you</li>
+      </ul> */}
+      
+      <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+        Shiprlift Cargo Care
+      </Typography>
+      
+      <Typography className="ulme">
+        <ul style={{ paddingLeft: "20px", marginBottom: "20px", }}>
+        <li>Founded in 2016 by Hussain Futtaim, Shiprlift Cargo Care has grown into a global logistics leader, now led by the fourth Ewals generation.</li>
+        </ul>
+      </Typography>
+
+      <div className="StarIcon">
               <Box sx={{ width: 200, display: "flex", alignItems: "center" }}>
                 <Rating
                   name="text-feedback"
@@ -499,39 +496,89 @@ const [openIndex, setOpenIndex] = useState({});
                 
                 <Box sx={{ ml: 2 }}>{labels[value]}</Box>
               
-
               </Box>
-             
               <marquee behavior="" direction="">
               <h5 style={{fontFamily:"monospace"}}>Bringing you industry-specific expertise; whatever you’re shipping, wherever you’re shipping it</h5>
               </marquee>
             </div>
-          </div>
-        </div>
+            
+            
+    </div>
 
-        <Box
-       sx={{
-    width: "60%",
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(250px,1fr))",
-    gap: 2,
-  }}
->
-  {dadCards.map((card) => (
-    <Card key={card.id}>
-      <CardActionArea>
-        <CardMedia component="img" height="160" image={card.image} />
-        <CardContent>
-          <Typography variant="h6">{card.title}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {card.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  ))}
-</Box>
+    {/* Image / Optional Visual */}
+    <div className="image" style={{ flex: "1 1 400px", textAlign: "center" }}>
+      <img 
+        src={ejetpic} 
+        alt="Packing & Storage" 
+        style={{ width: "100%", maxWidth: "400px", borderRadius: "8px", objectFit: "cover" }} 
+      />
+    </div>
+
+  </div>
+</div>
+
+<div className="terb">
+  <h2>PACKING & STORAGE</h2>
+
+  <div className="terb-grid">
+
+    {/* Card 1 */}
+    <div className="terb-card">
+      <div className="terb-icon"><FaPlane /></div>
+      <div className="terb-card-content">
+        <h3>Air Cargo Solutions</h3>
+        <p>Fast air cargo handling with secure airport operations.</p>
       </div>
+    </div>
+
+    {/* Card 2 */}
+    <div className="terb-card">
+      <div className="terb-icon"><FaShip /></div>
+      <div className="terb-card-content">
+        <h3>Sea Cargo Handling</h3>
+        <p>Reliable ocean freight with global port coverage.</p>
+      </div>
+    </div>
+
+    {/* Card 3 */}
+    <div className="terb-card">
+      <div className="terb-icon"><FaWarehouse /></div>
+      <div className="terb-card-content">
+        <h3>Secure Warehousing</h3>
+        <p>Safe storage with real-time monitoring systems.</p>
+      </div>
+    </div>
+
+    {/* Card 4 */}
+    <div className="terb-card">
+      <div className="terb-icon"><FaBoxOpen /></div>
+      <div className="terb-card-content">
+        <h3>Custom Packaging</h3>
+        <p>Professional packing services to protect your goods.</p>
+      </div>
+    </div>
+
+    {/* Card 5 */}
+    <div className="terb-card">
+      <div className="terb-icon"><FaLayerGroup /></div>
+      <div className="terb-card-content">
+        <h3>Consolidation Services</h3>
+        <p>Combine shipments to save cost and space.</p>
+      </div>
+    </div>
+
+    {/* Card 6 */}
+    <div className="terb-card">
+      <div className="terb-icon"><FaClipboardList /></div>
+      <div className="terb-card-content">
+        <h3>Inventory Management</h3>
+        <p>Real-time tracking and stock optimization.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
       {/* FORM & IMAGE SIDE BY SIDE */}
       <div className="frommmmto">

@@ -24,13 +24,20 @@
     color:white;
 }
 
+.about-hero::before {
+  /* content: ""; */
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
 .overlay{
     /* background:rgba(0,0,0,.65); */
     background-image: url("../assets/abutimg.png");
     box-shadow: 1px 3px 2px rgb(0, 0, 0);
     /* background-position: center; */
     /* background-size: cover; */
-    filter: brightness(0.5);
+    /* filter: brightness(0.5); */
     /* justify-content: end; */
     /* text-align: start; */
     background-repeat: no-repeat;
