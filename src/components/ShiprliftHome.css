@@ -1142,6 +1142,10 @@ margin-left:0%;
 margin-right: 0;
 }
 
+
+
+
+
 .packing-storage-section{
  margin-bottom: 0%;
  padding-bottom: 0%;
@@ -1150,6 +1154,78 @@ margin-right: 0;
 .packing-storage-section h4{
  margin-top: 2vh;
  font-size: 22px;
+}
+
+
+.packing-storage-section{
+  margin-top: 0%;
+  padding-top: 0%;
+}
+
+.packing-storage-section h4{
+  text-align: center;
+  font-size: 25px;
+  font-family: initial;
+  text-decoration: underline;
+}
+
+.packing-storage-section h4:hover{
+  color: #2563eb;
+}
+
+.oneli li{
+  text-align: center;
+  font-size: 220px;
+  list-style-type: none;
+  padding: 2%;;
+}
+
+.packing-storage-section h6{
+  font-size: 22px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  padding-top: 2vh;
+  font-family: initial;
+  text-decoration: underline;
+}
+
+.packing-storage-section h6:hover{
+  color: #2563eb;
+}
+
+.packing-storage-section .text li{
+   font-family:initial;
+   font-size: 18px;
+}
+
+.packing-storage-section .text li:hover{
+  color: #2563eb;
+}
+
+.packing-storage-section  .ulme li{
+  font-family:initial;
+  text-align: center;
+  margin-top: 0%;
+  list-style-type: none;
+  padding-top: 0%;
+}
+
+.packing-storage-section .ulme li:hover{
+  color: #2563eb;
+}
+
+
+.packing-storage-section marquee{
+  width: 30%;
+  font-size: 15px;
+}
+
+.packing-storage-section marquee:hover{
+  color: #2563eb;
+}
+
+.StarIcon :hover{
+  transform: translateY(-10px);
 }
 
 
