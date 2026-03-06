@@ -510,7 +510,7 @@ Track Shipment
       <img 
         src={ejetpic} 
         alt="Packing & Storage" 
-        style={{ width: "100%", maxWidth: "400px", borderRadius: "8px", objectFit: "cover" }} 
+        style={{ width: "100%", maxWidth: "400px", borderRadius: "4px", objectFit: "cover" }} 
       />
     </div>
 
@@ -706,9 +706,9 @@ Track Shipment
 
         <div className="cardone">
   {whyChooseCards.map((card) => (
-    <Card key={card.id} sx={{ maxWidth: 260, }}>
+    <Card key={card.id} sx={{ maxWidth: 317, }}>
       <CardActionArea>
-        <CardMedia component="img" height="160" image={card.image} />
+        <CardMedia component="img" height="210" image={card.image} />
         <CardContent>
           <Typography gutterBottom variant="h6">
             {card.title}
