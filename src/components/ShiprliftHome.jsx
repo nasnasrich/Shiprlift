@@ -501,7 +501,7 @@ Track Shipment
             </div>
             
            <marquee behavior="" direction="">
-              <h5 style={{fontFamily:"monospace"}}>Bringing you industry-specific expertise; whatever you’re shipping, wherever you’re shipping it</h5>
+              <h5 style={{fontFamily:"monospace"}}>In a world where businesses depend on fast and secure cargo transportation to remain competitive, many global companies rely on Shiprlift Logistics to manage complex shipping operations with efficiency, accuracy, and professionalism, delivering dependable freight solutions that connect international markets while ensuring every shipment is handled with advanced logistics expertise, reliable coordination, and a strong commitment to customer satisfaction</h5>
               </marquee> 
     </div>
 
@@ -739,7 +739,7 @@ Track Shipment
 
     <div className="fornow" onMouseEnter={() => { if (!startCount) setStartCount(true);}}>
      <div className="hand">
-       <h5>we are the best in what we do</h5>
+       <h5>Your Trusted Partner in Global Logistics</h5>
      </div>
     </div>
 
