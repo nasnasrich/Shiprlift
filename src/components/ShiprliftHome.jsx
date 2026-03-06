@@ -406,6 +406,7 @@ Track Shipment
       <div className="mog">
         <div>
           <h5>
+            ...
             {/* 10+ Years We have more than years of experience in Cargo handling */}
           </h5>
         </div>
@@ -446,7 +447,7 @@ Track Shipment
 
 
 <div className="packing-storage-section">
-  <div className="content" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "40px" }}>
+  <div className="content" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "40px", }}>
     
     {/* Text Content */}
     <div className="text" style={{ flex: "1 1 500px" }}>
@@ -477,9 +478,9 @@ Track Shipment
       </Typography>
       
       <Typography className="ulme">
-        <ul style={{ paddingLeft: "20px", marginBottom: "20px", }}>
+        {/* <ul style={{ marginBottom: "20px", }}> */}
         <li>Founded in 2016 by Hussain Futtaim, Shiprlift Cargo Care has grown into a global logistics leader, now led by the fourth Ewals generation.</li>
-        </ul>
+        {/* </ul> */}
       </Typography>
 
       <div className="StarIcon">
@@ -494,7 +495,7 @@ Track Shipment
                   }
                 />
                 
-                <Box sx={{ ml: 2 }}>{labels[value]}</Box>
+                {/* <Box sx={{ ml: 2 }}>{labels[value]}</Box> */}
               
               </Box>
             </div>
