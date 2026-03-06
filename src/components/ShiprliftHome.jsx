@@ -169,7 +169,7 @@ const CounterCard = ({ stat, start }) => {
       } else {
         setCount(Math.ceil(startValue));
       }
-    }, 16);
+    }, 100);
 
     return () => clearInterval(counter);
   }, [start, stat.number]);
@@ -737,14 +737,14 @@ Track Shipment
          </div>
       </div>
 
-      <div className="fornow">
-        <div className="hand">
-          <h5>we are the best in what we do</h5>
-        </div>
-      </div>
+    <div className="fornow" onMouseEnter={() => { if (!startCount) setStartCount(true);}}>
+     <div className="hand">
+       <h5>we are the best in what we do</h5>
+     </div>
+    </div>
 
       {/* CARDNUMBER with StatsCounter */}
-      <div className="cardnumber" onMouseEnter={() => { if (!startCount) setStartCount(true);}} >
+      <div className="cardnumber">
         <h3>WE SPECIALISE IN THE TRANSPORTATION</h3>
         <h4>Together, we have your logistical challenges covered</h4>
         <StatsCounter startCount={startCount} />

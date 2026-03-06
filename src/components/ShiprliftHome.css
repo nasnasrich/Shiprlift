@@ -557,13 +557,11 @@ margin-right: 0;
  }
 
  .frompic img:hover{
-  transform: translateY(5px);
+  transform: translateY(8px);
 }
 
 
-.bb:hover{
-  transform: translateY(5px);
-}
+
 
 .bbb{
   width: 500px;
@@ -571,6 +569,9 @@ margin-right: 0;
   flex-shrink:0px;
 }
 
+.bbb:hover{
+  transform: translateY(8px);
+}
 
 .carddad{
   margin-top: 8vh;
@@ -728,13 +729,13 @@ margin-right: 1%;
   margin-top: 4vh;
   /* border: 1px solid black; */
   border-radius: 2%;
-  margin-bottom: 5vh;
+  margin-bottom: 0vh;
   color: white;
 }
 
 .stat-card:hover {
   transform: translateY(-8px);
-  background: #1f2937;
+  border: 1px solid black;
   color: white;
 }
 
@@ -742,6 +743,12 @@ margin-right: 1%;
   font-size: 40px;
   color: #38bdf8;
   margin-bottom: 10px;
+}
+
+
+.icon:hover {
+  transform: translateY(-8px);
+  color:rgb(129, 148, 3);
 }
 
 .stat-card h2 {
@@ -753,7 +760,7 @@ margin-right: 1%;
 .stat-card h2:hover {
   transform: translateY(-8px);
   /* background: #1f2937; */
-  color: white;
+  color: blue;
 }
 
 .stat-card p {
@@ -764,7 +771,7 @@ margin-right: 1%;
 .stat-card p:hover {
   transform: translateY(-8px);
   /* background: #1f2937; */
-  color: white;
+  color: blue;
 }
 
 
@@ -778,7 +785,7 @@ margin-right: 1%;
 
 .testimonials-section {
   /* width: 100%; */
-  margin-top: 2%;
+  margin-top: 0%;
   padding-top: 0%;
   padding: 40px 20px;
   text-align: center;
@@ -1022,7 +1029,7 @@ margin-right: 1%;
 }
 
 .colabospic img:hover {
-  transform: translateY(-8px);
+  transform: translateY(-15px);
 }
 
 
@@ -1420,6 +1427,27 @@ margin-right: 0;
 }
 
 
+.cardnumber h4{
+  color: black;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+
+
+
+.testimonials-section {
+  /* width: 100%; */
+  margin-top:0%;
+  padding-top: 0%;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+
+
+
+
 .dad{
   display: grid;
   padding: 0%;
@@ -1624,8 +1652,11 @@ margin-right: 0;
 .bigcarmom h2{
   color: white;
   text-align: center;
-  padding: 1%;
-  font-family: monospace;
+  font-size: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 0%;
+  font-family: initial;
 }
 
 .bigcarmom h2:hover{
@@ -1638,10 +1669,9 @@ margin-right: 0;
   color: white;
   font-family: initial;
   text-align:start;
-  padding-left: 2%;
-  padding-right: 2%;
-  width: 95%;
-  padding-left: 4%;
+  text-align: center;
+  width: 100%;
+  padding-left: 0%;
   font-size: 18px;
 }
 
@@ -1661,7 +1691,7 @@ margin-right: 0;
 }
 
 .colaboss h4{
- font-size: 23px;
+ /* font-size: 23px; */
  font-family: initial;
  margin-bottom: 0%;
 }
