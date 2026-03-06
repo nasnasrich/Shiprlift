@@ -1181,6 +1181,7 @@ margin-right: 0;
 .oneli li{
   text-align:start;
   width: 93%;
+  size: 0px;
   list-style-type: none;
   padding: 2%;;
 }
@@ -1201,7 +1202,7 @@ margin-right: 0;
 
 .packing-storage-section .text li{
    font-family:initial;
-   font-size: 18px;
+   font-size: 11px;
 }
 
 .packing-storage-section .text li:hover{
@@ -1389,7 +1390,7 @@ margin-right: 0;
   margin-top: 1vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height:8vh;
+  height:45vh;
   filter: brightness(0.55);
   margin-right: 0%;
   border: 1px solid black;
@@ -1635,7 +1636,7 @@ margin-right: 0;
 
 .bigcarmom p{
   color: white;
-  font-family: monospace;
+  font-family: initial;
   text-align:start;
   width: 95%;
   padding-left: 4%;
@@ -1659,6 +1660,7 @@ margin-right: 0;
 
 .colaboss h4{
  font-size: 23px;
+ font-family: initial;
  margin-bottom: 0%;
 }
 
