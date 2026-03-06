@@ -406,7 +406,7 @@ Track Shipment
       <div className="mog">
         <div>
           <h5>
-            10+ Years We have more than years of experience in Cargo handling
+            {/* 10+ Years We have more than years of experience in Cargo handling */}
           </h5>
         </div>
 
@@ -497,12 +497,11 @@ Track Shipment
                 <Box sx={{ ml: 2 }}>{labels[value]}</Box>
               
               </Box>
-              <marquee behavior="" direction="">
-              <h5 style={{fontFamily:"monospace"}}>Bringing you industry-specific expertise; whatever you’re shipping, wherever you’re shipping it</h5>
-              </marquee>
             </div>
             
-            
+           <marquee behavior="" direction="">
+              <h5 style={{fontFamily:"monospace"}}>Bringing you industry-specific expertise; whatever you’re shipping, wherever you’re shipping it</h5>
+              </marquee> 
     </div>
 
     {/* Image / Optional Visual */}
