@@ -469,8 +469,6 @@ text-decoration: solid;
 
 .aboutHero-overlay{
     height: 69vh;
-    margin-top: 5vh;
-    padding-bottom: 2vh;
 }
 
 .aboutHero-content{
@@ -478,11 +476,11 @@ text-decoration: solid;
 }
 
 .aboutHero-content h2{
-    font-size:20px;
+    font-size:15px;
     width: auto;
     /* line-height:1.4; */
     font-family: initial;
-    margin-top: 12%;
+    margin-top: 0%;
     padding-top: 0%;
     margin-left: 0%;
     padding-right: 8%;
