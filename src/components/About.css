@@ -461,7 +461,7 @@ text-decoration: solid;
 @media (max-width:768px){
 
 .aboutHero{
-    height:60vh;
+    height:67vh;
     padding:60px 20px;
     background-size: contain;
     /* background-position: center; */
@@ -469,6 +469,8 @@ text-decoration: solid;
 
 .aboutHero-overlay{
     height: 69vh;
+    margin-top: 5vh;
+    padding-bottom: 2vh;
 }
 
 .aboutHero-content{
