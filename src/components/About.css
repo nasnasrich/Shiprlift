@@ -461,18 +461,22 @@ text-decoration: solid;
 @media (max-width:768px){
 
 .aboutHero{
-    height:67vh;
+    height:60vh;
     padding:60px 20px;
     background-size: contain;
     /* background-position: center; */
 }
 
 .aboutHero-overlay{
-    height: 69vh;
+    /* height: vh; */
+    margin-top: 0%;
+    padding-top: 0%;
 }
 
 .aboutHero-content{
     width:100%;
+    margin-top: 0%;
+    padding-top: 0%;
 }
 
 .aboutHero-content h2{
@@ -483,8 +487,8 @@ text-decoration: solid;
     margin-top: 0%;
     padding-top: 0%;
     margin-left: 0%;
-    padding-right: 8%;
-    padding-left: 8%;
+    padding-right: 15%;
+    padding-left: 15%;
 }
 
 .aboutHero-content p{
