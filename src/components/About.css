@@ -464,7 +464,6 @@ text-decoration: solid;
     height:60vh;
     padding:60px 20px;
     background-size: contain;
-    background-attachment:scroll;
 
     /* background-position: center; */
 }
