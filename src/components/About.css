@@ -461,8 +461,10 @@ text-decoration: solid;
 @media (max-width:768px){
 
 .aboutHero{
-    height:58vh;
+    height:60vh;
     padding:60px 20px;
+    background-size: contain;
+    /* background-position: center; */
 }
 
 .aboutHero-overlay{
@@ -674,17 +676,17 @@ box-shadow: 4px 4px 5px rgb(0, 0, 0);
  color: black;
 }
 
-.leader-card p{
-    width:100%;
+.leadership .leader-card p{
+    width:99%;
     text-align: center;
-    margin-right: 20%;
+
     font-family: monospace;
     margin: 0%;
     font-size: 13px;
     color: white;
 }
 
-.leader-card p:hover{
+.leadership .leader-card p:hover{
  color: black;
 }
 
@@ -723,12 +725,12 @@ box-shadow: 4px 4px 5px rgb(0, 0, 0);
 }
 
 .impct h5{
- padding-left: 2%;
+ padding-left: 70%;
 }
 
 .impct h2{
  width:80%;
- padding-left: 2%;
+ padding-left: 3%;
  font-size: 20px;
  /* text-align: center; */
  font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -739,8 +741,8 @@ box-shadow: 4px 4px 5px rgb(0, 0, 0);
 }
 
 .impct p{
- padding-left: 2%;
- width: 100%;
+ padding-left: 3%;
+ width: 70%;
  font-family: monospace;
 }
 
@@ -805,5 +807,47 @@ border-radius: 50%;
 .impct img:hover{
    transform: translateY(-5px);
 }
+
+
+/* CTA */
+.about-cta{
+ background-color: #3e7287;
+ border: 2px solid black;
+ box-shadow: 4px 4px 5px rgb(0, 0, 0);
+ color:white;
+ text-align:center;
+ padding:80px 20px;
+ margin-top:3px;
+}
+
+.about-cta h2{
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: solid;
+ font-size: 45px;
+ margin-top: 0%;
+text-decoration: underline;
+}
+
+.about-cta h2:hover{
+ color: black;
+}
+
+.about-cta p{
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: solid;
+}
+
+.about-cta p:hover{
+ color: black;
+}
+
+.about-cta button{
+    margin-top:20px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   text-decoration: solid;
+   /* font-size: 15px; */
+   box-shadow: 4px 4px 5px white;
+}
+
 
 }
