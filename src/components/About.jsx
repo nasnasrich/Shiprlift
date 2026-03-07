@@ -182,12 +182,12 @@ const ShiprliftAbout = () => {
       <div className="about-services">
 
         <h2>OUR PROFESSIONS</h2>
-       <div>
+       <div className="about-servicesmom">
          <Box
       sx={{
         width: '100%',
-        // display: 'grid',
-        // gridTemplateColumns: 're/peat(auto-fit, 280px)',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, 280px)',
         gap: 2,
         justifyContent: "center",
 
