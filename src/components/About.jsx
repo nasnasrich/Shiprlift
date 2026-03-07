@@ -9,6 +9,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 
+
 import { Link } from "react-router-dom";  
 
 
@@ -79,17 +80,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: '#fff',
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: 'center',
-//   color: (theme.vars ?? theme).palette.text.secondary,
-//   ...theme.applyStyles('dark', {
-//     backgroundColor: '#1A2027',
-//   }),
-// }));
-
 
 const ShiprliftAbout = () => {
     const [selectedCard, setSelectedCard] = React.useState(0);
@@ -97,56 +87,42 @@ const ShiprliftAbout = () => {
     <div className="about">
 
       {/* HERO */}
-      <section
-        className="about-hero"
-        // style={{ backgroundImage: `url(${shipepo})` }}
-      >
-        <div className="overlay">
-          <h1>Powering Global Logistics</h1>
-          <h2>Moving industries forward with precision, speed, and reliability.</h2>
-        </div>
-      </section>
 
-      {/* COMPANY STORY */}
-      <section className="about-story">
-        <div className="story-left">
-          <img src={hub_together} alt="Shiprlift operations" />
-        </div>
+      
+       <section className="aboutHero">
 
-        <div className="story-right">
-          <h2>Our Story</h2>
-          <h4>
-            Shiprlift was founded with a bold vision — to simplify global
-            transportation while maintaining the highest standards of safety
-            and efficiency. What began as a focused logistics operation has
-            evolved into a trusted partner for businesses across continents.
-          </h4>
+      <div className="aboutHero-overlay">
+      
+        <div className="aboutHero-content">
 
-          <h4>
-            Today, we support complex supply chains, heavy cargo movement,
-            vessel transfers, emergency logistics, and mission-critical
-            deliveries for companies that demand excellence.
-          </h4>
-            
-          <div className="mission-box">
-            <div className="missioncard">
-              <h3>Our Mission</h3>
-              <p>
-                Deliver smarter logistics solutions that help businesses scale
-                without limits.
-              </p>
-            </div>
+          <h2>Delivering Global Logistics Solutions With Precision,
+            Reliability, and Maritime Expertise</h2>
 
-            <div className="missioncard">
-              <h3>Our Vision</h3>
-              <p>
-                To become one of the most respected logistics providers in the
-                world.
-              </p>
-            </div>
+          <p>
+            Shiprlift is a trusted logistics provider specializing in
+            vessel operations, cargo transportation, and strategic
+            freight management. We help businesses move goods across
+            international markets with efficiency, safety, and
+            professional coordination.
+          </p>
+
+          <div className="aboutHero-buttons">
+
+            <button className="primaryBtn">
+              Explore Services
+            </button>
+
+            <button className="secondaryBtn">
+              Contact Our Team
+            </button>
+
           </div>
+
         </div>
-      </section>
+
+      </div>
+
+    </section>
 
 
 
@@ -210,8 +186,8 @@ const ShiprliftAbout = () => {
          <Box
       sx={{
         width: '100%',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, 280px)',
+        // display: 'grid',
+        // gridTemplateColumns: 're/peat(auto-fit, 280px)',
         gap: 2,
         justifyContent: "center",
 

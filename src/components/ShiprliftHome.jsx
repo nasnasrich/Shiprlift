@@ -379,13 +379,17 @@ we move your business forward.
 
 <div className="hero-buttons">
 
+<Link to="/Contact">
 <button className="primary-btn">
  Contact Us
 </button>
+</Link>
 
+<Link to="/Track">
 <button className="secondary-btn">
 Track Shipment
 </button>
+</Link>
 
 </div>
 
