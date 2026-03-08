@@ -29,10 +29,10 @@ import Button from "@mui/material/Button";
 import abutimg from "../assets/abutimg.png"; 
 
 const cards = [
-  { id: 1, title: 'AIR SHIPPING', description: 'We can also offer outside storage facilities in Aberdeen and both outside and inside storage in Cowdenbeath.', image: airline },
-  { id: 2, title: 'LOGISTIC', description: 'We can also offer outside storage facilities in Aberdeen and both outside and inside storage in Cowdenbeath.', image: bus },
-  { id: 3, title: 'PORTATION', description: 'We can also offer outside storage facilities in Aberdeen and both outside and inside storage in Cowdenbeath.', image: ship },
-  { id: 4, title: 'DOMESTIC ', description: 'We can also offer outside storage facilities in Aberdeen and both outside and inside storage in Cowdenbeath.', image: sister },
+  { id: 1, title: 'AIR SHIPPING', description: 'Efficient air freight solutions connecting global destinations, ensuring fast, reliable delivery with complete tracking and professional cargo handling services.', image: airline },
+  { id: 2, title: 'TRANSPORT HUB', description: 'Comprehensive logistic planning and management, optimizing supply chains, coordinating transport, warehousing, and distribution with precision and efficiency worldwide.', image: bus },
+  { id: 3, title: 'CARGO HADLING', description: 'Safe cargo handling at ports, managing loading, unloading, and storage operations, guaranteeing timely delivery across international maritime routes.', image: ship },
+  { id: 4, title: 'LACAL TRANSPORT ', description: 'Reliable domestic transport services, moving goods across cities and regions efficiently, with full tracking and secure, timely delivery solutions.', image: sister },
 ];
 
 const Item = styled(Paper)(({ theme }) => ({

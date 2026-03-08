@@ -470,7 +470,7 @@ text-decoration: solid;
     background-size:cover;
     background-position:top center;
     background-repeat: no-repeat;
-    /* filter: brightness(none); */
+    filter: brightness(0.99);
     background-attachment: scroll;
   }
 
@@ -659,6 +659,8 @@ box-shadow: 4px 4px 5px rgb(0, 0, 0);
 
 .leadership .leader-card img{
     width: 100%;
+      filter: brightness(0.60);
+
 }
 
 
