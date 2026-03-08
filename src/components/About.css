@@ -468,10 +468,11 @@ text-decoration: solid;
 .aboutHeroNew {
     height: 60vh;
     background-position: bottom;
+    background-size: cover;
   }
 
   .aboutHeroNew {
-  filter: brightness(0.90);
+  filter: brigh(0.90);
   }
 
   .aboutHeroNewContent h1 {
