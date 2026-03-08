@@ -466,7 +466,7 @@ text-decoration: solid;
 
 @media (max-width:768px){
 .aboutHeroNew {
-    min-height: 45vh;
+    height: 65vh;
     background-size:cover;
     background-position:top center;
     background-repeat: no-repeat;
