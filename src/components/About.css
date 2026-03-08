@@ -476,6 +476,8 @@ text-decoration: solid;
   .aboutHeroNewContent h1 {
     font-size:45px;
     padding: 0%;
+     padding-right: 3%;
+    padding-left: 3%;
     margin: 0%;
   }
 
