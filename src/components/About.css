@@ -466,7 +466,7 @@ text-decoration: solid;
 
 @media (max-width:768px){
 .aboutHeroNew {
-    height: 65vh;
+    height: 60vh;
     background-size:cover;
     background-position:top center;
     background-repeat: no-repeat;
@@ -477,11 +477,11 @@ text-decoration: solid;
  
 
   .aboutHeroNewContent h1 {
-    font-size:55px;
+    font-size:50px;
     font-family: initial;
     text-decoration: solid;
     padding: 0%;
-    padding-top: 4vh;
+    padding-top: 10vh;
     margin: 0%;
   }
 
@@ -508,7 +508,7 @@ text-decoration: solid;
     grid-template-columns:repeat(4,1fr);
     /* padding:70px 10%; */
     box-shadow: 4px 4px 5px rgb(0, 0, 0);
-    margin-top: 4px;
+    margin-top: 2vhx;
     margin-bottom: 0%;
     padding-bottom: 0%;
     text-align:center;
@@ -541,7 +541,7 @@ text-decoration: solid;
     background-color: #3e7287;
      background-color: #383737;
 
-    box-shadow: 4px 4px 5px rgb(0, 0, 0);
+    box-shadow: none;
     color: white;
     padding-left: 2%;
     padding-right: 2%;
