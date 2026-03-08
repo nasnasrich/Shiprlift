@@ -475,10 +475,10 @@ text-decoration: solid;
   }
 
   .aboutHeroNewContent h1 {
-    font-size:45px;
+    font-size:55px;
     text-decoration: solid;
-    /* padding: 0%;
-    margin: 0%; */
+    padding: 0%;
+    margin: 0%;
   }
 
   .aboutHeroNewContent p {
@@ -510,11 +510,12 @@ text-decoration: solid;
 }
 
 .stat h1{
-    font-size: 25px;
+    /* font-size: 25px; */
 }
 
 .stat p{
-    font-size: 12px;
+    padding-right: 3%;
+    padding-left: 3%;
 }
 
 
