@@ -623,12 +623,13 @@ text-decoration: underline;
 
 .Time{
 margin-top: 6vh;
-gap: 4%;
+gap: 2%;
  margin-bottom: 0vh;
 height: 80vh;
 display: grid;
 justify-content: none;
-padding: 2%;;
+padding: 3%;;
+padding-bottom: 0%;
 border: 1px solid black;
 box-shadow: 4px 4px 5px rgb(0, 0, 0);
 }

@@ -136,7 +136,7 @@ const ShiprliftAbout = () => {
 
         {/* TIMELINE */}
         <div className="Time">
-          <Box sx={{ width: '50%' }}>
+          <Box sx={{ width:{xs: "100%", md: "50%"} }}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
               <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2016 <br /> Shiprlift was established.</Item></Grid>
               <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2018 <br /> Expanded operations across international routes.</Item></Grid>
@@ -145,7 +145,7 @@ const ShiprliftAbout = () => {
             </Grid>
           </Box>
 
-          <Box sx={{ flexGrow: 1, width: 580 }}>
+          <Box sx={{ flexGrow: 1, width: {xs: "100%", md: 580},display: "flex", flexDirection: {xs: "column", md:"row"} }}>
             <Grid container spacing={2}>
               <Grid size={4}>
                 <Stack spacing={2}>
