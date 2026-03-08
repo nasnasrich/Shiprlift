@@ -467,7 +467,7 @@ text-decoration: solid;
 @media (max-width:768px){
 .aboutHeroNew {
     height: 60vh;
-    background-position: center;
+    background-position: bottom;
   }
 
   .aboutHeroNew {
@@ -476,6 +476,7 @@ text-decoration: solid;
 
   .aboutHeroNewContent h1 {
     font-size:55px;
+    font-family: initial;
     text-decoration: solid;
     padding: 0%;
     margin: 0%;
