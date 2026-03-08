@@ -100,7 +100,7 @@ const ShiprliftAbout = () => {
           <div className="value-card"><h3>Reliability</h3><p>We deliver what we promise — on time, every time.</p></div>
           <div className="value-card"><h3>Innovation</h3><p>We leverage modern technology to optimize logistics.</p></div>
           <div className="value-card"><h3>Safety</h3><p>Every shipment is handled with strict safety protocols.</p></div>
-          <div className="value-card"><h3>Customer Focus</h3><p>Your success is our priority.</p></div>
+          <div className="value-card"><h3>Customer Focus</h3><p>Your success remains our highest priority.</p></div>
         </div>
       </section>
 

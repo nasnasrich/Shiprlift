@@ -12,7 +12,7 @@
   margin-top: 3px;
   box-shadow: 2px 2px 2px rgb(0, 0, 0);
   filter: brightness(0.80);
-
+  background: fixed;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -40,10 +40,11 @@
 
 .aboutHeroNewContent h1 {
   font-size: 80px;
+  padding-top: vh;
   text-decoration: solid;
   font-weight: 700;
   text-shadow: 2px 3px 2px rgb(0, 0, 0);
-  font-family:initial;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -145,9 +146,9 @@
     text-align:center;
     margin-top: 0vh;
     margin-bottom: 1%;
-    height: 45vh;
+    height:45vh;
     background-color: #3e7287;
-     background-color: #383737;
+    background-color: #383737;
 
     box-shadow: 4px 4px 5px rgb(0, 0, 0);
     color: white;
@@ -198,15 +199,21 @@ color: black;
 
 .value-card{
     padding:30px;
-    border-radius:12px;
+    border-radius:2px;
     box-shadow:0 6px 20px rgba(0,0,0,.08);
+    /* margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%; */
     transition:.3s;
 }
 
 
 
 .value-card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-1px);
+    border: 1px solid white;
+
 }
 
 /* SERVICES */
@@ -459,7 +466,7 @@ text-decoration: solid;
 
 @media (max-width:768px){
 .aboutHeroNew {
-    height: 70vh;
+    height: 60vh;
   }
 
   .aboutHeroNew {
@@ -467,7 +474,7 @@ text-decoration: solid;
   }
 
   .aboutHeroNewContent h1 {
-    font-size: 60px;
+    font-size: 50px;
     padding: 0%;
     margin: 0%;
   }
@@ -509,7 +516,7 @@ text-decoration: solid;
     text-align:center;
     margin-top: 0vh;
     margin-bottom: 1%;
-    height: 101vh;
+    height: 99vh;
 
     background-color: #3e7287;
      background-color: #383737;
