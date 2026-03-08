@@ -57,7 +57,7 @@ const ShiprliftAbout = () => {
       >
         <div className="aboutHeroNewOverlay">
           <div className="aboutHeroNewContent">
-            <h1>Reliable Cargo With Precision</h1>
+            <h1>Reliable Cargo Movement Worldwide</h1>
             <p>
               Shiprlift provides trusted, efficient, and global logistics solutions. From vessel handling to freight management, we keep your cargo moving.
             </p>
