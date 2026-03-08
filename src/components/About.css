@@ -537,12 +537,12 @@ text-decoration: solid;
     padding-top: 0%;
     margin-bottom: 0%;
     height: 108vh;
-    box-shadow: 2px 2px 2px rgb(0, 0, 0);
-    /* background-color: #3e7287;
-     background-color: #383737; */
-    background-color: transparent;
+
+    background-color: #3e7287;
+     background-color: #383737;
+    box-shadow: 4px 4px 2px rgb(0, 0, 0);
     box-shadow: none;
-    color: black;
+    color: white;
     padding-left: 2%;
     padding-right: 2%;
 }
