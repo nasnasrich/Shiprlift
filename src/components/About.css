@@ -466,12 +466,12 @@ text-decoration: solid;
 
 @media (max-width:768px){
 .aboutHeroNew {
-    height: 60vh;
-    /* background-size: contain; */
-    /* background-position: center; */
-    background-repeat: repeat;
-    filter: brightness(none);
-    background: none;
+    min-height: 90vh;
+    background-size:cover;
+    background-position:top center;
+    background-repeat: no-repeat;
+    /* filter: brightness(none); */
+    background-attachment: scroll;
   }
 
  
