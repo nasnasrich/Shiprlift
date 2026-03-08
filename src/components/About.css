@@ -468,9 +468,9 @@ text-decoration: solid;
 .aboutHeroNew {
     height: 60vh;
     background-position: bottom;
-    background-size: contain;
-    /* background-position: c; */
-    filter: brightness(0.100);
+    background-size: cover;
+    background-position: cover;
+    filter: brightness(0.150);
     background: none;
   }
 
