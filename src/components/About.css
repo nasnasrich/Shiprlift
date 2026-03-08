@@ -468,18 +468,20 @@ text-decoration: solid;
 .aboutHeroNew {
     height: 60vh;
     background-position: bottom;
-    background-size: cover;
+    background-size: contain;
+    /* background-position: c; */
+    filter: brightness(0.100);
+    background: none;
   }
 
-  .aboutHeroNew {
-  filter: brigh(0.90);
-  }
+ 
 
   .aboutHeroNewContent h1 {
     font-size:55px;
     font-family: initial;
     text-decoration: solid;
     padding: 0%;
+    padding-top: 4vh;
     margin: 0%;
   }
 
