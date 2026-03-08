@@ -470,7 +470,7 @@ text-decoration: solid;
     background-position: bottom;
     background-size: cover;
     background-position: cover;
-    filter: brightness(0.150);
+    filter: brightness(0.0);
     background: none;
   }
 
