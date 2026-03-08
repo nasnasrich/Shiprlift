@@ -467,8 +467,9 @@ text-decoration: solid;
 @media (max-width:768px){
 .aboutHeroNew {
     height: 60vh;
-    background-size: contain;
-    background-position: cover;
+    /* background-size: contain; */
+    /* background-position: center; */
+    background-repeat: repeat;
     filter: brightness(none);
     background: none;
   }
@@ -512,9 +513,7 @@ text-decoration: solid;
     text-align:center;
 }
 
-.stat h1{
-    /* font-size: 25px; */
-}
+
 
 .stat p{
     padding-right: 3%;
