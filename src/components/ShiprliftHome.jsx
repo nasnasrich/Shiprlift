@@ -71,36 +71,6 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 
 
-/* SERVICES */
-/* ================= DAD SECTION CARDS ================= */
-// const dadCards = [
-//   {
-//     id: 1,
-//     title: "Air Cargo Solutions",
-//     description: "Fast air cargo handling with secure airport operations.",
-//     image: hero1,
-//   },
-//   {
-//     id: 2,
-//     title: "Sea Cargo Handling",
-//     description: "Reliable ocean freight with global port coverage.",
-//     image: hero2,
-//   },
-//   {
-//     id: 3,
-//     title: "Secure Warehousing",
-//     description: "Safe storage with real-time monitoring systems.",
-//     image: hero3,
-//   },
-//   {
-//     id: 4,
-//     title: "Custom Packaging",
-//     description: "Professional packing services to protect your goods.",
-//     image: ejetpic,
-//   },
-// ];
-
-
 /* ================= WHY CHOOSE US CARDS ================= */
 const whyChooseCards = [
   {
