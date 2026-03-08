@@ -537,12 +537,12 @@ text-decoration: solid;
     padding-top: 0%;
     margin-bottom: 0%;
     height: 108vh;
-
-    background-color: #3e7287;
-     background-color: #383737;
-
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    /* background-color: #3e7287;
+     background-color: #383737; */
+    background-color: transparent;
     box-shadow: none;
-    color: white;
+    color: black;
     padding-left: 2%;
     padding-right: 2%;
 }
@@ -815,10 +815,11 @@ border-radius: 50%;
 
 /* CTA */
 .about-cta{
- background-color: #3e7287;
+ /* background-color: #3e7287; */
+ background-color: transparent;
  border: 2px solid black;
  box-shadow: 4px 4px 5px rgb(0, 0, 0);
- color:white;
+ color:black;
  text-align:center;
  padding:80px 20px;
  margin-top:3px;
