@@ -5,7 +5,7 @@ import ShiprliftFilter from "./ShiprliftFilter";
 
 
 import mrshir from "../assets/mrshir.jpg";
-import shirlogo from "../assets/shirlogo.png";
+// import shirlogo from "../assets/shirlogo.png";
 
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -14,7 +14,7 @@ import slide1 from "../assets/newig.jpg";
 import slide2 from "../assets/mapbep.png"; 
 import slide3 from "../assets/tergem.png";
 
-import grilcalls from "../assets/grilcalls.jpg";
+// import grilcalls from "../assets/grilcalls.jpg";
 
 
 // import { Slide } from "react-slideshow-image";
@@ -24,7 +24,7 @@ import "react-slideshow-image/dist/styles.css";
 // import slide1 from "../assets/newig.jpg";
 // import slide2 from "../assets/mapbep.png";
 // import slide3 from "../assets/tergem.png";
-import support from "../assets/grilcalls.jpg";
+// import support from "../assets/grilcalls.jpg";
 
 
 const images = [
@@ -56,7 +56,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
   e.preventDefault();
-  alert("Message Sent Successfully 🚀");
+  alert("Message Sent Successfully ");
   setForm({
     name: "",
     email: "",
@@ -109,7 +109,6 @@ const Contact = () => {
 
         <div className="Contaimg">
           <img src={mrshir} alt="cargo" />
-          {/* <h4>Experience To Be Trusted​</h4> */}
         </div>
       </div>
     </div>

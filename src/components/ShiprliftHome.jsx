@@ -25,7 +25,7 @@ import { motion } from "framer-motion";
 import mail from "../assets/mail.png";
 import whatsappoffer from "../assets/whatsappoffer.jpg";
 import ejetpic from "../assets/ejetpic.jpg";
-import hand from "../assets/hand.png";   
+// import hand from "../assets/hand.png";   
 import felomen from "../assets/felomen.jpg";
 import shipepo from "../assets/shipepo.jpg";
 import rseteam from "../assets/rseteam.png";
@@ -73,32 +73,32 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 /* SERVICES */
 /* ================= DAD SECTION CARDS ================= */
-const dadCards = [
-  {
-    id: 1,
-    title: "Air Cargo Solutions",
-    description: "Fast air cargo handling with secure airport operations.",
-    image: hero1,
-  },
-  {
-    id: 2,
-    title: "Sea Cargo Handling",
-    description: "Reliable ocean freight with global port coverage.",
-    image: hero2,
-  },
-  {
-    id: 3,
-    title: "Secure Warehousing",
-    description: "Safe storage with real-time monitoring systems.",
-    image: hero3,
-  },
-  {
-    id: 4,
-    title: "Custom Packaging",
-    description: "Professional packing services to protect your goods.",
-    image: ejetpic,
-  },
-];
+// const dadCards = [
+//   {
+//     id: 1,
+//     title: "Air Cargo Solutions",
+//     description: "Fast air cargo handling with secure airport operations.",
+//     image: hero1,
+//   },
+//   {
+//     id: 2,
+//     title: "Sea Cargo Handling",
+//     description: "Reliable ocean freight with global port coverage.",
+//     image: hero2,
+//   },
+//   {
+//     id: 3,
+//     title: "Secure Warehousing",
+//     description: "Safe storage with real-time monitoring systems.",
+//     image: hero3,
+//   },
+//   {
+//     id: 4,
+//     title: "Custom Packaging",
+//     description: "Professional packing services to protect your goods.",
+//     image: ejetpic,
+//   },
+// ];
 
 
 /* ================= WHY CHOOSE US CARDS ================= */
@@ -267,18 +267,18 @@ useEffect(() => {
     "Hello Shiprlift, I would like to make an enquiry."
   );
 
-  const labels = {
-    0.5: "Useless",
-    1: "Useless+",
-    1.5: "Poor",
-    2: "Poor+",
-    2.5: "Ok",
-    3: "Ok+",
-    3.5: "Good",
-    4: "Good+",
-    4.5: "Excellent",
-    5: "Excellent+",
-  };
+  // const labels = {
+  //   0.5: "Useless",
+  //   1: "Useless+",
+  //   1.5: "Poor",
+  //   2: "Poor+",
+  //   2.5: "Ok",
+  //   3: "Ok+",
+  //   3.5: "Good",
+  //   4: "Good+",
+  //   4.5: "Excellent",
+  //   5: "Excellent+",
+  // };
 
   const value = 3.5;
     const testimonials = [

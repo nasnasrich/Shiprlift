@@ -1,6 +1,6 @@
 // import React, { useState } from "react";
 import "./ShiprliftFilter.css";
-import React, { useState, useContext } from "react";
+// import React, { useState, useContext } from "react";
 
 
 import ig from "../assets/ig.png"; 
