@@ -52,7 +52,7 @@ height: 50vh;
 
 
 .Contactnum{
-  
+
 }
 
 .Contactnum p{
@@ -86,7 +86,7 @@ height: 50vh;
 
   50%{
     transform: scale(1.1);
-    box-shadow: 0 0 0px 2px  rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px 1px  rgba(255, 255, 255, 0.3);
   }
 
   100%{

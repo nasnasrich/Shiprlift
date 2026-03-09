@@ -33,6 +33,9 @@ import trckin from "../assets/trckin.jpg";
 import sickin from "../assets/sickin.jpg";
 
 
+import mapbep from "../assets/mapbep.png";
+
+
 import {
   FaPlane,
   FaShip,
@@ -715,7 +718,16 @@ Track Shipment
      <div className="hand">
        <h5>Your Trusted Partner in Global Logistics</h5>
      </div>
+
+      <div className="fornowpic">
+        <Link to="/Track">
+          <img src={mapbep} alt="Track" />
+          <span className="tooltip">track</span>
+       </Link>
+      </div>
+
     </div>
+
 
       {/* CARDNUMBER with StatsCounter */}
       <div className="cardnumber">
