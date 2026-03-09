@@ -1106,17 +1106,20 @@ margin-right: 1%;
 @media (max-width:768px) {
 
 .hero {
-  height: 65vh;
+  height: 75vh;
 }
 
 .hero-content h1 {
-  font-size: 53px;
+  margin-top: 15vh;
+  margin-bottom: 0%;
+  font-size: 52px;
   text-shadow: 2px 3px 2px rgb(20, 20, 112);
 }
 
 .hero-content p {
+  margin-top: 0%;
   font-size: 18px;
-text-shadow: 2px 3px 2px rgb(20, 20, 112);
+ text-shadow: 2px 3px 2px rgb(20, 20, 112);
 
 }
 
