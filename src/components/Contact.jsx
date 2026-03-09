@@ -85,7 +85,7 @@ const Contact = () => {
         <h1>CONTACT OUR TEAM</h1>
 
         <div className="slide-container">
-       <Slide
+        <Slide
          duration={1000}
          transitionDuration={50}
          arrows={false}
@@ -137,7 +137,7 @@ const Contact = () => {
       <div className="statssson"> <h2>99%</h2> <p>Customer Satisfaction</p> </div>
      </div>
      
-   </div> */}
+   </div>  */}
   
    <div className="Contactform">
   <form onSubmit={handleSubmit} className="contact-form-wrapper">
