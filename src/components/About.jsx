@@ -85,7 +85,7 @@ const ShiprliftAbout = () => {
         </div>
         <div className="stat">
           <h1>20+</h1>
-          <p>Industry Awards</p>
+          <p>Corporate Industry Awards</p>
         </div>
         <div className="stat">
           <h1>99%</h1>
@@ -134,10 +134,11 @@ const ShiprliftAbout = () => {
 
         <div className="ourh2"><h2>THE ROAD WE'VE TRAVELED</h2></div>
 
-        {/* TIMELINE */}
+        {/* TIMELINE */}  
         <div className="Time">
-          <Box sx={{ width:{xs: "100%", md: "50%"} }}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Box sx={{ width:{xs: "100%", md: "50%"}}}>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}  border={1} padding={1} item xs md={4} sx={{transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)", }}}> 
+
               <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2016 <br /> Shiprlift was established.</Item></Grid>
               <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2018 <br /> Expanded operations across international routes.</Item></Grid>
               <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2021 <br /> Introduced advanced cargo tracking technology.</Item></Grid>
@@ -146,8 +147,8 @@ const ShiprliftAbout = () => {
           </Box>
 
           <Box sx={{ flexGrow: 1, width: {xs: "100%", md: 580},display: "flex", flexDirection: {xs: "column", md:"row"} }}>
-            <Grid container spacing={2}>
-              <Grid size={4}>
+            <Grid container spacing={2} border={1} padding={1} item xs md={4} sx={{transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)",}}}>
+              <Grid size={4} >
                 <Stack spacing={2}>
                   <Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>Built on Excellence</Item>
                   <Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>Your Maritime Partner</Item>

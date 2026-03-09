@@ -70,12 +70,16 @@ const Contact = () => {
   <div className="Contact">
     <div className="Contactheroo">
       <div className="Contacttex">
-        {/* <img src={shirlogo} alt="cargo"/> */}
         <div className="Contactnum">
         <h2>SHIPRLIFT</h2>
         <p>GET IN TOUCH</p>
         <h5>Visit our office or simply send us an email anytime you want. If you have any questions, please feel free to contact us.</h5>
         </div>
+
+        <div className="Contaimg">
+          <img src={mrshir} alt="cargo" />
+        </div>
+
       </div>
           
       {/* <p>CONTACT OUR TEAM</p> */}
@@ -107,9 +111,6 @@ const Contact = () => {
 
         </div>
 
-        <div className="Contaimg">
-          <img src={mrshir} alt="cargo" />
-        </div>
       </div>
     </div>
 

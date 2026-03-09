@@ -14,27 +14,18 @@ color: white;
 height: 50vh;
 }
 
-.Contactnum{
- padding: 0%;
-}
+
 
 .Contacttex{
-    display: flex;
     gap: 8px;
-    width: 80%;
+    /* width: 50%; */
     margin-top: 3vh;
-    margin-left: 25px;
+    display: flex;
     margin-bottom: 0%;
 }
 
-.Contacttex img{
-    width: 2%;
-    height: 4vh;
-    margin-top: 6px;
-    box-sizing: 380%;
-    box-sizing: 20%;
-    padding-left: 0%;
-}
+
+
 
 .Contacttex h2{
     margin-top: 0%;
@@ -60,37 +51,29 @@ height: 50vh;
 
 
 
+.Contactnum{
+  
+}
+
 .Contactnum p{
  padding: 0%;
  margin-top: 0%;
  font-size: 15px;
 }
 
-.Contactpick{
-margin-top: 0%;
-display: flex;
-}
 
-.ContactTeam{
-    width: 48%;
-}
-
-.ContactTeam h1{
-    justify-content: center;
-    text-align: center;
-    font-size: 15px;
-}
-
-.Contaimg{
-    text-align: end;
+.Contacttex .Contaimg{
+    /* text-align: end; */
     padding-right: 2%;
-    margin-top: 0%;
+    /* margin-top: 50%; */
+    /* background-color: tomato; */
+    /* width:50%; */
 }
 
-.Contaimg img{
-    width: 15%;
-    margin-bottom: 0vh;
+.Contacttex .Contaimg img{
     border-radius: 50%;
+    /* height: 20vh; */
+    width: 50px;
     border: 2px solid white; 
     animation: trackingBeepContact 1.5s infinite; 
 }
@@ -112,6 +95,27 @@ display: flex;
   }
 
 }
+
+
+
+
+
+.Contactpick{
+margin-top: 0%;
+display: flex;
+}
+
+.ContactTeam{
+    width: 48%;
+}
+
+.ContactTeam h1{
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+}
+
+
 
 .slide-container{
     width:10%;
@@ -321,7 +325,7 @@ display: flex;
     /* font-size: 25px; */
   }
 
- 
+/*  
 
   .Contaimg{
     margin-top: 14%;
@@ -331,7 +335,7 @@ display: flex;
   .Contaimg img{
     width: 28%;
     margin-top: 0%;
-  }
+  } */
 
 
 
