@@ -1820,6 +1820,11 @@ animation: trackingBeepblack 1.5s infinite;
   height: 46vh;
 }
 
+.bigcarsonimg img{
+  filter: brightness(0.30);
+
+}
+
 .colaboss h4{
  /* font-size: 23px; */
  font-family: initial;
