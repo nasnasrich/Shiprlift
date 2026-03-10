@@ -123,10 +123,10 @@ const Contact = () => {
 <div className="Contacded">
 
    <div className="contentmom">
-     <h1><span>Shiprlift</span></h1>
+     <h1><span>CONTACT Shiprlift</span></h1>
      <h2>Reliable support for shipping, tracking, and pricing. Our experts help move your cargo anywhere with efficiency and care.</h2>
      <div className="contact-buttons"> 
-      <a href="tel:+2348012345678"> <button className="primary">Call Support</button> </a> 
+      <a href="tel:+2348012345678"> <button>Call Support</button> </a> 
       <a href="https://wa.me/2348012345678"> <button className="secondary">WhatsApp Us</button> </a> 
       </div>
    </div> 

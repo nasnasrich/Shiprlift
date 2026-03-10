@@ -326,8 +326,8 @@ display: flex;
     margin-top: 1%;
   }
   .Contacttex .Contaimg img{
-    width:40%;
-    margin-top: 0%;
+    width:43%;
+    margin-top: 3%;
     margin-left:40%;
 
   }
@@ -339,7 +339,7 @@ display: flex;
   }
 
   .slide-container img{
-    width: 25%;
+    width: 28%;
   }
 
   .contentson{
@@ -358,14 +358,21 @@ display: flex;
 
   .contentmom{
     width: 100%;
-    height: 55vh;
+    height: 40vh;
     background-color: #383737;
     background-image: none;
     filter: brightness(0.99);
   }
 
   .contentmom h1{
-    padding-top:18vh;
+    padding-top:5vh;
+    font-size: 28px;
+    padding-left: 4%;
+  }
+
+  .contentmom h2{
+    font-size: 17px;
+    width: 75%;
   }
 
 
@@ -380,7 +387,11 @@ display: flex;
     width: 100%;
   }
 
+  .Contacded .contact-buttons{
+    gap: 39%;
+  }
   .Contactform button{
+    padding:  10%;
     margin-bottom: 2vh;
     border: black;
   }
