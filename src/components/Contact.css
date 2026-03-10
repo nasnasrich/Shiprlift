@@ -5,12 +5,12 @@
 }
 
 .Contactheroo{
-background-color: rgb(24, 67, 90);
+/* background-color: #2f4f4f; */
 box-shadow: 1px 3px 2px rgb(0, 0, 0);
 margin-top: 3px;
 margin-bottom: 0%;
 padding-top: 2%;
-color: white;
+color: black;
 height: 50vh;
 }
 
@@ -18,51 +18,50 @@ height: 50vh;
 
 .Contacttex{
     gap: 8px;
-    /* width: 50%; */
-    margin-top: 3vh;
+    margin-top: 5vh;
     display: flex;
     margin-bottom: 0%;
 }
 
-
-
-
 .Contacttex h2{
     margin-top: 0%;
-    font-size: 35px;
-    padding-left: 3%;
+    font-size: 30px;
+    padding-left: 10%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 0%;
-    text-shadow: 2px 3px 2px rgb(0, 0, 0);
+    text-shadow: 1px 1px 0px rgb(0, 0, 0);
 }
 
-.Contacttex p{
+.Contacttex h1{
  font-size: 15px;
  margin-left: 0%;
  margin-top: 0%;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
  margin-bottom: 0%;
- padding-left: 28px;
+ padding-left:39px;
  padding-bottom: 0%;
 }
 
-.Contacttex h5{
-    width: 75%;
+.Contacttex h3{
+    width: 80%;
     font-family: monospace;
     font-size: 13px;
-    padding-left: 28px;
-    margin-top: 1%;
+    padding-left:40px;    
+    margin-top: 0%;
 }
-
-
 
 
 
 .Contacttex .Contaimg{
     margin-top: 0%;
+    width: 70%;
+    text-align: end;
+    padding-right: 5%;
 }
 
 .Contacttex .Contaimg img{
     border-radius: 50%;
+    
     width: 120px;
     border: 2px solid white; 
     animation: trackingBeepContact 1.5s infinite; 
@@ -71,24 +70,31 @@ height: 50vh;
 
   0%{
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 0 black;
   }
 
   50%{
     transform: scale(1.1);
-    box-shadow: 0 0 5px 10px  rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1px 2px  black;
   }
 
   100%{
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(240, 127, 6, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0. 7);
   }
 
 }
 
 
 
+.contentson{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
 
+.contentson h2{
+  text-align: center;
+}
 
 .Contactpick{
 margin-top: 0%;
@@ -124,7 +130,7 @@ display: flex;
 /* another */
 .Contacded{
   display: flex; 
-  margin-top:3vh;
+  margin-top:5px;
   margin-bottom: 0%;
   gap:3px;
   /* background-image: url("../assets/grilcalls.jpg"); */
@@ -132,7 +138,7 @@ display: flex;
   background-size: cover;
   background-repeat: no-repeat;
   background-position:0vh;
-  box-shadow: 2px 2px 2px rgb(30, 30, 31);
+  /* box-shadow: 2px 2px 2px rgb(30, 30, 31); */
     /* filter: brightness(0.90); */
 
 }
@@ -143,7 +149,7 @@ display: flex;
   background-position:0lvh;
   width: 50%;
   /* padding-top: 80vh; */
-  filter: brightness(0.65);
+  filter: brightness(0.95);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -155,10 +161,10 @@ display: flex;
 
 
 .contentmom h1{
-  padding-top: 40vh;
+  padding-top: 35vh;
   padding-left: 3%;
   margin-bottom: 1%;
-  color: rgb(4, 156, 233);
+  /* color: rgb(4, 156, 233); */
     text-shadow: 2px 3px 2px rgb(0, 0, 0);
   font-size: 50px;
   padding-bottom: 0%;
@@ -189,7 +195,7 @@ display: flex;
   background-color: transparent;
   color: white;
   text-shadow: 2px 3px 2px rgb(0, 0, 0);
-  border: 1px solid rgb(70, 122, 255);
+  /* border: 1px solid rgb(70, 122, 255); */
   box-shadow: 2px 2px 2px rgb(30, 30, 31);
   border-radius:5%;
 }
@@ -204,7 +210,7 @@ display: flex;
   justify-content: center;
   padding-bottom: 2vh;
   box-shadow: 2px 2px 2px rgb(30, 30, 31);
-  border: 3px solid rgb(4, 46, 125);
+  /* border: 1px solid rgb(0, 0, 0); */
   /* background: #025788; */
   width: 80%;
 }
@@ -257,7 +263,7 @@ display: flex;
 
 .map {
   width: 100%;
-  margin-top: 3vh;
+  margin-top: 1vh;
 }
 
 .map iframe {
@@ -277,8 +283,9 @@ display: flex;
 } */
 
 .Contactheroo{
-  height: 55vh;
+  height:45vh;
 }
+
 .Contacttex {
    margin-top: 5vh;
   }
@@ -286,17 +293,18 @@ display: flex;
 
 
   .Contactnum h2{
+    padding-left: 8%;
      text-shadow: 2px 3px 2px rgb(0, 0, 0);
   }
 
   .Contactnum p{
-   padding-left: 2%;
+   padding-left: 9%;
   }
 
   .Contactnum h5{
-   padding-left: 2%;
-   width: 50%;
-   font-size: 10px;
+   padding-left: 10%;
+   width: 90%;
+   font-size: 11px;
   }
 
 
@@ -311,21 +319,17 @@ display: flex;
 
   }
 
-   .ContactTeam h1{
-    /* font-size: 25px; */
-  }
 
-/*  
 
-  .Contaimg{
-    margin-top: 14%;
-    padding-top: 0%;
-    margin-right: 3%;
+  .Contacttex .Contaimg{
+    margin-top: 10%;
   }
-  .Contaimg img{
-    width: 28%;
+  .Contacttex .Contaimg img{
+    width:40%;
     margin-top: 0%;
-  } */
+    margin-left:40%;
+
+  }
 
 
 
@@ -336,13 +340,12 @@ display: flex;
 
   .contentmom{
     width: 100%;
-    filter: brightness(0.70);
-
+    filter: brightness(0.90);
   }
 
   .contentmom h1{
+   padding-top: 10vh;
     font-size: 48px;
-    color: rgb(4, 156, 233);
     text-shadow: 2px 3px 2px rgb(0, 0, 0);
 
   }

@@ -14,7 +14,7 @@ import slide1 from "../assets/newig.jpg";
 import slide2 from "../assets/mapbep.png"; 
 import slide3 from "../assets/tergem.png";
 
-// import grilcalls from "../assets/grilcalls.jpg";
+import grilcalls from "../assets/grilcalls.jpg";
 
 
 // import { Slide } from "react-slideshow-image";
@@ -72,8 +72,8 @@ const Contact = () => {
       <div className="Contacttex">
         <div className="Contactnum">
         <h2>SHIPRLIFT</h2>
-        <p>GET IN TOUCH</p>
-        <h5>Visit our office or simply send us an email anytime you want. If you have any questions, please feel free to contact us.</h5>
+        <h1>GET IN TOUCH</h1>
+        <h3>Have questions? Visit us or send an email anytime.</h3>
         </div>
 
         <div className="Contaimg">
@@ -86,7 +86,7 @@ const Contact = () => {
        
       <div className="Contactpick">
         <div className="ContactTeam">
-        <h1>CONTACT OUR TEAM</h1>
+        {/* <h1>CONTACT OUR TEAM</h1> */}
 
         <div className="slide-container">
         <Slide
@@ -114,9 +114,10 @@ const Contact = () => {
       </div>
     </div>
 
-       {/* <div className="contentbode">
-        <img src={grilcalls} alt="cargo" />
-       </div> */}
+
+    <div className="contentson">
+      <h2>CONTACT OUR TEAM</h2> 
+    </div> 
 
 
 <div className="Contacded">
@@ -128,17 +129,7 @@ const Contact = () => {
       <a href="tel:+2348012345678"> <button className="primary">Call Support</button> </a> 
       <a href="https://wa.me/2348012345678"> <button className="secondary">WhatsApp Us</button> </a> 
       </div>
-   </div>
-
-   {/* <div className="contentson">
-
-     <div className="mas">
-      <div className="statssson"> <h2>50K+</h2> <p>Successful Deliveries</p> </div>
-      <div className="statssson"> <h2>120+</h2> <p>Cities Covered</p> </div>
-      <div className="statssson"> <h2>99%</h2> <p>Customer Satisfaction</p> </div>
-     </div>
-     
-   </div>  */}
+   </div> 
   
    <div className="Contactform">
   <form onSubmit={handleSubmit} className="contact-form-wrapper">
