@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
       sx={{
         marginTop:0,
         height:60,
-        backgroundColor: "#2f4f4f", marginTop: 0, paddingTop: 0,
+        backgroundColor: "#2f4f4f",  paddingTop: 0,
         boxShadow: "2px 3px 1px rgba(30, 30, 31), inset 0 0 5px rgba(25, 25, 26, 0.22)",
       }}
     >
