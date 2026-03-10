@@ -212,9 +212,11 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 }
 
 .Contacdedfrom{
-  width: 500px;
-  height: 350px;
-  flex-shrink:0px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: auto;
+  
 }
 
 .Contacdedfrom:hover{
@@ -318,7 +320,8 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   }
 
   .contentmom{
-    width:75%;
+    /* width:75%; */
+    width: auto;
     height: 35vh;
     color: white;
     background-color: #383737;
@@ -334,7 +337,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 
   .contentmom h2{
     font-size: 16px;
-    width: 80%;
+    width: 75%;
   }
 
   .Contacded .contact-buttons{
@@ -348,7 +351,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 
   /* BUTTONS */
 .contentmom .contact-buttons {
-  gap:15px;
+  gap:8px;
   color: white;
   display: flex;
   margin-top:20px;
@@ -366,7 +369,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   /* text-shadow: 2px 3px 2px rgb(0, 0, 0); */
   border: 1px solid white;
   box-shadow: 2px 2px 2px rgb(30, 30, 31);
-  border-radius:5%;
+  border-radius:none;
 }
 
 
@@ -383,9 +386,10 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 
   
 .Contacdedfrom{
-  width: 500px;
-  height: 350px;
-  flex-shrink:0px;
+  width: 95%;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
 }
 
 .Contacdedfrom:hover{

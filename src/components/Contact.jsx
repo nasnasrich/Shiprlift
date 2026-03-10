@@ -115,7 +115,7 @@ const ContactForm = () => {
                 </Typography>
 
                 <form
-                  style={{ display: "flex", flexDirection: "column", gap: "10px", height: "100%", overflowY: "auto" }}
+                   style={{ display: "flex", flexDirection: "column", gap: "10px" }}
                   onSubmit={handleSubmit}
                 >
                   <TextField
@@ -125,6 +125,7 @@ const ContactForm = () => {
                     value={formData.freightType}
                     onChange={handleChange}
                     required
+                    fullWidth
                   >
                     <MenuItem value="air">Air Freight</MenuItem>
                     <MenuItem value="sea">Sea Freight</MenuItem>
