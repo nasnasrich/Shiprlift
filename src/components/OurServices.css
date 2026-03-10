@@ -488,23 +488,166 @@ textarea {
 
 
 
+/* ================= MOBILE RESPONSIVE ================= */
 
+@media (max-width:768px){
 
-
-
-
-@media (max-width: 1200px) {
-  .courier-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* HERO */
+.OurServiceshero{
+  height:auto;
+  padding:80px 20px;
 }
 
-@media (max-width: 768px) {
-  .courier-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .courier-section {
-    padding: 40px 20px;
-  }
+.OurServiceshero h1{
+  font-size:34px;
+  padding-top:0;
 }
+
+.OurServiceshero p{
+  width:100%;
+  font-size:14px;
+}
+
+.OurServiceshero h4{
+  font-size:28px;
+}
+
+
+/* SERVICES SECTION */
+.ServiceTeb{
+  height:auto;
+}
+
+.ServiceTeb h2{
+  padding-top:40px;
+}
+
+.ServiceTeb h1{
+  font-size:28px;
+  width:100%;
+}
+
+.we{
+  margin-left:0;
+}
+
+
+/* EXPRESS SECTION */
+.ServicesExpress{
+  flex-direction:column;
+  height:auto;
+  gap:30px;
+}
+
+.Expressone{
+  width:90%;
+  margin:auto;
+  height:auto;
+  padding-bottom:30px;
+}
+
+.Expressone h2{
+  padding-top:30px;
+}
+
+.Expresstwo{
+  width:100%;
+}
+
+.Expresstwo img{
+  width:90%;
+  height:auto;
+  margin:0 auto;
+}
+
+
+/* SHIPPING TABLE */
+.shipping-table{
+  font-size:14px;
+}
+
+
+/* COURIER GRID */
+.courier-section{
+  padding:40px 20px;
+}
+
+.courier-grid{
+  grid-template-columns:1fr;
+}
+
+.courier-card{
+  padding:25px;
+}
+
+.courier-card h2{
+  font-size:22px;
+}
+
+.courier-card li{
+  font-size:15px;
+}
+
+
+/* COURIER CHOICE */
+.courier-choice h1{
+  font-size:26px;
+}
+
+.courier-choice button{
+  margin-top:15px;
+}
+
+
+/* PARALLAX IMAGE */
+.imgesout{
+  height:40vh;
+  background-attachment:scroll;
+}
+
+
+/* PROCESS SECTION */
+.process-section{
+  padding:60px 20px;
+}
+
+.process-grid{
+  grid-template-columns:1fr;
+}
+
+.process-card{
+  padding:25px;
+}
+
+
+/* QUOTE SECTION */
+.quote-container{
+  flex-direction:column;
+  gap:40px;
+}
+
+.quote-left h2{
+  font-size:30px;
+}
+
+.quote-left p{
+  font-size:16px;
+}
+
+.row{
+  flex-direction:column;
+}
+
+.quote-form-card{
+  padding:25px;
+}
+
+}
+
+
+
+
+
+
+
+

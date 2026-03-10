@@ -158,7 +158,7 @@ const OurServices = () => {
 
         <div className="ServiceCade">
   {cardsData.map((card) => (
-    <Card key={card.id} sx={{ width: 300 }}>
+    <Card key={card.id} sx={{ width: "100%" }}>
       <CardActionArea>
         <CardContent sx={{ textAlign: "center" }}>
           <div style={{ marginBottom: "10px" }}>
