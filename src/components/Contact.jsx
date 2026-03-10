@@ -14,7 +14,7 @@ import slide1 from "../assets/newig.jpg";
 import slide2 from "../assets/mapbep.png"; 
 import slide3 from "../assets/tergem.png";
 
-import grilcalls from "../assets/grilcalls.jpg";
+// import grilcalls from "../assets/grilcalls.jpg";
 
 
 // import { Slide } from "react-slideshow-image";
@@ -91,7 +91,7 @@ const Contact = () => {
         <div className="slide-container">
         <Slide
          duration={1000}
-         transitionDuration={50}
+         transitionDuration={0}
          arrows={false}
          autoplay={true}
          pauseOnHover={false}

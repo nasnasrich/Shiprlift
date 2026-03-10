@@ -10,8 +10,9 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 margin-top: 3px;
 margin-bottom: 0%;
 padding-top: 2%;
-color: black;
-height: 50vh;
+background-color: black;
+color: white;
+height: 35vh;
 }
 
 
@@ -29,7 +30,7 @@ height: 50vh;
     padding-left: 10%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 0%;
-    text-shadow: 1px 1px 0px rgb(0, 0, 0);
+    text-shadow: 1px 1px 0px rgb(19, 120, 235);
 }
 
 .Contacttex h1{
@@ -40,6 +41,7 @@ height: 50vh;
  margin-bottom: 0%;
  padding-left:39px;
  padding-bottom: 0%;
+text-shadow: 1px 1px 0px rgb(19, 120, 235);
 }
 
 .Contacttex h3{
@@ -61,7 +63,7 @@ height: 50vh;
 
 .Contacttex .Contaimg img{
     border-radius: 50%;
-    
+    border: white;
     width: 120px;
     border: 2px solid white; 
     animation: trackingBeepContact 1.5s infinite; 
@@ -86,16 +88,6 @@ height: 50vh;
 }
 
 
-
-.contentson{
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-}
-
-.contentson h2{
-  text-align: center;
-}
-
 .Contactpick{
 margin-top: 0%;
 display: flex;
@@ -114,27 +106,37 @@ display: flex;
 
 
 .slide-container{
-    width:10%;
+    width:20%;
     text-align: center;
     margin-left: 5%;
     margin-top: 0%;
 }
 
 .each-slide img{
-    width:120%;
+    width:20%;
     border-radius: 50%;
-    object-fit:cover;
+    /* object-fit:cover; */
+    background: white;
 }
 
+
+.contentson{
+  margin-top: 9vh;
+  margin-bottom: 0vh;
+}
+
+.contentson h2{
+  text-align: center;
+  margin-bottom: 0%;
+}
 
 /* another */
 .Contacded{
   display: flex; 
-  margin-top:5px;
+  margin-top:0px;
   margin-bottom: 0%;
   gap:3px;
-  /* background-image: url("../assets/grilcalls.jpg"); */
-  /* background-position: unset; */
+  padding:5%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position:0vh;
@@ -283,7 +285,7 @@ display: flex;
 } */
 
 .Contactheroo{
-  height:45vh;
+  height:25vh;
 }
 
 .Contacttex {
@@ -294,16 +296,18 @@ display: flex;
 
   .Contactnum h2{
     padding-left: 8%;
-     text-shadow: 2px 3px 2px rgb(0, 0, 0);
+    text-shadow: 1px 0px 0px rgb(19, 120, 235);
   }
 
-  .Contactnum p{
-   padding-left: 9%;
-  }
-
-  .Contactnum h5{
+  .Contactnum h1{
    padding-left: 10%;
-   width: 90%;
+  text-shadow: 1px 0px 0px rgb(19, 120, 235);
+
+  }
+
+  .Contactnum h3{
+   padding-left: 10%;
+   width: 85%;
    font-size: 11px;
   }
 
@@ -319,10 +323,8 @@ display: flex;
 
   }
 
-
-
   .Contacttex .Contaimg{
-    margin-top: 10%;
+    margin-top: 1%;
   }
   .Contacttex .Contaimg img{
     width:40%;
@@ -331,22 +333,40 @@ display: flex;
 
   }
 
+  .slide-container{
+    margin-top: 2vh;
+    margin-left: 0%;
+    padding-left: 0%;
+  }
+
+  .slide-container img{
+    width: 25%;
+  }
+
+  .contentson{
+    margin-top: 4vh;
+  }
+  .contentson h2{
+    margin-top: 1vh;
+    text-shadow: 1px 0px 0px rgb(19, 120, 235);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+}
 
 
   .Contacded{
     display: grid;
-    margin-top: 1vh;
+    margin-top: 3vh;
+    padding: 0%;
   }
 
   .contentmom{
     width: 100%;
+    height: 35vh;
     filter: brightness(0.90);
   }
 
   .contentmom h1{
-   padding-top: 10vh;
-    font-size: 48px;
-    text-shadow: 2px 3px 2px rgb(0, 0, 0);
-
+    margin-top: 0%;
+    padding-top: 0%;
   }
-}

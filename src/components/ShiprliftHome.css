@@ -69,7 +69,8 @@
 
 .hero-buttons {
   display: flex;
-  justify-content: start668;
+  /* justify-content: start668; */
+  justify-content: center;
   gap: 20px;
   margin-bottom: 30px;
 }
