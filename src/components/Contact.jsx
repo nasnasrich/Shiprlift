@@ -124,7 +124,7 @@ const Contact = () => {
 
    <div className="contentmom">
      <h1><span>Shiprlift</span></h1>
-     <h2>Have questions about shipping, tracking, or pricing? Our logistics experts are ready to help you move anything, anywhere - faster and safer.</h2>
+     <h2>Reliable support for shipping, tracking, and pricing. Our experts help move your cargo anywhere with efficiency and care.</h2>
      <div className="contact-buttons"> 
       <a href="tel:+2348012345678"> <button className="primary">Call Support</button> </a> 
       <a href="https://wa.me/2348012345678"> <button className="secondary">WhatsApp Us</button> </a> 
