@@ -558,7 +558,7 @@ Track Shipment
 
 
       {/* FORM & IMAGE SIDE BY SIDE */}
-      <div className="frommmmto">
+       <div className="frommmmto">
         <div className="frompic">
           <img
             src={shipepo}
@@ -567,7 +567,7 @@ Track Shipment
             // height={350}
             style={{ objectFit: "cover", }}
           />
-        </div>
+        </div> 
 
         <div className="bbb" >
           <motion.div
@@ -595,7 +595,7 @@ Track Shipment
                 }}
               >
                 <Typography variant="h5" align="center" gutterBottom>
-                  Freight Booking Form
+                  Shipment Request Form
                 </Typography>
 
                 <form
@@ -610,8 +610,8 @@ Track Shipment
                 >
                   <TextField
                     select
-                    label="Freight Type"
-                    name="freightType"
+                    label="Shipment Type"
+                    name="ShipmentType"
                     value={formData.freightType}
                     onChange={handleChange}
                     required

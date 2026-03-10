@@ -1551,15 +1551,14 @@ animation: trackingBeepblack 1.5s infinite;
    transform: translateY(-20px);
 }
 
-
-.bb:hover{
-  transform: translateY(5px);
-}
-
 .bbb{
   width: 500px;
   height: 350px;
   flex-shrink:0px;
+}
+
+.bb:hover{
+  transform: translateY(5px);
 }
 
 

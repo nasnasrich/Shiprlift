@@ -1,12 +1,7 @@
-// import React from "react";
-import "./Contact.css";
 import React, { useState } from "react";
+import "./Contact.css";
 import ShiprliftFilter from "./ShiprliftFilter";
-
-
 import mrshir from "../assets/mrshir.jpg";
-// import shirlogo from "../assets/shirlogo.png";
-
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
@@ -14,201 +9,194 @@ import slide1 from "../assets/newig.jpg";
 import slide2 from "../assets/mapbep.png"; 
 import slide3 from "../assets/tergem.png";
 
-// import grilcalls from "../assets/grilcalls.jpg";
+import { Card, CardContent, TextField, MenuItem, Button, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
+const images = [slide1, slide2, slide3];
 
-// import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    freightType: "",
+    email: "",
+    departureCountry: "",
+    weight: "",
+    deliveryDate: "",
+  });
 
-// import shirlogo from "../assets/shirlogo.png";
-// import slide1 from "../assets/newig.jpg";
-// import slide2 from "../assets/mapbep.png";
-// import slide3 from "../assets/tergem.png";
-// import support from "../assets/grilcalls.jpg";
-
-
-const images = [
-  slide1,
-  slide2,
-  slide3,
-];
-
-
-
-
-// const images = [slide1, slide2, slide3];
-
-
-
-
-const Contact = () => { 
-  const [form, setForm] = useState({
-  name: "",
-  email: "",
-  phone: "",
-  subject: "",
-  message: "",
-});
-
-
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
-  alert("Message Sent Successfully ");
-  setForm({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-};
+    e.preventDefault();
+    alert("Freight Request Sent Successfully!");
+    setFormData({
+      freightType: "",
+      email: "",
+      departureCountry: "",
+      weight: "",
+      deliveryDate: "",
+    });
+  };
 
   return (
-  <div className="Contact">
-    <div className="Contactheroo">
-      <div className="Contacttex">
-        <div className="Contactnum">
-        <h2>SHIPRLIFT</h2>
-        <h1>GET IN TOUCH</h1>
-        <h3>Have questions? Visit us or send an email anytime.</h3>
+    <div className="Contact">
+      <div className="Contactheroo">
+        <div className="Contacttex">
+          <div className="Contactnum">
+            <h2>SHIPRLIFT</h2>
+            <h1>GET IN TOUCH</h1>
+            <h3>Have questions? Visit us or send an email anytime.</h3>
+          </div>
+          <div className="Contaimg">
+            <img src={mrshir} alt="cargo" />
+          </div>
         </div>
 
-        <div className="Contaimg">
-          <img src={mrshir} alt="cargo" />
+        <div className="Contactpick">
+          <div className="ContactTeam">
+            <div className="slide-container">
+              <Slide
+                duration={1000}
+                transitionDuration={0}
+                arrows={false}
+                autoplay={true}
+                pauseOnHover={false}
+                canSwipe={false}
+                infinite={true}
+                easing="linear"
+              >
+                {images.map((img, index) => (
+                  <div key={index} className="each-slide">
+                    <img src={img} alt={`slide-${index}`} />
+                  </div>
+                ))}
+              </Slide>
+            </div>
+          </div>
         </div>
-
       </div>
-          
-      {/* <p>CONTACT OUR TEAM</p> */}
-       
-      <div className="Contactpick">
-        <div className="ContactTeam">
-        {/* <h1>CONTACT OUR TEAM</h1> */}
 
-        <div className="slide-container">
-        <Slide
-         duration={1000}
-         transitionDuration={0}
-         arrows={false}
-         autoplay={true}
-         pauseOnHover={false}
-         canSwipe={false}      // prevents swipe pause on mobile
-         infinite={true}       // ensures endless looping
-         easing="linear"       // removes the slight "slow-down" feel
-        >
-
-
-       {images.map((img, index) => (
-        <div key={index} className="each-slide">
-        <img src={img} alt={`slide-${index}`} />
-        </div>
-         ))}
-       </Slide>
-        </div>
-
-        </div>
-
-      </div>
-    </div>
-
-
-    <div className="contentson">
-      <h2>CONTACT OUR TEAM</h2> 
-    </div> 
-
-
-<div className="Contacded">
-
-   <div className="contentmom">
-     <h1><span>CONTACT Shiprlift</span></h1>
-     <h2>Reliable support for shipping, tracking, and pricing. Our experts help move your cargo anywhere with efficiency and care.</h2>
-     <div className="contact-buttons"> 
-      <a href="tel:+2348012345678"> <button>Call Support</button> </a> 
-      <a href="https://wa.me/2348012345678"> <button className="secondary">WhatsApp Us</button> </a> 
-      </div>
-   </div> 
-  
-   <div className="Contactform">
-  <form onSubmit={handleSubmit} className="contact-form-wrapper">
     
-    <input
-      type="text"
-      name="name"
-      placeholder="Your Name"
-      value={form.name}
-      onChange={handleChange}
-      required
-    />
 
-    <input
-      type="email"
-      name="email"
-      placeholder="Email Address"
-      value={form.email}
-      onChange={handleChange}
-      required
-    />
+      <div className="Contacded">
+        <div className="contentmom">
+          <h1><span>CONTACT Shiprlift</span></h1>
+          <h2>Reliable support for shipping, tracking, and pricing. Our experts help move your cargo anywhere with efficiency and care.</h2>
+          <div className="contact-buttons">
+            <a href="tel:+2348012345678"><button>Call Support</button></a>
+            <a href="https://wa.me/2348012345678"><button className="secondary">WhatsApp Us</button></a>
+          </div>
+        </div>
 
-    <input
-      type="tel"
-      name="phone"
-      placeholder="Phone Number"
-      value={form.phone}
-      onChange={handleChange}
-      required
-    />
+        {/* === REPLACED CONTACT FORM WITH HOME PAGE BBB FORM === */}
 
-    <input
-      type="text"
-      name="subject"
-      placeholder="Your Subject"
-      value={form.subject}
-      onChange={handleChange}
-      required
-    />
+        <div className="Contacdedfrom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <Card sx={{ borderRadius: 2, boxShadow: "none",  width: "100%", height: "100%",  }}>
+              <CardContent
+                sx={{
+                  p: 4,
+                  height: "100%",
+                  boxSizing: "border-box",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography variant="h5" align="center" gutterBottom>
+                  Freight Booking Form
+                </Typography>
 
-    <textarea
-      name="message"
-      placeholder="Send Message"
-      rows="5"
-      value={form.message}
-      onChange={handleChange}
-      required
-    />
+                <form
+                  style={{ display: "flex", flexDirection: "column", gap: "10px", height: "100%", overflowY: "auto" }}
+                  onSubmit={handleSubmit}
+                >
+                  <TextField
+                    select
+                    label="Freight Type"
+                    name="freightType"
+                    value={formData.freightType}
+                    onChange={handleChange}
+                    required
+                  >
+                    <MenuItem value="air">Air Freight</MenuItem>
+                    <MenuItem value="sea">Sea Freight</MenuItem>
+                    <MenuItem value="road">Road Freight</MenuItem>
+                  </TextField>
 
-    <button type="submit" className="send-btn">
-      Send Request
-    </button>
+                  <TextField
+                    label="Email Address"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    fullWidth
+                  />
+                  <TextField
+                    label="Departure Country"
+                    name="departureCountry"
+                    value={formData.departureCountry}
+                    onChange={handleChange}
+                    required
+                    fullWidth
+                  />
+                  <TextField
+                    label="Total Weight (KG)"
+                    type="number"
+                    name="weight"
+                    value={formData.weight}
+                    onChange={handleChange}
+                    required
+                    fullWidth
+                  />
+                  <TextField
+                    label="Expected Delivery Date"
+                    type="text"
+                    name="deliveryDate"
+                    placeholder="DD/MM/YYYY"
+                    value={formData.deliveryDate}
+                    onChange={handleChange}
+                    helperText="Enter date as DD/MM/YYYY"
+                    required
+                    fullWidth
+                  />
 
-  </form>
-</div>
+                  <Button type="submit" variant="contained" size="large" sx={{ mt: 1 }}>
+                    Submit Request
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </div>
 
-</div>
+      <div className="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=YOUR_EMBED_LINK_HERE"
+          width="100%"
+          height="400"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Shiprlift Location"
+        ></iframe>
+      </div>
 
-   
-   {/* MAP */}
-   <div className="map">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=YOUR_EMBED_LINK_HERE"
-    width="100%"
-    height="400"
-    style={{ border: 0 }}
-    allowFullScreen=""
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    title="Shiprlift Location"
-  ></iframe>
-</div>
-     
-    <div className="footerpage">
-             <ShiprliftFilter />
+      <div className="footerpage">
+        <ShiprliftFilter />
+      </div>
     </div>
-       
-  </div>
   );
 };
 
-export default Contact; // ⭐ THIS is what you are missing
+export default ContactForm;
