@@ -1209,6 +1209,8 @@ transform:scale(1.5);
 .packing-storage-section h4{
   text-align: start;
   padding-left: 3%;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
   font-size: 23px;
   margin-top: 0vh;
   font-family: initial;
@@ -1220,6 +1222,8 @@ transform:scale(1.5);
 }
 
 .oneli li{
+  margin-top: 0%;
+  padding-top: 0%;
   text-align:start;
   width: 93%;
   size: 0px;
@@ -1828,7 +1832,7 @@ height:35px;
 }
 
 .live-contact a{
-padding:6px;
+padding:0px;
 }
 
 
