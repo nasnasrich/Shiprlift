@@ -495,6 +495,7 @@ textarea {
 /* HERO */
 .OurServiceshero{
   height:auto;
+  background-position: center;
   padding:80px 20px;
 }
 
@@ -552,6 +553,7 @@ textarea {
 
 .Expresstwo{
   width:100%;
+ 
 }
 
 .Expresstwo img{
@@ -563,9 +565,12 @@ textarea {
 
 /* SHIPPING TABLE */
 .shipping-table{
-  font-size:14px;
+  font-size:13px;
 }
 
+.shipping-table thead{
+  
+}
 
 /* COURIER GRID */
 .courier-section{
