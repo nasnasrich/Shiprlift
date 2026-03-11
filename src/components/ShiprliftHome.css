@@ -1261,9 +1261,8 @@ transform:scale(1.5);
     padding: 2%;
    font-size: 12px;
    margin-top: 2vh;
-  width: 100%;
+  width: 99%;
   padding-left: 0%;
-  padding-right: 2%;
   list-style-type: none;
   padding-top: 0%;
 }
