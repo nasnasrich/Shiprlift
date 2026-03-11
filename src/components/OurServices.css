@@ -565,12 +565,10 @@ textarea {
 
 /* SHIPPING TABLE */
 .shipping-table{
-  font-size:13px;
+  font-size:11px;
 }
 
-.shipping-table thead{
-  
-}
+
 
 /* COURIER GRID */
 .courier-section{
