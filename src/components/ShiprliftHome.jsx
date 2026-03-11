@@ -697,10 +697,10 @@ Track Shipment
 
 
       {/* CARDNUMBER with StatsCounter */}
-      <div className="cardnumber">
+      <div className="cardnumber" onMouseEnter={() => { if (!startCount) setStartCount(true);}}>
         <h3>WE SPECIALISE IN THE TRANSPORTATION</h3>
         <h4>Together, we have your logistical challenges covered</h4>
-        <StatsCounter startCount={startCount} />
+        <StatsCounter startCount={startCount} onMouseEnter={() => { if (!startCount) setStartCount(true);}} />
       </div>
 
 
