@@ -1,5 +1,7 @@
 // import React, { useEffect, useState } from "react";
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import "./ShiprliftHome.css";
 import ShiprliftFilter from "./ShiprliftFilter";
 
@@ -130,19 +132,22 @@ const CounterCard = ({ stat, start }) => {
   useEffect(() => {
     if (!start) return;
 
-    let startValue = 0;
     const duration = 2000; // 2 seconds
-    const increment = stat.number / (duration / 16);
+    const steps = 50; // how many increments
+    const increment = stat.number / steps;
+    let current = 0;
+    let step = 0;
 
     const counter = setInterval(() => {
-      startValue += increment;
-      if (startValue >= stat.number) {
+      step++;
+      current += increment;
+      if (step >= steps) {
         setCount(stat.number);
         clearInterval(counter);
       } else {
-        setCount(Math.ceil(startValue));
+        setCount(Math.ceil(current));
       }
-    }, 100);
+    }, duration / steps);
 
     return () => clearInterval(counter);
   }, [start, stat.number]);
@@ -170,29 +175,31 @@ const CounterCard = ({ stat, start }) => {
 
 /* ================= SHIPRLIFT HOME ================= */
 const ShiprliftHome = () => {
-
-  
   const [startCount, setStartCount] = useState(false);
 
-  const [formData, setFormData] = useState({
-    freightType: "",
-    email: "",
-    departureCountry: "",
-    weight: "",
-    deliveryDate: "",
-  });
+  // Create a ref for the counters
+  const counterRef = useRef([]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  // Intersection Observer to trigger counting when in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStartCount(true); // Start counter
+            observer.unobserve(entry.target); // Stop observing once triggered
+          }
+        });
+      },
+      { threshold: 0.3 } // 30% visible
+    );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Data:", formData);
-    alert("Freight request submitted successfully!");
-  };
-  
+    counterRef.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   /* HERO */
 
@@ -209,50 +216,13 @@ useEffect(() => {
   return () => clearInterval(interval);
 }, []);
 
-  // const heroImages = [hero1, hero2, hero3];
-  // const heroWriteUps = [
-  //   {
-  //     title: "Welcome To Shiprlift",
-  //   text:
-  //   "We are a leading independent shipping & freight forwarder delivering excellence across air, ocean, road and warehousing.",},
-  //   {
-  //     title: "Trusted Worldwide",
-  //     text:
-  //       "Shiprlift connects businesses to international markets through efficient freight forwarding.",
-  //   },
-  //   {
-  //     title: "Moving Cargo With Confidence",
-  //     text:
-  //       "From pickup to final destination, we ensure secure handling and smooth supply chain operations.",
-  //   },
-  // ];
-
-  // const [heroIndex, setHeroIndex] = useState(0);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setHeroIndex((prev) => (prev + 1) % heroImages.length);
-  //   }, 5000);
-  //   return () => clearInterval(interval);
-  // }, []);
+ 
 
   const message = encodeURIComponent(
     "Hello Shiprlift, I would like to make an enquiry."
   );
 
-  // const labels = {
-  //   0.5: "Useless",
-  //   1: "Useless+",
-  //   1.5: "Poor",
-  //   2: "Poor+",
-  //   2.5: "Ok",
-  //   3: "Ok+",
-  //   3.5: "Good",
-  //   4: "Good+",
-  //   4.5: "Excellent",
-  //   5: "Excellent+",
-  // };
-
+ 
   const value = 3.5;
     const testimonials = [
   {
@@ -330,6 +300,26 @@ const [openIndex, setOpenIndex] = useState({});
   };
 
 
+  const [formData, setFormData] = useState({
+  freightType: "",
+  email: "",
+  departureCountry: "",
+  weight: "",
+  deliveryDate: "",
+});
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // You can log or send the data somewhere
+  console.log("Form submitted:", formData);
+  // Reset form if you want
+  // setFormData({ freightType: "", email: "", departureCountry: "", weight: "", deliveryDate: "" });
+};
 
 
   return (
@@ -681,7 +671,10 @@ Track Shipment
          </div>
       </div>
 
-    <div className="fornow" onMouseEnter={() => { if (!startCount) setStartCount(true);}}>
+    <div
+        className="fornow"
+        ref={(el) => (counterRef.current[0] = el)}
+      >
      <div className="hand">
        <h5>Your Trusted Partner in Global Logistics</h5>
      </div>
@@ -697,7 +690,10 @@ Track Shipment
 
 
       {/* CARDNUMBER with StatsCounter */}
-      <div className="cardnumber">
+      <div
+        className="cardnumber"
+        ref={(el) => (counterRef.current[1] = el)}
+      >
         <h3>WE SPECIALISE IN THE TRANSPORTATION</h3>
         <h4>Together, we have your logistical challenges covered</h4>
         <StatsCounter startCount={startCount} />
