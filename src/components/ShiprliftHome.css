@@ -1256,10 +1256,11 @@ transform:scale(1.5);
 }
 
 .packing-storage-section  .ulme li{
-  text-align:center;
-  margin-top: 2vh;
-  font-size: 12px;
-  padding: 2%;
+ font-family:initial;
+    text-align: center;
+    padding: 2%;
+   font-size: 12px;
+   margin-top: 2vh;
   width: 100%;
   padding-left: 0%;
   list-style-type: none;
