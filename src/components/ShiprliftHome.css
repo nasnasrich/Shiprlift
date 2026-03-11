@@ -1246,7 +1246,8 @@ transform:scale(1.5);
 
 .packing-storage-section .text li{
    font-family:initial;
-   text-align: center;
+    text-align: center;
+    padding: 2%;
    font-size: 11px;
 }
 
@@ -1255,7 +1256,8 @@ transform:scale(1.5);
 }
 
 .packing-storage-section  .ulme li{
-  text-align:start;
+  text-align:center;
+  padding: 2%;
   margin-top: 0%;
   width: 93%;
   padding-left: 3%;
