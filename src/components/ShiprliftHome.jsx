@@ -23,7 +23,7 @@ import { motion } from "framer-motion";
 
 /* ICONS / IMAGES */
 import mail from "../assets/mail.png";
-import whatsappoffer from "../assets/whatsappoffer.jpg";
+import whatsappoffer from "../assets/whatsappoffer.png";
 import ejetpic from "../assets/ejetpic.jpg";
 // import hand from "../assets/hand.png";   
 import felomen from "../assets/felomen.jpg";
@@ -388,37 +388,13 @@ Track Shipment
           </h5>
         </div>
 
-        <div className="experience">
-        <section style={{ position: "relative" }}>
-         <a
-          href={`https://wa.me/14796524016?text=${message}`}
-           target="_blank"
-           rel="noopener noreferrer"
-           >
-           <img
-            src={whatsappoffer}
-            alt="WhatsApp"
-            style={{ cursor: "pointer" }}
-          />
-          <span className="whatsappspan">whatsApp</span>
-         </a>
-         </section>
-           </div>
+        
       </div>
 
 
       <div className="shotline">
        <hr />
-      <section>
-    <a href="mailto:teslamodelbrand@gmail.com">
-      <img
-        src={mail}
-        alt="Mail"
-        style={{ cursor: "pointer" }}
-        />
-      <span className="mailus">mail</span>
-     </a>
-    </section>
+      
     </div>
 
 
@@ -440,15 +416,7 @@ Track Shipment
       <li>Shiprlift Cargo Express has maintained a significant role in the total transportation arena for over a short time with its professional accredited staff who are our real assets.</li>
       </div>
 
-      {/* <Typography style={{paddingTop: 15}}  variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
-        PACKING & STORAGE
-      </Typography> */}
       
-      {/* <ul style={{ paddingLeft: "20px", marginBottom: "20px", }}>
-        <li>Shipper delivers a professional, efficient service</li>
-        <li>Tailored to the specific needs of your business</li>
-        <li>Our services are designed around you</li>
-      </ul> */}
       
       <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
         Shiprlift Cargo Care
@@ -472,7 +440,6 @@ Track Shipment
                   }
                 />
                 
-                {/* <Box sx={{ ml: 2 }}>{labels[value]}</Box> */}
               
               </Box>
             </div>
@@ -818,6 +785,23 @@ Track Shipment
            <img src={logo6} alt="cargo" />
          </div>
      </div>
+
+
+     <div className="live-contact">
+
+<a href="mailto:teslamodelbrand@gmail.com">
+<img src={mail} alt="mail" />
+</a>
+
+<a
+href={`https://wa.me/14796524016?text=${message}`}
+target="_blank"
+rel="noopener noreferrer"
+>
+<img src={whatsappoffer} alt="whatsapp" />
+</a>
+
+</div>
 
 
      <div className="footer">

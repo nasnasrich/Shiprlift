@@ -1099,6 +1099,40 @@ margin-right: 1%;
 
 
 
+/* LIVE CONTACT BAR */
+
+.live-contact{
+position:fixed;
+top:50%;
+right:0;
+width: 3%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:0%;
+z-index:999;
+}
+
+.live-contact a{
+padding: 2%;
+border-radius:8px 0 0 8px;
+}
+
+.live-contact img{
+width:28px;
+/* height:40px; */
+margin: 0%;
+padding: 0%;
+cursor:pointer;
+transition:0.3s;
+}
+
+.live-contact img:hover{
+transform:scale(1.5);
+}
+
+
+
 
 
 @media (max-width: 560px) {
@@ -1144,86 +1178,15 @@ margin-right: 1%;
 /* ================= EXPERIENCE ================= */
 .mog{
   display: flex;
-  margin-top: 2vh;
+  margin-top: 1vh;
 } 
 
 .mog h5{
- /* padding-left: 20%; */
- /* text-decoration: underline; */
- /* margin-top: 18%; */
  font-family: none;
  font-size: 16px;
  width: 160%;
  color: black;
 }
-
-.experience {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  width: 100%;
-  border: 50%;
-  border: white;
-  gap: 0%;
-  /* padding: 4rem 2rem; */
-  justify-content: end;
-  margin: 0%;
-}
-
-.experience img{
-  width: 13%;
-  border: 50%;
-}
-
-/* for pop up */
-.experience img:hover{
-  transform: translateY(-10px);
-}
-
-/* for whatsapp ohver */
-.whatsappspan {
-  position: absolute;
-  bottom: 2%;
-  left:85%;
-  justify-content: end;
-  transform: translateX(-50%);
-  background: #000;
-  color: #fff;
-  padding: 6px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  white-space: nowrap;
-  opacity: 0;
-  transition: 0.3s ease;
-  pointer-events: none;
-}
-
-.experience a:hover .whatsappspan {
-  opacity: 1;
-  margin-top: 60vh;
-}
-
-.experience a:hover .whatsappspan {
-  opacity: 1;
-}
-
- 
-.hero-mail img {
-  width: 30px;
-  margin-top: 0%;
-  margin: 0%;
-}
-
-.shotline hr{
-color: blue;
-border: rgb(44, 43, 43) solid 2px;
-margin-top: 0px;
-padding-top: 0%;
-width: 100%;
-margin-left:0%;
-margin-right: 0;
-}
-
 
 
 
@@ -1244,9 +1207,10 @@ margin-right: 0;
 }
 
 .packing-storage-section h4{
-  text-align: center;
+  text-align: start;
+  padding-left: 3%;
   font-size: 23px;
-  margin-top: 2vh;
+  margin-top: 0vh;
   font-family: initial;
   text-decoration: underline;
 }
@@ -1850,6 +1814,20 @@ animation: trackingBeepblack 1.5s infinite;
 .colabospic img{
   width: 23%;
   border-radius: 90%;
+}
+
+
+.live-contact{
+  width: 10%;
+}
+
+.live-contact img{
+width:35px;
+height:35px;
+}
+
+.live-contact a{
+padding:6px;
 }
 
 
