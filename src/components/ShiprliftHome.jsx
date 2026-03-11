@@ -132,8 +132,8 @@ const CounterCard = ({ stat, start }) => {
   useEffect(() => {
     if (!start) return;
 
-    const duration = 2000; // 2 seconds
-    const steps = 50; // how many increments
+    const duration = 5000; // 2 seconds
+    const steps = 3999; // how many increments
     const increment = stat.number / steps;
     let current = 0;
     let step = 0;
