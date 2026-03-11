@@ -316,6 +316,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
    .Contacded{
     display: grid;
     margin-top: 3vh;
+    height: 110vh;
     padding: 0%;
   }
 
@@ -337,6 +338,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 
   .contentmom h2{
     font-size: 16px;
+    padding-left: 5%;
     width: 75%;
   }
 
@@ -357,6 +359,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   margin-top:20px;
   margin-left: 3%;
   /* width: 30%; */
+  margin-left: 5%;
 }
 
 
@@ -369,7 +372,7 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   /* text-shadow: 2px 3px 2px rgb(0, 0, 0); */
   border: 1px solid white;
   box-shadow: 2px 2px 2px rgb(30, 30, 31);
-  border-radius:none;
+  border-radius:0%;
 }
 
 
@@ -386,11 +389,14 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
 
   
 .Contacdedfrom{
+  padding-top: 0%;
   width: 95%;
   max-width: 100%;
   height: auto;
   margin: auto;
 }
+
+
 
 .Contacdedfrom:hover{
   transform: translateY(5px);
