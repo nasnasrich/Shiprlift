@@ -1141,7 +1141,7 @@ transform:scale(1.5);
 @media (max-width:768px) {
 
 .hero {
-  height: 75vh;
+  height: 70vh;
 }
 
 .hero-content h1 {
@@ -1207,11 +1207,11 @@ transform:scale(1.5);
 }
 
 .packing-storage-section h4{
-  text-align: start;
+  text-align: center;
   padding-left: 3%;
   padding-bottom: 0%;
   margin-bottom: 0%;
-  font-size: 23px;
+  font-size: 20px;
   margin-top: 0vh;
   font-family: initial;
   text-decoration: underline;
