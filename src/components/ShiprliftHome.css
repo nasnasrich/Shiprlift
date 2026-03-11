@@ -1231,6 +1231,7 @@ transform:scale(1.5);
 
 .packing-storage-section h6{
   font-size: 22px;
+  text-align: center;
   padding-bottom: 0%;
   margin-bottom: 0%;
   padding-left: 3%;
@@ -1245,6 +1246,7 @@ transform:scale(1.5);
 
 .packing-storage-section .text li{
    font-family:initial;
+   text-align: center;
    font-size: 11px;
 }
 
