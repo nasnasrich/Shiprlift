@@ -2,6 +2,8 @@
 import "./ShiprliftFilter.css";
 // import React, { useState, useContext } from "react";
 
+import { sendMail } from "./controllers/mailController"
+
 
 import ig from "../assets/ig.png"; 
 import trlegram from "../assets/trlegram.png";
@@ -86,19 +88,37 @@ const ShiprliftFilter = () => {
            <div style={{color:"#ffff"}} id="google_translate_element"></div>
         </div> */}
 
-        <div className="section7">
-                  <section className="newsletter">
-         <div className="newsletter-content">
-        <h2>Subscribe to our newsletter</h2>
-        <p>The latest news, articles, and resources, sent to your inbox weekly.</p>
+      <div className="section7">
+  <section className="newsletter">
+    <div className="newsletter-content">
+      <h2>Subscribe to our newsletter</h2>
+      <p>The latest news, articles, and resources, sent to your inbox weekly.</p>
 
-       <div className="newsletter-form">
-        <input type="email" placeholder="Enter your email" />
-       <button>Subscribe</button>
-       </div>
-       </div>
-       </section>
-      </div>
+      <form
+  id="newsletterForm"
+  className="newsletter-form"
+  onSubmit={(e) =>
+    sendMail(
+      e,
+      "template_52gjjxe",
+      "newsletterForm",
+      "Thanks for subscribing!"
+    )
+  }
+>
+  <input
+    type="email"
+    name="user_email"
+    placeholder="Enter your email"
+    required
+  />
+
+  <button type="submit">Subscribe</button>
+</form>
+
+    </div>
+  </section>
+</div>
       </div>
     </div>
   );
