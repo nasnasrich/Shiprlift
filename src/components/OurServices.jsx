@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress"; // for loader
 import "./OurServices.css";
 import ShiprliftFilter from "./ShiprliftFilter";
 
@@ -131,9 +132,21 @@ const couriers = [
   }
 ];
 
-
 const OurServices = () => {
   const { lang } = useLanguage();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // simulate sending
+    setTimeout(() => {
+      setLoading(false);
+      alert("Your shipment request has been sent!");
+      e.target.reset(); // reset form after submit
+    }, 1500);
+  };
 
   return (
     <div className="OurServicespage">
@@ -423,33 +436,26 @@ const OurServices = () => {
 
     {/* RIGHT SIDE (FORM CARD) */}
     <div className="quote-form-card">
-      <form>
-        <div className="row">
-          <div className="form-group">
-            <label>Name <span>*</span></label>
-            <input type="text" placeholder="e.g. John Chen" />
-          </div>
+      <form onSubmit={handleSubmit} id="shipmentForm">
+      <div className="form-group">
+        <label>Name *</label>
+        <input type="text" name="user_name" placeholder="e.g. John Chen" required />
+      </div>
 
-          <div className="form-group">
-            <label>Email <span>*</span></label>
-            <input type="email" placeholder="e.g. john@example.com" />
-          </div>
-        </div>
+      <div className="form-group">
+        <label>Email *</label>
+        <input type="email" name="user_email" placeholder="e.g. john@example.com" required />
+      </div>
 
-        <div className="form-group">
-          <label>Company Name</label>
-          <input type="text" placeholder="e.g. ABC Electronics Co., Ltd." />
-        </div>
+      <div className="form-group">
+        <label>Message *</label>
+        <textarea name="message" placeholder="Enter your needs" required></textarea>
+      </div>
 
-        <div className="form-group">
-          <label>Message <span>*</span></label>
-          <textarea placeholder="Enter your needs"></textarea>
-        </div>
-
-        <button type="submit" className="submit-btn">
-          Send
-        </button>
-      </form>
+      <button type="submit" className="submit-btn" disabled={loading}>
+        {loading ? <CircularProgress size={24} color="inherit" /> : "Send"}
+      </button>
+    </form>
 
       <p className="privacy-text">
         We’ll never share your contact info — your info is 100% safe.

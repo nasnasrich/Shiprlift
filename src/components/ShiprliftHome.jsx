@@ -1,9 +1,11 @@
-// import React, { useEffect, useState } from "react";
-// import React, { useState, useEffect } from "react";
-
 import React, { useState, useEffect, useRef } from "react";
 import "./ShiprliftHome.css";
 import ShiprliftFilter from "./ShiprliftFilter";
+
+import { sendMail } from "./controllers/mailController";
+import CircularProgress from "@mui/material/CircularProgress";
+
+import { FormControl, InputLabel, Select } from "@mui/material";
 
 
 import Rating from "@mui/material/Rating";
@@ -176,6 +178,7 @@ const CounterCard = ({ stat, start }) => {
 /* ================= SHIPRLIFT HOME ================= */
 const ShiprliftHome = () => {
   const [startCount, setStartCount] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Create a ref for the counters
   const counterRef = useRef([]);
@@ -313,12 +316,26 @@ const handleChange = (e) => {
   setFormData((prev) => ({ ...prev, [name]: value }));
 };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  // You can log or send the data somewhere
-  console.log("Form submitted:", formData);
-  // Reset form if you want
-  // setFormData({ freightType: "", email: "", departureCountry: "", weight: "", deliveryDate: "" });
+
+
+const handleSubmit = async (e) => {
+  setLoading(true);
+
+  try {
+    await sendMail(
+      e,
+      "template_se1ow1p",   // your new shipment template
+      "shipmentForm",
+      "Shipment request sent successfully!"
+    );
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1200);
+
+  } catch (error) {
+    setLoading(false);
+  }
 };
 
 
@@ -556,27 +573,34 @@ Track Shipment
                 </Typography>
 
                 <form
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "10px",
-                    height: "100%",
-                    overflowY: "auto",
-                  }}
-                  onSubmit={handleSubmit}
-                >
-                  <TextField
-                    select
-                    label="Shipment Type"
-                    name="ShipmentType"
-                    value={formData.freightType}
-                    onChange={handleChange}
-                    required
+                    id="shipmentForm"
+                    onSubmit={handleSubmit}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                      height: "100%",
+                      overflowY: "auto",
+                    }}
                   >
-                    <MenuItem value="air">Air Freight</MenuItem>
-                    <MenuItem value="sea">Sea Freight</MenuItem>
-                    <MenuItem value="road">Road Freight</MenuItem>
-                  </TextField>
+               <FormControl fullWidth required>
+  <InputLabel id="shipment-type-label">Shipment Type</InputLabel>
+  <Select
+    labelId="shipment-type-label"
+    id="shipment-type"
+    name="freightType"          // ✅ matches formData key and template
+    value={formData.freightType}
+    onChange={handleChange}
+    displayEmpty
+  >
+    {/* <MenuItem value="" disabled>
+      Select shipment type
+    </MenuItem> */}
+    <MenuItem value="air">Air Freight</MenuItem>
+    <MenuItem value="sea">Sea Freight</MenuItem>
+    <MenuItem value="road">Road Freight</MenuItem>
+  </Select>
+</FormControl>
 
                   <TextField
                     label="Email Address"
@@ -620,9 +644,14 @@ Track Shipment
                     type="submit"
                     variant="contained"
                     size="large"
+                    disabled={loading}
                     sx={{ mt: 1 }}
                   >
-                    Submit Request
+                    {loading ? (
+                      <CircularProgress size={22} sx={{ color: "#fff" }} />
+                    ) : (
+                      "Submit Request"
+                    )}
                   </Button>
                 </form>
               </CardContent>
