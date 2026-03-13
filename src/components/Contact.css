@@ -159,6 +159,12 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   padding-bottom: 0%;
 }
 
+
+.contentmom h1:hover{
+  transform: translateY(-2px);
+  color: blue;
+}
+
 .contentmom h2{
   padding-left: 4%;
   width: 78%;
@@ -166,6 +172,11 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   font-size: 15px;
   margin-top: 0%;
   padding-top: 0%;
+}
+
+.contentmom h2:hover{
+  transform: translateY(-2px);
+  color: blue;
 }
 
 /* BUTTONS */
@@ -186,6 +197,11 @@ box-shadow: 1px 3px 2px rgb(0, 0, 0);
   border: 1px solid white;
   box-shadow: 2px 2px 2px rgb(30, 30, 31);
   border-radius:5%;
+}
+
+.contact-buttons button:hover{
+  transform: translateY(-2px);
+  color: blue;
 }
 
 

@@ -20,6 +20,7 @@ import {
   CardContent,
   Typography
 } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 // import img1 from "../assets/sister.jpg";
 // import img2 from "../assets/famly.jpg";
@@ -160,8 +161,8 @@ const OurServices = () => {
   {cardsData.map((card) => (
     <Card key={card.id} sx={{ width: "100%" }}>
       <CardActionArea>
-        <CardContent sx={{ textAlign: "center" }}>
-          <div style={{ marginBottom: "10px" }}>
+        <CardContent sx={{ textAlign: "center", transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)"} }}>
+          <div style={{ marginBottom: "10px", }}>
             {card.icon}
           </div>
 

@@ -1,8 +1,10 @@
 // import React, { useState } from "react";
 import "./ShiprliftFilter.css";
-// import React, { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 
-import { sendMail } from "./controllers/mailController"
+import { CircularProgress } from "@mui/material"; // optional if using MUI
+
+import { sendMail } from "./controllers/mailController" // your controller
 
 
 import ig from "../assets/ig.png"; 
@@ -16,6 +18,29 @@ import badphone from "../assets/badphone.png";
 
 
 const ShiprliftFilter = () => {
+   const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  setLoading(true);
+
+  try {
+    await sendMail(
+      e,
+      "template_52gjjxe",
+      "newsletterForm",
+      "Thanks for subscribing!"
+    );
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1200);
+
+  } catch (error) {
+    setLoading(false);
+  }
+};
   return (
     <div className="filter-section"> 
      
@@ -93,28 +118,24 @@ const ShiprliftFilter = () => {
     <div className="newsletter-content">
       <h2>Subscribe to our newsletter</h2>
       <p>The latest news, articles, and resources, sent to your inbox weekly.</p>
-
-      <form
-  id="newsletterForm"
-  className="newsletter-form"
-  onSubmit={(e) =>
-    sendMail(
-      e,
-      "template_52gjjxe",
-      "newsletterForm",
-      "Thanks for subscribing!"
-    )
-  }
+ <form id="newsletterForm" className="newsletter-form" onSubmit={handleSubmit}>
+      <input
+        type="email"
+        name="user_email"
+        placeholder="Enter your email"
+        required
+      />
+      <button
+  type="submit"
+  disabled={loading}
 >
-  <input
-    type="email"
-    name="user_email"
-    placeholder="Enter your email"
-    required
-  />
-
-  <button type="submit">Subscribe</button>
-</form>
+  {loading ? (
+    <CircularProgress size={20} style={{ color: "#fff" }} />
+  ) : (
+    "Subscribe"
+  )}
+</button>
+    </form>
 
     </div>
   </section>

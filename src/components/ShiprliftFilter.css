@@ -309,6 +309,21 @@ padding: 0%;
 
 
 
+.spinner {
+  border: 2px solid #fff;
+  border-top: 2px solid #4c7dff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 
 
 
