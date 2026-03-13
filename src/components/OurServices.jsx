@@ -135,6 +135,8 @@ const couriers = [
 const OurServices = () => {
   const { lang } = useLanguage();
   const [loading, setLoading] = useState(false);
+  
+ const message = "Hello, I want to request a shipping quote.";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -196,12 +198,12 @@ const OurServices = () => {
       <div className="ServicesExpress">
         <div className="Expressone">
           <h2>Shiprlift Express Services</h2>
-          <h1>Express Shipping from China, Fast and Reliable</h1>
+          <h1>Express Shipping from Dubai, Fast and Reliable</h1>
           <p>Ship worldwide with Shiprlift, UPS, FedEx and TNT. Get clear pricing, time‑definite delivery, and real‑time tracking. Next day delivery is available in select APAC cities for eligible parcels.</p>
           <ul>
           <li>3 to 5 day delivery to most destinations</li>
           <li>Next day service in select APAC cities, cut off applies</li>
-          <li>Same day pickup in major China cities</li>
+          <li>Same day pickup across Dubai</li>
           <li>Amazon FBA labeling and small‑parcel support</li>
           <button>Get a Free Quote</button>
           </ul>
@@ -429,9 +431,16 @@ const OurServices = () => {
         within 12 hours — no obligation, no hidden fees.
       </p>
 
+      
+      <a
+      href={`https://wa.me/14796524016?text=${message}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      >
       <button className="whatsapp-btn">
         Message us on WhatsApp
       </button>
+      </a>
     </div>
 
     {/* RIGHT SIDE (FORM CARD) */}
@@ -449,7 +458,13 @@ const OurServices = () => {
 
       <div className="form-group">
         <label>Message *</label>
-        <textarea name="message" placeholder="Enter your needs" required></textarea>
+        <textarea
+          name="message"
+          placeholder="Enter your needs"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+        ></textarea>
       </div>
 
       <button type="submit" className="submit-btn" disabled={loading}>
