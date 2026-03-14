@@ -6,6 +6,7 @@ import Track from "./components/Track.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import OurServices from "./components/OurServices.jsx";
+import ContactPage from "./components/ContactPage.jsx";
 import { LanguageProvider } from "./components/LanguageContext.jsx"; // ✅ IMPORTANT
 
 // TEMP PAGES
@@ -24,6 +25,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/OurServices" element={<OurServices />} />
+        <Route path="/ContactPage" element={<ContactPage />} />
 
         {/* SAFETY NET */}
         <Route

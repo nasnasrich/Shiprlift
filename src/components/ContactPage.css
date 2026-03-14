@@ -1,0 +1,93 @@
+.contact-page {
+    margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  min-height: 100vh;
+  gap: 5%;
+  background: linear-gradient(to right, #0066cc, #3399ff);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.contact-left {
+  flex: 1;
+}
+
+.contact-left h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.contact-left h2 {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.contact-left p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.contact-right {
+  flex: 1;
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* aligns form to top */
+}
+
+.contact-right h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.contact-right textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.contact-right button {
+  padding: 12px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.contact-right button:hover {
+  background-color: #004c99;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-page {
+    margin-top: 3px;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-right {
+    margin-top: 20px;
+  }
+}

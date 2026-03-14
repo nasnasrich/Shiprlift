@@ -22,6 +22,7 @@ import {
   Typography
 } from "@mui/material";
 import { red } from "@mui/material/colors";
+import { Link } from "react-router-dom";
 
 // import img1 from "../assets/sister.jpg";
 // import img2 from "../assets/famly.jpg";
@@ -205,7 +206,9 @@ const OurServices = () => {
           <li>Next day service in select APAC cities, cut off applies</li>
           <li>Same day pickup across Dubai</li>
           <li>Amazon FBA labeling and small‑parcel support</li>
+          <Link to="/ContactPage">
           <button>Get a Free Quote</button>
+          </Link>
           </ul>
           </div>
 
@@ -366,7 +369,11 @@ const OurServices = () => {
     </div>
     
     <div className="courier-choice">
-     <h1>Not sure which courier fits your shipment? <br /> <button>Get expert advice</button></h1>
+     <h1>Not sure which courier fits your shipment? <br /> 
+     <Link to="/ContactPage">
+     <button>Get expert advice</button>
+     </Link>
+     </h1>
     </div>
 
         <div className="imgesout">
