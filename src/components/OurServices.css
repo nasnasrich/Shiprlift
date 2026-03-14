@@ -121,6 +121,8 @@
     /* background-color: blue; */
 }
 
+
+
 .Expressone{
     /* background-color: brown; */
     margin-left: 5%;
@@ -132,6 +134,7 @@
     height: 78vh;
 }
 
+
 .Expressone h2{
     padding-left: 1%;
     padding-top: 10vh;
@@ -140,9 +143,33 @@
     /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
 
+.Expressone h2:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
+.Expressone h1:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
 .Expressone p{
     width: 95%;
     padding-left: 1%;
+}
+
+.Expressone p:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
+.Expressone li:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
+.Expressone:hover{
+  transform: translateY(-5px);
 }
 
 
@@ -156,14 +183,23 @@
   margin-top: 2%;
 }
 
+.Expressone button:hover{
+  background-color: #2f4f4f;
+  color: white;
+  transform: translateY(-2px);
+}
+
 .Expresstwo img{
  height: 70vh;
  width: 70%;
  margin-left: 10%;
  margin-top: 4vh;
+ box-shadow: 4px 4px 5px rgb(0, 0, 0);
 }
 
-
+.Expresstwo img:hover{
+  transform: translateY(-5px);
+}
 
 
 .Choose{
@@ -176,11 +212,21 @@
     text-align: center;
 }
 
+.Chooseone h1:hover{
+color: blue;
+}
+
 .Chooseone p{
     text-align: center;
 }
 
+.Chooseone p:hover{
+color: blue;
+}
 
+.Chooseone h6:hover{
+color: blue;
+}
 
 .Choosetwo{
     border: 1px solid black;
@@ -202,14 +248,34 @@
   text-align: left;
 }
 
+
+.shipping-table thead tr  :hover{
+color: black;
+}
+
+.shipping-table tr  :hover{
+color: blue;
+}
+
+
 .shipping-table td {
   padding: 18px;
   border-bottom: 1px solid #ddd;
 }
 
+
+.shipping-table tr td :hover{
+color: blue;
+}
+
+
 .Choosetwo p{
  text-decoration: underline;
  text-align: center;
+}
+
+.Choosetwo p:hover{
+color: blue;
 }
 
 
@@ -226,10 +292,20 @@
   margin-bottom: 20px;
 }
 
+.courier-section h1:hover{
+color: blue;
+text-decoration: underline;
+}
+
 .courier-section p {
   font-size: 18px;
   margin-bottom: 60px;
   color: #333;
+}
+
+.courier-section p:hover{
+color: blue;
+text-decoration: underline;
 }
 
 .courier-grid {
@@ -258,13 +334,23 @@
   font-weight: bold;
 }
 
+.courier-card h2:hover{
+color: blue;
+text-decoration: underline;
+}
+
 .courier-card ul {
   padding-left: 20px;
 }
 
+
 .courier-card li {
   margin-bottom: 15px;
   font-size: 18px;
+}
+
+.courier-card li:hover{
+color: blue;
 }
 
 .courier-choice{
@@ -281,6 +367,10 @@
     text-decoration: underline;
 }
 
+.courier-choice h1:hover{
+color: blue;
+}
+
 .courier-choice button{
     margin: 0 auto;
     margin-top: 0%;
@@ -291,6 +381,10 @@
     border: none;
     border-radius: 5px;
     /* cursor: pointer; */
+}
+
+.courier-choice button:hover{
+transform: translateY(-2px);
 }
 
 
@@ -325,12 +419,22 @@
   margin-bottom: 20px;
 }
 
+.process-header h2:hover{
+color: blue;
+text-decoration: underline;
+}
+
 .process-header p {
   max-width: 700px;
   margin: 0 auto 60px auto;
   font-size: 18px;
   color: #555;
   line-height: 1.6;
+}
+
+.process-header p:hover{
+color: blue;
+text-decoration: underline;
 }
 
 .process-grid {
@@ -358,12 +462,21 @@
   margin-bottom: 20px;
 }
 
+.process-card h3:hover{
+color: blue;
+text-decoration: underline;
+}
+
 .process-card p {
   font-size: 16px;
   color: #444;
   line-height: 1.7;
 }
 
+.process-card p:hover{
+color: blue;
+text-decoration: underline;
+}
 
 .quote-section {
   /* background: #124e94; */
@@ -393,11 +506,21 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.quote-left h2:hover{
+color: blue;
+text-decoration: underline;
+}
+
 .quote-left p {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 40px;
   max-width: 500px;
+}
+
+.quote-left p:hover{
+color: blue;
+text-decoration: underline;
 }
 
 .whatsapp-btn {
@@ -415,6 +538,7 @@
 .whatsapp-btn:hover {
   background: #fff;
   color: #124e94;
+  transform: translateY(-5px);
 }
 
 /* RIGHT SIDE CARD */

@@ -178,9 +178,9 @@ const OurServices = () => {
     <Card key={card.id} sx={{ width: "100%" }}>
       <CardActionArea>
         <CardContent sx={{ textAlign: "center", transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)"} }}>
-          <div style={{ marginBottom: "10px", }}>
+          <div style={{ marginBottom: "10px",}}>
             {card.icon}
-          </div>
+           </div>
 
           <Typography variant="h6" gutterBottom>
             {card.title[lang]}
