@@ -102,6 +102,18 @@
     margin-top: 3vh;
 }
 
+.ServiceCade h6:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
+
+
+.ServiceCade p:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
 
 .ServiceCade{
  display: grid;

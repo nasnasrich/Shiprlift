@@ -237,6 +237,16 @@ text-decoration: underline; color: black;
     color: blue;
 }
 
+.about-services  h5:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.about-services  p:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
 .ourh2{
  margin-top: 7vh;
 font-family:Verdana, Geneva, Tahoma, sans-serif;

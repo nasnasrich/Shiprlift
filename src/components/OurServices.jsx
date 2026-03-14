@@ -3,6 +3,8 @@ import CircularProgress from "@mui/material/CircularProgress"; // for loader
 import "./OurServices.css";
 import ShiprliftFilter from "./ShiprliftFilter";
 
+import { Box } from "@mui/material";
+
 
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import SecurityIcon from "@mui/icons-material/Security";
@@ -177,10 +179,26 @@ const OurServices = () => {
   {cardsData.map((card) => (
     <Card key={card.id} sx={{ width: "100%" }}>
       <CardActionArea>
-        <CardContent sx={{ textAlign: "center", transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)"} }}>
-          <div style={{ marginBottom: "10px",}}>
+        <CardContent
+          sx={{
+            textAlign: "center",
+            transition: "all 0.3s ease",
+            "&:hover": { transform: "translateY(5px)" }
+          }}
+        >
+          <Box
+            sx={{
+              marginBottom: "10px",
+              fontSize: "40px",
+              color: "gray",
+              transition: "0.3s",
+              "&:hover": {
+                color: "#819403" // hover color
+              }
+            }}
+          >
             {card.icon}
-           </div>
+          </Box>
 
           <Typography variant="h6" gutterBottom>
             {card.title[lang]}
@@ -193,7 +211,7 @@ const OurServices = () => {
       </CardActionArea>
     </Card>
   ))}
-       </div>
+</div>
       </div>
 
       <div className="ServicesExpress">
