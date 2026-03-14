@@ -39,16 +39,15 @@ function ResponsiveAppBar() {
       position="static"
       sx={{
         marginTop: 0,
-        height: 60,
         backgroundColor: "#2f4f4f",
         paddingTop: 0,
         boxShadow:
           "2px 3px 1px rgba(30,30,31), inset 0 0 5px rgba(25,25,26,0.22)",
+        height: { xs: 40, md: 60}, // <-- Reduced height on mobile
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-
+        <Toolbar disableGutters sx={{ minHeight: { xs: 50, md: 60 } }}>
           {/* Desktop Logo */}
           <Box
             component="img"
@@ -59,6 +58,7 @@ function ResponsiveAppBar() {
               width: 19,
               borderRadius: "50%",
               mr: 1,
+              marginRight: 0,
             }}
           />
 
@@ -110,9 +110,7 @@ function ResponsiveAppBar() {
                   to={page.path}
                   onClick={handleCloseNavMenu}
                 >
-                  <Typography textAlign="center">
-                    {page.name}
-                  </Typography>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -166,11 +164,7 @@ function ResponsiveAppBar() {
                   display: "block",
                   position: "relative",
                   textTransform: "none",
-
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                  },
-
+                  "&:hover": { backgroundColor: "transparent" },
                   "&::after": {
                     content: '""',
                     position: "absolute",
@@ -181,10 +175,7 @@ function ResponsiveAppBar() {
                     backgroundColor: "white",
                     transition: "0.3s",
                   },
-
-                  "&:hover::after": {
-                    width: "100%",
-                  },
+                  "&:hover::after": { width: "100%" },
                 }}
               >
                 {page.name}
@@ -215,14 +206,11 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">
-                    {setting}
-                  </Typography>
+                  <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>
