@@ -43,7 +43,7 @@ function ResponsiveAppBar() {
         paddingTop: 0,
         boxShadow:
           "2px 3px 1px rgba(30,30,31), inset 0 0 5px rgba(25,25,26,0.22)",
-        height: { xs: 40, md: 60}, // <-- Reduced height on mobile
+        height: { xs: 45, md: 60}, // <-- Reduced height on mobile
       }}
     >
       <Container maxWidth="xl">
