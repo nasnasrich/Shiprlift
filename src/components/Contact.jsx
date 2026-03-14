@@ -100,22 +100,28 @@ const ContactForm = () => {
             style={{ width: "100%", height: "100%" }}
           >
             <Card sx={{ borderRadius: 2, boxShadow: "none",  width: "100%", height: "100%",  }}>
-              <CardContent
+             <CardContent
                 sx={{
-                  p: 4,
+                  p: { xs: 2, sm: 4 },      // reduce overall padding on mobile
+                  pt: { xs: 1, sm: 4 },     // reduce padding-top on mobile
                   height: "100%",
                   boxSizing: "border-box",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
+                  justifyContent: "flex-start", // align content to the top
                 }}
               >
-                <Typography variant="h5" align="center" gutterBottom>
+
+                <Typography
+                  variant="h5"
+                  align="center"
+                  sx={{ mb: { xs: 1, sm: 2 } }} // optional: smaller margin on mobile
+                >
                   Freight Booking Form
                 </Typography>
 
                 <form
-                   style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+                   style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "0px", paddingTop: "0px" }} // reduce gap and margin on mobile
                   onSubmit={handleSubmit}
                 >
                   <TextField
