@@ -12,8 +12,9 @@ const ContactPage = () => {
     weight: "",
     destination: "",
   });
-
   const [quote, setQuote] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,8 +22,12 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (mode === "advice") {
-      alert("Thank you! Our experts will contact you soon.");
+      setModalMessage(
+        "Thank you! Our experts will contact you soon regarding your shipment."
+      );
+      setShowModal(true);
       setFormData({
         name: "",
         email: "",
@@ -38,12 +43,19 @@ const ContactPage = () => {
       let weightMultiplier = parseFloat(formData.weight) || 1;
       let estimatedPrice = basePrice * weightMultiplier;
       setQuote(estimatedPrice.toFixed(2));
+      setModalMessage(`Your estimated shipment cost is $${estimatedPrice.toFixed(2)} USD.`);
+      setShowModal(true);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
     <div className="combined-container">
       <h1>Shiprlift Support</h1>
+
       <div className="mode-buttons">
         <button
           className={mode === "advice" ? "active" : ""}
@@ -163,6 +175,18 @@ const ContactPage = () => {
           )}
         </ul>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>{modalMessage}</p>
+            <button className="close-btn" onClick={closeModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
