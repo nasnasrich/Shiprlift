@@ -191,10 +191,10 @@ function ResponsiveAppBar() {
           {/* User Menu */}
           <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
             <Tooltip title="Open settings">
-              <IconButton component={Link} to="/Account" sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <img
                   src={compas}
-                  alt="Account"
+                  alt="User Icon"
                   style={{ width: 30, borderRadius: "50%" }}
                 />
               </IconButton>
