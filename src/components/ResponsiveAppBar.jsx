@@ -23,7 +23,12 @@ const pages = [
   { name: "Our Services", path: "/OurServices" },
 ];
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const settings = [
+  { name: "Track", path: "/Track" }
+];
+
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -186,10 +191,10 @@ function ResponsiveAppBar() {
           {/* User Menu */}
           <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton component={Link} to="/Account" sx={{ p: 0 }}>
                 <img
                   src={compas}
-                  alt="User Icon"
+                  alt="Account"
                   style={{ width: 30, borderRadius: "50%" }}
                 />
               </IconButton>
@@ -205,10 +210,15 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+                  <MenuItem
+                    key={setting.name}
+                    component={Link}
+                    to={setting.path}
+                    onClick={handleCloseUserMenu}
+                  >
+                    <Typography textAlign="center">{setting.name}</Typography>
+                  </MenuItem>
+                ))}
             </Menu>
           </Box>
         </Toolbar>
