@@ -63,7 +63,7 @@ function ResponsiveAppBar() {
               width: 19,
               borderRadius: "50%",
               mr: 1,
-              marginRight: 0,
+              marginRight: 1,
             }}
           />
 
@@ -75,7 +75,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "-moz-initial",
               fontWeight: 700,
               letterSpacing: ".0rem",
               color: "inherit",
@@ -144,11 +144,12 @@ function ResponsiveAppBar() {
             <Typography
               variant="h6"
               sx={{
-                fontFamily: "monospace",
-                fontSize: 23,
+                fontFamily:"-moz-initial",
+                textDecoration:"solid",
+                fontSize: 18,
                 fontWeight: 700,
                 letterSpacing: ".0rem",
-                paddingLeft: "2px",
+                paddingLeft: "1px",
               }}
             >
               SHIPRLIFT
@@ -165,6 +166,8 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
+                  fontSize:18,
+                  fontFamily:"monospace",
                   color: "white",
                   display: "block",
                   position: "relative",

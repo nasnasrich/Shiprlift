@@ -190,10 +190,10 @@ const OurServices = () => {
             sx={{
               marginBottom: "10px",
               fontSize: "40px",
-              color: "gray",
+              color:"#819403",
               transition: "0.3s",
               "&:hover": {
-                color: "#819403" // hover color
+                color: "#000000" // hover color
               }
             }}
           >
@@ -247,7 +247,7 @@ const OurServices = () => {
       small or medium parcels.
     </p>
 
-    <div
+    <div className="Choosetwo"
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
