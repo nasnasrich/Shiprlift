@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Polyline, Popup, CircleMarker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, CircleMarker, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from "leaflet";
 import "./Track.css";
@@ -16,39 +16,55 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-/* 🔒 ADMIN DATA — Update anytime */
+/* 🔒 ADMIN DATA — Multiple Shipments (coordinates editable) */
 const shipmentsData = {
-  "5": {
-    status: "On Hold",     /* In Transit   On Hold */
+  "30enfb5u1n": { 
+    status: "In Transit",
     dispatchCountry: "United States",
-    destinationCountry: "Brazil",
-    packageInfo: {
-      description: "Electronic equipment",
-      weight: "12 kg",
-      quantity: "2 boxes",
-      shippingType: "Air Freight",
-      notes: "Handle with care – Fragile",
-    },
-    receiver: {
-      name: "Carlos Silva",
-      email: "carlos.silva@email.com",
-      phone: "+55 21 99887 6655",
-      country: "Brazil",
-      address: "Rua das Palmeiras 210, Rio de Janeiro, Brazil",
-    },
+    destinationCountry: "Portugal",
+    packageInfo: { description: "Laptop", weight: "5kg", quantity: "1 box", shippingType: "Air Freight", notes: "Fragile" },
+    receiver: { name: "Carlos Silva", email: "carlos.silva@email.com", phone: "+351 912 345 678", country: "Portugal", address: "Lisbon, Portugal" },
+    route: [
+      { country: "United States", coords: [37.7749, -122.4194] },
+      { country: "Portugal", coords: [38.7223, -9.1393] },
+    ],
+    history: [{ date: "2026-03-14", time: "08:00", location: "San Francisco", status: "Shipment Created", updatedBy: "Admin", remarks: "Package registered" }],
+  },
+  "30enfb5u2n": { 
+    status: "On Hold",
+    dispatchCountry: "Germany",
+    destinationCountry: "France",
+    packageInfo: { description: "Clothes", weight: "10kg", quantity: "3 boxes", shippingType: "Ground Freight", notes: "Keep dry" },
+    receiver: { name: "Marie Dupont", email: "marie.dupont@email.com", phone: "+33 612 345 678", country: "France", address: "Paris, France" },
+    route: [
+      { country: "Germany", coords: [52.52, 13.4050] },
+      { country: "France", coords: [48.8566, 2.3522] },
+    ],
+    history: [{ date: "2026-03-13", time: "10:30", location: "Berlin", status: "Shipment Created", updatedBy: "Admin", remarks: "Package registered" }],
+  },
+  "30enfb5u3n": { 
+    status: "In Transit",
+    dispatchCountry: "Brazil",
+    destinationCountry: "Argentina",
+    packageInfo: { description: "Books", weight: "15kg", quantity: "10 boxes", shippingType: "Air Freight", notes: "Handle with care" },
+    receiver: { name: "Juan Perez", email: "juan.perez@email.com", phone: "+54 911 234 5678", country: "Argentina", address: "Buenos Aires, Argentina" },
     route: [
       { country: "Brazil", coords: [-14.235, -51.9253] },
+      { country: "Argentina", coords: [-34.6037, -58.3816] },
     ],
-    history: [
-      {
-        date: "2025-01-10",
-        time: "09:15",
-        location: "San Francisco, USA",
-        status: "Shipment Created",
-        updatedBy: "Admin",
-        remarks: "Package registered",
-      },
+    history: [{ date: "2026-03-12", time: "09:15", location: "São Paulo", status: "Shipment Created", updatedBy: "Admin", remarks: "Package registered" }],
+  },
+  "30enfb5u4n": { 
+    status: "In Transit",
+    dispatchCountry: "Japan",
+    destinationCountry: "Australia",
+    packageInfo: { description: "Electronics", weight: "20kg", quantity: "5 boxes", shippingType: "Air Freight", notes: "Fragile" },
+    receiver: { name: "Liam Wong", email: "liam.wong@email.com", phone: "+61 412 345 678", country: "Australia", address: "Sydney, Australia" },
+    route: [
+      { country: "Japan", coords: [35.6895, 139.6917] },
+      { country: "Australia", coords: [-33.8688, 151.2093] },
     ],
+    history: [{ date: "2026-03-11", time: "08:00", location: "Tokyo", status: "Shipment Created", updatedBy: "Admin", remarks: "Package registered" }],
   },
 };
 
@@ -89,16 +105,17 @@ const Track = () => {
   const beep = useBeep();
 
   const handleTrack = () => {
-    const data = shipmentsData[code.toLowerCase()];
-    if (!data) {
-      setShipment(null);
-      setError("❌ Incorrect tracking code. Please check and try again.");
-      return;
-    }
-    setError("");
-    setShipment(data);
-    setIndex(0);
-  };
+  const data = shipmentsData[code]; // <-- remove toUpperCase()
+  if (!data) {
+    setShipment(null);
+    setError("❌ Incorrect tracking code. Please check and try again.");
+    return;
+  }
+  setError("");
+  setShipment(data);
+  setIndex(0);
+};
+
 
   useEffect(() => {
     beepIntervalRef.current = setInterval(() => {
@@ -116,7 +133,7 @@ const Track = () => {
     moveIntervalRef.current = setInterval(() => {
       if (shipment.status !== "In Transit") return;
       setIndex((prev) => (prev >= shipment.route.length - 1 ? prev : prev + 1));
-    }, 3000);
+    }, 7000); // Slowed down to 7 seconds per step
 
     return () => clearInterval(moveIntervalRef.current);
   }, [shipment]);
@@ -146,7 +163,7 @@ const Track = () => {
       <div className="smart-panel">
         <h1>Shipment Tracking</h1>
         <div className="tracking-guide">
-          <p>Your shipment is being tracked live. The map shows the current country of the shipment.</p>
+          <p>Your shipment is being tracked live. The map shows the current location of your shipment.</p>
         </div>
 
         <div className="info-card">
@@ -182,11 +199,9 @@ const Track = () => {
         </div>
 
         <div className="smart-map-wrapper">
-          <MapContainer className="smart-map">
+          <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <MapController points={shipment.route.map(r => r.coords)} />
-
-            <Polyline positions={shipment.route.slice(0, index + 1).map(r => r.coords)} color="#007bff" weight={5} />
             <CircleMarker center={current.coords} radius={18} className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`} />
             <Marker position={current.coords}>
               <Popup>{shipment.status === "On Hold" ? "⚠️ ON HOLD" : "In Transit"}<br />{current.country}</Popup>
