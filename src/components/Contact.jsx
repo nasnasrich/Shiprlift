@@ -1,209 +1,319 @@
 import React, { useState } from "react";
 import "./Contact.css";
 import ShiprliftFilter from "./ShiprliftFilter";
+
 import mrshir from "../assets/mrshir.jpg";
+
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 import slide1 from "../assets/newig.jpg";
-import slide2 from "../assets/mapbep.png"; 
+import slide2 from "../assets/mapbep.png";
 import slide3 from "../assets/tergem.png";
 
-import { Card, CardContent, TextField, MenuItem, Button, Typography } from "@mui/material";
+import {
+Card,
+CardContent,
+TextField,
+MenuItem,
+Button,
+Typography,
+Checkbox,
+FormControlLabel
+} from "@mui/material";
+
 import { motion } from "framer-motion";
 
-const images = [slide1, slide2, slide3];
+const images=[slide1,slide2,slide3];
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    freightType: "",
-    email: "",
-    departureCountry: "",
-    weight: "",
-    deliveryDate: "",
-  });
+const ContactPage=()=>{
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+const [freight,setFreight]=useState({
+freightType:"",
+email:"",
+country:"",
+weight:"",
+date:""
+});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Freight Request Sent Successfully!");
-    setFormData({
-      freightType: "",
-      email: "",
-      departureCountry: "",
-      weight: "",
-      deliveryDate: "",
-    });
-  };
-
-  return (
-    <div className="Contact">
-      <div className="Contactheroo">
-        <div className="Contacttex">
-          <div className="Contactnum">
-            <h2>SHIPRLIFT</h2>
-            <h1>GET IN TOUCH</h1>
-            <h3>Have questions? Visit us or send an email anytime.</h3>
-          </div>
-          <div className="Contaimg">
-            <img src={mrshir} alt="cargo" />
-          </div>
-        </div>
-
-        <div className="Contactpick">
-          <div className="ContactTeam">
-            <div className="slide-container">
-              <Slide
-                duration={1000}
-                transitionDuration={0}
-                arrows={false}
-                autoplay={true}
-                pauseOnHover={false}
-                canSwipe={false}
-                infinite={true}
-                easing="linear"
-              >
-                {images.map((img, index) => (
-                  <div key={index} className="each-slide">
-                    <img src={img} alt={`slide-${index}`} />
-                  </div>
-                ))}
-              </Slide>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    
-
-      <div className="Contacded">
-        <div className="contentmom">
-          <h1><span>CONTACT Shiprlift</span></h1>
-          <h2>Reliable support for shipping, tracking, and pricing. Our experts help move your cargo anywhere with efficiency and care.</h2>
-          <div className="contact-buttons">
-            <a href="tel:+2348012345678"><button>Call Support</button></a>
-            <a href="https://wa.me/2348012345678"><button className="secondary">WhatsApp Us</button></a>
-          </div>
-        </div>
-
-        {/* === REPLACED CONTACT FORM WITH HOME PAGE BBB FORM === */}
-
-        <div className="Contacdedfrom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            style={{ width: "100%", height: "100%" }}
-          >
-            <Card sx={{ borderRadius: 2, boxShadow: "none",  width: "100%", height: "100%",  }}>
-             <CardContent
-                sx={{
-                  p: { xs: 2, sm: 4 },      // reduce overall padding on mobile
-                  pt: { xs: 1, sm: 4 },     // reduce padding-top on mobile
-                  height: "100%",
-                  boxSizing: "border-box",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start", // align content to the top
-                }}
-              >
-
-                <Typography
-                  variant="h5"
-                  align="center"
-                  sx={{ mb: { xs: 1, sm: 2 } }} // optional: smaller margin on mobile
-                >
-                  Freight Booking Form
-                </Typography>
-
-                <form
-                   style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "0px", paddingTop: "0px" }} // reduce gap and margin on mobile
-                  onSubmit={handleSubmit}
-                >
-                  <TextField
-                    select
-                    label="Freight Type"
-                    name="freightType"
-                    value={formData.freightType}
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                  >
-                    <MenuItem value="air">Air Freight</MenuItem>
-                    <MenuItem value="sea">Sea Freight</MenuItem>
-                    <MenuItem value="road">Road Freight</MenuItem>
-                  </TextField>
-
-                  <TextField
-                    label="Email Address"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                  />
-                  <TextField
-                    label="Departure Country"
-                    name="departureCountry"
-                    value={formData.departureCountry}
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                  />
-                  <TextField
-                    label="Total Weight (KG)"
-                    type="number"
-                    name="weight"
-                    value={formData.weight}
-                    onChange={handleChange}
-                    required
-                    fullWidth
-                  />
-                  <TextField
-                    label="Expected Delivery Date"
-                    type="text"
-                    name="deliveryDate"
-                    placeholder="DD/MM/YYYY"
-                    value={formData.deliveryDate}
-                    onChange={handleChange}
-                    helperText="Enter date as DD/MM/YYYY"
-                    required
-                    fullWidth
-                  />
-
-                  <Button type="submit" variant="contained" size="large" sx={{ mt: 1 }}>
-                    Submit Request
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </div>
-
-      <div className="map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=YOUR_EMBED_LINK_HERE"
-          width="100%"
-          height="400"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Shiprlift Location"
-        ></iframe>
-      </div>
-
-      <div className="footerpage">
-        <ShiprliftFilter />
-      </div>
-    </div>
-  );
+const handleFreightChange=(e)=>{
+const{name,value}=e.target;
+setFreight({...freight,[name]:value});
 };
 
-export default ContactForm;
+const handleFreightSubmit=(e)=>{
+e.preventDefault();
+alert("Freight Request Sent Successfully!");
+setFreight({
+freightType:"",
+email:"",
+country:"",
+weight:"",
+date:""
+});
+};
+
+const [message,setMessage]=useState({
+name:"",
+email:"",
+message:"",
+agree:false
+});
+
+const handleMessageChange=(e)=>{
+const{name,value,type,checked}=e.target;
+
+setMessage({
+...message,
+[name]:type==="checkbox"?checked:value
+});
+};
+
+const handleMessageSubmit=(e)=>{
+e.preventDefault();
+
+if(!message.agree){
+alert("You must agree to the Privacy Notice before submitting.");
+return;
+}
+
+alert("Message Sent Successfully! Our team will contact you shortly.");
+
+setMessage({
+name:"",
+email:"",
+message:"",
+agree:false
+});
+};
+
+return(
+
+<div className="shiprlift-contactpage">
+
+{/* HERO */}
+
+<div className="shiprlift-contactpage-hero">
+
+<div className="shiprlift-contactpage-herotext">
+
+<h2>SHIPRLIFT</h2>
+<h1>Contact Our Logistics Experts</h1>
+
+<p>
+Have questions about shipping, pricing or tracking?
+Our team is ready to help you.
+</p>
+
+<div className="shiprlift-contactpage-buttons">
+
+<a href="tel:+2348012345678">
+<button>Call Support</button>
+</a>
+
+<a href="https://wa.me/2348012345678">
+<button className="secondary">WhatsApp</button>
+</a>
+
+</div>
+
+
+{/* SLIDER */}
+
+<div className="shiprlift-contactpage-slider">
+
+<Slide duration={0} arrows={false} autoplay infinite>
+
+{images.map((img,index)=>(
+<div key={index} className="shiprlift-contactpage-slide">
+<img src={img} alt="slide"/>
+</div>
+))}
+
+</Slide>
+
+</div>
+</div>
+
+<div className="shiprlift-contactpage-heroimg">
+<img src={mrshir} alt="contact"/>
+</div>
+
+
+
+
+</div>
+
+
+{/* CONTACT CARDS */}
+
+<div className="shiprlift-contactpage-info">
+
+<div className="shiprlift-contactpage-card">
+<h3>Phone</h3>
+<p> +1 985-463-5331</p>
+</div>
+
+<div className="shiprlift-contactpage-card">
+<h3>Email</h3>
+<p>support@shiprlift.com</p>
+</div>
+
+<div className="shiprlift-contactpage-card">
+<h3>Head Office</h3>
+<p>Copenhagen, Denmark</p>
+</div>
+
+<div className="shiprlift-contactpage-card">
+<h3>Working Hours</h3>
+<p>Mon-Sat</p>
+<p>08:00-18:00</p>
+</div>
+</div>
+
+{/* WHY CHOOSE */}
+
+<div className="shiprlift-contactpage-why">
+
+<h1>Why Choose Shiprlift</h1>
+
+<div className="shiprlift-contactpage-whygrid">
+
+<div className="shiprlift-contactpage-whycard">
+<h3>Global Network</h3>
+<p>Ship cargo to more than 120 countries worldwide.</p>
+</div>
+
+<div className="shiprlift-contactpage-whycard">
+<h3>Fast Delivery</h3>
+<p>Efficient logistics ensures your goods arrive on time.</p>
+</div>
+
+<div className="shiprlift-contactpage-whycard">
+<h3>Secure Handling</h3>
+<p>Professional cargo handling and monitoring.</p>
+</div>
+
+<div className="shiprlift-contactpage-whycard">
+<h3>24/7 Support</h3>
+<p>Our experts are always ready to assist you.</p>
+</div>
+
+</div>
+
+</div>
+
+{/* FORMS */}
+
+<div className="shiprlift-contactpage-forms">
+
+<div className="shiprlift-contactpage-formbox">
+
+<motion.div initial={{opacity:0,y:40}} animate={{opacity:1,y:0}}>
+
+<Card>
+
+<CardContent>
+
+<Typography variant="h5" align="center">
+Freight Booking Form
+</Typography>
+
+<form onSubmit={handleFreightSubmit} className="shiprlift-contactpage-form">
+
+<TextField select label="Freight Type" name="freightType" value={freight.freightType} onChange={handleFreightChange} required>
+
+<MenuItem value="air">Air Freight</MenuItem>
+<MenuItem value="sea">Sea Freight</MenuItem>
+<MenuItem value="road">Road Freight</MenuItem>
+
+</TextField>
+
+<TextField label="Email" name="email" value={freight.email} onChange={handleFreightChange} required/>
+
+<TextField label="Departure Country" name="country" value={freight.country} onChange={handleFreightChange} required/>
+
+<TextField label="Weight (KG)" name="weight" type="number" value={freight.weight} onChange={handleFreightChange} required/>
+
+<TextField label="Expected Delivery Date" name="date" value={freight.date} onChange={handleFreightChange} required/>
+
+<Button type="submit" variant="contained">
+Submit Request
+</Button>
+
+</form>
+
+</CardContent>
+
+</Card>
+
+</motion.div>
+
+</div>
+
+{/* MESSAGE FORM */}
+
+<div className="shiprlift-contactpage-formbox">
+
+<Card>
+
+<CardContent>
+
+<Typography variant="h5" align="center">
+Send Us A Message
+</Typography>
+
+<form onSubmit={handleMessageSubmit} className="shiprlift-contactpage-form">
+
+<TextField label="Full Name" name="name" value={message.name} onChange={handleMessageChange} required/>
+
+<TextField label="Email Address" name="email" value={message.email} onChange={handleMessageChange} required/>
+
+<TextField label="Your Message" name="message" multiline rows={0} value={message.message} onChange={handleMessageChange} required/>
+
+<FormControlLabel
+control={<Checkbox name="agree" checked={message.agree} onChange={handleMessageChange}/>}
+label="By completing this form, you confirm that you agree to SGL Privacy Notice. This form will be sent to our Headquarter in Copenhagen."
+/>
+
+<Button type="submit" variant="contained">
+Send Message
+</Button>
+
+</form>
+
+</CardContent>
+
+</Card>
+
+</div>
+
+</div>
+
+{/* MAP */}
+
+<div className="shiprlift-contactpage-map">
+
+<iframe
+src="https://www.google.com/maps?q=Copenhagen&output=embed"
+width="100%"
+height="400"
+style={{border:0}}
+title="Shiprlift Location"
+/>
+
+</div>
+
+{/* FOOTER */}
+
+<div className="shiprlift-contactpage-footer">
+<ShiprliftFilter/>
+</div>
+
+</div>
+
+);
+
+};
+
+export default ContactPage;
