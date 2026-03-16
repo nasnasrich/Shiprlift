@@ -824,6 +824,9 @@ textarea {
 
 
 /* QUOTE SECTION */
+.quote-section{
+  margin-bottom: 2px;
+}
 .quote-container{
   flex-direction:column;
   gap:40px;
