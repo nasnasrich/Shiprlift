@@ -75,6 +75,12 @@ background: white;
 
 /* CONTACT INFO CARDS */
 
+.info p{
+  text-align: center;
+  text-decoration: solid;
+  font-family: monospace;
+}
+
 .shiprlift-contactpage-info{
 display:flex;
 margin-top: 4px;
@@ -147,15 +153,10 @@ box-shadow:0 3px 10px rgba(0,0,0,0.1);
 
 .shiprlift-contactpage-forms{
 display:flex;
-/* border: 1px solid black; */
 height: 88vh;
 margin-bottom: 0%;
-/* background-color: rgb(250, 251, 252); */
-/* box-shadow: 1px 1px 1px rgb(0, 0, 0); */
-gap:4px;
-/* padding:40px; */
+gap:5px;
 /* flex-wrap:wrap; */
-/* justify-content:center; */
 }
 
 .shiprlift-contactpage-formbox{
@@ -173,9 +174,15 @@ margin-top:15px;
 .ikk{
   justify-content: center;
   padding-left: 5%;
+  background:rgb(0, 0, 0);
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
   padding-right: 5%;
+  color: white;
 }
+
 .lk h2{
+  margin-top: 0%;
+  padding-top: 3vh;
   font-family:inherit;
   text-align: center;
 }
@@ -190,29 +197,91 @@ margin-top:15px;
   font-family: monospace;
 }
 
-/* MAP */
-
-.shiprlift-contactpage-map{
-margin-top:3px;
-box-shadow: 2px 2px 2px rgb(0, 0, 0);
+.privacy-arrow {
+  text-decoration: none; /* remove underline */
+  color: white;        /* default arrow color */
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: underline;
+  margin-left: 5px;      /* space from text */
+  transition: transform 0.2s, color 0.2s; /* smooth hover */
 }
+
+.privacy-arrow:hover {
+  color: #0073e6;        /* color change on hover */
+  transform: translateX(5px); /* arrow slides right on hover */
+}
+
 
 .shirlogg{
   display: flex;
   margin-left: 4%;
 }
 .shirlogg img{
-  border: black;
+  background-color: black;
   background: 50%;
   height: 4vh;
   width:2%;
 }
+
+.shirlogg h5{
+  margin-top: 2px;
+  padding-top: 0%;
+}
+
+.phoneopicc{
+  margin-top: 0%;
+  padding-top: 0%;
+  text-align: end;
+}
+
+
+
+.shirloggtwo{
+  display: flex;
+  margin-left: 4%;
+}
+.shirloggtwo img{
+  background-color: black;
+  background: 50%;
+  height: 4vh;
+  width:2%;
+}
+
+.shirloggtwo h5{
+  margin-top: 2px;
+  padding-top: 0%;
+}
+
+.phoneopicc{
+  margin-bottom: 2vh;
+}
+
+.phoneopicc img{
+  width: 18%;
+  padding-top: 0%;
+  margin-top: 0%;
+}
+
+
+
+/* MAP */
+
+.shiprlift-contactpage-map{
+margin-top:5px;
+border: 1px solid black;
+box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
 
 /* FOOTER */
 
 .shiprlift-contactpage-footer{
 margin-top:0px;
 }
+
+
+
 
 /* MOBILE RESPONSIVE */
 
@@ -300,7 +369,7 @@ width:95%;
 }
 
 .shiprlift-contactpage-map{
-  margin-top: 58vh;
+  margin-top: 3px;
 }
 
 }

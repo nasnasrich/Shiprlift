@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./Contact.css";
 import ShiprliftFilter from "./ShiprliftFilter";
+import { Link } from "react-router-dom";
 
 import mrshir from "../assets/mrshir.jpg";
+import mailwith from "../assets/mailwith.png";
 
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 import slide1 from "../assets/newig.jpg";
 import slide2 from "../assets/mapbep.png";
-import slide3 from "../assets/tergem.png";
+import slide3 from "../assets/tergem.png"; 
 
 import badphone from "../assets/badphone.png";
+import phoneblack from "../assets/phoneblack.png";
 
 
 import {
@@ -224,12 +227,27 @@ const ContactPage = () => {
         <div className="ikk">
         <h2>We connect the world. Let us connect yours.</h2>
         <p>If you provide the 'when', 'where', 'what', we deliver uncomplicated logistics. Reach out to our local complexity killers who are ready to help move your goods and solve any challenge, anywhere in the world, at any time. We take your data protection seriously. You can read more about how we process your personal data in our Privacy Notice.</p>
-        <h3>Read more about our privacy notice</h3>
+
+            <h3>
+            Read more about our privacy notice{" "}
+            <Link to="/privacy" className="privacy-arrow">→</Link>
+            </h3>
         <h1>Contact Global HQ</h1>
+
         <div className="shirlogg">
           <img src={badphone} alt="shirlogo"/>
           <h5>+ 1 985-463-5331</h5>
         </div>
+        
+         <div className="shirloggtwo">
+            <img src={mailwith} alt="shirlogo"/>
+            <h7>shiprlift@gmail.com</h7>
+        </div>
+        
+
+        <div className="phoneopicc">
+            <img src={phoneblack} ait="phoneo"/>
+          </div>
         </div>
        </div>
 
