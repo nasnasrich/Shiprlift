@@ -152,14 +152,15 @@ height: 88vh;
 margin-bottom: 0%;
 /* background-color: rgb(250, 251, 252); */
 /* box-shadow: 1px 1px 1px rgb(0, 0, 0); */
-gap:40px;
-padding:40px;
-flex-wrap:wrap;
-justify-content:center;
+gap:4px;
+/* padding:40px; */
+/* flex-wrap:wrap; */
+/* justify-content:center; */
 }
 
 .shiprlift-contactpage-formbox{
-width:400px;
+width:80%;
+/* display: flex; */
 }
 
 .shiprlift-contactpage-form{
@@ -169,10 +170,42 @@ gap:15px;
 margin-top:15px;
 }
 
+.ikk{
+  justify-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.lk h2{
+  font-family:inherit;
+  text-align: center;
+}
+
+.lk p{
+  text-align: center;
+  font-family: initial;
+}
+
+.lk h3{
+  text-align: center;
+  font-family: monospace;
+}
+
 /* MAP */
 
 .shiprlift-contactpage-map{
 margin-top:3px;
+box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+.shirlogg{
+  display: flex;
+  margin-left: 4%;
+}
+.shirlogg img{
+  border: black;
+  background: 50%;
+  height: 4vh;
+  width:2%;
 }
 
 /* FOOTER */
@@ -187,22 +220,73 @@ margin-top:0px;
 
 .shiprlift-contactpage-hero{
 display:flex;
+margin-top: 3px;
+box-shadow: 2px 2px 2px rgb(0, 0, 0);
+justify-content:space-between;
+align-items:none;
+padding:20px;
+background:#383737;
+color:white;
+flex-wrap:nowrap;
 }
 
 .shiprlift-contactpage-hero h2{
-  font-size:35px;
+  font-size:30px;
+  margin-bottom: 0%;
 } 
 
-.shiprlift-contactpage-heroimg img{
-  margin-left: 75%;
-  width: 35%;
+.shiprlift-contactpage-hero h1{
+  font-size:11px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 0%;
+  padding-left: 1%;
+} 
+
+.shiprlift-contactpage-hero p{
+  font-family:unset ;
+  display: none;
+} 
+
+
+.shiprlift-contactpage-buttons{
+margin-top:15px;
+display:flex;
+background-color: #25D366;
+width: 0%;
+gap:20px;
 }
 
+.shiprlift-contactpage-buttons button{
+padding:8px 14px;
+border:none;
+background:#0b7dda;
+color:white;
+cursor:pointer;
+border-radius:4px;
+}
+
+
+
+.shiprlift-contactpage-heroimg img{
+  margin-left: 10%;
+  width: 85%;
+}
+
+.shiprlift-contactpage-herotext{
+  /* background-color: aqua; */
+  width: 1100%;
+}
+
+.info p{
+  text-align: center;
+  font-family: initial;
+}
 
 .shiprlift-contactpage-info{
 flex-direction:column;
 align-items:center;
 }
+
 
 .shiprlift-contactpage-forms{
 flex-direction:column;
