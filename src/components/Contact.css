@@ -442,6 +442,7 @@ align-items:center;
 .ikk{
   height: 93vh;
   color: white;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
   background-color: black;
 }
 
@@ -510,7 +511,7 @@ width:50%;
 }
 
 .shiprlift-contactpage-map{
-  margin-top: 90vh;
+  margin-top: 83vh;
 }
 
 }
