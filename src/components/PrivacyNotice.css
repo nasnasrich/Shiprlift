@@ -15,22 +15,26 @@
 .privacy-hero h1 {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  font-family:initial;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+text-decoration: underline;
   color: #111;
 }
 
 .privacy-hero p {
   font-size: 1rem;
-  color: #555;
+  font-family: initial;
+  color:black;
 }
 
 /* Accordion */
 .privacy-accordion {
   border-top: 1px solid #ddd;
+  font-family: initial;
 }
 
 .accordion-item {
   border-bottom: 1px solid #ddd;
+  font-family: initial;
 }
 
 .accordion-title {
@@ -40,6 +44,7 @@
   border: none;
   padding: 15px 20px;
   font-size: 1.1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
