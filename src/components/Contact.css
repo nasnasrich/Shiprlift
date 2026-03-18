@@ -57,17 +57,42 @@ background:#25D366;
 width:120px;
 border-radius:50%;
 border:3px solid white;
+animation: trackingBee 1.5s infinite;
+}
+
+
+@keyframes trackingBee {
+
+  0%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(3, 142, 248, 0.7);
+  }
+
+  50%{
+    transform: scale(1.1);
+    box-shadow: 0 0 0px 5px rgba(4, 52, 242, 0.3);
+  }
+
+  100%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 247, 0, 0);
+  }
+
 }
 
 /* SLIDER */
 
 .shiprlift-contactpage-slider{
-width:5%;
-margin-top:10px;
+width:4%;
+border: none;
+border-radius: 90%;
+margin-top:0px;
+margin-left: 15%;
 }
 
 .shiprlift-contactpage-slide img{
-width:80%;
+width:100%;
+margin-top: 0vh;
 /* height:30px; */
 border-radius: 50%;
 background: white;
@@ -153,9 +178,9 @@ box-shadow:0 3px 10px rgba(0,0,0,0.1);
 
 .shiprlift-contactpage-forms{
 display:flex;
-height: 88vh;
+height: 80vh;
 margin-bottom: 0%;
-gap:5px;
+gap:10px;
 /* flex-wrap:wrap; */
 }
 
@@ -172,16 +197,18 @@ margin-top:15px;
 }
 
 .ikk{
+  flex: 1;
   justify-content: center;
   padding-left: 5%;
-  background:rgb(0, 0, 0);
-  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+  /* background-color: antiquewhite; */
+  /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
   padding-right: 5%;
-  color: white;
+  color: black;
+  height: 83vh;
 }
 
 .lk h2{
-  margin-top: 0%;
+  margin-top: 5%;
   padding-top: 3vh;
   font-family:inherit;
   text-align: center;
@@ -197,9 +224,13 @@ margin-top:15px;
   font-family: monospace;
 }
 
+.ikk h1{
+  text-align: center;
+}
+
 .privacy-arrow {
   text-decoration: none; /* remove underline */
-  color: white;        /* default arrow color */
+  color: #0073e6;        /* color change on hover */
   font-weight: bold;
   font-size: 25px;
   text-decoration: underline;
@@ -208,67 +239,97 @@ margin-top:15px;
 }
 
 .privacy-arrow:hover {
-  color: #0073e6;        /* color change on hover */
+  color: yellow;        /* color change on hover */
   transform: translateX(5px); /* arrow slides right on hover */
 }
 
 
 .shirlogg{
-  display: flex;
+  margin-top: 0%;
+  /* display: flex; */
   margin-left: 4%;
 }
-.shirlogg img{
-  background-color: black;
-  background: 50%;
-  height: 4vh;
-  width:2%;
+.phone-icon {
+  color: black;      /* desktop default color */
+  font-size: 15px !important;  /* adjust size */
+  margin-top: 3px;
+  margin-right: 8px; /* space between icon and number */
 }
+
+
+
+
 
 .shirlogg h5{
   margin-top: 2px;
   padding-top: 0%;
 }
 
+.shione {
+  display: flex;
+}
+.mail-icon{
+  color: black;
+  margin-top:4px;
+  font-size: 15px !important;
+}
+
+.shirlogg h6{
+  margin-top: 0px;
+  font-size: 15px;
+  padding-left: 2px;
+}
+
+.shitwo{
+  display: flex;
+  margin-top: 0%;
+  margin-bottom:0%;
+  padding-bottom: 0%;
+}
+
 .phoneopicc{
   margin-top: 0%;
   padding-top: 0%;
+  display: none;
+  text-align: end;
+  margin-bottom: 2vh;
+  justify-content: end;
   text-align: end;
 }
 
 
 
-.shirloggtwo{
-  display: flex;
-  margin-left: 4%;
-}
-.shirloggtwo img{
-  background-color: black;
-  background: 50%;
-  height: 4vh;
-  width:2%;
-}
-
-.shirloggtwo h5{
-  margin-top: 2px;
-  padding-top: 0%;
-}
-
-.phoneopicc{
-  margin-bottom: 2vh;
-}
-
 .phoneopicc img{
-  width: 18%;
+  width: 25%;
   padding-top: 0%;
   margin-top: 0%;
+  animation: trackingBe 1.5s infinite;
 }
 
 
+@keyframes trackingBe {
+
+  0%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(3, 142, 248, 0.7);
+  }
+
+  50%{
+    transform: scale(1.1);
+    box-shadow: 0 0 0px 0px rgba(4, 52, 242, 0.3);
+  }
+
+  100%{
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 247, 0, 0);
+  }
+
+}
 
 /* MAP */
 
 .shiprlift-contactpage-map{
-margin-top:5px;
+margin-top:11vh;
 border: 1px solid black;
 box-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
@@ -316,6 +377,18 @@ flex-wrap:nowrap;
   display: none;
 } 
 
+.shiprlift-contactpage-slider{
+width:8%;
+border: none;
+border-radius: 90%;
+margin-top:3vh;
+margin-left: 15%;
+}
+
+.shiprlift-contactpage-slide img{
+width:100%;
+margin-top: 0vh;
+}
 
 .shiprlift-contactpage-buttons{
 margin-top:15px;
@@ -346,6 +419,8 @@ border-radius:4px;
   width: 1100%;
 }
 
+
+
 .info p{
   text-align: center;
   font-family: initial;
@@ -360,16 +435,42 @@ align-items:center;
 .shiprlift-contactpage-forms{
 flex-direction:column;
 display: grid;
+
 align-items:center;
+}
+
+.ikk{
+  height: 100vh;
+  color: white;
+  background-color: black;
 }
 
 
 .shiprlift-contactpage-formbox{
-width:95%;
+ width:95%;
+}
+
+
+  .phone-icon {
+    color: white;
+  }
+
+  
+  .mail-icon {
+    color: white;     /* mobile view */
+  }
+
+.phoneopicc{
+  display: block;
+  margin-top: 0vh;
+}
+
+.phoneopicc img{
+width:50%;
 }
 
 .shiprlift-contactpage-map{
-  margin-top: 3px;
+  margin-top: 90vh;
 }
 
 }

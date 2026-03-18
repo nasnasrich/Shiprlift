@@ -3,8 +3,10 @@ import "./Contact.css";
 import ShiprliftFilter from "./ShiprliftFilter";
 import { Link } from "react-router-dom";
 
+import MailIcon from '@mui/icons-material/Mail';
+import PhoneIcon from '@mui/icons-material/Phone';
+
 import mrshir from "../assets/mrshir.jpg";
-import mailwith from "../assets/mailwith.png";
 
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -13,7 +15,6 @@ import slide1 from "../assets/newig.jpg";
 import slide2 from "../assets/mapbep.png";
 import slide3 from "../assets/tergem.png"; 
 
-import badphone from "../assets/badphone.png";
 import phoneblack from "../assets/phoneblack.png";
 
 
@@ -97,18 +98,21 @@ const ContactPage = () => {
           {/* SLIDER */}
 
           <div className="shiprlift-contactpage-slider">
-
-            <Slide duration={3000} arrows={false} autoplay>
-
-              {images.map((img, index) => (
-                <div key={index} className="shiprlift-contactpage-slide">
-                  <img src={img} alt="slide" />
-                </div>
-              ))}
-
-            </Slide>
-
-          </div>
+            <Slide
+                duration={300}
+                transitionDuration={200}
+                arrows={false}
+                autoplay
+                pauseOnHover={false}
+                infinite={true}
+                >
+                {images.map((img, index) => (
+                    <div key={index} className="shiprlift-contactpage-slide">
+                    <img src={img} alt="slide" />
+                    </div>
+                ))}
+                </Slide>
+            </div>
 
         </div>
 
@@ -230,24 +234,33 @@ const ContactPage = () => {
 
             <h3>
             Read more about our privacy notice{" "}
-            <Link to="/privacy" className="privacy-arrow">→</Link>
+            <Link to="/PrivacyNotice" className="privacy-arrow">→</Link>
             </h3>
         <h1>Contact Global HQ</h1>
 
         <div className="shirlogg">
-          <img src={badphone} alt="shirlogo"/>
-          <h5>+ 1 985-463-5331</h5>
-        </div>
-        
-         <div className="shirloggtwo">
-            <img src={mailwith} alt="shirlogo"/>
-            <h7>shiprlift@gmail.com</h7>
-        </div>
-        
+         <div className="shitwo">
+          <PhoneIcon className="phone-icon" />          
+         <h5>+ 1 985-463-5331</h5>
+         </div>
 
-        <div className="phoneopicc">
+          <div className="shione">
+            <MailIcon className="mail-icon" />           
+            <h6>shiprlift@gmail.com</h6>
+          </div>
+        </div>
+        
+         {/* <div>
+           <img src={mailwith} alt="shirlogo"/>
+            <h7>shiprlift@gmail.com</h7>
+         </div> */}
+
+             <div className="phoneopicc">
             <img src={phoneblack} ait="phoneo"/>
           </div>
+        
+
+       
         </div>
        </div>
 
