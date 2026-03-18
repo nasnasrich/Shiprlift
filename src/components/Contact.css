@@ -106,6 +106,12 @@ background: white;
   font-family: monospace;
 }
 
+
+.info:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
 .shiprlift-contactpage-info{
 display:flex;
 margin-top: 4px;
@@ -132,6 +138,8 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 color: white;
 }
 
+
+
 .shiprlift-contactpage-card p{
  color: white;
  font-family: inherit;
@@ -152,6 +160,10 @@ padding:40px 20px;
   text-decoration: underline;
 }
 
+.shiprlift-contactpage-why h1:hover{
+  color:blue;
+}
+
 .shiprlift-contactpage-whygrid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -161,15 +173,26 @@ background-color: antiquewhite;
 }
 
 .shiprlift-contactpage-whycard{
-background:white;
+background-color: rgb(4, 4, 104);
+color: white;
 padding:20px;
 border-radius:6px;
 box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
+.shiprlift-contactpage-whycard:hover{
+  background-color: rgb(4, 4, 104);
+  color: white;
+  transform: translateY(-2px);
+}
+
 .shiprlift-contactpage-whycard p{
   font-family:monospace;
   text-decoration: underline;  
+}
+
+.shiprlift-contactpage-whycard p:hover{
+  transform: translateY(-2px);
 }
 
 
@@ -195,16 +218,17 @@ flex-direction:column;
 gap:15px;
 margin-top:15px;
 }
-
+.lk{  background-color: antiquewhite;
+}
 .ikk{
   flex: 1;
   justify-content: center;
   padding-left: 5%;
-  /* background-color: antiquewhite; */
+  background-color: antiquewhite;
   /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
   padding-right: 5%;
   color: black;
-  height: 83vh;
+  height: 78vh;
 }
 
 .lk h2{
@@ -214,9 +238,19 @@ margin-top:15px;
   text-align: center;
 }
 
+.lk h2:hover{
+  color: blue;
+  text-decoration: underline;
+}
+
 .lk p{
   text-align: center;
   font-family: initial;
+}
+
+.lk p:hover{
+  color: blue;
+  text-decoration: underline;
 }
 
 .lk h3{
@@ -224,8 +258,19 @@ margin-top:15px;
   font-family: monospace;
 }
 
+.lk h3:hover{
+  text-decoration: underline;
+  color: blue;
+}
+
 .ikk h1{
+  text-decoration: underline;
   text-align: center;
+}
+
+.lk h1:hover{
+  color: blue;
+  text-decoration: underline;
 }
 
 .privacy-arrow {
@@ -256,8 +301,9 @@ margin-top:15px;
   margin-right: 8px; /* space between icon and number */
 }
 
-
-
+.phone-icon:hover{
+  transform: translateY(-2px);
+}
 
 
 .shirlogg h5{
@@ -265,20 +311,39 @@ margin-top:15px;
   padding-top: 0%;
 }
 
+.shirlogg h5:hover{
+  color:blue;
+  /* text-decoration: underline; */
+}
+
 .shione {
   display: flex;
 }
+
 .mail-icon{
   color: black;
   margin-top:4px;
   font-size: 15px !important;
 }
 
+.mail-icon:hover{
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+
 .shirlogg h6{
   margin-top: 0px;
   font-size: 15px;
   padding-left: 2px;
 }
+
+.shirlogg h6:hover{
+  color:blue;
+  text-decoration: underline;
+}
+
+
 
 .shitwo{
   display: flex;
@@ -414,6 +479,11 @@ border-radius:4px;
   width: 85%;
 }
 
+.shiprlift-contactpage-whycard{
+background: white;
+color: black;
+}
+
 .shiprlift-contactpage-herotext{
   /* background-color: aqua; */
   width: 1100%;
@@ -432,6 +502,10 @@ align-items:center;
 }
 
 
+.shiprlift-contactpage-formbox{
+ margin-left:2%;
+}
+
 .shiprlift-contactpage-forms{
 flex-direction:column;
 display: grid;
@@ -439,6 +513,9 @@ display: grid;
 align-items:center;
 }
 
+
+.lk{  background-color:transparent;
+}
 .ikk{
   height: 93vh;
   color: white;
