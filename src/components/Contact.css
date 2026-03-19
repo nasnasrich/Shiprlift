@@ -83,15 +83,15 @@ animation: trackingBee 1.5s infinite;
 /* SLIDER */
 
 .shiprlift-contactpage-slider{
-width:4%;
-border: none;
+width:10%;
+border: transparent;
 border-radius: 90%;
 margin-top:0px;
 margin-left: 15%;
 }
 
 .shiprlift-contactpage-slide img{
-width:100%;
+width:29%;
 margin-top: 0vh;
 /* height:30px; */
 border-radius: 50%;
@@ -204,6 +204,8 @@ display:flex;
 height: 80vh;
 margin-bottom: 0%;
 gap:10px;
+padding-right: 1%;
+padding-left: 2px;
 /* flex-wrap:wrap; */
 }
 
@@ -218,17 +220,20 @@ flex-direction:column;
 gap:15px;
 margin-top:15px;
 }
-.lk{  background-color: antiquewhite;
+.lk{    background-color: black;
+  border-radius: 1%;
 }
 .ikk{
   flex: 1;
-  justify-content: center;
+  justify-content: end;
   padding-left: 5%;
-  background-color: antiquewhite;
+  /* background-color: rgb(121, 109, 94); */
+  background-color: black;
   /* box-shadow: 2px 2px 2px rgb(0, 0, 0); */
   padding-right: 5%;
-  color: black;
-  height: 78vh;
+  color:white ;
+  height: 77vh;
+  border-radius: 1%;
 }
 
 .lk h2{
@@ -260,7 +265,6 @@ margin-top:15px;
 
 .lk h3:hover{
   text-decoration: underline;
-  color: blue;
 }
 
 .ikk h1{
@@ -355,7 +359,7 @@ margin-top:15px;
 .phoneopicc{
   margin-top: 0%;
   padding-top: 0%;
-  display: none;
+  /* display: none; */
   text-align: end;
   margin-bottom: 2vh;
   justify-content: end;
@@ -365,9 +369,9 @@ margin-top:15px;
 
 
 .phoneopicc img{
-  width: 25%;
+  width:8%;
   padding-top: 0%;
-  margin-top: 0%;
+  margin-top: 0vh;
   animation: trackingBe 1.5s infinite;
 }
 
@@ -451,7 +455,7 @@ margin-left: 15%;
 }
 
 .shiprlift-contactpage-slide img{
-width:100%;
+width:50%;
 margin-top: 0vh;
 }
 
@@ -509,18 +513,20 @@ align-items:center;
 .shiprlift-contactpage-forms{
 flex-direction:column;
 display: grid;
-
+padding: 0%;
 align-items:center;
 }
 
 
 .lk{  background-color:transparent;
+  border-radius:0%;
 }
 .ikk{
   height: 93vh;
   color: white;
   box-shadow: 2px 2px 2px rgb(0, 0, 0);
   background-color: black;
+  border-radius: 0%;
 }
 
 

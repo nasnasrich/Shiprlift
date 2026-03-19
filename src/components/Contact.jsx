@@ -99,7 +99,7 @@ const ContactPage = () => {
 
           <div className="shiprlift-contactpage-slider">
             <Slide
-                duration={300}
+                duration={100}
                 transitionDuration={200}
                 arrows={false}
                 autoplay
