@@ -222,7 +222,7 @@ export default function ResponsiveAppBar() {
 
               {/* Language Selector */}
               <MenuItem onClick={handleOpenLangMenu}>
-                <Typography textAlign="center">🌐Language</Typography>
+                <Typography textAlign="center">Language</Typography>
               </MenuItem>
             </Menu>
           </Box>
