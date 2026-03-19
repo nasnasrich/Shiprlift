@@ -23,21 +23,33 @@ const pages = [
   { name: "Our Services", path: "/OurServices" },
 ];
 
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-const settings = [
-  { name: "Track", path: "/Track" }
-];
-
-
-function ResponsiveAppBar() {
+export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElLang, setAnchorElLang] = React.useState(null);
 
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
-  const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
+
+  const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
+
+  const handleOpenLangMenu = (event) => setAnchorElLang(event.currentTarget);
+  const handleCloseLangMenu = () => setAnchorElLang(null);
+
+  // Initialize Google Translate when Language menu opens
+  React.useEffect(() => {
+    if (anchorElLang) {
+      setTimeout(() => {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement(
+            { pageLanguage: "en", autoDisplay: false },
+            "google_translate_element"
+          );
+        }
+      }, 500);
+    }
+  }, [anchorElLang]);
 
   return (
     <AppBar
@@ -48,7 +60,7 @@ function ResponsiveAppBar() {
         paddingTop: 0,
         boxShadow:
           "2px 3px 1px rgba(30,30,31), inset 0 0 5px rgba(25,25,26,0.22)",
-        height: { xs: 50, md: 60}, // <-- Reduced height on mobile
+        height: { xs: 50, md: 60 },
       }}
     >
       <Container maxWidth="xl">
@@ -57,16 +69,14 @@ function ResponsiveAppBar() {
           <Box
             component="img"
             src={profilnew}
-            alt="User Icon"
+            alt="Logo"
             sx={{
               display: { xs: "none", md: "flex" },
               width: 19,
               borderRadius: "50%",
               mr: 1,
-              marginRight: 1,
             }}
           />
-
           <Typography
             variant="h5"
             noWrap
@@ -137,15 +147,13 @@ function ResponsiveAppBar() {
           >
             <img
               src={profilnew}
-              alt="User Icon"
+              alt="Logo"
               style={{ width: 16, borderRadius: "50%" }}
             />
-
             <Typography
               variant="h6"
               sx={{
-                fontFamily:"-moz-initial",
-                textDecoration:"solid",
+                fontFamily: "-moz-initial",
                 fontSize: 18,
                 fontWeight: 700,
                 letterSpacing: ".0rem",
@@ -157,33 +165,23 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Desktop Pages */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: "center", marginRight: 100 } }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
                 component={Link}
                 to={page.path}
-                onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
-                  fontSize:18,
-                  fontFamily:"monospace",
+                  fontSize: 20,
                   color: "white",
-                  display: "block",
-                  position: "relative",
                   textTransform: "none",
-                  "&:hover": { backgroundColor: "transparent" },
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: "0%",
-                    height: "2px",
-                    left: 0,
-                    bottom: 4,
-                    backgroundColor: "white",
-                    transition: "0.3s",
+                  fontFamily:"emoji", // <-- font family
+                  backgroundColor: "transparent",
+                  "&:hover": {
+                    textDecoration: "underline", // underline only under text
+                    backgroundColor: "transparent", // keep button background clean
                   },
-                  "&:hover::after": { width: "100%" },
                 }}
               >
                 {page.name}
@@ -191,18 +189,19 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          {/* User Menu */}
-          <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
-            <Tooltip title="Open settings">
+          {/* User Icon */}
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open Menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <img
                   src={compas}
-                  alt="User Icon"
+                  alt="User Menu"
                   style={{ width: 30, borderRadius: "50%" }}
                 />
               </IconButton>
             </Tooltip>
 
+            {/* User Menu Dropdown */}
             <Menu
               sx={{ mt: "45px" }}
               anchorEl={anchorElUser}
@@ -212,22 +211,39 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                  <MenuItem
-                    key={setting.name}
-                    component={Link}
-                    to={setting.path}
-                    onClick={handleCloseUserMenu}
-                  >
-                    <Typography textAlign="center">{setting.name}</Typography>
-                  </MenuItem>
-                ))}
+              {/* Track Page */}
+              <MenuItem
+                component={Link}
+                to="/Track"
+                onClick={handleCloseUserMenu}
+              >
+                <Typography textAlign="center">Track</Typography>
+              </MenuItem>
+
+              {/* Language Selector */}
+              <MenuItem onClick={handleOpenLangMenu}>
+                <Typography textAlign="center">🌐Language</Typography>
+              </MenuItem>
             </Menu>
           </Box>
+
+          {/* Language Menu */}
+          <Menu
+            anchorEl={anchorElLang}
+            open={Boolean(anchorElLang)}
+            onClose={handleCloseLangMenu}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <MenuItem>
+              <div style={{ minWidth: 200 }}>
+                <Typography variant="subtitle1">Select Language</Typography>
+                <div id="google_translate_element"></div>
+              </div>
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
-
-export default ResponsiveAppBar;
