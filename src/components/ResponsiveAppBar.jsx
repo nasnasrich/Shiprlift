@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import compas from "../assets/compas.jpg";
 import profilnew from "../assets/profilnew.png";
 
+import { useLanguage } from "./LanguageContext"; // ✅ import your context
+
 const pages = [
   { name: "About", path: "/About" },
   { name: "Contact", path: "/Contact" },
@@ -26,7 +28,6 @@ const pages = [
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [anchorElLang, setAnchorElLang] = React.useState(null);
 
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
@@ -34,22 +35,7 @@ export default function ResponsiveAppBar() {
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
-  const handleOpenLangMenu = (event) => setAnchorElLang(event.currentTarget);
-  const handleCloseLangMenu = () => setAnchorElLang(null);
-
-  // Initialize Google Translate when Language menu opens
-  React.useEffect(() => {
-    if (anchorElLang) {
-      setTimeout(() => {
-        if (window.google && window.google.translate) {
-          new window.google.translate.TranslateElement(
-            { pageLanguage: "en", autoDisplay: false },
-            "google_translate_element"
-          );
-        }
-      }, 500);
-    }
-  }, [anchorElLang]);
+  const { lang, setLang } = useLanguage(); // ✅ get lang and setter
 
   return (
     <AppBar
@@ -165,7 +151,12 @@ export default function ResponsiveAppBar() {
           </Box>
 
           {/* Desktop Pages */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: "center", marginRight: 100 } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", justifyContent: "center", marginRight: 100 },
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page.name}
@@ -176,11 +167,11 @@ export default function ResponsiveAppBar() {
                   fontSize: 20,
                   color: "white",
                   textTransform: "none",
-                  fontFamily:"emoji", // <-- font family
+                  fontFamily: "emoji",
                   backgroundColor: "transparent",
                   "&:hover": {
-                    textDecoration: "underline", // underline only under text
-                    backgroundColor: "transparent", // keep button background clean
+                    textDecoration: "underline",
+                    backgroundColor: "transparent",
                   },
                 }}
               >
@@ -203,45 +194,39 @@ export default function ResponsiveAppBar() {
 
             {/* User Menu Dropdown */}
             <Menu
-              sx={{ mt: "45px" }}
               anchorEl={anchorElUser}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              keepMounted
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
             >
               {/* Track Page */}
-              <MenuItem
-                component={Link}
-                to="/Track"
-                onClick={handleCloseUserMenu}
-              >
+              <MenuItem component={Link} to="/Track" onClick={handleCloseUserMenu}>
                 <Typography textAlign="center">Track</Typography>
               </MenuItem>
 
-              {/* Language Selector */}
-              <MenuItem onClick={handleOpenLangMenu}>
+              {/* Language Selector Dropdown */}
+              <MenuItem>
                 <Typography textAlign="center">Language</Typography>
+                <select
+                  value={lang}
+                  onChange={(e) => setLang(e.target.value)}
+                  style={{
+                    marginTop: 5,
+                    width: "100%",
+                    padding: "4px",
+                    borderRadius: 4,
+                    border: "1px solid #ccc",
+                  }}
+                >
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                </select>
               </MenuItem>
             </Menu>
           </Box>
-
-          {/* Language Menu */}
-          <Menu
-            anchorEl={anchorElLang}
-            open={Boolean(anchorElLang)}
-            onClose={handleCloseLangMenu}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-          >
-            <MenuItem>
-              <div style={{ minWidth: 200 }}>
-                <Typography variant="subtitle1">Select Language</Typography>
-                <div id="google_translate_element"></div>
-              </div>
-            </MenuItem>
-          </Menu>
         </Toolbar>
       </Container>
     </AppBar>

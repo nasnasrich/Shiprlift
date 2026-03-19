@@ -8,33 +8,30 @@ import Contact from "./components/Contact.jsx";
 import OurServices from "./components/OurServices.jsx";
 import ContactPage from "./components/ContactPage.jsx";
 import PrivacyNotice from "./components/PrivacyNotice";
-import { LanguageProvider } from "./components/LanguageContext.jsx"; // ✅ IMPORTANT
-
-// TEMP PAGES
-// const About = () => <h2 style={{ padding: 40 }}>About Page</h2>;
-// const Contact = () => <h2 style={{ padding: 40 }}>Contact Page</h2>;
-// const OurServices = () => <h2 style={{ padding: 40 }}>Our Services</h2>;
+import { LanguageProvider } from "./components/LanguageContext.jsx"; // ✅ Important
 
 function App() {
   return (
     <LanguageProvider>
-      <ResponsiveAppBar />
+      {/* React Fragment to wrap multiple top-level elements */}
+      <>
+        <ResponsiveAppBar />
+        <Routes>
+          <Route path="/" element={<ShiprliftHome />} />
+          <Route path="/Track" element={<Track />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/OurServices" element={<OurServices />} />
+          <Route path="/ContactPage" element={<ContactPage />} />
+          <Route path="/PrivacyNotice" element={<PrivacyNotice />} />
 
-      <Routes>
-        <Route path="/" element={<ShiprliftHome />} />
-        <Route path="/Track" element={<Track />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/OurServices" element={<OurServices />} />
-        <Route path="/ContactPage" element={<ContactPage />} />
-        <Route path="/PrivacyNotice" element={<PrivacyNotice />} />
-
-        {/* SAFETY NET */}
-        <Route
-          path="*"
-          element={<h2 style={{ padding: 40 }}>Page not found</h2>}
-        />
-      </Routes>
+          {/* SAFETY NET */}
+          <Route
+            path="*"
+            element={<h2 style={{ padding: 40 }}>Page not found</h2>}
+          />
+        </Routes>
+      </>
     </LanguageProvider>
   );
 }

@@ -1,32 +1,16 @@
-import { createContext, useState, useContext } from "react";
-import { translations } from "./translations";
+import React, { createContext, useContext, useState } from "react";
 
-export const LanguageContext = createContext();
+const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState(
-    localStorage.getItem("lang") || "en"
-  );
-
-  const changeLanguage = (newLang) => {
-    setLang(newLang);
-    localStorage.setItem("lang", newLang);
-  };
+  const [lang, setLang] = useState("en"); // default language
 
   return (
-    <LanguageContext.Provider
-      value={{
-        lang,
-        setLang: changeLanguage,
-        t: translations[lang],
-      }}
-    >
+    <LanguageContext.Provider value={{ lang, setLang }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-// ✅ THIS WAS MISSING
-export const useLanguage = () => {
-  return useContext(LanguageContext);
-};
+// Custom hook
+export const useLanguage = () => useContext(LanguageContext);
