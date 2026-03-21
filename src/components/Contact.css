@@ -70,7 +70,7 @@ animation: trackingBee 1.5s infinite;
 
   50%{
     transform: scale(1.1);
-    box-shadow: 0 0 0px 5px rgba(4, 52, 242, 0.3);
+    box-shadow: 0 0 0px 2px rgb(197, 197, 1);
   }
 
   100%{
@@ -587,10 +587,12 @@ align-items:center;
 .phoneopicc{
   display: block;
   margin-top: 0vh;
+  margin-right: 0%;
+   padding-right: 0%;
 }
 
 .phoneopicc img{
-width:50%;
+   width:40%;
 }
 
 .shiprlift-contactpage-map{

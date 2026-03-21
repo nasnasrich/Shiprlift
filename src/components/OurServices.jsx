@@ -316,6 +316,7 @@ const OurServices = () => {
 
       <div className="imgesout">
         <h5>...</h5>
+        <div className="imgesoutP"><p>Over a Decade of Unmatched Cargo Handling Proficiency</p></div>
       </div>
 
       {/* PROCESS SECTION */}
