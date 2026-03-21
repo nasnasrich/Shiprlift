@@ -10,11 +10,11 @@ import SecurityIcon from "@mui/icons-material/Security";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import PublicIcon from "@mui/icons-material/Public";
 
+
 import bus from "../assets/bus.jpg";
 import { Link } from "react-router-dom";
 
-import { useLanguage } from "./LanguageContext";
-
+// 
 const cardsData = [
   {
     id: 1,
@@ -118,7 +118,6 @@ const couriers = [
 ];
 
 const OurServices = () => {
-  const { lang } = useLanguage(); // ✅ language from context
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("Hello, I want to request a shipping quote.");
 
@@ -179,11 +178,11 @@ const OurServices = () => {
                   </Box>
 
                   <Typography variant="h6" gutterBottom>
-                    {card.title[lang]}
+                    {card.title.en}
                   </Typography>
 
                   <Typography variant="body2" color="text.secondary">
-                    {card.description[lang]}
+                    {card.description.en}
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -316,7 +315,7 @@ const OurServices = () => {
 
       <div className="imgesout">
         <h5>...</h5>
-        <div className="imgesoutP"><p>Over a Decade of Unmatched Cargo Handling Proficiency</p></div>
+        <div className="imgesoutP"><p>More Than 10 Years Mastering Secure Cargo Transport</p></div>
       </div>
 
       {/* PROCESS SECTION */}

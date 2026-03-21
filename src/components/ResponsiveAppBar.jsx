@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,15 +8,12 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import { Link } from "react-router-dom";
 
 import compas from "../assets/compas.jpg";
 import profilnew from "../assets/profilnew.png";
-
-import { useLanguage } from "./LanguageContext"; // ✅ import your context
 
 const pages = [
   { name: "About", path: "/About" },
@@ -26,16 +23,14 @@ const pages = [
 ];
 
 export default function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
 
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
-
-  const { lang, setLang } = useLanguage(); // ✅ get lang and setter
 
   return (
     <AppBar
@@ -181,52 +176,23 @@ export default function ResponsiveAppBar() {
           </Box>
 
           {/* User Icon */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open Menu">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <img
-                  src={compas}
-                  alt="User Menu"
-                  style={{ width: 30, borderRadius: "50%" }}
-                />
-              </IconButton>
-            </Tooltip>
+          <IconButton  onClick={handleOpenUserMenu}>
+            <Link to="/Track" style={{ textDecoration: "none", color: "inherit" }}>
+              <img src={compas} alt="User Menu" style={{ width: 30, borderRadius: "50%" }} />
+            </Link>
+          </IconButton>
 
-            {/* User Menu Dropdown */}
-            <Menu
-              anchorEl={anchorElUser}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              anchorOrigin={{ vertical: "top", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              {/* Track Page */}
-              <MenuItem component={Link} to="/Track" onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">Track</Typography>
-              </MenuItem>
-
-              {/* Language Selector Dropdown */}
-              <MenuItem>
-                <Typography textAlign="center">Language</Typography>
-                <select
-                  value={lang}
-                  onChange={(e) => setLang(e.target.value)}
-                  style={{
-                    marginTop: 5,
-                    width: "100%",
-                    padding: "4px",
-                    borderRadius: 4,
-                    border: "1px solid #ccc",
-                  }}
-                >
-                  <option value="en">English</option>
-                  <option value="es">Spanish</option>
-                  <option value="fr">French</option>
-                  <option value="de">German</option>
-                </select>
-              </MenuItem>
-            </Menu>
-          </Box>
+          {/* <Menu
+            anchorEl={anchorElUser}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <MenuItem component={Link} to="/Track" onClick={handleCloseUserMenu}>
+              <Typography textAlign="center">Track</Typography>
+            </MenuItem>
+          </Menu> */}
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,11 +1,7 @@
-.goog-te-gadget {
-  font-size: 14px !important;
-}
-
-.goog-te-gadget-simple {
-  border: none !important;
-}
-
-.goog-te-menu-value span {
-  color: black !important; /* change to white if your menu is dark */
+.goog-te-combo {
+  width: 100% !important;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }

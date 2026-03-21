@@ -8,12 +8,10 @@ import Contact from "./components/Contact.jsx";
 import OurServices from "./components/OurServices.jsx";
 import ContactPage from "./components/ContactPage.jsx";
 import PrivacyNotice from "./components/PrivacyNotice";
-import { LanguageProvider } from "./components/LanguageContext.jsx"; // ✅ Important
+// import { LanguageProvider } from "./components/LanguageContext.jsx"; // ✅ Important
 
 function App() {
   return (
-    <LanguageProvider>
-      {/* React Fragment to wrap multiple top-level elements */}
       <>
         <ResponsiveAppBar />
         <Routes>
@@ -32,7 +30,6 @@ function App() {
           />
         </Routes>
       </>
-    </LanguageProvider>
   );
 }
 
