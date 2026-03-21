@@ -447,15 +447,16 @@ flex-wrap:nowrap;
 } 
 
 .shiprlift-contactpage-slider{
-width:8%;
-border: none;
+width:6%;
+background: transparent;
+border: transparent;
 border-radius: 90%;
 margin-top:3vh;
 margin-left: 15%;
 }
 
 .shiprlift-contactpage-slide img{
-width:50%;
+width:70%;
 margin-top: 0vh;
 }
 
@@ -544,6 +545,11 @@ align-items:center;
   padding: 0%;
   margin: 0%;
   font-family: initial;
+}
+
+.lk p:hover{
+  color: white;
+  text-decoration: underline;
 }
 
 .lk h3{
