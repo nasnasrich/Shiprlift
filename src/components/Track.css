@@ -1,9 +1,10 @@
 .smart-tracking-page {
   min-height: 100vh;
-  margin-top: 1vh;
+  margin-top: 3px;
   /* width: 100; */
   margin-bottom: 1vh;
-  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+  background-color:#faf5f5;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   padding: 40px 16px;
@@ -20,10 +21,19 @@
   max-width: 1200px;
 }
 
+
+.shipment{
+  display: flex;
+  gap: 1%;
+  justify-content: center;
+}
+
 .smart-panel h1{
   font-family: 'Times New Roman', Times, serif;
   text-decoration: underline;
   color: black;
+  text-align: center;
+  margin-top: 0%;
 }
 
 .tracking-guide p{
@@ -61,24 +71,23 @@
 .info-card {
   background-color: #02c0c6;
   padding: 16px;
+  width: 55%;
+  padding-top: 8vh;
   border-radius: 4px;
   margin-bottom: 16px;
   box-shadow: transparent;
   box-shadow: 4px 4px 5px rgb(0, 0, 0);
-  background-image: url(../assets/comply.jpg);
-   /* filter: brightness(40%); */
- 
-  background-repeat: no-repeat;
-  background-size: cover;
-
+  /* background-image: url(../assets/mapdet.jpg); */
+  text-align: center;
 }
 
 .info-card h3{
+  margin-top: 0%;
   margin-bottom: 0%;
   font-family: initial;
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: underline;
-  color: white;
+  color:black;
 }
 
 
@@ -94,7 +103,7 @@
 }
 
 .info-card p:hover{
-  text-decoration-color:white ;
+  text-decoration-color:black;
 }
 
 .smart-map-wrapper {
@@ -132,6 +141,27 @@
 
   /* Mobile */
 @media (max-width: 560px) {
+
+
+.shipment{
+  display: grid;
+  justify-content: start;
+  margin-bottom: 3vh;
+}
+
+.shipment-info,
+.info-card {
+  background-color: #02c0c6;
+  padding: 16px;
+  width: 122%;
+  padding-top: 8vh;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  box-shadow: transparent;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+  /* background-image: url(../assets/mapdet.jpg); */
+  text-align: center;
+}
 
 .tracking-guide p{
   width: 75%;

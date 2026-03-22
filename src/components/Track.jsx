@@ -254,7 +254,8 @@ const Track = () => {
     <div className="smart-tracking-page">
       <div className="smart-panel">
         <h1>Shipment Tracking</h1>
-
+   
+   <div className="shipment">
         <div className="info-card">
           <h3>Receiver Information</h3>
           <p><strong>Name:</strong> {shipment.receiver.name}</p>
@@ -286,6 +287,7 @@ const Track = () => {
             </div>
           ))}
         </div>
+    </div>
 
         <div className="smart-map-wrapper">
           <MapContainer className="smart-map" center={[20, -30]} zoom={3}>

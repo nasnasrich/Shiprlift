@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,6 +8,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import { Link } from "react-router-dom";
@@ -22,14 +23,20 @@ const pages = [
   { name: "Our Services", path: "/OurServices" },
 ];
 
-export default function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const settings = [
+  { name: "Track", path: "/Track" }
+];
+
+
+function ResponsiveAppBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
-  const handleCloseNavMenu = () => setAnchorElNav(null);
-
   const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
+  const handleCloseNavMenu = () => setAnchorElNav(null);
   const handleCloseUserMenu = () => setAnchorElUser(null);
 
   return (
@@ -41,7 +48,7 @@ export default function ResponsiveAppBar() {
         paddingTop: 0,
         boxShadow:
           "2px 3px 1px rgba(30,30,31), inset 0 0 5px rgba(25,25,26,0.22)",
-        height: { xs: 50, md: 60 },
+        height: { xs: 50, md: 60}, // <-- Reduced height on mobile
       }}
     >
       <Container maxWidth="xl">
@@ -50,14 +57,16 @@ export default function ResponsiveAppBar() {
           <Box
             component="img"
             src={profilnew}
-            alt="Logo"
+            alt="User Icon"
             sx={{
               display: { xs: "none", md: "flex" },
               width: 19,
               borderRadius: "50%",
               mr: 1,
+              marginRight: 1,
             }}
           />
+
           <Typography
             variant="h5"
             noWrap
@@ -128,13 +137,15 @@ export default function ResponsiveAppBar() {
           >
             <img
               src={profilnew}
-              alt="Logo"
+              alt="User Icon"
               style={{ width: 16, borderRadius: "50%" }}
             />
+
             <Typography
               variant="h6"
               sx={{
-                fontFamily: "-moz-initial",
+                fontFamily:"-moz-initial",
+                textDecoration:"solid",
                 fontSize: 18,
                 fontWeight: 700,
                 letterSpacing: ".0rem",
@@ -146,28 +157,33 @@ export default function ResponsiveAppBar() {
           </Box>
 
           {/* Desktop Pages */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex", justifyContent: "center", marginRight: 100 },
-            }}
-          >
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page.name}
                 component={Link}
                 to={page.path}
+                onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
-                  fontSize: 20,
+                  fontSize:18,
+                  fontFamily:"monospace",
                   color: "white",
+                  display: "block",
+                  position: "relative",
                   textTransform: "none",
-                  fontFamily: "emoji",
-                  backgroundColor: "transparent",
-                  "&:hover": {
-                    textDecoration: "underline",
-                    backgroundColor: "transparent",
+                  "&:hover": { backgroundColor: "transparent" },
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    width: "0%",
+                    height: "2px",
+                    left: 0,
+                    bottom: 4,
+                    backgroundColor: "white",
+                    transition: "0.3s",
                   },
+                  "&:hover::after": { width: "100%" },
                 }}
               >
                 {page.name}
@@ -175,26 +191,46 @@ export default function ResponsiveAppBar() {
             ))}
           </Box>
 
-          {/* User Icon */}
-          <IconButton  onClick={handleOpenUserMenu}>
-            <Link to="/Track" style={{ textDecoration: "none", color: "inherit" }}>
-              <img src={compas} alt="User Menu" style={{ width: 30, borderRadius: "50%" }} />
-            </Link>
-          </IconButton>
+          {/* User Menu */}
+          <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
+            {/* <Tooltip title="Open settings"> */}
+            <Tooltip title="Track Shipment">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Link to="/Track"> 
+                <img
+                  src={compas}
+                  alt="User Icon"
+                  style={{ width: 30, borderRadius: "50%" }}
+                />
+                </Link>
+              </IconButton>
+            </Tooltip>
 
-          {/* <Menu
-            anchorEl={anchorElUser}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-          >
-            <MenuItem component={Link} to="/Track" onClick={handleCloseUserMenu}>
-              <Typography textAlign="center">Track</Typography>
-            </MenuItem>
-          </Menu> */}
+            {/* <Menu
+              sx={{ mt: "45px" }}
+              anchorEl={anchorElUser}
+              anchorOrigin={{ vertical: "top", horizontal: "right" }}
+              keepMounted
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                  <MenuItem
+                    key={setting.name}
+                    component={Link}
+                    to={setting.path}
+                    onClick={handleCloseUserMenu}
+                  >
+                    <Typography textAlign="center">{setting.name}</Typography>
+                  </MenuItem>
+                ))}
+            </Menu> */}
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
+export default ResponsiveAppBar;
