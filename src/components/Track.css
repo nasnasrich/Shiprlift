@@ -70,6 +70,10 @@
   font-weight: 600;
 }
 
+.center-title {
+  text-align: center !important;
+}
+
 .shipment-info,
 .info-card {
   background-color: #02c0c6;
@@ -153,7 +157,10 @@
   text-decoration: underline;
   text-align:start;
   margin-top: 0%;
+}
 
+.center-title {
+  text-align: center !important;
 }
 
 .shipment{

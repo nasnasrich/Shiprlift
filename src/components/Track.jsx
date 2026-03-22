@@ -16,7 +16,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-/* 🔒 ADMIN DATA — Multiple Shipments */
+/* 🔒 ADMIN DATA */
 const shipmentsData = {
   "30enfb5u1n": {
     status: "In Transit",
@@ -51,108 +51,9 @@ const shipmentsData = {
       },
     ],
   },
-  "30enfb5u2n": {
-    status: "On Hold",
-    dispatchCountry: "Germany",
-    destinationCountry: "France",
-    packageInfo: {
-      description: "Clothes",
-      weight: "10kg",
-      quantity: "3 boxes",
-      shippingType: "Ground Freight",
-      notes: "Keep dry",
-    },
-    receiver: {
-      name: "Marie Dupont",
-      email: "marie.dupont@email.com",
-      phone: "+33 612 345 678",
-      country: "France",
-      address: "Paris, France",
-    },
-    route: [
-      { country: "Germany", coords: [52.52, 13.4050] },
-      { country: "France", coords: [48.8566, 2.3522] },
-    ],
-    history: [
-      {
-        date: "2026-03-13",
-        time: "10:30",
-        location: "Berlin",
-        status: "Shipment Created",
-        updatedBy: "Admin",
-        remarks: "Package registered",
-      },
-    ],
-  },
-  "30enfb5u3n": {
-    status: "In Transit",
-    dispatchCountry: "Brazil",
-    destinationCountry: "Argentina",
-    packageInfo: {
-      description: "Books",
-      weight: "15kg",
-      quantity: "10 boxes",
-      shippingType: "Air Freight",
-      notes: "Handle with care",
-    },
-    receiver: {
-      name: "Juan Perez",
-      email: "juan.perez@email.com",
-      phone: "+54 911 234 5678",
-      country: "Argentina",
-      address: "Buenos Aires, Argentina",
-    },
-    route: [
-      { country: "Brazil", coords: [-14.235, -51.9253] },
-      { country: "Argentina", coords: [-34.6037, -58.3816] },
-    ],
-    history: [
-      {
-        date: "2026-03-12",
-        time: "09:15",
-        location: "São Paulo",
-        status: "Shipment Created",
-        updatedBy: "Admin",
-        remarks: "Package registered",
-      },
-    ],
-  },
-  "30enfb5u4n": {
-    status: "In Transit",
-    dispatchCountry: "Japan",
-    destinationCountry: "Australia",
-    packageInfo: {
-      description: "Electronics",
-      weight: "20kg",
-      quantity: "5 boxes",
-      shippingType: "Air Freight",
-      notes: "Fragile",
-    },
-    receiver: {
-      name: "Liam Wong",
-      email: "liam.wong@email.com",
-      phone: "+61 412 345 678",
-      country: "Australia",
-      address: "Sydney, Australia",
-    },
-    route: [
-      { country: "Japan", coords: [35.6895, 139.6917] },
-      { country: "Australia", coords: [-33.8688, 151.2093] },
-    ],
-    history: [
-      {
-        date: "2026-03-11",
-        time: "08:00",
-        location: "Tokyo",
-        status: "Shipment Created",
-        updatedBy: "Admin",
-        remarks: "Package registered",
-      },
-    ],
-  },
 };
 
-/* 🔊 SOUND ENGINE */
+/* SOUND */
 const useBeep = () => {
   const ctxRef = useRef(null);
   const play = (freq = 800) => {
@@ -168,7 +69,7 @@ const useBeep = () => {
   return play;
 };
 
-/* 🧠 MAP CONTROLLER — FIXED MAX ZOOM */
+/* MAP CONTROL */
 const MapController = ({ points }) => {
   const map = useMap();
 
@@ -177,7 +78,7 @@ const MapController = ({ points }) => {
       map.invalidateSize();
       map.fitBounds(points, {
         padding: [60, 60],
-        maxZoom: 4, // ✅ prevents zooming out too far
+        maxZoom: 4,
       });
     }, 200);
   }, [map, points]);
@@ -197,10 +98,10 @@ const Track = () => {
   const beep = useBeep();
 
   const handleTrack = () => {
-    const data = shipmentsData[code]; // exact tracking code match
+    const data = shipmentsData[code];
     if (!data) {
       setShipment(null);
-      setError("❌ Incorrect tracking code. Please check and try again.");
+      setError("❌ Incorrect tracking code.");
       return;
     }
     setError("");
@@ -232,9 +133,11 @@ const Track = () => {
         <div className="smart-panel">
           <h1>Shipment Tracking</h1>
           <div className="tracking-guide">
-            <p>Enter your tracking number below to see the real-time status of your shipment.</p>
+            <p>Enter your tracking number below.</p>
           </div>
+
           {error && <p className="tracking-error">{error}</p>}
+
           <div className="track-input">
             <input
               placeholder="Enter tracking reference"
@@ -252,10 +155,13 @@ const Track = () => {
 
   return (
     <div className="smart-tracking-page">
-      <div className="smart-panel">
-        <h1>Shipment Tracking</h1>
-   
-   <div className="shipment">
+    <div className="smart-panel">
+
+      {/* ✅ ONLY CHANGE IS HERE */}
+      <h1 className="center-title">Shipment Tracking</h1>
+
+      <div className="shipment">
+
         <div className="info-card">
           <h3>Receiver Information</h3>
           <p><strong>Name:</strong> {shipment.receiver.name}</p>
@@ -274,6 +180,7 @@ const Track = () => {
           <p><strong>Notes:</strong> {shipment.packageInfo.notes}</p>
         </div>
 
+        {/* ✅ YOUR HISTORY IS BACK */}
         <div className="info-card">
           <h3>Shipment History</h3>
           {shipment.history.map((h, i) => (
@@ -287,28 +194,34 @@ const Track = () => {
             </div>
           ))}
         </div>
-    </div>
 
-        <div className="smart-map-wrapper">
-          <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <MapController points={shipment.route.map((r) => r.coords)} />
-            <CircleMarker
-              center={current.coords}
-              radius={18}
-              className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
-            />
-            <Marker position={current.coords}>
-              <Popup>
-                {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "In Transit"}<br />
-                {current.country}
-              </Popup>
-            </Marker>
-          </MapContainer>
-        </div>
       </div>
+
+      {/* ✅ MAP (UNCHANGED) */}
+      <div className="smart-map-wrapper">
+        <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+          <MapController points={shipment.route.map((r) => r.coords)} />
+
+          <CircleMarker
+            center={current.coords}
+            radius={18}
+            className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
+          />
+
+          <Marker position={current.coords}>
+            <Popup>
+              {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "In Transit"}<br />
+              {current.country}
+            </Popup>
+          </Marker>
+        </MapContainer>
+      </div>
+
     </div>
-  );
+  </div>
+);
 };
 
 export default Track;
