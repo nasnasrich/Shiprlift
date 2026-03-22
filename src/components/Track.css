@@ -35,7 +35,7 @@
   font-family: 'Times New Roman', Times, serif;
   text-decoration: underline;
   color: black;
-  text-align: center;
+  text-align:start;
   margin-top: 0%;
 }
 
@@ -151,7 +151,7 @@
 .smart-panel h1{
   font-family: 'Times New Roman', Times, serif;
   text-decoration: underline;
-  text-align:center;
+  text-align:start;
   margin-top: 0%;
 
 }
