@@ -1,6 +1,6 @@
+
 import React, { useState, useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Popup, CircleMarker, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./Track.css";
 
@@ -133,7 +133,7 @@ const Track = () => {
         <div className="smart-panel">
           <h1>Shipment Tracking</h1>
           <div className="tracking-guide">
-            <p>Enter your tracking number below.</p>
+            <p>Enter your tracking number below to see the real-time status of your shipment.</p>
           </div>
 
           {error && <p className="tracking-error">{error}</p>}
@@ -198,30 +198,34 @@ const Track = () => {
       </div>
 
       {/* ✅ MAP (UNCHANGED) */}
-      <div className="smart-map-wrapper">
-        <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+     <div className="smart-map-wrapper">
+  <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
+    
+    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-          <MapController points={shipment.route.map((r) => r.coords)} />
+    <MapController points={shipment.route.map((r) => r.coords)} />
 
-          <CircleMarker
-            center={current.coords}
-            radius={18}
-            className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
-          />
+    {/* ✅ ROUTE LINE */}
+    <Polyline
+      positions={shipment.route.map((r) => r.coords)}
+      pathOptions={{ color: "#007bff", weight: 4 }}
+    />
 
-          <Marker position={current.coords}>
-            <Popup>
-              {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "In Transit"}<br />
-              {current.country}
-            </Popup>
-          </Marker>
-        </MapContainer>
-      </div>
+    {/* ✅ MOVING MARKER */}
+    <Marker position={current.coords}>
+      <Popup>
+        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "IN TRANSIT"}
+        <br />
+        {current.country}
+      </Popup>
+    </Marker>
+
+  </MapContainer>
+</div>
 
     </div>
   </div>
 );
 };
 
-export default Track;
+export default Track; 

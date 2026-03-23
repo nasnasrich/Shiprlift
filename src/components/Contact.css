@@ -101,6 +101,7 @@ background: white;
 /* CONTACT INFO CARDS */
 
 .info p{
+  margin-top: 15vh;
   text-align: center;
   text-decoration: solid;
   font-family: monospace;
