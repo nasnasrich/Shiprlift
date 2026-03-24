@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer, Marker, CircleMarker, Popup, Polyline, useMap } from "react-leaflet";import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./Track.css";
 
@@ -18,8 +18,8 @@ L.Icon.Default.mergeOptions({
 
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
-  "30enfb5u1n": {
-    status: "In Transit",
+  "TRK123456US": {
+    status: "On Hold",
     dispatchCountry: "United States",
     destinationCountry: "Portugal",
     packageInfo: {
@@ -31,42 +31,344 @@ const shipmentsData = {
     },
     receiver: {
       name: "Carlos Silva",
-      email: "carlos.silva@email.com",
+      email: "carlos@email.com",
       phone: "+351 912 345 678",
       country: "Portugal",
       address: "Lisbon, Portugal",
     },
     route: [
-      { country: "United States", coords: [37.7749, -122.4194] },
+      { country: "USA", coords: [37.7749, -122.4194] },
       { country: "Portugal", coords: [38.7223, -9.1393] },
     ],
     history: [
       {
-        date: "2026-03-14",
-        time: "08:00",
+        date: "2026-03-10",
+        time: "09:00",
         location: "San Francisco",
         status: "Shipment Created",
         updatedBy: "Admin",
         remarks: "Package registered",
       },
+      {
+        date: "2026-03-12",
+        time: "15:30",
+        location: "Los Angeles",
+        status: "Processed",
+        updatedBy: "Warehouse Staff",
+        remarks: "Package ready for shipment",
+      },
+      {
+        date: "2026-03-14",
+        time: "08:00",
+        location: "In Transit",
+        status: "On Hold",
+        updatedBy: "Admin",
+        remarks: "Customs delay",
+      },
     ],
   },
-};
 
-/* SOUND */
-const useBeep = () => {
-  const ctxRef = useRef(null);
-  const play = (freq = 800) => {
-    if (!ctxRef.current)
-      ctxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+  "TRK987654UK": {
+    status: "In Transit",
+    dispatchCountry: "United Kingdom",
+    destinationCountry: "Germany",
+    packageInfo: {
+      description: "Clothes",
+      weight: "8kg",
+      quantity: "2 boxes",
+      shippingType: "Road Freight",
+      notes: "Standard delivery",
+    },
+    receiver: {
+      name: "Anna Müller",
+      email: "anna@email.com",
+      phone: "+49 170 123456",
+      country: "Germany",
+      address: "Berlin, Germany",
+    },
+    route: [
+      { country: "UK", coords: [51.5074, -0.1278] },
+      { country: "Germany", coords: [52.52, 13.405] },
+    ],
+    history: [
+      {
+        date: "2026-03-11",
+        time: "10:15",
+        location: "London",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-12",
+        time: "16:00",
+        location: "Dover",
+        status: "In Transit",
+        updatedBy: "Driver",
+        remarks: "Package loaded onto truck",
+      },
+    ],
+  },
 
-    const osc = ctxRef.current.createOscillator();
-    osc.frequency.value = freq;
-    osc.connect(ctxRef.current.destination);
-    osc.start();
-    setTimeout(() => osc.stop(), 120);
-  };
-  return play;
+  "TRK555111NG": {
+    status: "In Transit",
+    dispatchCountry: "Nigeria",
+    destinationCountry: "Ghana",
+    packageInfo: {
+      description: "Phones",
+      weight: "3kg",
+      quantity: "1 box",
+      shippingType: "Air Freight",
+      notes: "Handle with care",
+    },
+    receiver: {
+      name: "Kwame Mensah",
+      email: "kwame@email.com",
+      phone: "+233 20 123456",
+      country: "Ghana",
+      address: "Accra, Ghana",
+    },
+    route: [
+      { country: "Nigeria", coords: [6.5244, 3.3792] },
+      { country: "Ghana", coords: [5.6037, -0.187] },
+    ],
+    history: [
+      {
+        date: "2026-03-09",
+        time: "07:30",
+        location: "Lagos",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-10",
+        time: "12:00",
+        location: "Abuja",
+        status: "In Transit",
+        updatedBy: "Courier",
+        remarks: "Package in transit",
+      },
+    ],
+  },
+
+  "TRK222333CA": {
+    status: "Delivered",
+    dispatchCountry: "Canada",
+    destinationCountry: "USA",
+    packageInfo: {
+      description: "Documents",
+      weight: "1kg",
+      quantity: "Envelope",
+      shippingType: "Express",
+      notes: "Confidential",
+    },
+    receiver: {
+      name: "John Smith",
+      email: "john@email.com",
+      phone: "+1 555 1234",
+      country: "USA",
+      address: "New York, USA",
+    },
+    route: [
+      { country: "Canada", coords: [43.6532, -79.3832] },
+      { country: "USA", coords: [40.7128, -74.006] },
+    ],
+    history: [
+      {
+        date: "2026-03-08",
+        time: "09:00",
+        location: "Toronto",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-09",
+        time: "14:30",
+        location: "Buffalo",
+        status: "In Transit",
+        updatedBy: "Courier",
+        remarks: "Package crossed border",
+      },
+      {
+        date: "2026-03-10",
+        time: "11:00",
+        location: "New York",
+        status: "Delivered",
+        updatedBy: "Courier",
+        remarks: "Package delivered to receiver",
+      },
+    ],
+  },
+
+  "TRK444888FR": {
+    status: "On Hold",
+    dispatchCountry: "France",
+    destinationCountry: "Italy",
+    packageInfo: {
+      description: "Wine bottles",
+      weight: "10kg",
+      quantity: "3 boxes",
+      shippingType: "Road",
+      notes: "Fragile",
+    },
+    receiver: {
+      name: "Marco Rossi",
+      email: "marco@email.com",
+      phone: "+39 345 123456",
+      country: "Italy",
+      address: "Rome, Italy",
+    },
+    route: [
+      { country: "France", coords: [48.8566, 2.3522] },
+      { country: "Italy", coords: [41.9028, 12.4964] },
+    ],
+    history: [
+      {
+        date: "2026-03-07",
+        time: "08:45",
+        location: "Paris",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-08",
+        time: "15:00",
+        location: "Lyon",
+        status: "On Hold",
+        updatedBy: "Admin",
+        remarks: "Customs delay",
+      },
+    ],
+  },
+
+  "TRK111999AU": {
+    status: "In Transit",
+    dispatchCountry: "Australia",
+    destinationCountry: "New Zealand",
+    packageInfo: {
+      description: "Electronics",
+      weight: "6kg",
+      quantity: "1 box",
+      shippingType: "Air",
+      notes: "",
+    },
+    receiver: {
+      name: "Liam Wilson",
+      email: "liam@email.com",
+      phone: "+64 21 123456",
+      country: "New Zealand",
+      address: "Auckland",
+    },
+    route: [
+      { country: "Australia", coords: [-33.8688, 151.2093] },
+      { country: "NZ", coords: [-36.8485, 174.7633] },
+    ],
+    history: [
+      {
+        date: "2026-03-09",
+        time: "10:00",
+        location: "Sydney",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-10",
+        time: "12:30",
+        location: "Melbourne",
+        status: "In Transit",
+        updatedBy: "Courier",
+        remarks: "Package loaded on flight",
+      },
+    ],
+  },
+
+  "TRK666777SA": {
+    status: "On Hold",
+    dispatchCountry: "UAE",
+    destinationCountry: "Saudi Arabia",
+    packageInfo: {
+      description: "Spare parts",
+      weight: "15kg",
+      quantity: "2 boxes",
+      shippingType: "Road",
+      notes: "",
+    },
+    receiver: {
+      name: "Abdul Rahman",
+      email: "abdul@email.com",
+      phone: "+966 50 123456",
+      country: "Saudi Arabia",
+      address: "Riyadh",
+    },
+    route: [
+      { country: "UAE", coords: [25.2048, 55.2708] },
+      { country: "Saudi", coords: [24.7136, 46.6753] },
+    ],
+    history: [
+      {
+        date: "2026-03-08",
+        time: "09:15",
+        location: "Dubai",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-09",
+        time: "14:00",
+        location: "Abu Dhabi",
+        status: "On Hold",
+        updatedBy: "Admin",
+        remarks: "Customs inspection",
+      },
+    ],
+  },
+
+  "TRK000321ES": {
+    status: "Delivered",
+    dispatchCountry: "Spain",
+    destinationCountry: "Portugal",
+    packageInfo: {
+      description: "Shoes",
+      weight: "2kg",
+      quantity: "1 box",
+      shippingType: "Road",
+      notes: "",
+    },
+    receiver: {
+      name: "Pedro Costa",
+      email: "pedro@email.com",
+      phone: "+351 900 000",
+      country: "Portugal",
+      address: "Porto",
+    },
+    route: [
+      { country: "Spain", coords: [40.4168, -3.7038] },
+      { country: "Portugal", coords: [41.1579, -8.6291] },
+    ],
+    history: [
+      {
+        date: "2026-03-06",
+        time: "11:00",
+        location: "Madrid",
+        status: "Shipment Created",
+        updatedBy: "Admin",
+        remarks: "Package registered",
+      },
+      {
+        date: "2026-03-07",
+        time: "16:00",
+        location: "Lisbon",
+        status: "Delivered",
+        updatedBy: "Courier",
+        remarks: "Package delivered to receiver",
+      },
+    ],
+  },
 };
 
 /* MAP CONTROL */
@@ -86,6 +388,11 @@ const MapController = ({ points }) => {
   return null;
 };
 
+
+const useBeep = () => {
+  return () => {}; // returns an empty function, so beep() does nothing
+};
+
 const Track = () => {
   const [code, setCode] = useState("");
   const [shipment, setShipment] = useState(null);
@@ -98,7 +405,7 @@ const Track = () => {
   const beep = useBeep();
 
   const handleTrack = () => {
-    const data = shipmentsData[code];
+    const data = shipmentsData[code.trim().toUpperCase()];
     if (!data) {
       setShipment(null);
       setError("❌ Incorrect tracking code.");
@@ -206,10 +513,18 @@ const Track = () => {
     <MapController points={shipment.route.map((r) => r.coords)} />
 
     {/* ✅ ROUTE LINE */}
-    <Polyline
+    {/* <Polyline
       positions={shipment.route.map((r) => r.coords)}
       pathOptions={{ color: "#007bff", weight: 4 }}
-    />
+    /> */}
+
+
+        <CircleMarker
+          center={current.coords}
+          radius={18}
+          className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
+        />
+
 
     {/* ✅ MOVING MARKER */}
     <Marker position={current.coords}>
