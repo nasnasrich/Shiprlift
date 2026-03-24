@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, CircleMarker, Popup, Polyline, useMap } from "react-leaflet";import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -19,7 +18,8 @@ L.Icon.Default.mergeOptions({
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
   "TRK123456US": {
-    status: "On Hold",
+    // status: "On Hold",
+    status: "In Transit",
     dispatchCountry: "United States",
     destinationCountry: "Portugal",
     packageInfo: {
@@ -390,7 +390,27 @@ const MapController = ({ points }) => {
 
 
 const useBeep = () => {
-  return () => {}; // returns an empty function, so beep() does nothing
+  const ctxRef = useRef(null);
+
+  const play = (freq = 800) => {
+    if (!ctxRef.current) {
+      ctxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    const osc = ctxRef.current.createOscillator();
+    const gain = ctxRef.current.createGain();
+
+    osc.frequency.value = freq;
+    gain.gain.value = 0.1; // 🔊 control volume
+
+    osc.connect(gain);
+    gain.connect(ctxRef.current.destination);
+
+    osc.start();
+    setTimeout(() => osc.stop(), 120);
+  };
+
+  return play;
 };
 
 const Track = () => {
@@ -417,12 +437,19 @@ const Track = () => {
   };
 
   useEffect(() => {
+  // stop any previous sound loop
+  clearInterval(beepIntervalRef.current);
+
+  // only play sound when moving
+  if (shipment?.status === "In Transit") {
     beepIntervalRef.current = setInterval(() => {
-      if (!shipment) return;
-      shipment.status === "On Hold" ? beep(400) : beep(850);
+      beep(850);
     }, 1000);
-    return () => clearInterval(beepIntervalRef.current);
-  }, [shipment, beep]);
+  }
+
+  // cleanup
+  return () => clearInterval(beepIntervalRef.current);
+}, [shipment, beep]);
 
   useEffect(() => {
     if (!shipment) return;
@@ -543,4 +570,4 @@ const Track = () => {
 );
 };
 
-export default Track; 
+export default Track;
