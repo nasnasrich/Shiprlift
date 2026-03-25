@@ -26,7 +26,9 @@ const shipmentsData = {
       description: "Six bars of Gold. An iPhone 16 pro max. Documents, Several Item",
       weight: "10kg",
       quantity: "1 box",
-      shippingType: "Air Freight",
+      Type: "Freight Shipping",
+      mode: "Sea",
+      container: "LCL",
       notes: "Fragile",
     },
     receiver: {
@@ -503,7 +505,9 @@ const Track = () => {
           <p><strong>Description:</strong> {shipment.packageInfo.description}</p>
           <p><strong>Weight:</strong> {shipment.packageInfo.weight}</p>
           <p><strong>Quantity:</strong> {shipment.packageInfo.quantity}</p>
-          <p><strong>Shipping Type:</strong> {shipment.packageInfo.shippingType}</p>
+          <p><strong>Type:</strong> {shipment.packageInfo.Type}</p>
+          <p><strong>Mode:</strong> {shipment.packageInfo.mode}</p>
+          <p><strong>Container:</strong> {shipment.packageInfo.container}</p>
           <p><strong>Notes:</strong> {shipment.packageInfo.notes}</p>
         </div>
 
