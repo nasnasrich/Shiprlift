@@ -28,7 +28,9 @@ const shipmentsData = {
       quantity: "1 box",
       Type: "Freight Shipping",
       mode: "Sea",
+      ID: "PKG-908172",
       container: "LCL",
+      Sealnumber: "SEAL55661",
       notes: "Fragile",
     },
     receiver: {
@@ -506,8 +508,10 @@ const Track = () => {
           <p><strong>Weight:</strong> {shipment.packageInfo.weight}</p>
           <p><strong>Quantity:</strong> {shipment.packageInfo.quantity}</p>
           <p><strong>Type:</strong> {shipment.packageInfo.Type}</p>
-          <p><strong>Mode:</strong> {shipment.packageInfo.mode}</p>
+          <p><strong>Mode:</strong> {shipment.packageInfo.mode}</p> 
+          <p><strong>ID:</strong> {shipment.packageInfo.ID}</p>
           <p><strong>Container:</strong> {shipment.packageInfo.container}</p>
+          <p><strong>Sealnumber:</strong> {shipment.packageInfo.Sealnumber}</p>
           <p><strong>Notes:</strong> {shipment.packageInfo.notes}</p>
         </div>
 
