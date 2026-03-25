@@ -38,7 +38,8 @@ const shipmentsData = {
     },
     route: [
          { country: "UAE", coords: [25.2048, 55.2708] },
-      { country: "USA", coords: [40.7128, -74.006] },
+         { country: "UAE", coords: [25.2048, 55.2708] },
+      // { country: "USA", coords: [40.7128, -74.006] },
     ],
     history: [
       {
