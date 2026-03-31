@@ -1814,12 +1814,11 @@ animation: trackingBeepblack 1.5s infinite;
   overflow: hidden;
   text-align: center;
   border: 2px solid black;
-  height: 46vh;
+  height: 47vh;
 }
 
 .bigcarsonimg img{
   filter: brightness(0.80);
-  padding-bottom: 2px;
 }
 
 .colaboss h4{
