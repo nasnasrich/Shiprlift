@@ -117,6 +117,7 @@
 
 .info-card p:hover{
    text-decoration: none;
+   color: black;
   text-decoration-color:black;
 }
 

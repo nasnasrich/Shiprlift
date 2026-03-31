@@ -50,7 +50,8 @@
   text-decoration: solid;
   font-weight: 700;
   text-shadow: 2px 3px 2px rgb(20, 20, 112);
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-family: inherit;
   margin-bottom: 20px;
 }
 
@@ -1813,12 +1814,12 @@ animation: trackingBeepblack 1.5s infinite;
   overflow: hidden;
   text-align: center;
   border: 2px solid black;
-  height: 46vh;
+  height: 49vh;
 }
 
 .bigcarsonimg img{
-  filter: brightness(0.30);
-
+  filter: brightness(0.80);
+  /* padding-bottom: 2vh; */
 }
 
 .colaboss h4{

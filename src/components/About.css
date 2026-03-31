@@ -11,7 +11,7 @@
   height:75vh;
   margin-top: 3px;
   box-shadow: 2px 2px 2px rgb(0, 0, 0);
-  filter: brightness(0.98);
+  filter: brightness(0.99);
   background: fixed;
   background-size: cover;
   background-position: center;
@@ -24,7 +24,7 @@
 .aboutHeroNewOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(30, 30, 30, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,6 +45,8 @@
   font-weight: 700;
   text-shadow: 2px 3px 2px rgb(0, 0, 0);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: inherit; */
+
   margin-bottom: 20px;
 }
 
