@@ -246,7 +246,7 @@ const ContactPage = () => {
 
           <div className="shione">
             <MailIcon className="mail-icon" />           
-            <h6>shiprlift@gmail.com</h6>
+            <h6>info@shiprlift.com</h6>
           </div>
         </div>
         
