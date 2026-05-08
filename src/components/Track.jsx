@@ -17,7 +17,7 @@ L.Icon.Default.mergeOptions({
 
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
-  "TRK123456US": {
+  "TRK123456DU": {
     // status: "On Hold",
     status: "In Transit",
     dispatchCountry: "United Kingdom",
@@ -36,7 +36,7 @@ const shipmentsData = {
     receiver: {
       name: "Helmi Mohamed",
       email: "mohamed@email.com",
-      phone: "+351 912 345 678",
+      phone: "+01009492608",
       country: "United Arab Emirates",
       address: "13 Spico Mokatam Cairo Egypt , UAE",
     },
