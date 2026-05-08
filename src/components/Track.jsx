@@ -35,7 +35,7 @@ const shipmentsData = {
     },
     receiver: {
       name: "Helmi Mohamed",
-      email: "mohamed@email.com",
+      email: "hs.66666@yahoo.com",
       phone: "+01009492608",
       country: "United Arab Emirates",
       address: "13 Spico Mokatam Cairo Egypt , UAE",
