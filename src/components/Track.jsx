@@ -23,7 +23,7 @@ const shipmentsData = {
     dispatchCountry: "United Kingdom",
     destinationCountry: "United Arab Emirates",
     packageInfo: {
-      description: "Six bars of Gold. An iPhone 16 pro max. Documents, Several Item",
+      description: "Three bars of Gold",
       weight: "10kg",
       quantity: "1 box",
       Type: "Freight Shipping",
