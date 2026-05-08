@@ -20,8 +20,8 @@ const shipmentsData = {
   "TRK123456US": {
     // status: "On Hold",
     status: "In Transit",
-    dispatchCountry: "UAE",
-    destinationCountry: "United States",
+    dispatchCountry: "United Kingdom",
+    destinationCountry: "United Arab Emirates",
     packageInfo: {
       description: "Six bars of Gold. An iPhone 16 pro max. Documents, Several Item",
       weight: "10kg",
@@ -34,22 +34,21 @@ const shipmentsData = {
       notes: "Fragile",
     },
     receiver: {
-      name: "Carlos Silva",
-      email: "carlos@email.com",
+      name: "Helmi Mohamed",
+      email: "mohamed@email.com",
       phone: "+351 912 345 678",
-      country: "United States",
-      address: "1508 Keeaumoku st, Apt B-304 Honolulu, Hl 96822, USA",
+      country: "United Arab Emirates",
+      address: "13 Spico Mokatam Cairo Egypt , UAE",
     },
     route: [
-         { country: "UAE", coords: [25.2048, 55.2708] },
-         { country: "UAE", coords: [25.2048, 55.2708] },
-      // { country: "USA", coords: [40.7128, -74.006] },
-    ],
+  { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
+  { country: "United Arab Emirates", coords: [25.2048, 55.2708] } // Dubai
+],
     history: [
       {
         date: "2026-03-08",
         time: "09:15",
-        location: "Dubai",
+        location: "London",
         status: "Shipment Created",
         updatedBy: "Admin",
         remarks: "Package registered",
@@ -57,7 +56,8 @@ const shipmentsData = {
       {
         date: "2026-03-09",
         time: "14:00",
-        location: "Abu Dhabi",
+        // location: "Abu Dhabi",
+        location: "london-UK",
         status: "In Transit",
         updatedBy: "Admin",
         remarks: "Customs inspection",
