@@ -91,11 +91,15 @@ const ShiprliftFilter = () => {
 
       <div className="section4">
          <h2>Official Info:</h2>
-         <p>
+         {/* <p>
               Office 2104, Marina Plaza <br />
               Al Marsa Street, Dubai Marina <br />
               Dubai, United Arab Emirates
-          </p>
+          </p> */}
+          <p>Office 2104, The Shard <br />
+            32 London Bridge Street  <br />
+            London SE1 9SG <br />
+            United Kingdom</p>
        </div>
       
 
