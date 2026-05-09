@@ -17,11 +17,11 @@ L.Icon.Default.mergeOptions({
 
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
-  "TRK123456UK": {
-    status: "On Hold",
-    // status: "In Transit",
+  "TRK850T510E": {
+    // status: "On Hold",
+    status: "In Transit",
     dispatchCountry: "United Kingdom",
-    destinationCountry: "United Arab Emirates",
+    destinationCountry: "Egypt",
     packageInfo: {
       description: "Three bars of Gold",
       weight: "10kg",
@@ -37,12 +37,12 @@ const shipmentsData = {
       name: "Helmi Mohamed",
       email: "hs.66666@yahoo.com",
       phone: "+01009492608",
-      country: "United Arab Emirates",
-      address: "13 Spico Mokatam Cairo Egypt , UAE",
+      country: "Egypt",
+      address: "12 Spico Mokatam Cairo Egypt",
     },
     route: [
   { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
-  { country: "United Arab Emirates", coords: [25.2048, 55.2708] } // Dubai
+  { country: "Egypt", coords: [30.0444, 31.2357] } // Cairo
 ],
     history: [
       {
@@ -55,11 +55,11 @@ const shipmentsData = {
       },
       {
         date: "2026-05-09",
-        time: "8:00AM",
+        time: "8:40PM",
         // location: "Abu Dhabi",
         location: "london-UK", 
-        status: "On Hold",
-        // status: "In Transit",
+        // status: "On Hold",
+        status: "In Transit",
         updatedBy: "Admin",
         remarks: "Customs inspection",
       },
