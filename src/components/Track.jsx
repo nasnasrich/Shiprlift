@@ -41,8 +41,8 @@ const shipmentsData = {
       address: "12 Spico Mokatam Cairo Egypt",
     },
     route: [
-  { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
-  { country: "Egypt", coords: [30.0444, 31.2357] } // Cairo
+  { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
+  { country: "United Kingdom", coords: [51.5074, -0.1278] } // London
 ],
     history: [
       {
