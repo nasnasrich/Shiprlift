@@ -47,7 +47,7 @@ const shipmentsData = {
     history: [
       {
         date: "2026-05-08",
-        time: "09:15",
+        time: "09:15PM",
         location: "London",
         status: "Shipment Created",
         updatedBy: "Admin",
@@ -55,7 +55,7 @@ const shipmentsData = {
       },
       {
         date: "2026-05-09",
-        time: "14:00",
+        time: "8:00AM",
         // location: "Abu Dhabi",
         location: "london-UK",
         status: "In Transit",
