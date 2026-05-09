@@ -18,8 +18,8 @@ L.Icon.Default.mergeOptions({
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
   "TRK123456UK": {
-    // status: "On Hold",
-    status: "In Transit",
+    status: "On Hold",
+    // status: "In Transit",
     dispatchCountry: "United Kingdom",
     destinationCountry: "United Arab Emirates",
     packageInfo: {
@@ -47,7 +47,7 @@ const shipmentsData = {
     history: [
       {
         date: "2026-05-08",
-        time: "09:15PM",
+        time: "17:59PM",
         location: "London",
         status: "Shipment Created",
         updatedBy: "Admin",
