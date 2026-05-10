@@ -42,7 +42,12 @@ const shipmentsData = {
     },
     route: [
   { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
-  { country: "United Kingdom", coords: [51.5074, -0.1278] } // London
+  // { country: "United Kingdom", coords: [51.5074, -0.1278] } // London
+
+  {
+  country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821]
+  // status: "Arrived at Transit Hub"
+}
 ],
     history: [
       {
@@ -54,12 +59,12 @@ const shipmentsData = {
         remarks: "Package registered",
       },
       {
-        date: "2026-05-09",
-        time: "8:55PM",
+        date: "2026-05-10",
+        time: "10:55AM",
         // location: "Abu Dhabi",
-        location: "london-UK", 
+        location: "Frankfurt", 
         // status: "On Hold",
-        status: "In Transit",
+        status: "Arrived at Transit Hub",
         updatedBy: "Admin",
         remarks: "Customs inspection",
       },
