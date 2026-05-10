@@ -62,7 +62,7 @@ const shipmentsData = {
         date: "2026-05-10",
         time: "10:55AM",
         // location: "Abu Dhabi",
-        location: "Frankfurt", 
+        location: "Frankfurt, Germany", 
         // status: "On Hold",
         status: "Arrived at Transit Hub",
         updatedBy: "Admin",
