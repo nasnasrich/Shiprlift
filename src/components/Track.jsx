@@ -19,7 +19,7 @@ L.Icon.Default.mergeOptions({
 const shipmentsData = {
   "TRK850T510E": {
     // status: "On Hold",
-    status: "Shipment En Route",
+    status: "In Transit",
     dispatchCountry: "United Kingdom",
     destinationCountry: "Egypt",
     packageInfo: {
