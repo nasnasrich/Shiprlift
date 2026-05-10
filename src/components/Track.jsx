@@ -563,7 +563,7 @@ const Track = () => {
     {/* ✅ MOVING MARKER */}
     <Marker position={current.coords}>
       <Popup>
-        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "IN TRANSIT"}
+        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "Shipment En Route"}
         <br />
         {current.country}
       </Popup>
