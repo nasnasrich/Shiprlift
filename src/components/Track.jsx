@@ -458,7 +458,7 @@ const Track = () => {
     if (!shipment) return;
     clearInterval(moveIntervalRef.current);
     moveIntervalRef.current = setInterval(() => {
-      if (shipment.status !== "In Transit") return;
+      if (shipment.status !== "Shipment En Route") return;
       setIndex((prev) => (prev >= shipment.route.length - 1 ? prev : prev + 1));
     }, 7000);
     return () => clearInterval(moveIntervalRef.current);
