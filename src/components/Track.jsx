@@ -41,13 +41,14 @@ const shipmentsData = {
       address: "12 Spico Mokatam Cairo Egypt",
     },
     route: [
-  { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
-  // { country: "United Kingdom", coords: [51.5074, -0.1278] } // London
+  // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
+  { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
 
-  {
-  country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821]
-  // status: "Arrived at Transit Hub"
-}
+  // {
+  // country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821] // }
+
+  { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] }
+
 ],
     history: [
       {
@@ -59,12 +60,14 @@ const shipmentsData = {
         remarks: "Package registered",
       },
       {
-        date: "2026-05-10",
-        time: "11:45AM",
-        // location: "Abu Dhabi",
-        location: "Frankfurt, Germany", 
+        date: "2026-05-11",
+        time: "10:05AM",
+        // location: "Abu Dhabi", 
+        // location: "Frankfurt, Germany", 
+        location: "Istanbul, Turkey", 
         // status: "On Hold",
-        status: "Shipment En Route",
+        // status: "Shipment En Route",
+        status: "Shipment Proceeding to Destination",
         updatedBy: "Admin",
         remarks: "Customs inspection",
       },
@@ -563,7 +566,7 @@ const Track = () => {
     {/* ✅ MOVING MARKER */}
     <Marker position={current.coords}>
       <Popup>
-        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : "Shipment En Route"}
+        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : /*"IN TRANSIT"*/ /*"Shipment En Route" */ "Shipment Proceeding to Destination" }
         <br />
         {current.country}
       </Popup>
