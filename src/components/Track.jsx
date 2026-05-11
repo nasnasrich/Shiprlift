@@ -67,7 +67,7 @@ const shipmentsData = {
         location: "Istanbul, Turkey", 
         // status: "On Hold",
         // status: "Shipment En Route",
-        status: "Shipment Proceeding to Destination",
+        status: "Cargo En Route",
         updatedBy: "Admin",
         remarks: "Customs inspection",
       },
@@ -566,7 +566,7 @@ const Track = () => {
     {/* ✅ MOVING MARKER */}
     <Marker position={current.coords}>
       <Popup>
-        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : /*"IN TRANSIT"*/ /*"Shipment En Route" */ "Shipment Proceeding to Destination" }
+        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : /*"IN TRANSIT"*/ /*"Shipment En Route" */ "Cargo En Route" }
         <br />
         {current.country}
       </Popup>
