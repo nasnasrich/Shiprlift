@@ -18,8 +18,8 @@ L.Icon.Default.mergeOptions({
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
   "TRK850T510E": {
-    // status: "On Hold",
-    status: "In Transit",
+    status: "On Hold",
+    // status: "In Transit",
     dispatchCountry: "United Kingdom",
     destinationCountry: "Egypt",
     packageInfo: {
@@ -60,14 +60,14 @@ const shipmentsData = {
         remarks: "Package registered",
       },
       {
-        date: "2026-05-11",
-        time: "10:05AM",
+        date: "2026-05-12",
+        time: "08:10AM",
         // location: "Abu Dhabi", 
         // location: "Frankfurt, Germany", 
         location: "Istanbul, Turkey", 
-        // status: "On Hold",
+        status: "On Hold",
         // status: "Shipment En Route",
-        status: "Cargo En Route",
+        // status: "Cargo En Route",
         updatedBy: "Admin",
         remarks: "Customs inspection",
       },
@@ -491,8 +491,10 @@ const Track = () => {
     );
   }
 
-  const current = shipment.route[index];
-
+  const current =
+  shipment.status === "On Hold"
+    ? shipment.route[1] // Istanbul
+    : shipment.route[index];
   return (
     <div className="smart-tracking-page">
     <div className="smart-panel">
@@ -566,11 +568,17 @@ const Track = () => {
     {/* ✅ MOVING MARKER */}
     <Marker position={current.coords}>
       <Popup>
-        {shipment.status === "On Hold" ? "⚠️ ON HOLD" : /*"IN TRANSIT"*/ /*"Shipment En Route" */ "Cargo En Route" }
-        <br />
-        {current.country}
-      </Popup>
-    </Marker>
+       {shipment.status === "On Hold"
+       ? "⚠️ ON HOLD" 
+       : /*"IN TRANSIT"*/ /*"Shipment En Route" */  "Cargo En Route"}
+
+      <br />
+
+     {current.city
+     ? `${current.city}, ${current.country}`
+     : current.country}
+    </Popup>
+   </Marker>
 
   </MapContainer>
 </div>
