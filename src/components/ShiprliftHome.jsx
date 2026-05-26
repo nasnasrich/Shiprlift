@@ -358,10 +358,10 @@ style={{ backgroundImage: `url(${slides[index]})` }}
 
 <div className="hero-content">
 
-<h1>
+<h1 data-aos="zoom-in">
 Moving Cargo With Confidence</h1>
 
-<p>
+<p data-aos="zoom-in">
 Shiprlift delivers fast, secure, and reliable cargo transportation across
 international routes. From vessel operations to emergency logistics,
 we move your business forward.

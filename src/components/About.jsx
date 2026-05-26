@@ -26,7 +26,10 @@ import CallIcon from "@mui/icons-material/Call";
 import Button from "@mui/material/Button";
 
 // NEW: single hero image for About
-import abutimg from "../assets/abutimg.png"; 
+import abutimg from "../assets/abutimg.png";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+import { useEffect } from "react";
 
 const cards = [
   { id: 1, title: 'AIR SHIPPING', description: 'Efficient air freight solutions connecting global destinations, ensuring fast, reliable delivery with complete tracking and professional cargo handling services.', image: airline },
@@ -47,18 +50,30 @@ const Item = styled(Paper)(({ theme }) => ({
 const ShiprliftAbout = () => {
   const [selectedCard, setSelectedCard] = React.useState(0);
 
+
+  //for aos animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: "ease-in-out",
+    });
+  }, []);
+
   return (
     <div className="about">
 
       {/* NEW HERO */}
       <section
         className="aboutHeroNew"
+        data-aos="zoom-in"
         style={{ backgroundImage: `url(${abutimg})` }}
       >
-        <div className="aboutHeroNewOverlay">
+        <div className="aboutHeroNewOverlay" data-aos="zoom-in">
           <div className="aboutHeroNewContent">
-            <h1>Reliable Cargo With Precision</h1>
-            <p>
+            <h1 data-aos="zoom-in">Reliable Cargo With Precision</h1>
+            <p data-aos="zoom-out">
               Shiprlift provides trusted, efficient, and global logistics solutions. From vessel handling to freight management, we keep your cargo moving.
             </p>
             <div className="aboutHeroNewButtons">
@@ -75,42 +90,46 @@ const ShiprliftAbout = () => {
 
       {/* STATS */}
       <section className="stats">
-        <div className="stat">
-          <h1>12K+</h1>
-          <p>Successful Deliveries</p>
-        </div>
-        <div className="stat">
-          <h1>75+</h1>
-          <p>Global Ports Connected</p>
-        </div>
-        <div className="stat">
-          <h1>20+</h1>
-          <p>Corporate Industry Awards</p>
-        </div>
-        <div className="stat">
-          <h1>99%</h1>
-          <p>Client Satisfaction</p>
-        </div>
-      </section>
+  <div className="stat" data-aos="fade-up" data-aos-delay="0">
+    <h1>12K+</h1>
+    <p>Successful Deliveries</p>
+  </div>
+
+  <div className="stat" data-aos="fade-up" data-aos-delay="100">
+    <h1>75+</h1>
+    <p>Global Ports Connected</p>
+  </div>
+
+  <div className="stat" data-aos="fade-up" data-aos-delay="200">
+    <h1>20+</h1>
+    <p>Corporate Industry Awards</p>
+  </div>
+
+  <div className="stat" data-aos="fade-up" data-aos-delay="300">
+    <h1>99%</h1>
+    <p>Client Satisfaction</p>
+  </div>
+</section>
 
       {/* CORE VALUES */}
       <section className="values">
-        <h2>Our Core Values</h2>
+        <h2 data-aos="zoom-in">Our Core Values</h2>
         <div className="values-grid">
-          <div className="value-card"><h3>Reliability</h3><p>We deliver what we promise — on time, every time.</p></div>
-          <div className="value-card"><h3>Innovation</h3><p>We leverage modern technology to optimize logistics.</p></div>
-          <div className="value-card"><h3>Safety</h3><p>Every shipment is handled with strict safety protocols.</p></div>
-          <div className="value-card"><h3>Customer Focus</h3><p>Your success remains our highest priority.</p></div>
+          <div className="value-card "  data-aos="zoom-in"><h3>Reliability</h3><p>We deliver what we promise — on time, every time.</p></div>
+          <div className="value-card" data-aos="zoom-in"><h3>Innovation</h3><p>We leverage modern technology to optimize logistics.</p></div>
+          <div className="value-card" data-aos="zoom-in"><h3>Safety</h3><p>Every shipment is handled with strict safety protocols.</p></div>
+          <div className="value-card" data-aos="zoom-in"><h3>Customer Focus</h3><p>Your success remains our highest priority.</p></div>
         </div>
       </section>
 
       {/* SERVICES */}
       <div className="about-services">
-        <h2>OUR PROFESSIONS</h2>
+        <h2 data-aos="zoom-in">OUR PROFESSIONS</h2>
         <div className="about-servicesmom">
           <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, 280px)', gap: 2, justifyContent: "center" }}>
             {cards.map((card, index) => (
-              <Card key={card.id} sx={{ height: "100%" }}>
+              <Card key={card.id} data-aos="fade-up"
+    data-aos-delay={index * 100} sx={{ height: "100%" }}>
                 <CardActionArea
                   onClick={() => setSelectedCard(index)}
                   data-active={selectedCard === index ? '' : undefined}
@@ -132,30 +151,30 @@ const ShiprliftAbout = () => {
           </Box>
         </div>
 
-        <div className="ourh2"><h2>THE ROAD WE'VE TRAVELED</h2></div>
+        <div className="ourh2"><h2 data-aos="zoom-in">THE ROAD WE'VE TRAVELED</h2></div>
 
         {/* TIMELINE */}  
         <div className="Time">
           <Box sx={{ width:{xs: "100%", md: "50%"}}}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 0 }}  border={1} padding={1} item xs md={4} sx={{transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)", }}}> 
 
-              <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2016 <br /> Shiprlift was established.</Item></Grid>
-              <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2018 <br /> Expanded operations across international routes.</Item></Grid>
-              <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2021 <br /> Introduced advanced cargo tracking technology.</Item></Grid>
-              <Grid size={6}><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2024 <br /> Became a trusted logistics partner worldwide.</Item></Grid>
+              <Grid size={6} data-aos="fade-right"><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2016 <br /> Shiprlift was established.</Item></Grid>
+              <Grid size={6} data-aos="fade-right"><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2018 <br /> Expanded operations across international routes.</Item></Grid>
+              <Grid size={6} data-aos="fade-right"><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2021 <br /> Introduced advanced cargo tracking technology.</Item></Grid>
+              <Grid size={6} data-aos="fade-right"><Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>2024 <br /> Became a trusted logistics partner worldwide.</Item></Grid>
             </Grid>
           </Box>
 
           <Box sx={{ flexGrow: 1, width: {xs: "100%", md: 580},display: "flex", flexDirection: {xs: "column", md:"row"} }}>
             <Grid container spacing={2} border={1} padding={1} item xs md={4} sx={{transition: "all 0.3s ease", "&:hover": {transform: "translateY(5px)",}}}>
-              <Grid size={4} >
+              <Grid size={4} data-aos="fade-right" >
                 <Stack spacing={2}>
                   <Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>Built on Excellence</Item>
                   <Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>Your Maritime Partner</Item>
                   <Item sx={{ color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>Anchored in Trust</Item>
                 </Stack>
               </Grid>
-              <Grid size={8}>
+              <Grid size={8} data-aos="fade-left">
                 <Item sx={{ height: '100%', boxSizing: 'border-box', paddingTop: 5, color: "black", transition: "0.3s", "&:hover": { color: "primary.main" } }}>
                   Delivering reliable vessel transfer and marine solutions, Shiprlift combines innovation, safety, and precision to keep maritime operations running smoothly.
                 </Item>
@@ -167,27 +186,27 @@ const ShiprliftAbout = () => {
 
       {/* LEADERSHIP */}
       <section className="leadership">
-        <div className="leader-card">
-          <img src={grop} alt="CEO" />
+        <div className="leader-card" data-aos="fade-up">
+        <img src={grop} alt="CEO" data-aos="zoom-in" />
           <div>
-            <h2>Message From Our Leadership</h2>
-            <p>
+            <h2  data-aos="zoom-in">Message From Our Leadership</h2>
+            <p data-aos="zoom-in">
               “At Shiprlift, logistics is more than transportation —
               it is about building connections that empower global commerce.
               Our commitment to excellence drives everything we do.”
             </p>
-            <h4>— Daniel Crawford</h4>
-            <h5>Chief Executive Officer</h5>
+            <h4 data-aos="zoom-in">— Daniel Crawford</h4>
+            <h5 data-aos="zoom-in">Chief Executive Officer</h5>
           </div>
         </div>
 
-        <div className="impct">
-          <h5>OUR IMPCT</h5>
-          <h2>Every day, around the globe, we are delivering what matters.</h2>
-          <p>At Shiprlift, we’re focused on making credible, purposeful changes to adapt and achieve our sustainability goals to help build stronger communities and a healthier environment.. It's about ...</p>
+        <div className="impct" data-aos="flip-left">
+          <h5 data-aos="zoom-in">OUR IMPCT</h5>
+          <h2 data-aos="zoom-in">Every day, around the globe, we are delivering what matters.</h2>
+          <p data-aos="zoom-in">At Shiprlift, we’re focused on making credible, purposeful changes to adapt and achieve our sustainability goals to help build stronger communities and a healthier environment.. It's about ...</p>
           <Link to="/OurServices"><button>SEE MORE IMPCT</button></Link>
-          <div className="impctpic">
-            <Link to="/Track">
+          <div className="impctpic" data-aos="zoom-in">
+              <Link to="/Track">
               <img src={mapbep} alt="Track" />
               <span className="tooltip">track</span>
             </Link>
@@ -196,7 +215,7 @@ const ShiprliftAbout = () => {
       </section>
 
       {/* CTA */}
-      <section className="about-cta">
+      <section className="about-cta" data-aos="zoom-in-up">        
         <h2>Partner With Shiprlift Today</h2>
         <p>Experience logistics built on speed, precision, and trust.</p>
         <Button variant="contained" startIcon={<CallIcon />} href="tel:+2348012345678">
