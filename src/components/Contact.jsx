@@ -17,6 +17,10 @@ import slide3 from "../assets/tergem.png";
 
 import phoneblack from "../assets/phoneblack.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 
 import {
   Card,
@@ -27,6 +31,7 @@ import {
   Checkbox,
   FormControlLabel
 } from "@mui/material";
+
 
 const images = [slide1, slide2, slide3];
 
@@ -65,6 +70,17 @@ const ContactPage = () => {
       agree: false
     });
   };
+  
+  useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100,
+    easing: "ease-in-out",
+  });
+
+  AOS.refresh();
+}, []);
 
   return (
     <div className="shiprlift-contactpage">
@@ -73,12 +89,12 @@ const ContactPage = () => {
 
       <div className="shiprlift-contactpage-hero">
 
-        <div className="shiprlift-contactpage-herotext">
+        <div className="shiprlift-contactpage-herotext" data-aos="fade-right">
 
-          <h2>SHIPRLIFT</h2>
-          <h1>Contact Our Logistics Experts</h1>
+          <h2 data-aos="zoom-in">SHIPRLIFT</h2>
+          <h1 data-aos="zoom-in">Contact Our Logistics Experts</h1>
 
-          <p>
+          <p data-aos="zoom-in">
             Have questions about shipping, pricing or tracking?
             Our team is ready to help you.
           </p>
@@ -97,8 +113,7 @@ const ContactPage = () => {
 
           {/* SLIDER */}
 
-          <div className="shiprlift-contactpage-slider">
-            <Slide
+        <div className="shiprlift-contactpage-slider" data-aos="fade-up">            <Slide
                 duration={100}
                 transitionDuration={200}
                 arrows={false}
@@ -116,15 +131,15 @@ const ContactPage = () => {
 
         </div>
 
-        <div className="shiprlift-contactpage-heroimg">
+        <div className="shiprlift-contactpage-heroimg"  data-aos="zoom-in">
           <img src={mrshir} alt="contact" />
         </div>
 
       </div>
 
       {/* CONTACT CARDS */}
-      <div className="info">
-        <p> Our logistics experts are available to assist you with shipment
+      <div className="info" data-aos="fade-up">
+          <p data-aos="zoom-in"> Our logistics experts are available to assist you with shipment
             tracking, freight booking, and general enquiries.</p>
       </div>
       
@@ -132,28 +147,28 @@ const ContactPage = () => {
 
       <div className="shiprlift-contactpage-why">
 
-        <h1>Why Choose Shiprlift</h1>
+        <h1 data-aos="zoom-in">Why Choose Shiprlift</h1>
 
         <div className="shiprlift-contactpage-whygrid">
 
-          <div className="shiprlift-contactpage-whycard">
-            <h3>Global Network</h3>
-            <p>Ship cargo to more than 120 countries worldwide.</p>
+          <div className="shiprlift-contactpage-whycard" data-aos="fade-up" data-aos-delay="0">
+            <h3 data-aos="zoom-in">Global Network</h3>
+            <p data-aos="zoom-in">Ship cargo to more than 120 countries worldwide.</p>
           </div>
 
-          <div className="shiprlift-contactpage-whycard">
-            <h3>Fast Delivery</h3>
-            <p>Efficient logistics ensures your goods arrive on time.</p>
+          <div className="shiprlift-contactpage-whycard" data-aos="fade-up" data-aos-delay="100">
+            <h3 data-aos="zoom-in">Fast Delivery</h3>
+            <p data-aos="zoom-in">Efficient logistics ensures your goods arrive on time.</p>
           </div>
 
-          <div className="shiprlift-contactpage-whycard">
-            <h3>Secure Handling</h3>
-            <p>Professional cargo handling and monitoring.</p>
+          <div className="shiprlift-contactpage-whycard" data-aos="fade-up" data-aos-delay="200">
+            <h3 data-aos="zoom-in">Secure Handling</h3>
+            <p data-aos="zoom-in">Professional cargo handling and monitoring.</p>
           </div>
 
-          <div className="shiprlift-contactpage-whycard">
-            <h3>24/7 Support</h3>
-            <p>Our experts are always ready to assist you.</p>
+          <div className="shiprlift-contactpage-whycard" data-aos="fade-up" data-aos-delay="300">
+            <h3 data-aos="zoom-in">24/7 Support</h3>
+            <p data-aos="zoom-in">Our experts are always ready to assist you.</p>
           </div>
 
         </div>
@@ -164,8 +179,7 @@ const ContactPage = () => {
 
       <div className="shiprlift-contactpage-forms">
 
-        <div className="shiprlift-contactpage-formbox">
-
+        <div className="shiprlift-contactpage-formbox" data-aos="fade-right">
           <Card>
 
             <CardContent>
@@ -227,10 +241,10 @@ const ContactPage = () => {
           </Card>
         </div>
 
-       <div className="lk">
-        <div className="ikk">
-        <h2>We connect the world. Let us connect yours.</h2>
-        <p>If you provide the 'when', 'where', 'what', we deliver uncomplicated logistics. Reach out to our local complexity killers who are ready to help move your goods and solve any challenge, anywhere in the world, at any time. We take your data protection seriously. You can read more about how we process your personal data in our Privacy Notice.</p>
+      <div className="lk" data-aos="fade-left">
+          <div className="ikk">
+        <h2 data-aos="fade-left">We connect the world. Let us connect yours.</h2>
+        <p data-aos="fade-left">If you provide the 'when', 'where', 'what', we deliver uncomplicated logistics. Reach out to our local complexity killers who are ready to help move your goods and solve any challenge, anywhere in the world, at any time. We take your data protection seriously. You can read more about how we process your personal data in our Privacy Notice.</p>
 
             <h3>
             Read more about our privacy notice{" "}
@@ -238,14 +252,14 @@ const ContactPage = () => {
             </h3>
         <h1>Contact Global HQ</h1>
 
-        <div className="shirlogg">
-         <div className="shitwo">
+        <div className="shirlogg" data-aos="fade-up">
+        <div className="shitwo" data-aos="fade-right"> 
           <PhoneIcon className="phone-icon" />          
          <h5>+ 1 985-463-5331</h5>
          </div>
 
-          <div className="shione">
-            <MailIcon className="mail-icon" />           
+          <div className="shione" data-aos="fade-left">
+              <MailIcon className="mail-icon" />           
             <h6>info@shiprlift.com</h6>
           </div>
         </div>
@@ -268,7 +282,7 @@ const ContactPage = () => {
 
       {/* MAP */}
 
-      <div className="shiprlift-contactpage-map">
+    <div className="shiprlift-contactpage-map" data-aos="zoom-in">
 
         <iframe
           src="https://www.google.com/maps?q=Copenhagen&output=embed"
