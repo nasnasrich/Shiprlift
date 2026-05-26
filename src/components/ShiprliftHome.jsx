@@ -74,7 +74,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
@@ -338,11 +339,20 @@ const handleSubmit = async (e) => {
   }
 };
 
+useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100,
+    easing: "ease-in-out",
+  });
+}, []);
 
   return (
     <div className="shiprlift-home">
-       <div
+    <div
 className="hero"
+data-aos="zoom-in"
 style={{ backgroundImage: `url(${slides[index]})` }}
 >
 
@@ -406,7 +416,10 @@ Track Shipment
 
 
 
-<div className="packing-storage-section">
+<div
+className="packing-storage-section"
+data-aos="fade-up"
+>
   <div className="content" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "40px", }}>
     
     {/* Text Content */}
@@ -468,7 +481,10 @@ Track Shipment
   </div>
 </div>
 
-<div className="terb">
+<div
+className="terb"
+data-aos="fade-right"
+>
   <h2>PACKING & STORAGE</h2>
 
   <div className="terb-grid">
@@ -532,7 +548,10 @@ Track Shipment
 
 
       {/* FORM & IMAGE SIDE BY SIDE */}
-       <div className="frommmmto">
+       <div
+className="frommmmto"
+data-aos="fade-left"
+>
         <div className="frompic">
           <img
             src={shipepo}
@@ -661,7 +680,10 @@ Track Shipment
       </div>
 
       {/* SERVICES */}
-      <div className="carddad">
+      <div
+className="carddad"
+data-aos="fade-up"
+>
         <div className="cardtext">
           <h2>Why Choose Us?</h2>
           <p>Find reasons to choose us as your freight partner</p>
@@ -669,7 +691,12 @@ Track Shipment
 
         <div className="cardone">
   {whyChooseCards.map((card) => (
-    <Card key={card.id} sx={{ maxWidth: 317, }}>
+   <Card
+key={card.id}
+data-aos="zoom-up"
+data-aos-delay={card.id * 150}
+sx={{ maxWidth: 317 }}
+>
       <CardActionArea>
         <CardMedia component="img" height="210" image={card.image} />
         <CardContent>
@@ -719,10 +746,11 @@ Track Shipment
 
 
       {/* CARDNUMBER with StatsCounter */}
-      <div
-        className="cardnumber"
-        ref={(el) => (counterRef.current[1] = el)}
-      >
+    <div
+className="cardnumber"
+data-aos="zoom-in"
+ref={(el) => (counterRef.current[1] = el)}
+>
         <h3>WE SPECIALISE IN THE TRANSPORTATION</h3>
         <h4>Together, we have your logistical challenges covered</h4>
         <StatsCounter startCount={startCount} />
@@ -730,12 +758,20 @@ Track Shipment
 
 
        {/* TESTIMONIALS */}
-<div className="testimonials-section">
+<div
+className="testimonials-section"
+data-aos="fade-up"
+>
   <h2 className="testimonials-title">What Our Customers Say</h2>
 
   <div className="testimonials-container">
     {testimonials.map((user) => (
-      <div key={user.id} className="testimonial-card">
+      <div
+key={user.id}
+className="testimonial-card"
+data-aos="fade-up"
+data-aos-delay={user.id * 200}
+>
         <img
           src={user.image}
           alt={user.name}
@@ -750,7 +786,10 @@ Track Shipment
   </div>
 </div>
 
-  <section className="faq-section">
+  <section
+className="faq-section"
+data-aos="fade-up"
+>
       <h2 className="faq-title">Frequently Asked Questions</h2>
 
       <div className="faq-flex">
@@ -785,7 +824,10 @@ Track Shipment
     </section>
 
 
-     <div className="bigcar">
+     <div
+className="bigcar"
+data-aos="flip-left"
+>
         <div className="bigcarmom">
           <div className="intext">
             <h2>Reliable Shiplift & Transportation Solutions for Every Cargo Need</h2>
@@ -799,7 +841,10 @@ Track Shipment
      </div>
 
 
-     <div className="colaboss">
+     <div
+className="colaboss"
+data-aos="zoom-in"
+>
          <h4>Built on Reliable Partnerships</h4>
         <div className="colabospic">
            <img src={logo1} alt="cargo" />
@@ -812,7 +857,10 @@ Track Shipment
      </div>
 
 
-     <div className="live-contact">
+     <div
+className="live-contact"
+data-aos="fade-left"
+>
 
 <a href="mailto:shiprlift@gmail.com">
 <img src={mail} alt="mail" />
