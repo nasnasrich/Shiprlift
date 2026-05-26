@@ -216,9 +216,9 @@ const ShiprliftAbout = () => {
 
       {/* CTA */}
       <section className="about-cta" data-aos="zoom-in-up">        
-        <h2>Partner With Shiprlift Today</h2>
-        <p>Experience logistics built on speed, precision, and trust.</p>
-        <Button variant="contained" startIcon={<CallIcon />} href="tel:+2348012345678">
+        <h2 data-aos="zoom-in">Partner With Shiprlift Today</h2>
+        <p data-aos="zoom-in">Experience logistics built on speed, precision, and trust.</p>
+        <Button variant="contained" startIcon={<CallIcon />} href="tel:+2348012345678" data-aos="zoom-in">
           Call Support
         </Button>
       </section>

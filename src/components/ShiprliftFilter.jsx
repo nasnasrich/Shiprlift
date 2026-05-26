@@ -16,6 +16,10 @@ import shirlogo from "../assets/shirlogo.png";
 import badphone from "../assets/badphone.png";
 // import coke from "../assets/coke.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 
 const ShiprliftFilter = () => {
    const [loading, setLoading] = useState(false);
@@ -41,30 +45,48 @@ const ShiprliftFilter = () => {
     setLoading(false);
   }
 };
+
+useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 80,
+    easing: "ease-in-out",
+  });
+
+  AOS.refresh();
+}, []);
+
   return (
     <div className="filter-section"> 
      
-       <div className="logo-section">
-      <div className="section1">
-       <h2>SHIPRLIFT</h2>
-       <p>Shiprlift is a global logistics company delivering reliable cargo, vessel operations, emergency support, and installation services worldwide.
-        </p> 
+    <div className="logo-section">
+<div
+  className="section1" data-aos="fade-right">       
+       <h2 data-aos="zoom-in">SHIPRLIFT</h2>
+       <p data-aos="zoom-in">Shiprlift is a global logistics company delivering reliable cargo, vessel operations, emergency support, and installation services worldwide.
+       </p> 
 
         <div className="contact-info"> 
 
-          <div className="socials">      
-            <img src={ig} alt="ig" />
+<div
+  className="socials"
+  data-aos="zoom-in"
+  data-aos-delay="200"
+>            <img src={ig} alt="ig" />
             <img src={imgwhatsapp} alt="imgwhatsapp"/>
             <img src={trlegram} alt="trlegram" />
           </div>  
       
-            <div className="logo">
-              
+<div
+  className="logo"
+  data-aos="flip-left"
+>              
               <div className="lopic">
               <img src={shirlogo} alt="shirlogo"/>
               </div>
               <div className="loh3">
-              <h3>Shiprlift</h3> 
+              <h3 data-aos="zoom-in">Shiprlift</h3> 
               </div>
 
             </div> 
@@ -89,26 +111,33 @@ const ShiprliftFilter = () => {
       </div> 
        */}
 
-      <div className="section4">
-         <h2>Official Info:</h2>
+<div
+  className="section4"
+  data-aos="fade-up"
+  data-aos-delay="100"
+>
+           <h2 data-aos="zoom-in">Official Info:</h2>
          {/* <p>
               Office 2104, Marina Plaza <br />
               Al Marsa Street, Dubai Marina <br />
               Dubai, United Arab Emirates
           </p> */}
-          <p>Office 2104, The Shard <br />
+          <p data-aos="zoom-in">Office 2104, The Shard <br />
             32 London Bridge Street  <br />
             London SE1 9SG <br />
             United Kingdom</p>
        </div>
       
 
-      <div className="section5">
-        <h2>Open Hours:</h2>
-        <p>Mon - Sat: 8am - 5pm Sunday: CLOSED</p>
+<div
+  className="section5"
+  data-aos="fade-up"
+  data-aos-delay="200"
+>        <h2 data-aos="zoom-in">Open Hours:</h2>
+        <p data-aos="zoom-in">Mon - Sat: 8am - 5pm Sunday: CLOSED</p>
         <div className="shirlog">
         <img src={badphone} alt="shirlogo"/>
-        <h5>+ 1 985-463-5331</h5>
+        <h5 data-aos="zoom-in">+ 1 985-463-5331</h5>
         </div>
       </div>
       
@@ -117,11 +146,15 @@ const ShiprliftFilter = () => {
            <div style={{color:"#ffff"}} id="google_translate_element"></div>
         </div> */}
 
-      <div className="section7">
-  <section className="newsletter">
-    <div className="newsletter-content">
-      <h2>Subscribe to our newsletter</h2>
-      <p>The latest news, articles, and resources, sent to your inbox weekly.</p>
+<div
+  className="section7"
+  data-aos="zoom-in-up"
+  data-aos-delay="300"
+>  <section className="newsletter">
+<div
+  className="newsletter-content" data-aos="fade-left">
+      <h2 data-aos="zoom-in">Subscribe to our newsletter</h2>
+      <p data-aos="zoom-in">The latest news, articles, and resources, sent to your inbox weekly.</p>
  <form id="newsletterForm" className="newsletter-form" onSubmit={handleSubmit}>
       <input
         type="email"
