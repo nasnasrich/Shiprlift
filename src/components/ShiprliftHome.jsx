@@ -426,25 +426,25 @@ data-aos="fade-up"
     <div className="text" style={{ flex: "1 1 500px" }}>
      
 
-       <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
+       <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }} data-aos="zoom-in">
         Welcome to Shiprlift Cargo Express
       </Typography>
      
       <div className="oneli">
-      <li>Shiprlift Cargo Express is a one-stop freight and Courier solution, providing services to companies of all sizes, be it a small delivery across town or an industrial shipment to the other side of the globe.</li>
-      <li>Based on a solid financial footing and having invested remarkable amount of money time on information technology and other over heads, the company’s capabilities of sourcing new clients as well as improving cost efficiency are the key attributes for our success.</li>
-      <li>Shiprlift Cargo Express has maintained a significant role in the total transportation arena for over a short time with its professional accredited staff who are our real assets.</li>
+      <li data-aos="zoom-in">Shiprlift Cargo Express is a one-stop freight and Courier solution, providing services to companies of all sizes, be it a small delivery across town or an industrial shipment to the other side of the globe.</li>
+      <li data-aos="zoom-in">Based on a solid financial footing and having invested remarkable amount of money time on information technology and other over heads, the company’s capabilities of sourcing new clients as well as improving cost efficiency are the key attributes for our success.</li>
+      <li data-aos="zoom-in">Shiprlift Cargo Express has maintained a significant role in the total transportation arena for over a short time with its professional accredited staff who are our real assets.</li>
       </div>
 
       
       
-      <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+      <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }} data-aos="zoom-in">
         Shiprlift Cargo Care
       </Typography>
       
       <Typography className="ulme">
         {/* <ul style={{ marginBottom: "20px", }}> */}
-        <li>Founded in 2016 by Hussain Futtaim, Shiprlift Cargo Care has grown into a global logistics leader, now led by the fourth Ewals generation.</li>
+        <li data-aos="zoom-in">Founded in 2016 by Hussain Futtaim, Shiprlift Cargo Care has grown into a global logistics leader, now led by the fourth Ewals generation.</li>
         {/* </ul> */}
       </Typography>
 
@@ -465,7 +465,7 @@ data-aos="fade-up"
             </div>
             
            <marquee behavior="" direction="">
-              <h5 style={{fontFamily:"monospace"}}>In a world where businesses depend on fast and secure cargo transportation to remain competitive, many global companies rely on Shiprlift Logistics to manage complex shipping operations with efficiency, accuracy, and professionalism, delivering dependable freight solutions that connect international markets while ensuring every shipment is handled with advanced logistics expertise, reliable coordination, and a strong commitment to customer satisfaction</h5>
+              <h5 data-aos="zoom-in" style={{fontFamily:"monospace"}}>In a world where businesses depend on fast and secure cargo transportation to remain competitive, many global companies rely on Shiprlift Logistics to manage complex shipping operations with efficiency, accuracy, and professionalism, delivering dependable freight solutions that connect international markets while ensuring every shipment is handled with advanced logistics expertise, reliable coordination, and a strong commitment to customer satisfaction</h5>
               </marquee> 
     </div>
 
@@ -485,7 +485,7 @@ data-aos="fade-up"
 className="terb"
 data-aos="fade-right"
 >
-  <h2>PACKING & STORAGE</h2>
+  <h2 data-aos="zoom-in">PACKING & STORAGE</h2>
 
   <div className="terb-grid">
 
@@ -493,8 +493,8 @@ data-aos="fade-right"
     <div className="terb-card">
       <div className="terb-icon"><FaPlane /></div>
       <div className="terb-card-content">
-        <h3>Air Cargo Solutions</h3>
-        <p>Fast air cargo handling with secure airport operations.</p>
+        <h3 data-aos="zoom-in">Air Cargo Solutions</h3>
+        <p data-aos="zoom-in">Fast air cargo handling with secure airport operations.</p>
       </div>
     </div>
 
@@ -502,8 +502,8 @@ data-aos="fade-right"
     <div className="terb-card">
       <div className="terb-icon"><FaShip /></div>
       <div className="terb-card-content">
-        <h3>Sea Cargo Handling</h3>
-        <p>Reliable ocean freight with global port coverage.</p>
+        <h3 data-aos="zoom-in">Sea Cargo Handling</h3>
+        <p data-aos="zoom-in">Reliable ocean freight with global port coverage.</p>
       </div>
     </div>
 
@@ -511,8 +511,8 @@ data-aos="fade-right"
     <div className="terb-card">
       <div className="terb-icon"><FaWarehouse /></div>
       <div className="terb-card-content">
-        <h3>Secure Warehousing</h3>
-        <p>Safe storage with real-time monitoring systems.</p>
+        <h3 data-aos="zoom-in">Secure Warehousing</h3>
+        <p data-aos="zoom-in">Safe storage with real-time monitoring systems.</p>
       </div>
     </div>
 
@@ -520,8 +520,8 @@ data-aos="fade-right"
     <div className="terb-card">
       <div className="terb-icon"><FaBoxOpen /></div>
       <div className="terb-card-content">
-        <h3>Custom Packaging</h3>
-        <p>Professional packing services to protect your goods.</p>
+        <h3 data-aos="zoom-in">Custom Packaging</h3>
+        <p data-aos="zoom-in">Professional packing services to protect your goods.</p>
       </div>
     </div>
 
@@ -751,8 +751,8 @@ className="cardnumber"
 data-aos="zoom-in"
 ref={(el) => (counterRef.current[1] = el)}
 >
-        <h3>WE SPECIALISE IN THE TRANSPORTATION</h3>
-        <h4>Together, we have your logistical challenges covered</h4>
+        <h3 data-aos="zoom-in">WE SPECIALISE IN THE TRANSPORTATION</h3>
+        <h4 data-aos="zoom-in">Together, we have your logistical challenges covered</h4>
         <StatsCounter startCount={startCount} />
       </div>
 
@@ -762,7 +762,7 @@ ref={(el) => (counterRef.current[1] = el)}
 className="testimonials-section"
 data-aos="fade-up"
 >
-  <h2 className="testimonials-title">What Our Customers Say</h2>
+  <h2 data-aos="zoom-in" className="testimonials-title">What Our Customers Say</h2>
 
   <div className="testimonials-container">
     {testimonials.map((user) => (
@@ -790,7 +790,7 @@ data-aos-delay={user.id * 200}
 className="faq-section"
 data-aos="fade-up"
 >
-      <h2 className="faq-title">Frequently Asked Questions</h2>
+      <h2 data-aos="zoom-in" className="faq-title">Frequently Asked Questions</h2>
 
       <div className="faq-flex">
         {faqData.map((table, tableIndex) => (
@@ -830,8 +830,8 @@ data-aos="flip-left"
 >
         <div className="bigcarmom">
           <div className="intext">
-            <h2>Reliable Shiplift & Transportation Solutions for Every Cargo Need</h2>
-            <p>We provide efficient shiplift services alongside secure cargo handling, container logistics, and dependable lorry transportation to ensure your goods move safely and on time from port to destination.</p>
+            <h2 data-aos="zoom-in">Reliable Shiplift & Transportation Solutions for Every Cargo Need</h2>
+            <p data-aos="zoom-in">We provide efficient shiplift services alongside secure cargo handling, container logistics, and dependable lorry transportation to ensure your goods move safely and on time from port to destination.</p>
           </div>
         </div>
 
@@ -845,7 +845,7 @@ data-aos="flip-left"
 className="colaboss"
 data-aos="zoom-in"
 >
-         <h4>Built on Reliable Partnerships</h4>
+         <h4 data-aos="zoom-in">Built on Reliable Partnerships</h4>
         <div className="colabospic">
            <img src={logo1} alt="cargo" />
            <img src={logo2} alt="cargo" />

@@ -331,6 +331,7 @@ padding: 0%;
 .filter-section {
 display:grid;
 margin: 0%;
+margin-bottom: 0%;
 padding: 0%;
 justify-content: center;
 border: 1px solid blue;

@@ -7,6 +7,10 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 /* Leaflet icon fix */
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -431,6 +435,17 @@ const Track = () => {
 
   const beep = useBeep();
 
+  useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100,
+    easing: "ease-in-out",
+  });
+
+  AOS.refresh();
+}, []);
+
   const handleTrack = () => {
     const data = shipmentsData[code.trim().toUpperCase()];
     if (!data) {
@@ -471,10 +486,10 @@ const Track = () => {
   if (!shipment) {
     return (
       <div className="smart-tracking-page">
-        <div className="smart-panel">
-          <h1>Shipment Tracking</h1>
+        <div className="smart-panel" data-aos="zoom-in">
+          <h1 data-aos="zoom-in">Shipment Tracking</h1>
           <div className="tracking-guide">
-            <p>Enter your tracking number below to see the real-time status of your shipment.</p>
+            <p data-aos="zoom-in">Enter your tracking number below to see the real-time status of your shipment.</p>
           </div>
 
           {error && <p className="tracking-error">{error}</p>}
@@ -501,41 +516,41 @@ const Track = () => {
     <div className="smart-panel">
 
       {/* ✅ ONLY CHANGE IS HERE */}
-      <h1 className="center-title">Shipment Tracking</h1>
+      <h1 className="center-title" data-aos="fade-down">Shipment Tracking</h1>
 
       <div className="shipment">
 
-        <div className="info-card">
-          <h3>Receiver Information</h3>
-          <p><strong>Name:</strong> {shipment.receiver.name}</p>
-          <p><strong>Email:</strong> {shipment.receiver.email}</p>
-          <p><strong>Phone:</strong> {shipment.receiver.phone}</p>
-          <p><strong>Country:</strong> {shipment.receiver.country}</p>
-          <p><strong>Address:</strong> {shipment.receiver.address}</p>
+        <div className="info-card"  data-aos="fade-right">
+          <h3 data-aos="zoom-in">Receiver Information</h3>
+          <p data-aos="zoom-in"><strong>Name:</strong> {shipment.receiver.name}</p>
+          <p data-aos="zoom-in"><strong>Email:</strong> {shipment.receiver.email}</p>
+          <p data-aos="zoom-in"><strong>Phone:</strong> {shipment.receiver.phone}</p>
+          <p data-aos="zoom-in"><strong>Country:</strong> {shipment.receiver.country}</p>
+          <p data-aos="zoom-in"><strong>Address:</strong> {shipment.receiver.address}</p>
         </div>
 
-        <div className="info-card">
+        <div className="info-card" data-aos="fade-up">
           <h3>Package Information</h3>
-          <p><strong>Description:</strong> {shipment.packageInfo.description}</p>
-          <p><strong>Weight:</strong> {shipment.packageInfo.weight}</p>
-          <p><strong>Quantity:</strong> {shipment.packageInfo.quantity}</p>
-          <p><strong>Type:</strong> {shipment.packageInfo.Type}</p>
-          <p><strong>Mode:</strong> {shipment.packageInfo.mode}</p> 
-          <p><strong>ID:</strong> {shipment.packageInfo.ID}</p>
-          <p><strong>Container:</strong> {shipment.packageInfo.container}</p>
-          <p><strong>Sealnumber:</strong> {shipment.packageInfo.Sealnumber}</p>
+          <p data-aos="zoom-in"><strong>Description:</strong> {shipment.packageInfo.description}</p>
+          <p data-aos="zoom-in"><strong>Weight:</strong> {shipment.packageInfo.weight}</p>
+          <p data-aos="zoom-in"><strong>Quantity:</strong> {shipment.packageInfo.quantity}</p>
+          <p data-aos="zoom-in"><strong>Type:</strong> {shipment.packageInfo.Type}</p>
+          <p data-aos="zoom-in"><strong>Mode:</strong> {shipment.packageInfo.mode}</p> 
+          <p data-aos="zoom-in"><strong>ID:</strong> {shipment.packageInfo.ID}</p>
+          <p data-aos="zoom-in"><strong>Container:</strong> {shipment.packageInfo.container}</p>
+          <p data-aos="zoom-in"><strong>Sealnumber:</strong> {shipment.packageInfo.Sealnumber}</p>
           <p><strong>Notes:</strong> {shipment.packageInfo.notes}</p>
         </div>
 
         {/* ✅ YOUR HISTORY IS BACK */}
-        <div className="info-card">
-          <h3>Shipment History</h3>
+        <div className="info-card" data-aos="fade-left">
+          <h3 data-aos="zoom-in">Shipment History</h3>
           {shipment.history.map((h, i) => (
-            <div key={i} className="history-entry">
-              <p><strong>Date:</strong> {h.date} <strong>Time:</strong> {h.time}</p>
-              <p><strong>Location:</strong> {h.location}</p>
-              <p><strong>Status:</strong> {h.status}</p>
-              <p><strong>Updated By:</strong> {h.updatedBy}</p>
+            <div key={i} className="history-entry"  data-aos="fade-up" data-aos-delay={i * 100}>
+              <p data-aos="zoom-in"><strong>Date:</strong> {h.date} <strong>Time:</strong> {h.time}</p>
+              <p data-aos="zoom-in"><strong>Location:</strong> {h.location}</p>
+              <p data-aos="zoom-in"><strong>Status:</strong> {h.status}</p>
+              <p data-aos="zoom-in"><strong>Updated By:</strong> {h.updatedBy}</p>
               <p><strong>Remarks:</strong> {h.remarks}</p>
               <hr />
             </div>
@@ -545,7 +560,7 @@ const Track = () => {
       </div>
 
       {/* ✅ MAP (UNCHANGED) */}
-     <div className="smart-map-wrapper">
+     <div className="smart-map-wrapper" data-aos="zoom-in-up">
   <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
     
     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
