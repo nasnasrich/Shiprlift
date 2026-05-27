@@ -14,6 +14,10 @@ import PublicIcon from "@mui/icons-material/Public";
 import bus from "../assets/bus.jpg";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 // 
 const cardsData = [
   {
@@ -132,31 +136,42 @@ const OurServices = () => {
     }, 1500);
   };
 
+    useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: "ease-in-out",
+    });
+
+    AOS.refresh();
+  }, []);
+
   return (
     <div className="OurServicespage">
       {/* HERO SECTION */}
-      <div className="OurServiceshero">
-        <h1>Our Services</h1>
-        <p>
+      <div className="OurServiceshero" data-aos="zoom-in">
+        <h1  data-aos="fade-down">Our Services</h1>
+        <p data-aos="fade-up" data-aos-delay="200">
           Professional Express delivers safety products to your doorstep.
           We care so much about the people that choose us for their product delivery.
           We also keep in mind that your product should be safe.
         </p>
-        <h4>Experience To Be Trusted</h4>
+        <h4 data-aos="fade-up" data-aos-delay="400">Experience To Be Trusted</h4>
       </div>
 
       {/* SERVICES SECTION */}
-      <div className="ServiceTeb">
+      <div className="ServiceTeb" data-aos="fade-up">
         <div className="ServiceTebtex">
-          <h2>Our Services</h2>
+          <h2  data-aos="fade-right">Our Services</h2>
           <div className="we">
-            <h1>What We Offer To Highest Quality Services</h1>
+            <h1 data-aos="zoom-in">What We Offer To Highest Quality Services</h1>
           </div>
         </div>
 
         <div className="ServiceCade">
           {cardsData.map((card) => (
-            <Card key={card.id} sx={{ width: "100%" }}>
+            <Card key={card.id}  data-aos="flip-left" data-aos-delay={card.id * 100} sx={{ width: "100%" }}>
               <CardActionArea>
                 <CardContent
                   sx={{
@@ -193,38 +208,38 @@ const OurServices = () => {
 
       {/* EXPRESS SERVICES */}
       <div className="ServicesExpress">
-        <div className="Expressone">
-          <h2>Shiprlift Express Services</h2>
-          <h1>Express Shipping from Dubai, Fast and Reliable</h1>
-          <p>
+        <div className="Expressone" data-aos="fade-right">
+          <h2 data-aos="zoom-in">Shiprlift Express Services</h2>
+          <h1 >Express Shipping from Dubai, Fast and Reliable</h1>
+          <p data-aos="zoom-in">
             Ship worldwide with Shiprlift, UPS, FedEx and TNT. Get clear pricing, time‑definite delivery, and real‑time tracking. Next day delivery is available in select APAC cities for eligible parcels.
           </p>
           <ul>
-            <li>3 to 5 day delivery to most destinations</li>
-            <li>Next day service in select APAC cities, cut off applies</li>
-            <li>Same day pickup across Dubai</li>
-            <li>Amazon FBA labeling and small‑parcel support</li>
+            <li data-aos="zoom-in">3 to 5 day delivery to most destinations</li>
+            <li data-aos="zoom-in">Next day service in select APAC cities, cut off applies</li>
+            <li data-aos="zoom-in">Same day pickup across Dubai</li>
+            <li data-aos="zoom-in">Amazon FBA labeling and small‑parcel support</li>
             <Link to="/ContactPage">
-              <button>Get a Free Quote</button>
+              <button data-aos="zoom-in">Get a Free Quote</button>
             </Link>
           </ul>
         </div>
 
-        <div className="Expresstwo">
+        <div className="Expresstwo" data-aos="zoom-in-left">
           <img src={bus} alt="Shiprlift operations" />
         </div>
       </div>
 
       {/* CHOOSE SECTION */}
       <div className="Choose">
-        <div className="Chooseone">
-          <h1>When to Choose Express</h1>
-          <p>
+        <div className="Chooseone" data-aos="fade-right">
+          <h1 data-aos="zoom-in">When to Choose Express</h1>
+          <p data-aos="zoom-in">
             Express courier is the best choice when speed and certainty matter for small or medium parcels.
           </p>
 
           <div
-            className="Choosetwo"
+            className="Choosetwo" data-aos="fade-left"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
@@ -238,11 +253,11 @@ const OurServices = () => {
               { title: "Documents and certificates", text: "Move time sensitive paperwork or spare parts with minimal customs steps." },
               { title: "FBA top up", text: "Replenish Amazon inventory quickly when air or sea is too slow." }
             ].map((item, index) => (
-              <Card key={index} sx={{ textAlign: "center", padding: 2, transition: "none", "&:hover": { transform: "none", boxShadow: 6 } }}>
+              <Card data-aos="fade-left" key={index} sx={{ textAlign: "center", padding: 2, transition: "none", "&:hover": { transform: "none", boxShadow: 6 } }}>
                 <CardActionArea disableRipple disableTouchRipple sx={{ "&:hover": { backgroundColor: "rgba(0, 38, 104, 0.01)" }, "&.Mui-focusVisible": { backgroundColor: "rgba(0, 0, 0, 0.01)" } }}>
-                  <CardContent>
-                    <Typography gutterBottom variant="h6">{item.title}</Typography>
-                    <Typography variant="body2" color="text.secondary">{item.text}</Typography>
+                  <CardContent data-aos="fade-left">
+                    <Typography data-aos="zoom-in" gutterBottom variant="h6">{item.title}</Typography>
+                    <Typography data-aos="zoom-in" variant="body2" color="text.secondary">{item.text}</Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -250,63 +265,63 @@ const OurServices = () => {
           </div>
         </div>
 
-        <div className="Choosetwo">
+        <div className="Choosetwo"  data-aos="flip-up">
           <table className="shipping-table">
             <thead>
               <tr>
-                <th>Shipping Method</th>
-                <th>Typical Transit Time</th>
-                <th>Best For</th>
-                <th>Cost Level</th>
+                <th data-aos="zoom-in">Shipping Method</th>
+                <th data-aos="zoom-in">Typical Transit Time</th>
+                <th data-aos="zoom-in">Best For</th>
+                <th data-aos="zoom-in">Cost Level</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Express Courier</strong></td>
-                <td>3 to 5 days, next day in select APAC cities</td>
-                <td>Small parcels, documents, urgent samples, FBA top up</td>
-                <td>Highest</td>
+                <td data-aos="zoom-in"><strong>Express Courier</strong></td>
+                <td data-aos="zoom-in">3 to 5 days, next day in select APAC cities</td>
+                <td data-aos="zoom-in">Small parcels, documents, urgent samples, FBA top up</td>
+                <td data-aos="zoom-in">Highest</td>
               </tr>
               <tr>
-                <td><strong>Air Freight</strong></td>
-                <td>1 to 7 days</td>
-                <td>Urgent or high‑value cargo, heavier parcels than express</td>
-                <td>Medium to high</td>
+                <td data-aos="zoom-in"><strong>Air Freight</strong></td>
+                <td data-aos="zoom-in">1 to 7 days</td>
+                <td data-aos="zoom-in">Urgent or high‑value cargo, heavier parcels than express</td>
+                <td data-aos="zoom-in">Medium to high</td>
               </tr>
               <tr>
-                <td><strong>Sea Freight FCL</strong></td>
-                <td>12 to 35 days on water</td>
-                <td>Full containers, bulk pallets</td>
-                <td>Lowest per unit</td>
+                <td data-aos="zoom-in"><strong>Sea Freight FCL</strong></td>
+                <td data-aos="zoom-in">12 to 35 days on water</td>
+                <td data-aos="zoom-in">Full containers, bulk pallets</td>
+                <td data-aos="zoom-in">Lowest per unit</td>
               </tr>
               <tr>
-                <td><strong>Rail to Europe</strong></td>
-                <td>15 to 20 days</td>
-                <td>Medium volume to EU</td>
-                <td>Medium</td>
+                <td data-aos="zoom-in"><strong>Rail to Europe</strong></td>
+                <td data-aos="zoom-in">15 to 20 days</td>
+                <td data-aos="zoom-in">Medium volume to EU</td>
+                <td data-aos="zoom-in">Medium</td>
               </tr>
             </tbody>
           </table>
-          <p>Notes: next day depends on eligibility and cut off. Ocean time is port to port only. Your quote will confirm the exact schedule.</p>
+          <p data-aos="zoom-left">Notes: next day depends on eligibility and cut off. Ocean time is port to port only. Your quote will confirm the exact schedule.</p>
         </div>
       </div>
 
       {/* COURIER SECTION */}
-      <div className="courier-section">
-        <h1>Courier Choices</h1>
-        <p>We select the right courier based on route, weight, size, and the delivery date you need.</p>
+      <div className="courier-section" data-aos="fade-up">
+        <h1 data-aos="zoom-in">Courier Choices</h1>
+        <p data-aos="zoom-in">We select the right courier based on route, weight, size, and the delivery date you need.</p>
         <div className="courier-grid">
           {couriers.map((courier, index) => (
-            <div className="courier-card" key={index}>
-              <h2>{courier.name}</h2>
-              <ul>{courier.points.map((point, i) => (<li key={i}>{point}</li>))}</ul>
+            <div className="courier-card" key={index} data-aos="flip-up" data-aos-delay={index * 150}>
+              <h2 data-aos="zoom-in">{courier.name}</h2>
+              <ul data-aos="zoom-in">{courier.points.map((point, i) => (<li key={i}>{point}</li>))}</ul>
             </div>
           ))}
         </div>
       </div>
 
       <div className="courier-choice">
-        <h1>Not sure which courier fits your shipment? <br /> 
+        <h1 data-aos="zoom-in">Not sure which courier fits your shipment? <br /> 
           <Link to="/ContactPage">
             <button>Get expert advice</button>
           </Link>
@@ -315,31 +330,31 @@ const OurServices = () => {
 
       <div className="imgesout">
         <h5>...</h5>
-        <div className="imgesoutP"><p>More Than 10 Years Mastering Secure Cargo Transport</p></div>
+        <div className="imgesoutP"><p data-aos="zoom-in">More Than 10 Years Mastering Secure Cargo Transport</p></div>
       </div>
 
       {/* PROCESS SECTION */}
-      <section className="process-section">
+      <section className="process-section" data-aos="fade-up">
         <div className="process-header">
-          <h2>How Our Express Process Works</h2>
-          <p>From pickup in China to final delivery, our process keeps your parcel moving fast and your team fully informed.</p>
+          <h2 data-aos="zoom-in">How Our Express Process Works</h2>
+          <p data-aos="zoom-in">From pickup in China to final delivery, our process keeps your parcel moving fast and your team fully informed.</p>
         </div>
         <div className="process-grid">
-          <div className="process-card">
-            <h3>Request a Quote</h3>
-            <p>Share weight, dimensions, destination, commodity and HS codes. We confirm the rate, service level and cut off time.</p>
+          <div className="process-card" data-aos-delay="100">
+            <h3 data-aos="zoom-in">Request a Quote</h3>
+            <p data-aos="zoom-in">Share weight, dimensions, destination, commodity and HS codes. We confirm the rate, service level and cut off time.</p>
           </div>
-          <div className="process-card">
-            <h3>Pickup and labeling</h3>
-            <p>Same day pickup is available in major China cities. We apply labels, verify item count and pack to courier rules.</p>
+          <div className="process-card" data-aos="zoom-in" data-aos-delay="200">
+            <h3 data-aos="zoom-in">Pickup and labeling</h3>
+            <p data-aos="zoom-in">Same day pickup is available in major China cities. We apply labels, verify item count and pack to courier rules.</p>
           </div>
-          <div className="process-card">
-            <h3>Export handover</h3>
-            <p>We prepare the commercial invoice and packing list, lodge export info and hand over to DHL, UPS, FedEx or TNT.</p>
+          <div className="process-card" data-aos-delay="300">
+            <h3 data-aos="zoom-in">Export handover</h3>
+            <p data-aos="zoom-in">We prepare the commercial invoice and packing list, lodge export info and hand over to DHL, UPS, FedEx or TNT.</p>
           </div>
-          <div className="process-card">
-            <h3>Delivery and tracking</h3>
-            <p>You receive real time tracking, customs updates and proof of delivery once the parcel arrives.</p>
+          <div className="process-card" data-aos-delay="400">
+            <h3 data-aos="zoom-in">Delivery and tracking</h3>
+            <p data-aos="zoom-in">You receive real time tracking, customs updates and proof of delivery once the parcel arrives.</p>
           </div>
         </div>
       </section>
@@ -347,22 +362,22 @@ const OurServices = () => {
       {/* QUOTE SECTION */}
       <section className="quote-section">
         <div className="quote-container">
-          <div className="quote-left">
-            <h2>Get a Free Quote Today</h2>
-            <p>Tell us about your shipment, and our team will get back to you within 12 hours — no obligation, no hidden fees.</p>
+          <div className="quote-left" data-aos="fade-right">
+            <h2 data-aos="zoom-in">Get a Free Quote Today</h2>
+            <p data-aos="zoom-in">Tell us about your shipment, and our team will get back to you within 12 hours — no obligation, no hidden fees.</p>
             <a href={`https://wa.me/14796524016?text=${message}`} target="_blank" rel="noopener noreferrer">
               <button className="whatsapp-btn">Message us on WhatsApp</button>
             </a>
           </div>
 
-          <div className="quote-form-card">
+          <div className="quote-form-card" data-aos="fade-left">
             <form onSubmit={handleSubmit} id="shipmentForm">
               <div className="form-group">
                 <label>Name *</label>
                 <input type="text" name="user_name" placeholder="e.g. John Chen" required />
               </div>
 
-              <div className="form-group">
+              <div className="form-group" data-aos="fade-up">
                 <label>Email *</label>
                 <input type="email" name="user_email" placeholder="e.g. john@example.com" required />
               </div>
@@ -378,12 +393,12 @@ const OurServices = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-btn" disabled={loading}>
+              <button  data-aos="fade-up" type="submit" className="submit-btn" disabled={loading}>
                 {loading ? <CircularProgress size={24} color="inherit" /> : "Send"}
               </button>
             </form>
 
-            <p className="privacy-text">We’ll never share your contact info — your info is 100% safe.</p>
+            <p  data-aos="fade-up" className="privacy-text">We’ll never share your contact info — your info is 100% safe.</p>
           </div>
         </div>
       </section>
