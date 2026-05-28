@@ -323,12 +323,12 @@ const OurServices = () => {
       <div className="courier-choice">
         <h1 data-aos="zoom-in">Not sure which courier fits your shipment? <br /> 
           <Link to="/ContactPage">
-            <button>Get expert advice</button>
+            <button data-aos="fade-up">Get expert advice</button>
           </Link>
         </h1>
       </div>
 
-      <div className="imgesout">
+      <div className="imgesout" data-aos="flip-left">
         <h5>...</h5>
         <div className="imgesoutP"><p data-aos="zoom-in">More Than 10 Years Mastering Secure Cargo Transport</p></div>
       </div>

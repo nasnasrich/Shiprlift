@@ -529,8 +529,8 @@ data-aos="fade-right"
     <div className="terb-card">
       <div className="terb-icon"><FaLayerGroup /></div>
       <div className="terb-card-content">
-        <h3>Consolidation Services</h3>
-        <p>Combine shipments to save cost and space.</p>
+        <h3 data-aos="zoom-in">Consolidation Services</h3>
+        <p data-aos="zoom-in">Combine shipments to save cost and space.</p>
       </div>
     </div>
 
@@ -538,8 +538,8 @@ data-aos="fade-right"
     <div className="terb-card">
       <div className="terb-icon"><FaClipboardList /></div>
       <div className="terb-card-content">
-        <h3>Inventory Management</h3>
-        <p>Real-time tracking and stock optimization.</p>
+        <h3 data-aos="zoom-in">Inventory Management</h3>
+        <p data-aos="zoom-in">Real-time tracking and stock optimization.</p>
       </div>
     </div>
 
@@ -587,7 +587,7 @@ data-aos="fade-left"
                   justifyContent: "space-between",
                 }}
               >
-                <Typography variant="h5" align="center" gutterBottom>
+                <Typography data-aos="zoom-in" variant="h5" align="center" gutterBottom>
                   Shipment Request Form
                 </Typography>
 
@@ -615,9 +615,9 @@ data-aos="fade-left"
     {/* <MenuItem value="" disabled>
       Select shipment type
     </MenuItem> */}
-    <MenuItem value="air">Air Freight</MenuItem>
-    <MenuItem value="sea">Sea Freight</MenuItem>
-    <MenuItem value="road">Road Freight</MenuItem>
+    <MenuItem value="air" data-aos="zoom-in">Air Freight</MenuItem>
+    <MenuItem value="sea" data-aos="zoom-in">Sea Freight</MenuItem>
+    <MenuItem value="road" data-aos="zoom-in">Road Freight</MenuItem>
   </Select>
 </FormControl>
 
@@ -685,8 +685,8 @@ className="carddad"
 data-aos="fade-up"
 >
         <div className="cardtext">
-          <h2>Why Choose Us?</h2>
-          <p>Find reasons to choose us as your freight partner</p>
+          <h2 data-aos="flip-left">Why Choose Us?</h2>
+          <p data-aos="zoom-in">Find reasons to choose us as your freight partner</p>
         </div>
 
         <div className="cardone">
@@ -700,11 +700,11 @@ sx={{ maxWidth: 317 }}
       <CardActionArea>
         <CardMedia component="img" height="210" image={card.image} />
         <CardContent>
-          <Typography gutterBottom variant="h6">
+          <Typography data-aos="zoom-in" gutterBottom variant="h6">
             {card.title}
           </Typography>
 
-          <Typography variant="body2" color="text.secondary">
+          <Typography data-aos="zoom-in" variant="body2" color="text.secondary">
             {card.description}
           </Typography>
         </CardContent>
@@ -712,7 +712,7 @@ sx={{ maxWidth: 317 }}
 
       <CardActions>
       <Link to="/OurServices">
-        <Button size="small">Learn More</Button>
+        <Button data-aos="flip-left" size="small">Learn More</Button>
       </Link>
       </CardActions>
     </Card>
@@ -720,7 +720,7 @@ sx={{ maxWidth: 317 }}
 </div>
 
          <div className="Ourlist">
-          <p>
+          <p data-aos="flip-left">
             Our list of services does not end here. Find out how we can help
             your business. <Link to="/OurServices"><b>More Services →</b></Link>
           </p>
@@ -778,9 +778,9 @@ data-aos-delay={user.id * 200}
           className="testimonial-image"
         />
 
-        <p className="testimonial-comment">“{user.comment}”</p>
+        <p data-aos="zoom-in" className="testimonial-comment">“{user.comment}”</p>
 
-        <h4 className="testimonial-name">{user.name}</h4>
+        <h4 data-aos="flip-left" className="testimonial-name">{user.name}</h4>
       </div>
     ))}
   </div>
@@ -795,7 +795,7 @@ data-aos="fade-up"
       <div className="faq-flex">
         {faqData.map((table, tableIndex) => (
           <div className="faq-table" key={tableIndex}>
-            <h3>{table.table}</h3>
+            <h3 data-aos="zoom-in">{table.table}</h3>
 
             {table.questions.map((item, questionIndex) => {
               const key = `${tableIndex}-${questionIndex}`;
@@ -803,11 +803,11 @@ data-aos="fade-up"
               return (
                 <div className="faq-item" key={questionIndex}>
                   <div
-                    className="faq-tab"
+                    className="faq-tab" data-aos="flip-left"
                     onClick={() => toggle(tableIndex, questionIndex)}
                   >
                     {item.q}
-                    <span>{openIndex[key] ? "-" : "+"}</span>
+                    <span data-aos="zoom-in">{openIndex[key] ? "-" : "+"}</span>
                   </div>
 
                   {openIndex[key] && (
@@ -835,7 +835,8 @@ data-aos="flip-left"
           </div>
         </div>
 
-        <div className="bigcarsonimg">
+        <div className="bigcarsonimg" data-aos="flip-up"
+>
            <img src={cagotak} alt="cargo" />
         </div>
      </div>
