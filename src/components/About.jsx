@@ -204,7 +204,7 @@ const ShiprliftAbout = () => {
           <h5 data-aos="zoom-in">OUR IMPCT</h5>
           <h2 data-aos="zoom-in">Every day, around the globe, we are delivering what matters.</h2>
           <p data-aos="zoom-in">At Shiprlift, we’re focused on making credible, purposeful changes to adapt and achieve our sustainability goals to help build stronger communities and a healthier environment.. It's about ...</p>
-          <Link to="/OurServices"><button>SEE MORE IMPCT</button></Link>
+          <Link to="/OurServices"><button data-aos="zoom-in">SEE MORE IMPCT</button></Link>
           <div className="impctpic" data-aos="zoom-in">
               <Link to="/Track">
               <img src={mapbep} alt="Track" />
