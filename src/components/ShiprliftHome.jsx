@@ -728,7 +728,7 @@ sx={{ maxWidth: 317 }}
       </div>
 
     <div
-        className="fornow"
+        className="fornow" data-aos="flip-up"
         ref={(el) => (counterRef.current[0] = el)}
       >
      <div className="hand">
