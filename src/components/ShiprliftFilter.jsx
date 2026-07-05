@@ -122,11 +122,18 @@ useEffect(() => {
               Al Marsa Street, Dubai Marina <br />
               Dubai, United Arab Emirates
           </p> */}
+
           <p data-aos="zoom-in">Office 2104, The Shard <br />
             32 London Bridge Street  <br />
             London SE1 9SG <br />
             United Kingdom</p>
        </div>
+
+        {/* <p data-aos="zoom-in">Office 2104, Hormuud Tower<br />
+            Airport Road Mogadishu<br />
+            Banadir Region<br />
+            Somalia</p>
+       </div> */}
       
 
 <div

@@ -79,23 +79,23 @@ const shipmentsData = {
     ],
   },
 
-  "TRK987654UK": {
+  "TRK987654IN": {
     status: "In Transit",
-    dispatchCountry: "United Kingdom",
-    destinationCountry: "Germany",
+    dispatchCountry: "Somalia",
+    destinationCountry: "Indonesia",
     packageInfo: {
-      description: "Clothes",
-      weight: "8kg",
-      quantity: "2 boxes",
-      shippingType: "Road Freight",
+      description: "Kitchen Equipment, Food Preparation Appliances, Furniture, POS System Utensils, Initial Supplies",
+      weight: "720kg",
+      quantity: "26 boxes",
+      shippingType: "sea Freight",
       notes: "Standard delivery",
     },
     receiver: {
-      name: "Anna Müller",
-      email: "anna@email.com",
-      phone: "+49 170 123456",
-      country: "Germany",
-      address: "Berlin, Germany",
+      name: "Bunga albertha charissa pietersz",
+      email: "lievebloem20@gmail.com",
+      phone: "++6281382775859",
+      country: "Indonesia",
+      address: "Griya asri cipageran cimahi blok E cimahi bandung jawa barat",
     },
     route: [
       { country: "UK", coords: [51.5074, -0.1278] },
@@ -103,16 +103,16 @@ const shipmentsData = {
     ],
     history: [
       {
-        date: "2026-05-08",
-        time: "10:15",
-        location: "London",
+        date: "2026-05-07",
+        time: "05:55",
+        location: "Somalia",
         status: "Shipment Created",
         updatedBy: "Admin",
         remarks: "Package registered",
       },
       {
-        date: "2026-05-09",
-        time: "8:00",
+        date: "2026-05-07",
+        time: "5:00",
         location: "Dover", 
         status: "In Transit",
         updatedBy: "Driver",
