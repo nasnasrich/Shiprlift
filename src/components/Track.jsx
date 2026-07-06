@@ -1,12 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, CircleMarker, Popup, Polyline, useMap } from "react-leaflet";import "leaflet/dist/leaflet.css";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  CircleMarker,
+  Popup,
+  Polyline,
+  useMap,
+} from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./Track.css";
 
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -21,9 +29,10 @@ L.Icon.Default.mergeOptions({
 
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
-  "TRK850T510E": {
+  TRK850T510E: {
     status: "On Hold",
     // status: "In Transit",
+    mapStatus: "Cargo En Route",
     dispatchCountry: "United Kingdom",
     destinationCountry: "Egypt",
     packageInfo: {
@@ -45,84 +54,100 @@ const shipmentsData = {
       address: "12 Spico Mokatam Cairo Egypt",
     },
     route: [
-  // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
-  { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
+      // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
+      { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
 
-  // {
-  // country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821] // }
+      // {
+      // country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821] // }
 
-  { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] }
-
-],
+      { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] },
+    ],
     history: [
       {
         date: "2026-05-08",
         time: "17:59PM",
         location: "London",
         status: "Shipment Created",
-        updatedBy: "Admin",
+        updatedBy: "Employee ID: WH-210",
         remarks: "Package registered",
       },
       {
         date: "2026-05-12",
         time: "08:10AM",
-        // location: "Abu Dhabi", 
-        // location: "Frankfurt, Germany", 
-        location: "Istanbul, Turkey", 
+        // location: "Abu Dhabi",
+        // location: "Frankfurt, Germany",
+        location: "Istanbul, Turkey",
         // status: "On Hold",
         status: "Held by Customs",
         // status: "Shipment En Route",
         // status: "Cargo En Route",
-        updatedBy: "Admin",
+        updatedBy: "WH-210",
         remarks: "Customs inspection",
       },
     ],
   },
 
-  "TRK987654IN": {
+  TRK987654IN: {
+    // status: "On Hold",
     status: "In Transit",
-    dispatchCountry: "Somalia",
-    destinationCountry: "Indonesia",
+    mapStatus: "In Transit",
+    dispatchCountry: "United Kingdom",
+    destinationCountry: "Egypt",
     packageInfo: {
-      description: "Kitchen Equipment, Food Preparation Appliances, Furniture, POS System Utensils, Initial Supplies",
-      weight: "720kg",
-      quantity: "26 boxes",
-      shippingType: "sea Freight",
-      notes: "Standard delivery",
+      description: "Three bars of Gold",
+      weight: "10kg",
+      quantity: "1 box",
+      Type: "Freight Shipping",
+      mode: "Sea",
+      ID: "PKG-908172",
+      container: "LCL",
+      Sealnumber: "SEAL55661",
+      notes: "Fragile",
     },
     receiver: {
-      name: "Bunga albertha charissa pietersz",
-      email: "lievebloem20@gmail.com",
-      phone: "++6281382775859",
-      country: "Indonesia",
-      address: "Griya asri cipageran cimahi blok E cimahi bandung jawa barat",
+      name: "Helmi Mohamed",
+      email: "hs.66666@yahoo.com",
+      phone: "+01009492608",
+      country: "Egypt",
+      address: "12 Spico Mokatam Cairo Egypt",
     },
     route: [
-      { country: "UK", coords: [51.5074, -0.1278] },
-      { country: "Germany", coords: [52.52, 13.405] },
+      // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
+      { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
+
+      // {
+      // country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821] // }
+
+      { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] },
     ],
     history: [
       {
-        date: "2026-05-07",
-        time: "05:55",
-        location: "Somalia",
+        date: "2026-05-08",
+        time: "17:59PM",
+        location: "London",
         status: "Shipment Created",
-        updatedBy: "Admin",
+        updatedBy: "Employee ID: WH-210",
         remarks: "Package registered",
       },
       {
-        date: "2026-05-07",
-        time: "5:00",
-        location: "Dover", 
-        status: "In Transit",
-        updatedBy: "Driver",
-        remarks: "Package loaded onto truck",
+        date: "2026-05-12",
+        time: "08:10AM",
+        // location: "Abu Dhabi",
+        // location: "Frankfurt, Germany",
+        location: "Istanbul, Turkey",
+        // status: "On Hold",
+        status: "Held by Customs",
+        // status: "Shipment En Route",
+        // status: "Cargo En Route",
+        updatedBy: "WH-210",
+        remarks: "Customs inspection",
       },
     ],
   },
 
-  "TRK555111NG": {
+  TRK555111NG: {
     status: "In Transit",
+    mapStatus: "In Transit",
     dispatchCountry: "Nigeria",
     destinationCountry: "Ghana",
     packageInfo: {
@@ -163,8 +188,9 @@ const shipmentsData = {
     ],
   },
 
-  "TRK222333CA": {
+  TRK222333CA: {
     status: "Delivered",
+    mapStatus: "Delivered",
     dispatchCountry: "Canada",
     destinationCountry: "USA",
     packageInfo: {
@@ -213,8 +239,9 @@ const shipmentsData = {
     ],
   },
 
-  "TRK444888FR": {
+  TRK444888FR: {
     status: "On Hold",
+    mapStatus: "On Hold",
     dispatchCountry: "France",
     destinationCountry: "Italy",
     packageInfo: {
@@ -255,8 +282,9 @@ const shipmentsData = {
     ],
   },
 
-  "TRK111999AU": {
+  TRK111999AU: {
     status: "In Transit",
+    mapStatus: "In Transit",
     dispatchCountry: "Australia",
     destinationCountry: "New Zealand",
     packageInfo: {
@@ -297,8 +325,9 @@ const shipmentsData = {
     ],
   },
 
-  "TRK666777SA": {
+  TRK666777SA: {
     status: "On Hold",
+    mapStatus: "On Hold",
     dispatchCountry: "UAE",
     destinationCountry: "Saudi Arabia",
     packageInfo: {
@@ -339,8 +368,9 @@ const shipmentsData = {
     ],
   },
 
-  "TRK000321ES": {
+  TRK000321ES: {
     status: "Delivered",
+    mapStatus: "Delivered",
     dispatchCountry: "Spain",
     destinationCountry: "Portugal",
     packageInfo: {
@@ -399,7 +429,6 @@ const MapController = ({ points }) => {
   return null;
 };
 
-
 const useBeep = () => {
   const ctxRef = useRef(null);
 
@@ -436,15 +465,15 @@ const Track = () => {
   const beep = useBeep();
 
   useEffect(() => {
-  AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100,
-    easing: "ease-in-out",
-  });
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+      easing: "ease-in-out",
+    });
 
-  AOS.refresh();
-}, []);
+    AOS.refresh();
+  }, []);
 
   const handleTrack = () => {
     const data = shipmentsData[code.trim().toUpperCase()];
@@ -459,19 +488,19 @@ const Track = () => {
   };
 
   useEffect(() => {
-  // stop any previous sound loop
-  clearInterval(beepIntervalRef.current);
+    // stop any previous sound loop
+    clearInterval(beepIntervalRef.current);
 
-  // only play sound when moving
-  if (shipment?.status === "In Transit") {
-    beepIntervalRef.current = setInterval(() => {
-      beep(850);
-    }, 1000);
-  }
+    // only play sound when moving
+    if (shipment?.status === "In Transit") {
+      beepIntervalRef.current = setInterval(() => {
+        beep(850);
+      }, 1000);
+    }
 
-  // cleanup
-  return () => clearInterval(beepIntervalRef.current);
-}, [shipment, beep]);
+    // cleanup
+    return () => clearInterval(beepIntervalRef.current);
+  }, [shipment, beep]);
 
   useEffect(() => {
     if (!shipment) return;
@@ -489,7 +518,10 @@ const Track = () => {
         <div className="smart-panel" data-aos="zoom-in">
           <h1 data-aos="zoom-in">Shipment Tracking</h1>
           <div className="tracking-guide">
-            <p data-aos="zoom-in">Enter your tracking number below to see the real-time status of your shipment.</p>
+            <p data-aos="zoom-in">
+              Enter your tracking number below to see the real-time status of
+              your shipment.
+            </p>
           </div>
 
           {error && <p className="tracking-error">{error}</p>}
@@ -508,100 +540,145 @@ const Track = () => {
   }
 
   const current =
-  shipment.status === "On Hold"
-    ? shipment.route[1] // Istanbul
-    : shipment.route[index];
+    shipment.status === "On Hold"
+      ? shipment.route[1] // Istanbul
+      : shipment.route[index];
   return (
     <div className="smart-tracking-page">
-    <div className="smart-panel">
+      <div className="smart-panel">
+        {/* ✅ ONLY CHANGE IS HERE */}
+        <h1 className="center-title" data-aos="fade-down">
+          Shipment Tracking
+        </h1>
 
-      {/* ✅ ONLY CHANGE IS HERE */}
-      <h1 className="center-title" data-aos="fade-down">Shipment Tracking</h1>
+        <div className="shipment">
+          <div className="info-card" data-aos="fade-right">
+            <h3 data-aos="zoom-in">Receiver Information</h3>
+            <p data-aos="zoom-in">
+              <strong>Name:</strong> {shipment.receiver.name}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Email:</strong> {shipment.receiver.email}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Phone:</strong> {shipment.receiver.phone}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Country:</strong> {shipment.receiver.country}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Address:</strong> {shipment.receiver.address}
+            </p>
+          </div>
 
-      <div className="shipment">
+          <div className="info-card" data-aos="fade-up">
+            <h3>Package Information</h3>
+            <p data-aos="zoom-in">
+              <strong>Description:</strong> {shipment.packageInfo.description}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Weight:</strong> {shipment.packageInfo.weight}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Quantity:</strong> {shipment.packageInfo.quantity}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Type:</strong> {shipment.packageInfo.Type}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Mode:</strong> {shipment.packageInfo.mode}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>ID:</strong> {shipment.packageInfo.ID}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Container:</strong> {shipment.packageInfo.container}
+            </p>
+            <p data-aos="zoom-in">
+              <strong>Sealnumber:</strong> {shipment.packageInfo.Sealnumber}
+            </p>
+            <p>
+              <strong>Notes:</strong> {shipment.packageInfo.notes}
+            </p>
+          </div>
 
-        <div className="info-card"  data-aos="fade-right">
-          <h3 data-aos="zoom-in">Receiver Information</h3>
-          <p data-aos="zoom-in"><strong>Name:</strong> {shipment.receiver.name}</p>
-          <p data-aos="zoom-in"><strong>Email:</strong> {shipment.receiver.email}</p>
-          <p data-aos="zoom-in"><strong>Phone:</strong> {shipment.receiver.phone}</p>
-          <p data-aos="zoom-in"><strong>Country:</strong> {shipment.receiver.country}</p>
-          <p data-aos="zoom-in"><strong>Address:</strong> {shipment.receiver.address}</p>
+          {/* ✅ YOUR HISTORY IS BACK */}
+          <div className="info-card" data-aos="fade-left">
+            <h3 data-aos="zoom-in">Shipment History</h3>
+            {shipment.history.map((h, i) => (
+              <div
+                key={i}
+                className="history-entry"
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
+              >
+                <p data-aos="zoom-in">
+                  <strong>Date:</strong> {h.date} <strong>Time:</strong>{" "}
+                  {h.time}
+                </p>
+                <p data-aos="zoom-in">
+                  <strong>Location:</strong> {h.location}
+                </p>
+                <p data-aos="zoom-in">
+                  <strong>Status:</strong> {h.status}
+                </p>
+                <p data-aos="zoom-in">
+                  <strong>Updated By:</strong> {h.updatedBy}
+                </p>
+
+                <p>
+                  <strong>Remarks:</strong> {h.remarks}
+                </p>
+                <hr />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="info-card" data-aos="fade-up">
-          <h3>Package Information</h3>
-          <p data-aos="zoom-in"><strong>Description:</strong> {shipment.packageInfo.description}</p>
-          <p data-aos="zoom-in"><strong>Weight:</strong> {shipment.packageInfo.weight}</p>
-          <p data-aos="zoom-in"><strong>Quantity:</strong> {shipment.packageInfo.quantity}</p>
-          <p data-aos="zoom-in"><strong>Type:</strong> {shipment.packageInfo.Type}</p>
-          <p data-aos="zoom-in"><strong>Mode:</strong> {shipment.packageInfo.mode}</p> 
-          <p data-aos="zoom-in"><strong>ID:</strong> {shipment.packageInfo.ID}</p>
-          <p data-aos="zoom-in"><strong>Container:</strong> {shipment.packageInfo.container}</p>
-          <p data-aos="zoom-in"><strong>Sealnumber:</strong> {shipment.packageInfo.Sealnumber}</p>
-          <p><strong>Notes:</strong> {shipment.packageInfo.notes}</p>
-        </div>
+        {/* ✅ MAP (UNCHANGED) */}
+        <div className="smart-map-wrapper" data-aos="zoom-in-up">
+          <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {/* ✅ YOUR HISTORY IS BACK */}
-        <div className="info-card" data-aos="fade-left">
-          <h3 data-aos="zoom-in">Shipment History</h3>
-          {shipment.history.map((h, i) => (
-            <div key={i} className="history-entry"  data-aos="fade-up" data-aos-delay={i * 100}>
-              <p data-aos="zoom-in"><strong>Date:</strong> {h.date} <strong>Time:</strong> {h.time}</p>
-              <p data-aos="zoom-in"><strong>Location:</strong> {h.location}</p>
-              <p data-aos="zoom-in"><strong>Status:</strong> {h.status}</p>
-              <p data-aos="zoom-in"><strong>Updated By:</strong> {h.updatedBy}</p>
-              <p><strong>Remarks:</strong> {h.remarks}</p>
-              <hr />
-            </div>
-          ))}
-        </div>
+            <MapController points={shipment.route.map((r) => r.coords)} />
 
-      </div>
-
-      {/* ✅ MAP (UNCHANGED) */}
-     <div className="smart-map-wrapper" data-aos="zoom-in-up">
-  <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
-    
-    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-    <MapController points={shipment.route.map((r) => r.coords)} />
-
-    {/* ✅ ROUTE LINE */}
-    {/* <Polyline
+            {/* ✅ ROUTE LINE */}
+            {/* <Polyline
       positions={shipment.route.map((r) => r.coords)}
       pathOptions={{ color: "#007bff", weight: 4 }}
     /> */}
 
+            <CircleMarker
+              center={current.coords}
+              radius={18}
+              className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
+            />
 
-        <CircleMarker
-          center={current.coords}
-          radius={18}
-          className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
-        />
+            {/* ✅ MOVING MARKER */}
+            <Marker position={current.coords}>
+              <Popup>
+                {shipment.status}
 
+                <br />
+                {/* <Popup> */}
+                {/* {shipment.status === "On Hold" */}
+                {/* ? "⚠️ ON HOLD" */}
+                {/* : /*"IN TRANSIT"*/
+                /*"Shipment En Route" */
+                /*"Cargo En Route"} */}
 
-    {/* ✅ MOVING MARKER */}
-    <Marker position={current.coords}>
-      <Popup>
-       {shipment.status === "On Hold"
-       ? "⚠️ ON HOLD" 
-       : /*"IN TRANSIT"*/ /*"Shipment En Route" */  "Cargo En Route"}
+                {/* <br /> */}
 
-      <br />
-
-     {current.city
-     ? `${current.city}, ${current.country}`
-     : current.country}
-    </Popup>
-   </Marker>
-
-  </MapContainer>
-</div>
-
+                {current.city
+                  ? `${current.city}, ${current.country}`
+                  : current.country}
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Track;
