@@ -55,11 +55,7 @@ const shipmentsData = {
     },
     route: [
       // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
-      { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
-
-      // {
-      // country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821] // }
-
+      { country: "United Kingdom", coords: [51.5074, -0.1278] },
       { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] },
     ],
     history: [
@@ -87,7 +83,7 @@ const shipmentsData = {
     ],
   },
 
-  TRK987654IN: {
+  TRK987654UK: {
     // status: "On Hold",
     status: "In Transit",
     mapStatus: "In Transit",
@@ -105,42 +101,40 @@ const shipmentsData = {
       notes: "Fragile",
     },
     receiver: {
-      name: "Helmi Mohamed",
-      email: "hs.66666@yahoo.com",
-      phone: "+01009492608",
-      country: "Egypt",
-      address: "12 Spico Mokatam Cairo Egypt",
+      name: "Ara Bella Castillo ",
+      email: "ara_castillo929@yahoo.com ",
+      phone: "09621446371",
+      country: "Philippine",
+      address: "46 Dangay St Project 7 Quezon City ",
     },
     route: [
       // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
-      { country: "United Kingdom", coords: [51.5074, -0.1278] }, // London
+      { country: "United Kingdom", coords: [51.5074, -0.1278] },
 
-      // {
-      // country: "Germany", city: "Frankfurt", coords: [50.1109, 8.6821] // }
-
-      { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] },
+      // { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] },
     ],
     history: [
       {
-        date: "2026-05-08",
-        time: "17:59PM",
+        date: "2026-07-07",
+        time: "08:29AM",
         location: "London",
         status: "Shipment Created",
-        updatedBy: "Employee ID: WH-210",
+        updatedBy: "WH-210",
         remarks: "Package registered",
       },
       {
         date: "2026-05-12",
-        time: "08:10AM",
+        time: "08:30AM",
         // location: "Abu Dhabi",
         // location: "Frankfurt, Germany",
-        location: "Istanbul, Turkey",
+        location: "London",
+        status:"In Transit",
         // status: "On Hold",
-        status: "Held by Customs",
+        // status: "Held by Customs",
         // status: "Shipment En Route",
         // status: "Cargo En Route",
         updatedBy: "WH-210",
-        remarks: "Customs inspection",
+        remarks: "Shipment Departed",
       },
     ],
   },
@@ -209,7 +203,7 @@ const shipmentsData = {
     },
     route: [
       { country: "Canada", coords: [43.6532, -79.3832] },
-      { country: "USA", coords: [40.7128, -74.006] },
+      // { country: "USA", coords: [40.7128, -74.006] },
     ],
     history: [
       {
