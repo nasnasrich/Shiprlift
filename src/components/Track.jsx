@@ -108,10 +108,8 @@ const shipmentsData = {
       address: "46 Dangay St Project 7 Quezon City ",
     },
     route: [
-      // { country: "Egypt", coords: [30.0444, 31.2357] }, // Cairo
       { country: "United Kingdom", coords: [51.5074, -0.1278] },
-
-      // { country: "Turkey", city: "Istanbul", coords: [41.0082, 28.9784] },
+      // { country: "Philippines", city: "Quezon City", coords: [14.6760, 121.0437],},
     ],
     history: [
       {
