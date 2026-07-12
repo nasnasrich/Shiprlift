@@ -86,6 +86,7 @@ const shipmentsData = {
   TRK987654UK: {
     // status: "On Hold",
     status: "In Transit",
+     receipt: "/payment.png",
     mapStatus: "In Transit",
     dispatchCountry: "United Kingdom",
     destinationCountry: "Egypt",
@@ -107,10 +108,22 @@ const shipmentsData = {
       country: "Philippine",
       address: "46 Dangay St Project 7 Quezon City ",
     },
+
+    
+    payment: {
+    receiptNo: "SRL-20260711-002",
+    amount: "$1,750",
+    paidDate: "2026-07-12",
+    method: "Visa Card"
+     },
+
+
     route: [
       { country: "United Kingdom", coords: [51.5074, -0.1278] },
       // { country: "Philippines", city: "Quezon City", coords: [14.6760, 121.0437],},
     ],
+    
+
     history: [
       {
         date: "2026-07-07",
@@ -561,7 +574,22 @@ const Track = () => {
             <p data-aos="zoom-in">
               <strong>Address:</strong> {shipment.receiver.address}
             </p>
+
+            <h3>Payment Receipt</h3>
+            <br />
+            <button
+  onClick={() => {
+    if (shipment.receipt) {
+      window.open(shipment.receipt, "_blank");
+    } else {
+      alert("Receipt not available.");
+    }
+  }}
+>
+  Preview Receipt
+</button>
           </div>
+
 
           <div className="info-card" data-aos="fade-up">
             <h3>Package Information</h3>
@@ -624,6 +652,7 @@ const Track = () => {
                 <hr />
               </div>
             ))}
+
           </div>
         </div>
 
