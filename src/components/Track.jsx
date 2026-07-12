@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import ShiprliftFilter from "./ShiprliftFilter";
+
 import {
   MapContainer,
   TileLayer,
@@ -588,6 +590,7 @@ const Track = () => {
 >
   Preview Receipt
 </button>
+
           </div>
 
 
@@ -697,7 +700,11 @@ const Track = () => {
             </Marker>
           </MapContainer>
         </div>
+        <div className="footerpage">
+        <ShiprliftFilter />
       </div>
+      </div>
+      
     </div>
   );
 };

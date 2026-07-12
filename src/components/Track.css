@@ -2,12 +2,13 @@
   min-height: 100vh;
   margin-top: 3px;
   /* width: 100; */
-  margin-bottom: 1vh;
+  margin-bottom: 0vh;
   /* background-color:#faf5f5; */
   box-shadow: 2px 2px 2px rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   padding: 40px 16px;
+  padding-bottom: 5px;
   font-family: system-ui, sans-serif;
 }
 
