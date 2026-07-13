@@ -700,11 +700,11 @@ const Track = () => {
             </Marker>
           </MapContainer>
         </div>
-        <div className="footerpage">
+        
+      </div>
+      <div className="footerpage">
         <ShiprliftFilter />
       </div>
-      </div>
-      
     </div>
   );
 };
