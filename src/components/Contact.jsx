@@ -255,7 +255,7 @@ const ContactPage = () => {
         <div className="shirlogg" data-aos="fade-up">
         <div className="shitwo" data-aos="fade-right"> 
           <PhoneIcon className="phone-icon" />          
-         <h5>+ 1 985-463-5331</h5>
+         <h5>+ 1 479-652-4016</h5>
          </div>
 
           <div className="shione" data-aos="fade-left">
