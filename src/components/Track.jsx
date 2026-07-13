@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import ShiprliftFilter from "./ShiprliftFilter";
+// import ShiprliftFilter from "./ShiprliftFilter";
 
 import {
   MapContainer,
@@ -700,10 +700,6 @@ const Track = () => {
             </Marker>
           </MapContainer>
         </div>
-        
-      </div>
-      <div className="footerpage">
-        <ShiprliftFilter />
       </div>
     </div>
   );
