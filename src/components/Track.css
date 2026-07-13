@@ -1,10 +1,11 @@
 .smart-tracking-page {
-  min-height: 100vh;
+  min-height: 235vh;
+  height: 238vh;
   margin-top: 3px;
   /* width: 100; */
   /* margin-bottom: 0vh; */
   /* background-color:#faf5f5; */
-  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+  box-shadow: 2px 2px 2px  rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   padding: 40px 16px;
@@ -133,6 +134,7 @@
 }
 .smart-map-wrapper {
   width: 100%;
+  margin-top: 1vh;
   height: 560px;
   border-radius: 8px;
   overflow: hidden;
@@ -176,6 +178,10 @@
   /* Mobile */
 @media (max-width: 560px) {
 
+.smart-tracking-page{
+  min-height: 235vh;
+  height: 378vh;
+}
 
 .smart-panel h1{
   font-family: 'Times New Roman', Times, serif;
@@ -222,4 +228,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* font-family:Georgia, 'Times New Roman', Times, serif; */
 }  
+
+.smart-map-wrapper {
+  margin-bottom: 1vh;
+}
 }
