@@ -181,7 +181,7 @@
 .smart-tracking-page{
   /* min-height: 180vh; */
   margin-bottom: 0%;
-  height: 430vh;
+  height: 380vh;
 }
 
 .smart-panel h1{
@@ -233,4 +233,8 @@
 .smart-map-wrapper {
   margin-bottom: 1vh;
 }
+
+/* .smart-map-wrapper .footerpage{
+  margin-bottom: 100vh;
+} */
 }
