@@ -88,7 +88,7 @@ const shipmentsData = {
   TRK987654UK: {
     // status: "On Hold",
     status: "In Transit",
-     receipt: "/payment.png",
+     receipt: "payment.png",
     mapStatus: "In Transit",
     dispatchCountry: "United Kingdom",
     destinationCountry: "Egypt",
@@ -112,12 +112,12 @@ const shipmentsData = {
     },
 
     
-    payment: {
-    receiptNo: "SRL-20260711-002",
-    amount: "$1,750",
-    paidDate: "2026-07-12",
-    method: "Visa Card"
-     },
+    // payment: {
+    // receiptNo: "SRL-20260711-002",
+    // amount: "$1,750",
+    // paidDate: "2026-07-12",
+    // method: "Visa Card"
+    //  },
 
 
     route: [
@@ -580,16 +580,16 @@ const Track = () => {
             <h3>Payment Receipt</h3>
             <br />
             <button
-  onClick={() => {
-    if (shipment.receipt) {
-      window.open(shipment.receipt, "_blank");
-    } else {
-      alert("Receipt not available.");
-    }
-  }}
->
-  Preview Receipt
-</button>
+            onClick={() => {
+              if (shipment.receipt) {
+                window.open(shipment.receipt, "_blank");
+              } else {
+                alert("Receipt not available.");
+              }
+            }}
+          >
+            Preview Receipt
+          </button>
 
           </div>
 

@@ -122,6 +122,15 @@
   text-decoration-color:black;
 }
 
+.info-card button{
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+}
+
+.info-card button:hover {
+  transform: translateY(-1px);
+  color: #007bff;
+}
 .smart-map-wrapper {
   width: 100%;
   height: 560px;
@@ -182,14 +191,14 @@
 .shipment{
   display: grid;
   justify-content: start;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
 }
 
 .shipment-info,
 .info-card {
   background-color: #02c0c6;
   padding: 16px;
-  width: 89%;
+  width:90%;
   padding-top: 5vh;
   border-radius: 4px;
   margin-bottom: 11px;
