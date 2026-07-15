@@ -28,13 +28,13 @@ const ShiprliftFilter = () => {
     setLoading(true);
 
     try {
-      await sendMail(
-        e,
-        "template_52gjjxe",
-        "newsletterForm",
-        "Thanks for subscribing!",
-      );
-
+    await sendMail(
+      e,
+     import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE,
+     "newsletterForm",
+     "Thanks for subscribing!"
+     );
+     
       setTimeout(() => {
         setLoading(false);
       }, 1200);

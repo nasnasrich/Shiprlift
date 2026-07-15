@@ -324,11 +324,11 @@ const handleSubmit = async (e) => {
 
   try {
     await sendMail(
-      e,
-      "template_se1ow1p",   // your new shipment template
-      "shipmentForm",
-      "Shipment request sent successfully!"
-    );
+  e,
+  import.meta.env.VITE_EMAILJS_SHIPMENT_TEMPLATE,
+  "shipmentForm",
+  "Shipment request sent successfully!"
+);
 
     setTimeout(() => {
       setLoading(false);
