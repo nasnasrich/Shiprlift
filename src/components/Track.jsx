@@ -646,16 +646,20 @@ const Track = () => {
             {/* <h3>Payment Receipt</h3> */}
             <br />
             <button
-            onClick={() => {
-              if (shipment.receipt) {
-                window.open(shipment.receipt, "_blank");
-              } else {
-                alert("Receipt not available.");
-              }
-            }}
-          >
-            Preview Receipt
-          </button> 
+                onClick={() => {
+                  if (shipment.receipt) {
+                    const printWindow = window.open(shipment.receipt, "_blank");
+
+                    printWindow.onload = () => {
+                      printWindow.print();
+                    };
+                  } else {
+                    alert("Receipt not available.");
+                  }
+                }}
+              >
+                Print Receipt
+              </button>
 
           </div>
         </div>
