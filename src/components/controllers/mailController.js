@@ -1,7 +1,10 @@
 import emailjs from "@emailjs/browser";
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY; 
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+console.log("SERVICE_ID:", SERVICE_ID);
+console.log("PUBLIC_KEY:", PUBLIC_KEY);
 
 export const sendMail = (e, templateId, formId, successMessage) => {
   e.preventDefault();
