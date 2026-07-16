@@ -577,21 +577,6 @@ const Track = () => {
             <p data-aos="zoom-in">
               <strong>Address:</strong> {shipment.receiver.address}
             </p>
-
-            <h3>Payment Receipt</h3>
-            <br />
-            <button
-            onClick={() => {
-              if (shipment.receipt) {
-                window.open(shipment.receipt, "_blank");
-              } else {
-                alert("Receipt not available.");
-              }
-            }}
-          >
-            Preview Receipt
-          </button>
-
           </div>
 
 
@@ -655,7 +640,22 @@ const Track = () => {
                 </p>
                 <hr />
               </div>
+              
             ))}
+
+            {/* <h3>Payment Receipt</h3> */}
+            <br />
+            <button
+            onClick={() => {
+              if (shipment.receipt) {
+                window.open(shipment.receipt, "_blank");
+              } else {
+                alert("Receipt not available.");
+              }
+            }}
+          >
+            Preview Receipt
+          </button> 
 
           </div>
         </div>
