@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// import ShiprliftFilter from "./ShiprliftFilter";
+import ShiprliftFilter from "./ShiprliftFilter";
 
 import {
   MapContainer,
@@ -709,6 +709,19 @@ const Track = () => {
           </MapContainer>
         </div>
       </div>
+               {/* SHIPRLIFT FILTER SECTION */}
+        <div className="shiprlift-filter-container" data-aos="fade-up">
+          <div className="shiprlift-filter-header">
+            <h2>Shipment Services</h2>
+            <p>
+              Use the options below to manage or get additional information
+              about your shipment.
+            </p>
+          </div>
+
+        </div>
+                  <ShiprliftFilter />
+
     </div>
   );
 };
