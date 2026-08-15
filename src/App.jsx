@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ShiprliftHome from "./components/ShiprliftHome.jsx";
+import ShiprliftHome from "./components/ShiprliftHome.jsx"; 
 import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
 import Track from "./components/Track.jsx";
 import About from "./components/About.jsx";

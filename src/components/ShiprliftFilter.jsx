@@ -103,11 +103,17 @@ const ShiprliftFilter = () => {
 
         <div className="section4" data-aos="fade-up" data-aos-delay="100">
           <h2 data-aos="zoom-in">Official Info:</h2>
-          <p>
+          {/* <p>
               Office 2104, Marina Plaza <br />
               Al Marsa Street, Dubai Marina <br />
               Dubai, United Arab Emirates
-          </p>
+          </p>   */}
+
+         <p>
+          Office 1, Alwakalat Street <br />
+          Alfoyhat, Ahmed Mehdawi Building <br />
+          Benghazi, Libya
+         </p>
 
           {/* <p data-aos="zoom-in">Office 2104, The Shard <br />
             32 London Bridge Street  <br />

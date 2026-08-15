@@ -86,17 +86,17 @@ const shipmentsData = {
     ],
   },
 
-  TRK987654UK: {
+  TRK987654LY: {
     // status: "On Hold",
     status: "In Transit",
      receipt: "payment.png",
     mapStatus: "In Transit",
-    dispatchCountry: "United Kingdom",
-    destinationCountry: "Egypt",
+    dispatchCountry: "Libya",
+    destinationCountry: "Brazil",
     packageInfo: {
-      description: "Three bars of Gold",
-      weight: "10kg",
-      quantity: "1 box",
+      description: "Gold Bars",
+      weight: "70kg",
+      quantity: "Undisclosed Box",
       Type: "Freight Shipping",
       mode: "Sea",
       ID: "PKG-908172",
@@ -105,11 +105,12 @@ const shipmentsData = {
       notes: "Fragile",
     },
     receiver: {
-      name: "Ara Bella Castillo ",
-      email: "ara_castillo929@yahoo.com ",
-      phone: "09621446371",
-      country: "Philippine",
-      address: "46 Dangay St Project 7 Quezon City ",
+      name: "Zaida Figueredo Fuentes",
+      email: "zaida691121@gmail.com",
+      phone: "+5547988558302",
+      country: "Brazil",
+      postal: "89207530",
+      address: "Rua Sind Costa dos Santos, Barrio Gunabara, #298",
     },
 
     
@@ -122,34 +123,33 @@ const shipmentsData = {
 
 
     route: [
-      { country: "United Kingdom", coords: [51.5074, -0.1278] },
-      // { country: "Philippines", city: "Quezon City", coords: [14.6760, 121.0437],},
+      { country: "Libya", city: "Benghazi", coords: [32.1167, 20.0667] },
     ],
     
 
     history: [
       {
-        date: "2026-07-07",
+        date: "2026-08-14",
         time: "08:29AM",
-        location: "London",
+        location: "Benghazi, Libya",
         status: "Shipment Created",
         updatedBy: "WH-210",
         remarks: "Package registered",
       },
-      {
-        date: "2026-05-12",
-        time: "08:30AM",
-        // location: "Abu Dhabi",
-        // location: "Frankfurt, Germany",
-        location: "London",
-        status:"In Transit",
-        // status: "On Hold",
-        // status: "Held by Customs",
-        // status: "Shipment En Route",
-        // status: "Cargo En Route",
-        updatedBy: "WH-210",
-        remarks: "Shipment Departed",
-      },
+      // {
+      //   date: "2026-05-12",
+      //   time: "08:30AM",
+      //   // location: "Abu Dhabi",
+      //   // location: "Frankfurt, Germany",
+      //   location: "London",
+      //   status:"In Transit",
+      //   // status: "On Hold",
+      //   // status: "Held by Customs",
+      //   // status: "Shipment En Route",
+      //   // status: "Cargo En Route",
+      //   updatedBy: "WH-210",
+      //   remarks: "Shipment Departed",
+      // },
     ],
   },
 
@@ -573,6 +573,9 @@ const Track = () => {
             </p>
             <p data-aos="zoom-in">
               <strong>Country:</strong> {shipment.receiver.country}
+            </p>
+             <p data-aos="zoom-in">
+              <strong>Postal/ZIP:</strong> {shipment.receiver.postal}
             </p>
             <p data-aos="zoom-in">
               <strong>Address:</strong> {shipment.receiver.address}
