@@ -20,7 +20,7 @@ const sections = [
   },
   {
     title: "Contact Shiprlift",
-    content: "If you have questions about this Privacy Notice, please contact our privacy team.\n\nEmail:info@shiprlit.com\nPhone: + 1 479-652-4016",
+    content: "If you have questions about this Privacy Notice, please contact our privacy team.\n\nEmail:mail@shiprlift.com\nPhone: + 1 479-652-4016",
   },
 ];
 

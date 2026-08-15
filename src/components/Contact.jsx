@@ -260,7 +260,7 @@ const ContactPage = () => {
 
           <div className="shione" data-aos="fade-left">
               <MailIcon className="mail-icon" />           
-            <h6>info@shiprlift.com</h6>
+            <h6>mail@shiprlift.com</h6>
           </div>
         </div>
         

@@ -114,6 +114,8 @@ const ShiprliftFilter = () => {
           Alfoyhat, Ahmed Mehdawi Building <br />
           Benghazi, Libya
          </p>
+         <br />
+         <p>mail@shiprlift.com</p>
 
           {/* <p data-aos="zoom-in">Office 2104, The Shard <br />
             32 London Bridge Street  <br />
@@ -140,6 +142,7 @@ const ShiprliftFilter = () => {
             <img src={badphone} alt="shirlogo" />
             <h5 data-aos="zoom-in">+ 1 479-652-4016</h5>
           </div>
+          
         </div>
 
         {/* <div className="section6">
