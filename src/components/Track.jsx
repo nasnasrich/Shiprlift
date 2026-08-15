@@ -129,8 +129,8 @@ const shipmentsData = {
 
     history: [
       {
-        date: "2026-08-14",
-        time: "08:29AM",
+        date: "2026-08-15",
+        time: "09:52AM",
         location: "Benghazi, Libya",
         status: "Shipment Created",
         updatedBy: "WH-210",
