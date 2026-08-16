@@ -38,6 +38,19 @@ const shipmentsData = {
     mapStatus: "Cargo En Route",
     dispatchCountry: "United Kingdom",
     destinationCountry: "Egypt",
+
+    // packageInfo: {
+    //   description: "Three bars of Gold",
+    //   weight: "10kg",
+    //   quantity: "1 box",
+    //   Type: "Freight Shipping",
+    //   mode: "Sea",
+    //   ID: "PKG-908172",
+    //   container: "LCL",
+    //   Sealnumber: "SEAL55661",
+    //   notes: "Fragile",
+    // },
+
     packageInfo: {
       description: "Three bars of Gold",
       weight: "10kg",
@@ -47,8 +60,11 @@ const shipmentsData = {
       ID: "PKG-908172",
       container: "LCL",
       Sealnumber: "SEAL55661",
-      notes: "Fragile",
+      dimensions: "50 × 40 × 30 cm",
+      origin: "United Kingdom",
+      destination: "Egypt",
     },
+
     receiver: {
       name: "Helmi Mohamed",
       email: "hs.66666@yahoo.com",
@@ -93,17 +109,21 @@ const shipmentsData = {
     mapStatus: "In Transit",
     dispatchCountry: "Libya",
     destinationCountry: "Brazil",
+
     packageInfo: {
       description: "Gold Bars",
       weight: "70kg",
       quantity: "Undisclosed Box",
-      Type: "Freight Shipping",
-      mode: "Sea",
+      Type: "Express Air Freight",
+      mode: "Air",
       ID: "PKG-908172",
-      container: "LCL",
+      // container: "LCL",
       Sealnumber: "SEAL55661",
-      notes: "Fragile",
+      dimensions: "120 × 80 × 70 cm",
+      origin: "Benghazi, Libya",
+      destination: "Brazil",
     },
+
     receiver: {
       name: "Zaida Figueredo Fuentes",
       email: "zaida691121@gmail.com",
@@ -586,32 +606,49 @@ const Track = () => {
 
           <div className="info-card" data-aos="fade-up">
             <h3>Package Information</h3>
+
             <p data-aos="zoom-in">
               <strong>Description:</strong> {shipment.packageInfo.description}
             </p>
+
             <p data-aos="zoom-in">
               <strong>Weight:</strong> {shipment.packageInfo.weight}
             </p>
+
             <p data-aos="zoom-in">
               <strong>Quantity:</strong> {shipment.packageInfo.quantity}
             </p>
+
             <p data-aos="zoom-in">
               <strong>Type:</strong> {shipment.packageInfo.Type}
             </p>
+
             <p data-aos="zoom-in">
               <strong>Mode:</strong> {shipment.packageInfo.mode}
-            </p>
+            </p>  
+
             <p data-aos="zoom-in">
               <strong>ID:</strong> {shipment.packageInfo.ID}
             </p>
+
             <p data-aos="zoom-in">
               <strong>Container:</strong> {shipment.packageInfo.container}
             </p>
+
             <p data-aos="zoom-in">
-              <strong>Sealnumber:</strong> {shipment.packageInfo.Sealnumber}
+              <strong>Seal Number:</strong> {shipment.packageInfo.Sealnumber}
             </p>
-            <p>
-              <strong>Notes:</strong> {shipment.packageInfo.notes}
+
+            <p data-aos="zoom-in">
+              <strong>Dimensions:</strong> {shipment.packageInfo.dimensions}
+            </p>
+
+            <p data-aos="zoom-in">
+              <strong>Origin:</strong> {shipment.packageInfo.origin}
+            </p>
+
+            <p data-aos="zoom-in">
+              <strong>Destination:</strong> {shipment.packageInfo.destination}
             </p>
           </div>
 
