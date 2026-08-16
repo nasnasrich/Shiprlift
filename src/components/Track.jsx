@@ -117,7 +117,7 @@ const shipmentsData = {
       Type: "Express Air Freight",
       mode: "Air",
       ID: "PKG-908172",
-      // container: "LCL",
+      container: "Air Cargo Unit",
       Sealnumber: "SEAL55661",
       dimensions: "120 × 80 × 70 cm",
       origin: "Benghazi, Libya",
@@ -143,7 +143,8 @@ const shipmentsData = {
 
 
     route: [
-      { country: "Libya", city: "Benghazi", coords: [32.1167, 20.0667] },
+      // { country: "Libya", city: "Benghazi", coords: [32.1167, 20.0667] },
+      {country: "Turkey", city: "Istanbul",coords: [41.0082, 28.9784],},
     ],
     
 
@@ -152,10 +153,10 @@ const shipmentsData = {
         date: "2026-08-15",
         time: "10:20PM",
         location: "Benghazi, Libya",
-        // status: "Shipment Created",
-        status:"In Transit",
+        status: "Shipment Created",
+        // status:"In Transit",
         updatedBy: "WH-210",
-        remarks: "Package registered",
+        remarks: "Shipment dispatched via express air freight",
       },
       // {
       //   date: "2026-05-12",
@@ -171,6 +172,15 @@ const shipmentsData = {
       //   updatedBy: "WH-210",
       //   remarks: "Shipment Departed",
       // },
+
+       {
+    date: "2026-08-16",
+    time: "11:00AM",
+    location: "Istanbul, Turkey",
+    status: "In Transit",
+    updatedBy: "WH-210",
+    remarks: "Shipment in transit through international air cargo hub",
+  },
     ],
   },
 
