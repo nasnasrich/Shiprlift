@@ -130,7 +130,7 @@ const shipmentsData = {
     history: [
       {
         date: "2026-08-15",
-        time: "09:52AM",
+        time: "10:20PM",
         location: "Benghazi, Libya",
         status: "Shipment Created",
         updatedBy: "WH-210",
@@ -720,8 +720,7 @@ const Track = () => {
           </div>
 
         </div>
-                  <ShiprliftFilter />
-
+            <ShiprliftFilter />
     </div>
   );
 };
