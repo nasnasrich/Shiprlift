@@ -139,7 +139,7 @@
   /* background-color: aquamarine; */
 }
 
-.section4 p {
+/* .section4 p {
   font-family: initial;
   font-size: 15px;
 }
@@ -147,6 +147,68 @@
 .section4 p:hover {
   color: white;
   text-decoration: underline;
+} */
+
+
+/* EMAIL ICON + EMAIL ADDRESS */
+.mailbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: fit-content !important;
+  gap: 2px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+
+/* Mail icon */
+.mailbox .mail-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  flex-shrink: 0 !important;
+}
+
+.mail-icon {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  color: #383737 !important;
+  /* background-color: white !important; */
+  border-radius: 50% !important;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Email link */
+.mailbox .mail-link {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+/* All link states */
+.mailbox .mail-link:link,
+.mailbox .mail-link:visited,
+.mailbox .mail-link:hover,
+.mailbox .mail-link:active,
+.mailbox .mail-link:focus {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
 }
 
 .phoneandpic {
@@ -453,6 +515,13 @@
     text-decoration: underline;
   }
 
+  .section4 link {
+    color: inherit;
+    text-decoration: none;
+
+    color: transparent;
+  }
+
   .phoneandpic {
     width: 20%;
     color: #4c7dff;
@@ -490,11 +559,42 @@
     margin-left: 0px;
   }
 
-  .shirlog img{
+
+ /* EMAIL - PC AND MOBILE */
+
+.mailbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px;
+  width: 100%;
+}
+
+.mailbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 3px;
+  width: 100%;
+}
+
+.mail-icon {
+  width: 22px !important;
+  height: 22px !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  flex-shrink: 0;
+  margin: 0 !important;
+}
+
+
+  .shirlog img {
     height: 2vh;
   }
 
-  .shirlog h5{
+  .shirlog h5 {
     height: 2vh;
   }
 

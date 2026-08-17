@@ -12,6 +12,7 @@ import imgwhatsapp from "../assets/imgwhatsapp.png";
 import shirlogo from "../assets/shirlogo.png";
 
 // ceephone.png
+import EmailIcon from "@mui/icons-material/Email";
 import badphone from "../assets/badphone.png";
 // import coke from "../assets/coke.png";
 
@@ -28,13 +29,13 @@ const ShiprliftFilter = () => {
     setLoading(true);
 
     try {
-    await sendMail(
-      e,
-     import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE,
-     "newsletterForm",
-     "Thanks for subscribing!"
-     );
-     
+      await sendMail(
+        e,
+        import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE,
+        "newsletterForm",
+        "Thanks for subscribing!",
+      );
+
       setTimeout(() => {
         setLoading(false);
       }, 1200);
@@ -54,6 +55,12 @@ const ShiprliftFilter = () => {
     AOS.refresh();
   }, []);
 
+  const message = encodeURIComponent(
+    "Hello Shiprlift, I would like to make an enquiry.",
+  );
+
+  const whatsappLink = `https://wa.me/14796524016?text=${message}`;
+
   return (
     <div className="filter-section">
       <div className="logo-section">
@@ -67,10 +74,13 @@ const ShiprliftFilter = () => {
 
           <div className="contact-info">
             <div className="socials" data-aos="zoom-in" data-aos-delay="200">
-              {" "}
-              <img src={ig} alt="ig" />
-              <img src={imgwhatsapp} alt="imgwhatsapp" />
-              <img src={trlegram} alt="trlegram" />
+              <img src={ig} alt="Instagram" />
+
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <img src={imgwhatsapp} alt="WhatsApp" />
+              </a>
+
+              <img src={trlegram} alt="Telegram" />
             </div>
 
             <div className="logo" data-aos="flip-left">
@@ -109,13 +119,40 @@ const ShiprliftFilter = () => {
               Dubai, United Arab Emirates
           </p>   */}
 
-         <p>
-          Office 1, Alwakalat Street <br />
-          Alfoyhat, Ahmed Mehdawi Building <br />
-          Benghazi, Libya
-         </p>
-         <br />
-         <p>mail@shiprlift.com</p>
+          <p>
+            Office 1, Alwakalat Street <br />
+            Alfoyhat, Ahmed Mehdawi Building <br />
+            Benghazi, Libya
+          </p>
+          <br />
+
+          <div className="mailbox"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <EmailIcon
+              className="mail-icon"
+              sx={{
+                color: "#fff",
+              }}
+            />
+
+            <a
+              href="mailto:mail@shiprlift.com"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                WebkitTextFillColor: "white",
+                display: "inline-block",
+                // paddingTop: "1px",
+              }}
+            >
+              mail@shiprlift.com
+            </a>
+          </div>
 
           {/* <p data-aos="zoom-in">Office 2104, The Shard <br />
             32 London Bridge Street  <br />
@@ -142,7 +179,6 @@ const ShiprliftFilter = () => {
             <img src={badphone} alt="shirlogo" />
             <h5 data-aos="zoom-in">+ 1 479-652-4016</h5>
           </div>
-          
         </div>
 
         {/* <div className="section6">

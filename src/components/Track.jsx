@@ -144,7 +144,8 @@ const shipmentsData = {
 
     route: [
       // { country: "Libya", city: "Benghazi", coords: [32.1167, 20.0667] },
-      {country: "Turkey", city: "Istanbul",coords: [41.0082, 28.9784],},
+      // {country: "Turkey", city: "Istanbul",coords: [41.0082, 28.9784],},
+      {country: "International Air Route",city: "Eastern Mediterranean",coords: [34.5, 34.0],},
     ],
     
 
@@ -180,6 +181,15 @@ const shipmentsData = {
     status: "In Transit",
     updatedBy: "WH-210",
     remarks: "Shipment in transit through international air cargo hub",
+  },
+
+   {
+    date: "2026-08-17",
+    time: "02:00PM",
+    location: "Eastern Mediterranean Air Route",
+    status: "In Transit",
+    updatedBy: "WH-210",
+    remarks: "Shipment continuing through international air cargo network",
   },
     ],
   },
