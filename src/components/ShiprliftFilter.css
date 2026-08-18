@@ -1,840 +1,715 @@
-/* =========================================================
-   SHIPRLIFT FOOTER / FILTER
-   FULLY RESPONSIVE
-========================================================= */
-
 .filter-section {
-  width: 100%;
-  box-sizing: border-box;
-
-  margin: 0;
-  padding: 45px 5%;
-
+  /* font-size: 30px;  */
+  display: flex;
+  /* gap: 1%; */
+  /* padding-left: 3%; */
+  margin-top: 3px;
+  margin-bottom: 0%;
+  justify-content: center;
+  border: 1px solid blue;
+  /* background-color: #355d6d; */
   background-color: #383737;
-  color: white;
-
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
   border: 1px solid rgb(255, 213, 0);
-
+  color: white;
+  height: 35vh;
   box-shadow: 4px 4px 5px rgb(0, 0, 0);
-
-  min-height: 35vh;
 }
-
-
-/* =========================================================
-   MAIN GRID
-========================================================= */
 
 .logo-section {
-  width: 100%;
-  max-width: 1450px;
-
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns:
-    1.5fr
-    1fr
-    0.8fr
-    1.5fr;
-
-  gap: 45px;
-
-  align-items: start;
+  display: flex;
+  gap: 0%;
+  margin-top: 2vh;
+  justify-content: center;
 }
 
-
-/* =========================================================
-   GENERAL TEXT
-========================================================= */
-
 .filter-section h2 {
-  margin: 0 0 15px 0;
-
+  /* font-family:initial; */
   font-family: monospace;
-
-  font-size: clamp(17px, 1.5vw, 21px);
-
-  line-height: 1.3;
-
-  color: white;
+  font-size: 18px;
 }
 
 .filter-section h2:hover {
-  color: #4c7dff;
   text-decoration: underline;
+  color: #4c7dff;
 }
 
 .filter-section p {
-  margin: 0;
-
   font-family: initial;
-
-  font-size: clamp(13px, 1vw, 16px);
-
-  line-height: 1.6;
-
-  color: white;
-
-  overflow-wrap: break-word;
+  margin: 0%;
 }
 
 .filter-section p:hover {
   text-decoration: underline;
 }
 
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-.section1,
-.section4,
-.section5,
-.section7 {
-  width: 100%;
-  min-width: 0;
-
-  box-sizing: border-box;
+.section1 {
+  width: 28%;
 }
-
-
-/* =========================================================
-   SECTION 1
-========================================================= */
 
 .section1 p {
-  width: 100%;
-  max-width: 450px;
+  width: 85%;
 }
-
-
-/* =========================================================
-   CONTACT INFO
-========================================================= */
 
 .contact-info {
   display: flex;
-
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 18px;
-
-  margin-top: 20px;
 }
 
-
-/* =========================================================
-   SOCIAL ICONS
-========================================================= */
-
 .socials {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  width: auto;
-
-  margin: 0;
+  margin-top: 2vh;
+  width: 20%;
 }
 
 .socials img {
-  width: 32px;
-  height: 32px;
-
-  padding: 5px;
-
-  margin: 0;
-
-  box-sizing: border-box;
-
-  border-radius: 80%;
-
+  width: 30%;
+  padding: 2%;
+  margin-top: 0%;
+  padding-top: 0%;
+  margin-right: 2%;
+  border-radius: 50%;
   background-color: white;
-
-  object-fit: contain;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 .socials img:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px);
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
+.section1 img {
+  width: 25%;
+  padding: 2%;
+  margin-left: 1%;
+}
 
 .logo {
+  margin-top: 1%;
+  margin-left: 5%;
   display: flex;
-
-  align-items: center;
-
-  width: auto;
-
-  margin: 0;
-
-  padding: 0;
+  width: 50%;
 }
 
 .lopic {
-  width: auto;
-
-  display: flex;
-
-  align-items: center;
+  width: 5%;
 }
 
 .logo img {
-  width: 15px;
-  height: 45px;
+  width: 180%;
+  /* padding: 2%; */
+  background-color: none;
+  margin-top: 1vh;
+  margin-left: 0%;
+  padding-left: 0%;
+}
 
-  object-fit: contain;
-
-  margin: 0;
-  padding: 0;
-
-  background: transparent;
+.section2 p:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .loh3 {
-  margin: 0;
-  padding: 0;
+  margin-top: 0vh;
+  padding-top: 4px;
+  margin-left: 0%;
+  padding-left: 0%;
 }
 
 .loh3 h3 {
-  margin: 0 0 0 8px;
-
-  padding: 0;
-
   font-family: initial;
-
-  font-size: 18px;
 }
 
+.section3 {
+  width: 15%;
+}
 
-/* =========================================================
-   OFFICIAL INFO
-========================================================= */
+.section3 p:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.loh3 h3 {
+  /* background-color: antiquewhite; */
+  margin-left: 18%;
+  margin-top: 4px;
+  padding: 0%;
+}
 
 .section4 {
-  margin: 0;
-  padding: 0;
+  width: 20%;
+  margin-top: 0%;
+  padding-top: 0%;
+  /* background-color: aquamarine; */
 }
 
-.section4 p {
-  font-size: clamp(13px, 1vw, 15px);
+/* .section4 p {
+  font-family: initial;
+  font-size: 15px;
 }
 
+.section4 p:hover {
+  color: white;
+  text-decoration: underline;
+} */
 
-/* =========================================================
-   EMAIL
-========================================================= */
 
+/* EMAIL ICON + EMAIL ADDRESS */
 .mailbox {
   display: flex !important;
-
   flex-direction: row !important;
-
   align-items: center !important;
-
   justify-content: flex-start !important;
-
-  gap: 6px !important;
-
   width: fit-content !important;
-
-  max-width: 100%;
-
-  margin: 15px 0 0 0 !important;
-
+  gap: 2px !important;
+  margin: 0 !important;
   padding: 0 !important;
-
-  box-sizing: border-box;
 }
 
 
-/* Email symbol */
 
-.mail-symbol {
-  width: 22px;
-  height: 22px;
+/* Mail icon */
+.mailbox .mail-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  flex-shrink: 0 !important;
+}
 
-  min-width: 22px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  color: white;
-
-  font-size: 17px;
-
+.mail-icon {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 5px !important;
+  margin: 0 !important;
+  color: #383737 !important;
+  /* background-color: white !important; */
+  border-radius: 50% !important;
+  box-sizing: border-box;
   flex-shrink: 0;
 }
 
-
 /* Email link */
+.mailbox .mail-link {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
 
-.mailbox .mail-link,
+/* All link states */
 .mailbox .mail-link:link,
 .mailbox .mail-link:visited,
 .mailbox .mail-link:hover,
 .mailbox .mail-link:active,
 .mailbox .mail-link:focus {
-  display: block;
-
-  color: white !important;
-
-  -webkit-text-fill-color: white !important;
-
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
   text-decoration: none !important;
-
-  line-height: 1.3;
-
-  font-size: clamp(12px, 1vw, 15px);
-
-  overflow-wrap: anywhere;
-
-  white-space: normal;
 }
 
+.phoneandpic {
+  width: 20%;
+  font-family: initial;
+}
 
-/* =========================================================
-   OPEN HOURS
-========================================================= */
+.phoneandpic p:hover {
+  text-decoration: overline;
+}
+
+.section4 .phoneandpic {
+  margin-top: 0vh;
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+}
+
+.section4 .phone {
+  margin-top: 1vh;
+  width: 5%;
+}
+
+.section4 .phone img {
+  width: 130%;
+  margin-top: 1vh;
+  border-radius: 50%;
+  background-color: white;
+  /* padding: 2%; */
+}
+
+.section4 .phonenumer {
+  /* width: 20%; */
+  /* background-color: brown; */
+  margin-top: 0vh;
+  margin-left: 0px;
+}
+
+.phoneandpic img {
+  width: 5%;
+  border-radius: 50%;
+  background: white;
+}
 
 .section5 {
-  margin: 0;
+  margin-top: 0%;
+  width: 15%;
+}
 
-  padding: 0;
+.section4 .phonenumer h5 {
+  margin: 0%;
+  padding-top: 2vh;
+  font-family: cursive;
 }
 
 .section5 p {
-  line-height: 1.7;
+  padding-top: 0%;
+  margin-top: 0%;
 }
 
-
-/* =========================================================
-   PHONE
-========================================================= */
-
-.shirlog {
+.section5 .shirlog {
   display: flex;
-
-  align-items: center;
-
-  gap: 0px;
-
-  margin-top: 18px;
 }
 
-.shirlog img {
-  width: 30px;
-  height: 30px;
+.section5 .shirlog h5 {
+  padding-top: 0%;
+  margin-top: 10%;
+}
 
-  margin: 0;
+.section5 .strong img h5:hover {
+  /* transform: translateY(-8px); */
+  color: #4c7dff;
+  text-decoration: underline;
+}
 
-  padding: 4px;
-
-  box-sizing: border-box;
-
+.section5 .shirlog img {
+  width: 8%;
+  height: 4vh;
+  margin-top: 15px;
   border-radius: 50%;
-
-  background-color: transparent;
-
-  object-fit: contain;
-
-  flex-shrink: 0;
+  border: none;
+  /* background-color: white; */
+  /* padding: 2%; */
 }
 
+.section6 {
+  margin-top: 0vh;
+  width: 15%;
+  /* background-color: aquamarine; */
+}
 
-/* Phone link */
-
-.phone-link,
-.phone-link:link,
-.phone-link:visited,
-.phone-link:hover,
-.phone-link:active,
-.phone-link:focus {
+.section6 select {
+  margin-top: 3vh;
+  width: 66%;
+  border: 2px solid white;
+  border-radius: 4%;
+  background-color: rgb(254, 247, 247);
   color: white;
-
-  text-decoration: none;
-
-  font-size: clamp(12px, 1vw, 15px);
-
-  overflow-wrap: anywhere;
+  font-family: initial;
 }
-
-
-/* =========================================================
-   NEWSLETTER
-========================================================= */
 
 .section7 {
-  width: 100%;
-}
-
-.newsletter {
-  width: 100%;
-}
-
-.newsletter-content {
-  width: 100%;
-}
-
-.section7 h2 {
-  margin-bottom: 15px;
+  width: 25%;
+  /* background-color: aqua; */
 }
 
 .section7 p {
-  width: 100%;
-
-  max-width: 450px;
+  width: 90%;
 }
 
-
-/* =========================================================
-   NEWSLETTER FORM
-========================================================= */
-
-.newsletter-form {
-  width: 100%;
-
-  display: flex;
-
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin-top: 20px;
-}
-
-
-/* Input */
-
-.newsletter-form input {
-  flex: 1 1 180px;
-
-  min-width: 0;
-
-  box-sizing: border-box;
-
-  height: 42px;
-
-  padding: 0 12px;
-
-  margin: 0;
-
-  border: 1px solid #777;
-
-  border-radius: 4px;
-
+.section7 input {
   background-color: #4b4a4a;
-
+  margin-top: 3vh;
+  margin-right: 1%;
+  width: 45%;
   color: white;
-
-  font-size: 14px;
 }
 
-.newsletter-form input::placeholder {
+.section7 ::placeholder {
   color: white;
-
   font-family: monospace;
-
-  opacity: 0.9;
 }
 
 .newsletter-form input:focus {
   outline: none;
-
   border-color: #4c7dff;
-
-  box-shadow:
-    0 0 0 3px rgba(76, 125, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(94, 95, 96, 0.2);
 }
 
-
-/* Button */
-
 .newsletter-form button {
-  flex: 0 0 auto;
-
-  height: 42px;
-
-  padding: 0 18px;
-
   border: 1px solid black;
-
-  border-radius: 4px;
-
-  background-color: white;
-
-  color: #222;
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  box-shadow: 0px 0px 1px white;
 }
 
 .newsletter-form button:hover {
   background-color: #4c7dff;
-
-  color: white;
-
-  transform: translateY(-3px);
 }
 
-.newsletter-form button:disabled {
-  cursor: not-allowed;
-
-  opacity: 0.8;
-
-  transform: none;
+.newsletter-form button:hover {
+  transform: translateY(-8px);
 }
 
+.spinner {
+  border: 2px solid #fff;
+  border-top: 2px solid #4c7dff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.8s linear infinite;
+}
 
-/* =========================================================
-   TABLET
-========================================================= */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-@media (max-width: 1100px) {
-
+@media (max-width: 560px) {
   .filter-section {
-    padding: 40px 4%;
+    display: grid;
+    margin: 0%;
+    margin-bottom: 0%;
+    padding: 0%;
+    justify-content: center;
+    border: 1px solid blue;
+    background-color: #383737;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(255, 213, 0);
+    color: white;
+    height: 110vh;
+    box-shadow: 4px 4px 5px rgb(0, 0, 0);
   }
 
   .logo-section {
-    grid-template-columns:
-      1fr
-      1fr;
-
-    gap: 35px;
-  }
-
-  .section1,
-  .section4,
-  .section5,
-  .section7 {
-    width: 100%;
-  }
-
-}
-
-.logo .loh3 h3{
-    font-size: 30px;
-  } 
-
-
-/* =========================================================
-   SMALL TABLET
-========================================================= */
-
-@media (max-width: 800px) {
-
-  .filter-section {
-    padding: 35px 5%;
-  }
-
-  .logo-section {
-    grid-template-columns: 1fr 1fr;
-
-    gap: 30px;
-  }
-
-  .logo img {
-    width: 23px;
-    height: 42px;
-    margin-top: 0%;
-    padding-top: 0%;
+    display: grid;
+    gap: 0%;
+    margin-top: 2vh;
+    margin-left: 7%;
+    justify-content: center;
   }
 
   .filter-section h2 {
+    /* font-family:initial; */
+    font-family: monospace;
     font-size: 18px;
   }
 
+  .filter-section h2:hover {
+    text-decoration: underline;
+    color: #4c7dff;
+  }
+
   .filter-section p {
-    font-size: 14px;
+    font-family: initial;
+    margin: 0%;
+  }
+
+  .filter-section p:hover {
+    text-decoration: underline;
+  }
+
+  .section1 {
+    width: 100%;
+    /* background-color: #4c7dff; */
   }
 
   .section1 p {
-    max-width: 100%;
+    width: 63%;
+    /* text-align: center; */
   }
 
-  .section7 p {
-    max-width: 100%;
+  .contact-info {
+    display: flex;
   }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-  .filter-section {
-    width: 100%;
-
-    min-height: auto;
-
-    height: auto;
-
-    padding: 35px 20px;
-
-    margin: 0;
-
-    box-sizing: border-box;
-  }
-
-
-  .logo-section {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 30px;
-
-    margin: 0;
-  }
-
-
-  .section1,
-  .section4,
-  .section5,
-  .section7 {
-    width: 100%;
-  }
-
-
-  /* About */
-
-  .section1 p {
-    width: 100%;
-
-    max-width: 100%;
-
-    font-size: 14px;
-  }
-
-
-  /* Social */
 
   .socials {
-    gap: 8px;
+    margin-top: 2vh;
+    width: 20%;
   }
 
   .socials img {
-    width: 30px;
-    height: 30px;
-  }
-
-
-  /* Logo */
-
-  .logo img {
-    width: 22px;
-    height: 42px;
+    width: 30%;
+    padding: 2%;
     margin-top: 0%;
     padding-top: 0%;
+    margin-right: 2%;
+    border-radius: 50%;
+    background-color: white;
   }
 
-  
-
-  /* Official info */
-
-  .section4 p {
-    font-size: 14px;
-
-    line-height: 1.6;
+  .socials img:hover {
+    transform: translateY(-8px);
   }
 
-
-  /* Email */
-
-  .mailbox {
-    width: 100% !important;
-
-    max-width: 100%;
-
-    gap: 5px !important;
+  .section1 img {
+    width: 25%;
+    padding: 2%;
+    margin-left: 1%;
   }
 
-  .mailbox .mail-link {
-    font-size: 14px;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  /* Open hours */
-
-  .section5 p {
-    font-size: 14px;
-  }
-
-
-  /* Phone */
-
-  .shirlog {
-    margin-top: 15px;
-
-    gap: 7px;
-  }
-
-  .shirlog img {
-    width: 20px;
-    height: 28px;
-  }
-
-  .phone-link {
-    font-size: 14px;
-  }
-
-
-  /* Newsletter */
-
-  .section7 {
-    width: 100%;
-  }
-
-  .section7 p {
-    width: 100%;
-
-    font-size: 14px;
-  }
-
-
-  /* Newsletter form */
-
-  .newsletter-form {
-    width: 100%;
-
+  .logo {
+    margin-top: 1vh;
+    margin-left: 5%;
     display: flex;
-
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 10px;
+    width: 50%;
   }
 
-  .newsletter-form input {
-    width: 100%;
-
-    flex: none;
-
-    height: 44px;
-
-    box-sizing: border-box;
-  }
-
-  .newsletter-form button {
-    width: 100%;
-
-    height: 44px;
-
-    flex: none;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .filter-section {
-    padding: 30px 15px;
-  }
-
-  .logo-section {
-    gap: 25px;
-  }
-
-  .filter-section h2 {
-    font-size: 16px;
-  }
-
-  .filter-section p {
-    font-size: 13px;
-
-    line-height: 1.55;
-  }
-
-  .socials img {
-    width: 27px;
-    height: 27px;
-
-    padding: 4px;
+  .lopic {
+    width: 5%;
   }
 
   .logo img {
-    width: 38px;
-    height: 38px;
+    width: 180%;
+    /* padding: 2%; */
+    background-color: none;
+    margin-top: 7px;
+    margin-left: 1%;
+  }
+
+  .section2 p:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .loh3 {
+    margin-top: 0vh;
+    padding-top: 2px;
+    padding-left: 2px;
+  }
+
+  .section3 {
+    width: 15%;
+  }
+
+  .section3 p:hover {
+    color: white;
+    text-decoration: underline;
   }
 
   .loh3 h3 {
-    font-size: 16px;
+    /* background-color: antiquewhite; */
+    margin-left: 10%;
+    margin-top: 6px;
+    padding: 0%;
   }
 
-  .section4 p,
-  .section5 p {
-    font-size: 13px;
+  .section4 {
+    width: 65%;
+    margin-top: 0%;
+    padding-top: 0%;
+    /* background-color: aquamarine; */
   }
 
-  .mailbox .mail-link {
-    font-size: 13px;
+  .section4 p {
+    font-family: initial;
+    font-size: 15px;
   }
 
-  .phone-link {
-    font-size: 13px;
+  .section4 p:hover {
+    color: white;
+    text-decoration: underline;
   }
 
-  .newsletter-form input,
-  .newsletter-form button {
-    height: 42px;
+  .section4 link {
+    color: inherit;
+    text-decoration: none;
+
+    color: transparent;
   }
+
+  .phoneandpic {
+    width: 20%;
+    color: #4c7dff;
+    font-family: initial;
+  }
+
+  .phoneandpic p:hover {
+    text-decoration: overline;
+  }
+
+  .section4 .phoneandpic {
+    margin-top: 0vh;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+  }
+
+  .section4 .phone {
+    margin-top: 1vh;
+    width: 5%;
+  }
+
+  .section4 .phone img {
+    width: 130%;
+    margin-top: 1vh;
+    border-radius: 50%;
+    background-color: white;
+    /* padding: 2%; */
+  }
+
+  .section4 .phonenumer {
+    /* width: 20%; */
+    /* background-color: brown; */
+    margin-top: 0vh;
+    margin-left: 0px;
+  }
+
+
+ /* EMAIL - PC AND MOBILE */
+
+.mailbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px;
+  width: 100%;
+}
+
+.mailbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 3px;
+  width: 100%;
+}
+
+.mail-icon {
+  width: 22px !important;
+  height: 22px !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  flex-shrink: 0;
+  margin: 0 !important;
 }
 
 
-/* =========================================================
-   LARGE SCREENS
-========================================================= */
-
-@media (min-width: 1600px) {
-
-  .filter-section {
-    padding-left: 6%;
-    padding-right: 6%;
+  .shirlog img {
+    height: 2vh;
   }
 
-  .logo-section {
-    max-width: 1600px;
-
-    gap: 60px;
+  .shirlog h5 {
+    height: 2vh;
   }
 
+  .phoneandpic img {
+    width: 5%;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .section4 .phonenumer h5 {
+    margin: 0%;
+    padding-top: 2vh;
+    font-family: cursive;
+  }
+
+
+  .section5 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+    width: 55%;
+  }
+  .section5 p {
+    padding-top: 0%;
+    margin-top: 0%;
+  }
+
+  .section5 .shirlog {
+    display: flex;
+    /* margin-top: 0%;
+  padding-top: 0%; */
+  }
+
+  .section5 .shirlog h5 {
+    padding-top: 0%;
+    margin-top: 5%;
+  }
+
+  .section5 .strong img h5:hover {
+    /* transform: translateY(-8px); */
+    color: #4c7dff;
+    text-decoration: underline;
+  }
+
+  .section5 .shirlog img {
+    width: 8%;
+    height: 4vh;
+    margin-top: 2px;
+    border-radius: 50%;
+    border: none;
+    /* background-color: white; */
+    /* padding: 2%; */
+  }
+
+  .section6 {
+    margin-top: 0vh;
+    width: 15%;
+    /* background-color: aquamarine; */
+  }
+
+  .section6 select {
+    /* margin-top: 3vh; */
+    width: 66%;
+    border: 2px solid white;
+    border-radius: 4%;
+    background-color: rgb(254, 247, 247);
+    color: white;
+    font-family: initial;
+  }
+
+  .section7 {
+    width: 90%;
+    margin-top: 0%;
+    margin-bottom: 3vh;
+  }
+
+  .section7 h2{
+    letter-spacing: -1px;
+  }
+
+  .section7 p {
+    /* width: 65%; */
+    font-size: 15px;
+  }
+
+  .section7 input {
+    background-color: #4b4a4a;
+    margin-top: 3vh;
+    margin-right: 1%;
+    width: 49%;
+    color: white;
+  }
+
+  .section7 ::placeholder {
+    color: white;
+    font-family: monospace;
+  }
+
+  
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: #4c7dff;
+    box-shadow: 0 0 0 3px rgba(94, 95, 96, 0.2);
+  }
+
+  .newsletter-form button {
+    border: 1px solid black;
+    box-shadow: 0px 0px 1px white;
+  }
+
+  .newsletter-form button:hover {
+    background-color: #4c7dff;
+  }
+
+  .newsletter-form button:hover {
+    transform: translateY(-3px);
+  }
 }
