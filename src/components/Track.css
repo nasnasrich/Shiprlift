@@ -31,7 +31,16 @@
   justify-content: center;
 }
 
-.smart-panel h1{
+.smart-tracking-page .smart-panel h1{
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: underline;
+  color: black;
+  text-align:start;
+  margin-top: 0%;
+}
+
+
+.smart-tracking-page .smart-panel h2{
   font-family: 'Times New Roman', Times, serif;
   text-decoration: underline;
   color: black;

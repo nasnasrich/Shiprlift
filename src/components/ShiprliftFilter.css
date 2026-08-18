@@ -604,17 +604,19 @@
     background: white;
   }
 
-  .section5 {
-    margin-top: 0%;
-    width: 55%;
-  }
-
   .section4 .phonenumer h5 {
     margin: 0%;
     padding-top: 2vh;
     font-family: cursive;
   }
 
+
+  .section5 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+    width: 55%;
+  }
   .section5 p {
     padding-top: 0%;
     margin-top: 0%;
@@ -654,7 +656,7 @@
   }
 
   .section6 select {
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
     width: 66%;
     border: 2px solid white;
     border-radius: 4%;
@@ -665,6 +667,7 @@
 
   .section7 {
     width: 90%;
+    margin-top: 0%;
     margin-bottom: 3vh;
   }
 
@@ -690,6 +693,7 @@
     font-family: monospace;
   }
 
+  
   .newsletter-form input:focus {
     outline: none;
     border-color: #4c7dff;

@@ -104,15 +104,15 @@ const shipmentsData = {
   },
 
   TRK987654LY: {
-    // status: "On Hold",
-    status: "In Transit",
+    status: "On Hold",
+    // status: "In Transit",
      receipt: "payment.png",
     mapStatus: "In Transit",
     dispatchCountry: "Libya",
     destinationCountry: "Brazil",
 
     packageInfo: {
-      description: "Gold Bars",
+      description: "Priority Cargo",
       weight: "70kg",
       quantity: "Undisclosed Box",
       Type: "Express Air Freight",
@@ -146,7 +146,9 @@ const shipmentsData = {
     route: [
       // { country: "Libya", city: "Benghazi", coords: [32.1167, 20.0667] },
       // {country: "Turkey", city: "Istanbul",coords: [41.0082, 28.9784],},
-      {country: "International Air Route",city: "Eastern Mediterranean",coords: [34.5, 34.0],},
+       {country: "International Air Route",city: "Eastern Mediterranean",coords: [34.5, 34.0],},
+         {country: "Egypt",city: "Cairo",coords: [30.0444, 31.2357],},
+
     ],
     
 
@@ -192,6 +194,16 @@ const shipmentsData = {
     updatedBy: "WH-210",
     remarks: "Shipment continuing through international air cargo network",
   },
+
+  {
+    date: "2026-08-18",
+    time: "10:50AM",
+    location: "Cairo International Airport, Egypt",
+    status: "On Hold",
+    updatedBy: "WH-210",
+    remarks: "Shipment temporarily placed on hold pending further processing",
+    },
+
     ],
   },
 
