@@ -664,12 +664,12 @@
   }
 
   .section7 {
-    width: 80%;
+    width: 82%;
     margin-bottom: 3vh;
   }
 
   .section7 p {
-    width: 65%;
+    /* width: 65%; */
   }
 
   .section7 input {
