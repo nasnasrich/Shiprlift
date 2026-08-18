@@ -664,8 +664,12 @@
   }
 
   .section7 {
-    width: 90%;
+    width: 85%;
     margin-bottom: 3vh;
+  }
+
+  .section7 h2{
+    letter-spacing: -1px;
   }
 
   .section7 p {
