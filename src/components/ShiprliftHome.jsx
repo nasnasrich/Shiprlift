@@ -485,7 +485,7 @@ data-aos="fade-up"
 className="terb"
 data-aos="fade-right"
 >
-  <h2 data-aos="zoom-in">CARGO & LOGISTICS SERVICES</h2>
+  <h2 data-aos="zoom-in">GLOBAL LOGISTICS SERVICES</h2>
 
   <div className="terb-grid">
 
