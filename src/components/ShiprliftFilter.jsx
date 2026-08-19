@@ -109,8 +109,8 @@ const handleSubmit = async (e) => {
 
           <div className="footer-contact">
             <EmailIcon />
-            <a href="mailto:email@shiprlift.com">
-              email@shiprlift.com
+            <a href="mailto:mail@shiprlift.com">
+               mail@shiprlift.com
             </a>
           </div>
 
