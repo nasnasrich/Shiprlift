@@ -312,13 +312,13 @@
 } */
 
 .footer-newsletter-form button {
-  background: var(--accent);
+  background: transparent;
   color: #ffffff;
 }
 
 .footer-newsletter-form button:hover,
 .footer-newsletter-form button:focus-visible {
-  background: transparent;
+  background: var(--accent);
   color: #ffffff;
 }
 

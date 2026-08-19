@@ -167,9 +167,9 @@ const handleSubmit = async (e) => {
         </p>
 
         <div className="footer-bottom-links">
-          <a href="/privacy">Privacy Policy</a>
+          <a href="/PrivacyNotice">Privacy Policy</a>
           <span>|</span>
-          <a href="/terms">Terms & Conditions</a>
+          <a href="/Terms">Terms & Conditions</a>
         </div>
       </div>
     </footer>
