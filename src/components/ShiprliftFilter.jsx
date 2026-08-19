@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { sendMail } from "./controllers/mailController";
 import "./ShiprliftFilter.css";
 
 import EmailIcon from "@mui/icons-material/Email";
@@ -18,20 +19,28 @@ const ShiprliftFilter = () => {
 
   const whatsappLink = `https://wa.me/14796524016?text=${whatsappMessage}`;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!email) return;
+  if (!email || loading) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    // Connect your newsletter API / mail controller here
-    setTimeout(() => {
-      setLoading(false);
-      setEmail("");
-      alert("Thanks for subscribing!");
-    }, 1200);
-  };
+  try {
+    await sendMail(
+      e,
+      import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE,
+      "newsletterForm",
+      "Thanks for subscribing!"
+    );
+
+    setEmail("");
+  } catch (error) {
+    console.error("Newsletter subscription failed:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <footer className="shiprlift-footer">
@@ -77,7 +86,7 @@ const ShiprliftFilter = () => {
 
         {/* QUICK LINKS */}
         <div className="footer-column footer-links">
-          <h3>QUICK LINKS</h3>
+          <h3>Quick Links</h3>
 
           <a href="/">Home</a>
           <a href="/about">About Us</a>
@@ -88,7 +97,7 @@ const ShiprliftFilter = () => {
 
         {/* OFFICIAL INFO */}
         <div className="footer-column footer-info">
-          <h3>OFFICIAL INFO</h3>
+          <h3>Official Info</h3>
 
           <p>
             Office 1, Alwakalat Street
@@ -115,7 +124,7 @@ const ShiprliftFilter = () => {
 
         {/* NEWSLETTER */}
         <div className="footer-column footer-newsletter">
-          <h3>NEWSLETTER</h3>
+          <h3>Newsletter</h3>
 
           <p>
             Subscribe to receive the latest news, articles, and resources
@@ -123,11 +132,15 @@ const ShiprliftFilter = () => {
           </p>
 
           <form
+            id="newsletterForm"
             className="footer-newsletter-form"
             onSubmit={handleSubmit}
           >
+          
+
             <input
               type="email"
+              name="user_email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -140,9 +153,9 @@ const ShiprliftFilter = () => {
           </form>
 
           <div className="footer-hours">
-            <h4>OPEN HOURS</h4>
+            <h4>Open Hours</h4>
             <p>Mon - Sat: 8am - 5pm</p>
-            <p>Sunday: CLOSED</p>
+            <p>Sunday: Closed</p>
           </div>
         </div>
       </div>

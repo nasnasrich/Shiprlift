@@ -1,0 +1,286 @@
+```css
+/* =========================================
+   SHIPRLIFT TERMS & CONDITIONS
+========================================= */
+
+.terms-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+  color: #333;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.terms-hero {
+  width: 100%;
+  min-height: 32vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: #383737;
+  color: #ffffff;
+
+  border-bottom: 1px solid rgb(255, 213, 0);
+}
+
+.terms-hero-content {
+  width: 90%;
+  max-width: 900px;
+}
+
+.terms-hero h1 {
+  margin: 0;
+
+  font-family: monospace;
+  font-size: clamp(32px, 5vw, 58px);
+  letter-spacing: -1px;
+}
+
+.terms-hero p {
+  margin: 15px auto 0;
+
+  max-width: 650px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #dddddd;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.terms-container {
+  width: 90%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 60px 0 80px;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.terms-intro {
+  padding: 25px 30px;
+
+  margin-bottom: 45px;
+
+  background: #ffffff;
+
+  border-left: 4px solid #383737;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+.terms-intro p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.terms-section {
+  margin-bottom: 40px;
+}
+
+.terms-section h2 {
+  margin: 0 0 14px;
+
+  font-family: monospace;
+
+  font-size: 22px;
+
+  color: #383737;
+
+  letter-spacing: -0.3px;
+}
+
+.terms-section p {
+  margin: 0 0 13px;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  color: #555;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.terms-contact {
+  margin-top: 20px;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+.terms-contact p {
+  margin-bottom: 10px;
+}
+
+.terms-contact strong {
+  color: #383737;
+}
+
+.terms-contact a {
+  color: #383737;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.terms-contact a:hover {
+  color: #4c7dff;
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   LAST UPDATED
+========================================= */
+
+.terms-updated {
+  margin-top: 50px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #ddd;
+}
+
+.terms-updated p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #888;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .terms-hero {
+    min-height: 28vh;
+  }
+
+  .terms-container {
+    width: 88%;
+    padding: 45px 0 60px;
+  }
+
+  .terms-intro {
+    padding: 22px;
+  }
+
+  .terms-section {
+    margin-bottom: 32px;
+  }
+
+  .terms-section h2 {
+    font-size: 20px;
+  }
+
+  .terms-section p {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+
+  .terms-hero {
+    min-height: 25vh;
+    padding: 30px 0;
+  }
+
+  .terms-hero h1 {
+    font-size: 32px;
+  }
+
+  .terms-hero p {
+    font-size: 14px;
+  }
+
+  .terms-container {
+    width: 88%;
+    padding: 35px 0 50px;
+  }
+
+  .terms-intro {
+    padding: 18px;
+
+    margin-bottom: 35px;
+  }
+
+  .terms-intro p {
+    font-size: 14px;
+  }
+
+  .terms-section h2 {
+    font-size: 18px;
+  }
+
+  .terms-section p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .terms-contact {
+    padding: 20px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .terms-hero h1 {
+    font-size: 28px;
+  }
+
+  .terms-container {
+    width: 90%;
+  }
+
+  .terms-section h2 {
+    font-size: 17px;
+  }
+}

@@ -7,8 +7,9 @@ import Tracknow from "./components/Tracknow.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import OurServices from "./components/OurServices.jsx";
-import ContactPage from "./components/ContactPage.jsx";
+import ContactPage from "./components/ContactPage.jsx"; 
 import PrivacyNotice from "./components/PrivacyNotice";
+import Terms from "./components/Terms";
 // import { LanguageProvider } from "./components/LanguageContext.jsx"; // ✅ Important
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/OurServices" element={<OurServices />} />
           <Route path="/ContactPage" element={<ContactPage />} />
           <Route path="/PrivacyNotice" element={<PrivacyNotice />} />
+          <Route path="/Terms" element={<Terms/>} />
 
           {/* SAFETY NET */}
           <Route
