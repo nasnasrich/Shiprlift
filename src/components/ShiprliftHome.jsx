@@ -872,7 +872,7 @@ href={`https://wa.me/14796524016?text=${message}`}
 target="_blank"
 rel="noopener noreferrer"
 >
-<img src={whatsappoffer} alt="whatsapp" />
+<img src={whatsappoffer} alt="whatsapp" className="whatsapp-beep"/>
 </a>
 
 </div>

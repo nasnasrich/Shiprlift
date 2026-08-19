@@ -1150,6 +1150,28 @@ transition:0.3s;
 transform:scale(1.5);
 }
 
+.whatsapp-beep {
+  animation: whatsappBeep 1.5s infinite;
+  border-radius: 90%;
+}
+
+@keyframes whatsappBeep {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 1px 1px rgba(37, 211, 102, 0.8);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
 
 
 
