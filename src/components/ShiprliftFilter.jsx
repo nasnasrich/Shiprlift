@@ -1,225 +1,166 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import "./ShiprliftFilter.css";
-import React, { useState, useContext } from "react";
 
-import { CircularProgress } from "@mui/material"; // optional if using MUI
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import XIcon from "@mui/icons-material/X";
 
-import { sendMail } from "./controllers/mailController"; // your controller
-
-import ig from "../assets/ig.png";
-import trlegram from "../assets/trlegram.png";
-import imgwhatsapp from "../assets/imgwhatsapp.png";
 import shirlogo from "../assets/shirlogo.png";
 
-// ceephone.png
-import EmailIcon from "@mui/icons-material/Email";
-import badphone from "../assets/badphone.png";
-// import coke from "../assets/coke.png";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
-
 const ShiprliftFilter = () => {
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const whatsappMessage = encodeURIComponent(
+    "Hello Shiprlift, I would like to make an enquiry."
+  );
+
+  const whatsappLink = `https://wa.me/14796524016?text=${whatsappMessage}`;
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!email) return;
 
     setLoading(true);
 
-    try {
-      await sendMail(
-        e,
-        import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE,
-        "newsletterForm",
-        "Thanks for subscribing!",
-      );
-
-      setTimeout(() => {
-        setLoading(false);
-      }, 1200);
-    } catch (error) {
+    // Connect your newsletter API / mail controller here
+    setTimeout(() => {
       setLoading(false);
-    }
+      setEmail("");
+      alert("Thanks for subscribing!");
+    }, 1200);
   };
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 80,
-      easing: "ease-in-out",
-    });
-
-    AOS.refresh();
-  }, []);
-
-  const message = encodeURIComponent(
-    "Hello Shiprlift, I would like to make an enquiry.",
-  );
-
-  const whatsappLink = `https://wa.me/14796524016?text=${message}`;
-
   return (
-    <div className="filter-section">
-      <div className="logo-section">
-        <div className="section1" data-aos="fade-right">
-          <h2 data-aos="zoom-in">SHIPRLIFT</h2>
-          <p data-aos="zoom-in">
+    <footer className="shiprlift-footer">
+      <div className="footer-container">
+
+        {/* COMPANY */}
+        <div className="footer-column footer-company">
+          <div className="footer-brand">
+            <img src={shirlogo} alt="Shiprlift logo" />
+
+            <div>
+              <h2>SHIPRLIFT</h2>
+              <span>CARGO EXPRESS</span>
+            </div>
+          </div>
+
+          <p className="footer-description">
             Shiprlift is a global logistics company delivering reliable cargo,
             vessel operations, emergency support, and installation services
             worldwide.
           </p>
 
-          <div className="contact-info">
-            <div className="socials" data-aos="zoom-in" data-aos-delay="200">
-              <img src={ig} alt="Instagram" />
+          <div className="footer-socials">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="social-icon"
+            >
+              <WhatsAppIcon />
+            </a>
 
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <img src={imgwhatsapp} alt="WhatsApp" />
-              </a>
-
-              <img src={trlegram} alt="Telegram" />
-            </div>
-
-            <div className="logo" data-aos="flip-left">
-              <div className="lopic">
-                <img src={shirlogo} alt="shirlogo" />
-              </div>
-              <div className="loh3">
-                <h3 data-aos="zoom-in">Shiprlift</h3>
-              </div>
-            </div>
+            <a
+              href="#"
+              aria-label="X"
+              className="social-icon"
+            >
+              <XIcon />
+            </a>
           </div>
         </div>
 
-        {/* <div className="section2">
-         <h2>SERVICES</h2>
-         <p>Aceon Freigh</p>
-         <p>Storeage</p>
-         <p>Air Freight</p>
-         <p>Warehousing</p>
-      </div> */}
+        {/* QUICK LINKS */}
+        <div className="footer-column footer-links">
+          <h3>QUICK LINKS</h3>
 
-        {/* <div className="section3">
-         <h2>QUICK LINKS</h2>
-         <p>About Us</p>
-         <p>Track</p>
-         <p>Contact Us</p>
-         <p>Services</p>
-      </div> 
-       */}
+          <a href="/">Home</a>
+          <a href="/about">About Us</a>
+          <a href="/OurServices">Services</a>
+          <a href="/Tracknow">Track Shipment</a>
+          <a href="/contact">Contact Us</a>
+        </div>
 
-        <div className="section4" data-aos="fade-up" data-aos-delay="100">
-          <h2 data-aos="zoom-in">Official Info:</h2>
-          {/* <p>
-              Office 2104, Marina Plaza <br />
-              Al Marsa Street, Dubai Marina <br />
-              Dubai, United Arab Emirates
-          </p>   */}
+        {/* OFFICIAL INFO */}
+        <div className="footer-column footer-info">
+          <h3>OFFICIAL INFO</h3>
 
           <p>
-            Office 1, Alwakalat Street <br />
-            Alfoyhat, Ahmed Mehdawi Building <br />
+            Office 1, Alwakalat Street
+            <br />
+            Alfoyhat, Ahmed Mehdawi Building
+            <br />
             Benghazi, Libya
           </p>
-          <br />
 
-          <div className="mailbox"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <EmailIcon
-              className="mail-icon"
-              sx={{
-                color: "#fff",
-              }}
-            />
-
-            <a
-              href="mailto:mail@shiprlift.com"
-              style={{
-                color: "white",
-                textDecoration: "none",
-                WebkitTextFillColor: "white",
-                display: "inline-block",
-                // paddingTop: "1px",
-              }}
-            >
-              mail@shiprlift.com
+          <div className="footer-contact">
+            <EmailIcon />
+            <a href="mailto:email@shiprlift.com">
+              email@shiprlift.com
             </a>
           </div>
 
-          {/* <p data-aos="zoom-in">Office 2104, The Shard <br />
-            32 London Bridge Street  <br />
-            London SE1 9SG <br />
-            United Kingdom</p>
-       </div>  */}
-
-          {/* <p data-aos="zoom-in">
-            Office 2104, Hormuud Tower
-            <br />
-            Airport Road Mogadishu
-            <br />
-            Banadir Region
-            <br />
-            Somalia
-          </p> */}
-        </div>
-
-        <div className="section5" data-aos="fade-up" data-aos-delay="200">
-          {" "}
-          <h2 data-aos="zoom-in">Open Hours:</h2>
-          <p data-aos="zoom-in">Mon - Sat: 8am - 5pm Sunday: CLOSED</p>
-          <div className="shirlog">
-            <img src={badphone} alt="shirlogo" />
-            <h5 data-aos="zoom-in">+ 1 479-652-4016</h5>
+          <div className="footer-contact">
+            <PhoneIcon />
+            <a href="tel:+14796524016">
+              +1 479-652-4016
+            </a>
           </div>
         </div>
 
-        {/* <div className="section6">
-         <h2>Language:</h2>
-           <div style={{color:"#ffff"}} id="google_translate_element"></div>
-        </div> */}
+        {/* NEWSLETTER */}
+        <div className="footer-column footer-newsletter">
+          <h3>NEWSLETTER</h3>
 
-        <div className="section7" data-aos="zoom-in-up" data-aos-delay="300">
-          {" "}
-          <section className="newsletter">
-            <div className="newsletter-content" data-aos="fade-left">
-              <h2 data-aos="zoom-in">Subscribe to our newsletter</h2>
-              <p data-aos="zoom-in">
-                The latest news, articles, and resources, sent to your inbox
-                weekly.
-              </p>
-              <form
-                id="newsletterForm"
-                className="newsletter-form"
-                onSubmit={handleSubmit}
-              >
-                <input
-                  type="email"
-                  name="user_email"
-                  placeholder="Enter your email"
-                  required
-                />
-                <button type="submit" disabled={loading}>
-                  {loading ? (
-                    <CircularProgress size={20} style={{ color: "#fff" }} />
-                  ) : (
-                    "Subscribe"
-                  )}
-                </button>
-              </form>
-            </div>
-          </section>
+          <p>
+            Subscribe to receive the latest news, articles, and resources
+            directly in your inbox.
+          </p>
+
+          <form
+            className="footer-newsletter-form"
+            onSubmit={handleSubmit}
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <button type="submit" disabled={loading}>
+              {loading ? "..." : "Subscribe"}
+            </button>
+          </form>
+
+          <div className="footer-hours">
+            <h4>OPEN HOURS</h4>
+            <p>Mon - Sat: 8am - 5pm</p>
+            <p>Sunday: CLOSED</p>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* BOTTOM FOOTER */}
+      <div className="footer-bottom">
+        <p>
+          © {new Date().getFullYear()} Shiprlift. All Rights Reserved.
+        </p>
+
+        <div className="footer-bottom-links">
+          <a href="/privacy">Privacy Policy</a>
+          <span>|</span>
+          <a href="/terms">Terms & Conditions</a>
+        </div>
+      </div>
+    </footer>
   );
 };
 
-export default ShiprliftFilter; 
+export default ShiprliftFilter;
