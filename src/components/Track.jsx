@@ -30,6 +30,7 @@ L.Icon.Default.mergeOptions({
 });
 
 
+
 /* 🔒 ADMIN DATA */
 const shipmentsData = {
   TRK850T510E: {
@@ -145,9 +146,10 @@ const shipmentsData = {
     route: [
       // { country: "Libya", city: "Benghazi", coords: [32.1167, 20.0667] },
       // {country: "Turkey", city: "Istanbul",coords: [41.0082, 28.9784],},
-        {country: "International Air Route",city: "Eastern Mediterranean",coords: [34.5, 34.0],},
-        {country: "Egypt",city: "Cairo",coords: [30.0444, 31.2357],},
-      ],
+       {country: "International Air Route",city: "Eastern Mediterranean",coords: [34.5, 34.0],},
+         {country: "Egypt",city: "Cairo",coords: [30.0444, 31.2357],},
+
+    ],
     
 
     history: [
@@ -194,13 +196,14 @@ const shipmentsData = {
   },
 
   {
-  date: "2026-08-18",
-  time: "10:50AM",
-  location: "Cairo International Airport, Egypt",
-  status: "On Hold",
-  updatedBy: "WH-210",
-  remarks: "Shipment temporarily placed on hold pending further processing",
-},
+    date: "2026-08-18",
+    time: "10:50AM",
+    location: "Cairo International Airport, Egypt",
+    status: "On Hold",
+    updatedBy: "WH-210",
+    remarks: "Shipment temporarily placed on hold pending further processing",
+    },
+
     ],
   },
 
@@ -490,26 +493,86 @@ const MapController = ({ points }) => {
 
 const useBeep = () => {
   const ctxRef = useRef(null);
+  const oscillatorsRef = useRef(new Set());
 
-  const play = (freq = 800) => {
-    if (!ctxRef.current) {
-      ctxRef.current = new (window.AudioContext || window.webkitAudioContext)();
+  const stop = React.useCallback(() => {
+    oscillatorsRef.current.forEach((osc) => {
+      try {
+        osc.stop();
+      } catch (e) {}
+
+      try {
+        osc.disconnect();
+      } catch (e) {}
+    });
+
+    oscillatorsRef.current.clear();
+
+    if (ctxRef.current) {
+      try {
+        ctxRef.current.close();
+      } catch (e) {}
+
+      ctxRef.current = null;
     }
+  }, []);
 
-    const osc = ctxRef.current.createOscillator();
-    const gain = ctxRef.current.createGain();
+  const play = React.useCallback(
+    (freq = 800) => {
+      if (document.hidden) return;
 
-    osc.frequency.value = freq;
-    gain.gain.value = 0.1; // 🔊 control volume
+      const AudioContext =
+        window.AudioContext || window.webkitAudioContext;
 
-    osc.connect(gain);
-    gain.connect(ctxRef.current.destination);
+      if (!AudioContext) return;
 
-    osc.start();
-    setTimeout(() => osc.stop(), 120);
-  };
+      if (!ctxRef.current) {
+        ctxRef.current = new AudioContext();
+      }
 
-  return play;
+      const ctx = ctxRef.current;
+
+      if (ctx.state === "suspended") {
+        ctx.resume().catch(() => {});
+      }
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.frequency.value = freq;
+      gain.gain.value = 0.1;
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      oscillatorsRef.current.add(osc);
+
+      osc.onended = () => {
+        oscillatorsRef.current.delete(osc);
+
+        try {
+          osc.disconnect();
+        } catch (e) {}
+      };
+
+      osc.start();
+
+      setTimeout(() => {
+        try {
+          osc.stop();
+        } catch (e) {}
+      }, 120);
+    },
+    []
+  );
+
+  useEffect(() => {
+    return () => {
+      stop();
+    };
+  }, [stop]);
+
+  return { play, stop };
 };
 
 const Track = () => {
@@ -521,274 +584,979 @@ const Track = () => {
   const moveIntervalRef = useRef(null);
   const beepIntervalRef = useRef(null);
 
-  const beep = useBeep();
-
+  const { play: beep, stop: stopBeep } = useBeep();
+  // AOS animations
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 700,
       once: true,
-      offset: 100,
+      offset: 80,
       easing: "ease-in-out",
     });
 
     AOS.refresh();
   }, []);
 
+  // Stop beep when browser tab/page is hidden or closed
+    useEffect(() => {
+  const stopEverything = () => {
+    // STOP BEEP INTERVAL IMMEDIATELY
+    if (beepIntervalRef.current) {
+      clearInterval(beepIntervalRef.current);
+      beepIntervalRef.current = null;
+    }
+
+    // STOP MOVEMENT INTERVAL
+    if (moveIntervalRef.current) {
+      clearInterval(moveIntervalRef.current);
+      moveIntervalRef.current = null;
+    }
+
+    // STOP ANY BEEP THAT IS ALREADY PLAYING
+    stopBeep();
+  };
+
+  const handleVisibilityChange = () => {
+    if (document.hidden) {
+      stopEverything();
+    }
+  };
+
+  // Leaving/switching away from the page
+  document.addEventListener(
+    "visibilitychange",
+    handleVisibilityChange
+  );
+
+  // Page being unloaded
+  window.addEventListener("pagehide", stopEverything);
+
+  // Browser/page being unloaded
+  window.addEventListener("beforeunload", stopEverything);
+
+  return () => {
+    document.removeEventListener(
+      "visibilitychange",
+      handleVisibilityChange
+    );
+
+    window.removeEventListener("pagehide", stopEverything);
+    window.removeEventListener("beforeunload", stopEverything);
+
+    // Final cleanup
+    stopEverything();
+  };
+}, [stopBeep]);
+
+  // your other useEffects continue here...
+
+  /* =========================
+     TRACK SHIPMENT
+  ========================= */
   const handleTrack = () => {
-    const data = shipmentsData[code.trim().toUpperCase()];
+    const trackingCode = code.trim().toUpperCase();
+    const data = shipmentsData[trackingCode];
+
     if (!data) {
       setShipment(null);
-      setError("❌ Incorrect tracking code.");
+      setError("Incorrect tracking code.");
       return;
     }
+
     setError("");
     setShipment(data);
     setIndex(0);
   };
 
-  useEffect(() => {
-    // stop any previous sound loop
-    clearInterval(beepIntervalRef.current);
 
-    // only play sound when moving
-    if (shipment?.status === "In Transit") {
-      beepIntervalRef.current = setInterval(() => {
-        beep(850);
-      }, 1000);
-    }
+  /* =========================
+   LOCAL AUTO MOVEMENT
+========================= */
 
-    // cleanup
-    return () => clearInterval(beepIntervalRef.current);
-  }, [shipment, beep]);
-
-  useEffect(() => {
-    if (!shipment) return;
+useEffect(() => {
+  if (moveIntervalRef.current) {
     clearInterval(moveIntervalRef.current);
-    moveIntervalRef.current = setInterval(() => {
-      if (shipment.status !== "In Transit") return;
-      setIndex((prev) => (prev >= shipment.route.length - 1 ? prev : prev + 1));
-    }, 7000);
-    return () => clearInterval(moveIntervalRef.current);
-  }, [shipment]);
-
-  if (!shipment) {
-    return (
-      <div className="smart-tracking-page">
-        <div className="smart-panel" data-aos="zoom-in">
-          <h1 data-aos="zoom-in">Shipment Tracking</h1>
-          <div className="tracking-guide">
-            <p data-aos="zoom-in">
-              Enter your tracking number below to see the real-time status of
-              your shipment.
-            </p>
-          </div>
-
-          {error && <p className="tracking-error">{error}</p>}
-
-          <div className="track-input">
-            <input
-              placeholder="Enter tracking reference"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-            />
-            <button onClick={handleTrack}>Track</button>
-          </div>
-        </div>
-      </div>
-    );
+    moveIntervalRef.current = null;
   }
 
+  if (!shipment || shipment.status !== "In Transit") {
+    return;
+  }
+
+  const startMovement = () => {
+    if (document.hidden) return;
+
+    if (moveIntervalRef.current) {
+      clearInterval(moveIntervalRef.current);
+    }
+
+    moveIntervalRef.current = setInterval(() => {
+      if (document.hidden) {
+        clearInterval(moveIntervalRef.current);
+        moveIntervalRef.current = null;
+        return;
+      }
+
+      setIndex((prev) => {
+        if (prev >= shipment.route.length - 1) {
+          return prev;
+        }
+
+        return prev + 1;
+      });
+    }, 7000);
+  };
+
+  const stopMovement = () => {
+    if (moveIntervalRef.current) {
+      clearInterval(moveIntervalRef.current);
+      moveIntervalRef.current = null;
+    }
+  };
+
+  const handleVisibility = () => {
+    if (document.hidden) {
+      stopMovement();
+    }
+  };
+
+  startMovement();
+
+  document.addEventListener(
+    "visibilitychange",
+    handleVisibility
+  );
+
+  return () => {
+    stopMovement();
+
+    document.removeEventListener(
+      "visibilitychange",
+      handleVisibility
+    );
+  };
+}, [shipment]);
+
+
+  /* =========================
+     LOCAL BEEP
+  ========================= */
+    useEffect(() => {
+  // Always stop the old beep first
+  if (beepIntervalRef.current) {
+    clearInterval(beepIntervalRef.current);
+    beepIntervalRef.current = null;
+  }
+
+  stopBeep();
+
+  // Only beep for an active In Transit shipment
+  if (
+    shipment?.status === "In Transit" &&
+    !document.hidden
+  ) {
+    beepIntervalRef.current = setInterval(() => {
+      // Double protection
+      if (document.hidden) {
+        clearInterval(beepIntervalRef.current);
+        beepIntervalRef.current = null;
+        stopBeep();
+        return;
+      }
+
+      beep(850);
+    }, 1000);
+  }
+
+  return () => {
+    if (beepIntervalRef.current) {
+      clearInterval(beepIntervalRef.current);
+      beepIntervalRef.current = null;
+    }
+
+    stopBeep();
+  };
+}, [shipment, beep, stopBeep]);
+
+ 
+
+  /* =========================
+     CLEAR TRACKING
+  ========================= */
+  const handleNewTracking = () => {
+    setShipment(null);
+    setCode("");
+    setError("");
+    setIndex(0);
+  };
+
+  /* =========================
+     CURRENT MAP LOCATION
+  ========================= */
   const current =
-    shipment.status === "On Hold"
-      ? shipment.route[1] // Istanbul
-      : shipment.route[index];
+    shipment?.status === "On Hold"
+      ? shipment.route[shipment.route.length - 1]
+      : shipment?.route[index];
+
+  /* =========================
+     ROUTE HISTORY
+  ========================= */
+  const routeDetails = shipment?.history || [];
+
+  /* =========================
+     PRINT RECEIPT
+  ========================= */
+  const handleReceipt = () => {
+    if (!shipment?.receipt) {
+      alert("Receipt not available.");
+      return;
+    }
+
+    const printWindow = window.open(shipment.receipt, "_blank");
+
+    if (printWindow) {
+      printWindow.onload = () => {
+        printWindow.print();
+      };
+    }
+  };
+
+  /* =====================================================
+   OLD SEARCH SCREEN
+===================================================== */
+if (!shipment) {
   return (
     <div className="smart-tracking-page">
       <div className="smart-panel">
-        {/* ✅ ONLY CHANGE IS HERE */}
-        <h2 className="center-title" data-aos="fade-down">
+
+        <h1 className="center-title" data-aos="fade-down">
           Shipment Tracking
-        </h2>
+        </h1>
 
-        <div className="shipment">
-          <div className="info-card" data-aos="fade-right">
-            <h3 data-aos="zoom-in">Receiver Information</h3>
-            <p data-aos="zoom-in">
-              <strong>Name:</strong> {shipment.receiver.name}
+        <div className="tracking-guide">
+          <p data-aos="zoom-in">
+            Enter your tracking number below to see the real-time status of
+            your shipment.
+          </p>
+        </div>
+
+        {error && (
+          <p className="tracking-error">
+            {error}
+          </p>
+        )}
+
+        <div className="track-input">
+
+          <input
+            type="text"
+            placeholder="Enter tracking reference"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleTrack();
+              }
+            }}
+          />
+
+          <button onClick={handleTrack}>
+            Track
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+  /* =====================================================
+     MAIN DASHBOARD
+  ===================================================== */
+
+  return (
+    <div className="tracking-dashboard">
+
+      <div className="tracking-dashboard-header">
+
+        <div className="dashboard-title-area">
+          <button
+            className="back-track-button"
+            onClick={handleNewTracking}
+          >
+            ←
+          </button>
+
+          <div>
+            <h1>Shipment Tracking</h1>
+            <p>
+              Real-time shipment overview and route information
             </p>
-            <p data-aos="zoom-in">
-              <strong>Email:</strong> {shipment.receiver.email}
-            </p>
-            <p data-aos="zoom-in">
-              <strong>Phone:</strong> {shipment.receiver.phone}
-            </p>
-            <p data-aos="zoom-in">
-              <strong>Country:</strong> {shipment.receiver.country}
-            </p>
-             <p data-aos="zoom-in">
-              <strong>Postal/ZIP:</strong> {shipment.receiver.postal}
-            </p>
-            <p data-aos="zoom-in">
-              <strong>Address:</strong> {shipment.receiver.address}
-            </p>
+          </div>
+        </div>
+
+        <div className="dashboard-actions">
+
+          <div
+            className={`dashboard-status ${
+              shipment.status.toLowerCase().replace(/\s/g, "-")
+            }`}
+          >
+            <span className="status-dot"></span>
+            {shipment.status}
+          </div>
+
+          {shipment.receipt && (
+            <button
+              className="receipt-button"
+              onClick={handleReceipt}
+            >
+              Print Receipt
+            </button>
+          )}
+
+        </div>
+
+      </div>
+
+
+      {/* =================================================
+          TOP DASHBOARD
+      ================================================= */}
+
+      <div className="tracking-main-grid">
+
+        {/* ===============================================
+            LEFT - SHIPMENT INFORMATION
+        =============================================== */}
+
+        <aside className="shipment-sidebar">
+
+          <div className="sidebar-search">
+            <span>⌕</span>
+
+            <input
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              placeholder="Search shipment"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleTrack();
+                }
+              }}
+            />
           </div>
 
 
-          <div className="info-card" data-aos="fade-up">
-            <h3>Package Information</h3>
-
-            <p data-aos="zoom-in">
-              <strong>Description:</strong> {shipment.packageInfo.description}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Weight:</strong> {shipment.packageInfo.weight}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Quantity:</strong> {shipment.packageInfo.quantity}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Type:</strong> {shipment.packageInfo.Type}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Mode:</strong> {shipment.packageInfo.mode}
-            </p>  
-
-            <p data-aos="zoom-in">
-              <strong>ID:</strong> {shipment.packageInfo.ID}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Container:</strong> {shipment.packageInfo.container}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Seal Number:</strong> {shipment.packageInfo.Sealnumber}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Dimensions:</strong> {shipment.packageInfo.dimensions}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Origin:</strong> {shipment.packageInfo.origin}
-            </p>
-
-            <p data-aos="zoom-in">
-              <strong>Destination:</strong> {shipment.packageInfo.destination}
-            </p>
+          <div className="sidebar-add">
+            <span>+</span>
+            Shipment Tracking
           </div>
 
-          {/* ✅ YOUR HISTORY IS BACK */}
-          <div className="info-card" data-aos="fade-left">
-            <h3 data-aos="zoom-in">Shipment History</h3>
-            {shipment.history.map((h, i) => (
-              <div
-                key={i}
-                className="history-entry"
-                data-aos="fade-up"
-                data-aos-delay={i * 100}
+
+          <div className="sidebar-heading">
+            CURRENT SHIPMENT
+          </div>
+
+
+          <div
+            className="shipment-sidebar-card active"
+            data-aos="fade-right"
+          >
+
+            <div className="sidebar-card-top">
+
+              <strong>
+                Cargo ID: #{shipment.packageInfo?.ID || "N/A"}
+              </strong>
+
+              <span
+                className={`mini-status ${
+                  shipment.status
+                    .toLowerCase()
+                    .replace(/\s/g, "-")
+                }`}
               >
-                <p data-aos="zoom-in">
-                  <strong>Date:</strong> {h.date} <strong>Time:</strong>{" "}
-                  {h.time}
-                </p>
-                <p data-aos="zoom-in">
-                  <strong>Location:</strong> {h.location}
-                </p>
-                <p data-aos="zoom-in">
-                  <strong>Status:</strong> {h.status}
-                </p>
-                <p data-aos="zoom-in">
-                  <strong>Updated By:</strong> {h.updatedBy}
-                </p>
+                {shipment.status}
+              </span>
 
-                <p>
-                  <strong>Remarks:</strong> {h.remarks}
-                </p>
-                <hr />
+            </div>
+
+
+            <div className="sidebar-route">
+
+              <div className="sidebar-route-point">
+
+                <span className="route-dot active-dot"></span>
+
+                <div>
+                  <strong>
+                    {shipment.dispatchCountry}
+                  </strong>
+
+                  <small>
+                    Origin
+                  </small>
+                </div>
+
               </div>
-              
+
+
+              <div className="sidebar-route-line"></div>
+
+
+              <div className="sidebar-route-point">
+
+                <span className="route-dot"></span>
+
+                <div>
+                  <strong>
+                    {shipment.destinationCountry}
+                  </strong>
+
+                  <small>
+                    Destination
+                  </small>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div className="sidebar-card-footer">
+
+              <div>
+                <small>Receiver</small>
+                <strong>
+                  {shipment.receiver.name}
+                </strong>
+              </div>
+
+              <div className="receiver-avatar">
+                {shipment.receiver.name
+                  .charAt(0)
+                  .toUpperCase()}
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="sidebar-reference">
+
+            <span>Tracking Reference</span>
+
+            <strong>
+              {code.toUpperCase()}
+            </strong>
+
+          </div>
+
+        </aside>
+
+
+        {/* ===============================================
+            CENTER - MAP
+        =============================================== */}
+
+        <section className="map-dashboard-card">
+
+          <div className="dashboard-section-title">
+            <div>
+              <h2>Map Overview</h2>
+              <p>
+                Current shipment location
+              </p>
+            </div>
+
+            <span className="live-indicator">
+              <span></span>
+              LIVE
+            </span>
+          </div>
+
+
+          <div className="dashboard-map-wrapper">
+
+            <MapContainer
+              className="dashboard-map"
+              center={current?.coords || [20, -30]}
+              zoom={3}
+              scrollWheelZoom={true}
+            >
+
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                // attribution="&copy; OpenStreetMap contributors"
+              />
+
+
+              <MapController
+                points={
+                  shipment.route.length > 0
+                    ? shipment.route.map((r) => r.coords)
+                    : [current.coords]
+                }
+              />
+
+
+              {/* ROUTE LINE */}
+
+              {shipment.route.length > 1 && (
+                <Polyline
+                  positions={shipment.route.map(
+                    (r) => r.coords
+                  )}
+                  pathOptions={{
+                    color: "#1677ff",
+                    weight: 4,
+                    opacity: 0.8,
+                  }}
+                />
+              )}
+
+                        {/* CURRENT LOCATION */}
+
+              {current && (
+                <>
+                  <CircleMarker
+                    center={current.coords}
+                    radius={18}
+                    className={`smart-pulse ${
+                      shipment.status === "On Hold"
+                        ? "hold"
+                        : ""
+                    }`}
+                  />
+
+                  <Marker position={current.coords}>
+                    <Popup>
+                      <strong>
+                        {shipment.status}
+                      </strong>
+
+                      <br />
+
+                      {current.city
+                        ? `${current.city}, ${current.country}`
+                        : current.country}
+                    </Popup>
+                  </Marker>
+
+                  <div className="map-overlay-status">
+
+                    <span className="map-status-icon">
+                      ●
+                    </span>
+
+                    <div>
+                      <small>Current location</small>
+
+                      <strong>
+                        {current?.city
+                          ? `${current.city}, ${current.country}`
+                          : current?.country}
+                      </strong>
+                    </div>
+
+                  </div>
+                </>
+              )}
+
+            </MapContainer>
+
+          </div>
+
+        </section>
+
+
+        {/* ===============================================
+            RIGHT - ROUTE DETAILS
+        =============================================== */}
+
+        {/* <section className="route-details-card"> */}
+
+        {/* ===============================================
+            RIGHT - ROUTE DETAILS
+        =============================================== */}
+
+        <section className="route-details-card">
+
+          <div className="dashboard-section-title">
+
+            <div>
+              <h2>Route Details</h2>
+              <p>
+                Shipment movement history
+              </p>
+            </div>
+
+          </div>
+
+
+          <div className="route-timeline">
+
+            {routeDetails.map((h, i) => (
+
+              <div
+                className={`timeline-item ${
+                  i === routeDetails.length - 1
+                    ? "current-timeline"
+                    : ""
+                }`}
+                key={i}
+              >
+
+                <div className="timeline-marker">
+                  <span>{i + 1}</span>
+                </div>
+
+                <div className="timeline-content">
+
+                  <strong>
+                    {h.location}
+                  </strong>
+
+                  <small>
+                    {h.date} • {h.time}
+                  </small>
+
+                  <span
+                    className={`timeline-status ${
+                      h.status
+                        .toLowerCase()
+                        .replace(/\s/g, "-")
+                    }`}
+                  >
+                    {h.status}
+                  </span>
+
+                </div>
+
+              </div>
+
             ))}
 
-            {/* <h3>Payment Receipt</h3> */}
-            <br />
-            <button
-                onClick={() => {
-                  if (shipment.receipt) {
-                    const printWindow = window.open(shipment.receipt, "_blank");
-
-                    printWindow.onload = () => {
-                      printWindow.print();
-                    };
-                  } else {
-                    alert("Receipt not available.");
-                  }
-                }}
-              >
-                Print Receipt
-              </button>
-
           </div>
-        </div>
+        </section>
 
-        {/* ✅ MAP (UNCHANGED) */}
-        <div className="smart-map-wrapper" data-aos="zoom-in-up">
-          <MapContainer className="smart-map" center={[20, -30]} zoom={3}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-            <MapController points={shipment.route.map((r) => r.coords)} />
-
-            {/* ✅ ROUTE LINE */}
-            {/* <Polyline
-      positions={shipment.route.map((r) => r.coords)}
-      pathOptions={{ color: "#007bff", weight: 4 }}
-    /> */}
-
-            <CircleMarker
-              center={current.coords}
-              radius={18}
-              className={`smart-pulse ${shipment.status === "On Hold" ? "hold" : ""}`}
-            />
-
-            {/* ✅ MOVING MARKER */}
-            <Marker position={current.coords}>
-              <Popup>
-                {shipment.status}
-
-                <br />
-                {/* <Popup> */}
-                {/* {shipment.status === "On Hold" */}
-                {/* ? "⚠️ ON HOLD" */}
-                {/* : /*"IN TRANSIT"*/
-                /*"Shipment En Route" */
-                /*"Cargo En Route"} */}
-
-                {/* <br /> */}
-
-                {current.city
-                  ? `${current.city}, ${current.country}`
-                  : current.country}
-              </Popup>
-            </Marker>
-          </MapContainer>
-        </div>
       </div>
-               {/* SHIPRLIFT FILTER SECTION */}
-        <div className="shiprlift-filter-container" data-aos="fade-up">
-          <div className="shiprlift-filter-header">
-            <h2>Shipment Services</h2>
-            <p>
-              Use the options below to manage or get additional information
-              about your shipment.
-            </p>
+
+
+      {/* =================================================
+          INFORMATION CARDS
+      ================================================= */}
+
+      <div className="dashboard-information-grid">
+
+
+        {/* PACKAGE */}
+
+        <div
+          className="dashboard-info-card"
+          data-aos="fade-up"
+        >
+
+          <div className="info-card-heading">
+
+            <div className="info-icon">
+              📦
+            </div>
+
+            <div>
+              <h3>Package</h3>
+              <span>
+                Shipment information
+              </span>
+            </div>
+
+          </div>
+
+
+          <div className="info-details">
+
+            <div>
+              <span>Description</span>
+              <strong>
+                {shipment.packageInfo?.description || "N/A"}
+              </strong>
+            </div>
+
+            <div>
+              <span>Weight</span>
+              <strong>
+                {shipment.packageInfo?.weight || "N/A"}
+              </strong>
+            </div>
+
+            <div>
+              <span>Quantity</span>
+              <strong>
+                {shipment.packageInfo?.quantity || "N/A"}
+              </strong>
+            </div>
+
+            <div>
+              <span>Type</span>
+              <strong>
+                {shipment.packageInfo?.Type ||
+                  shipment.packageInfo?.shippingType ||
+                  "N/A"}
+              </strong>
+            </div>
+
           </div>
 
         </div>
-            <ShiprliftFilter />
+
+
+        {/* RECEIVER */}
+
+        <div
+          className="dashboard-info-card"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+
+          <div className="info-card-heading">
+
+            <div className="info-icon">
+              👤
+            </div>
+
+            <div>
+              <h3>Receiver</h3>
+              <span>
+                Delivery information
+              </span>
+            </div>
+
+          </div>
+
+
+          <div className="info-details">
+
+            <div>
+              <span>Name</span>
+              <strong>
+                {shipment.receiver.name}
+              </strong>
+            </div>
+
+            <div>
+              <span>Country</span>
+              <strong>
+                {shipment.receiver.country}
+              </strong>
+            </div>
+
+            <div>
+              <span>Phone</span>
+              <strong>
+                {shipment.receiver.phone}
+              </strong>
+            </div>
+
+            <div>
+              <span>Postal / ZIP</span>
+              <strong>
+                {shipment.receiver.postal || "N/A"}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* CARGO */}
+
+        <div
+          className="dashboard-info-card"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+
+          <div className="info-card-heading">
+
+            <div className="info-icon">
+              🚚
+            </div>
+
+            <div>
+              <h3>Transport</h3>
+              <span>
+                Cargo movement
+              </span>
+            </div>
+
+          </div>
+
+
+          <div className="info-details">
+
+            <div>
+              <span>Mode</span>
+              <strong>
+                {shipment.packageInfo?.mode ||
+                  shipment.packageInfo?.shippingType ||
+                  "N/A"}
+              </strong>
+            </div>
+
+            <div>
+              <span>Container</span>
+              <strong>
+                {shipment.packageInfo?.container ||
+                  "N/A"}
+              </strong>
+            </div>
+
+            <div>
+              <span>Seal Number</span>
+              <strong>
+                {shipment.packageInfo?.Sealnumber ||
+                  "N/A"}
+              </strong>
+            </div>
+
+            <div>
+              <span>Dimensions</span>
+              <strong>
+                {shipment.packageInfo?.dimensions ||
+                  "N/A"}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* LOCATION */}
+
+        <div
+          className="dashboard-info-card"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+
+          <div className="info-card-heading">
+
+            <div className="info-icon">
+              📍
+            </div>
+
+            <div>
+              <h3>Locations</h3>
+              <span>
+                Shipment route
+              </span>
+            </div>
+
+          </div>
+
+
+          <div className="location-details">
+
+            <div className="location-row">
+
+              <span className="location-dot start"></span>
+
+              <div>
+                <small>Origin</small>
+
+                <strong>
+                  {shipment.packageInfo?.origin ||
+                    shipment.dispatchCountry}
+                </strong>
+              </div>
+
+            </div>
+
+
+            <div className="location-row">
+
+              <span className="location-dot end"></span>
+
+              <div>
+                <small>Destination</small>
+
+                <strong>
+                  {shipment.packageInfo?.destination ||
+                    shipment.destinationCountry}
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* =================================================
+          SHIPMENT NOTE
+      ================================================= */}
+
+      <div
+        className="shipment-note-card"
+        data-aos="fade-up"
+      >
+
+        <div className="note-icon">
+          ℹ
+        </div>
+
+        <div>
+
+          <strong>
+            Shipment Status
+          </strong>
+
+          <p>
+            {shipment.history?.[
+              shipment.history.length - 1
+            ]?.remarks ||
+              "Shipment information is currently being updated."}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      {/* =================================================
+          SERVICES
+      ================================================= */}
+
+      <div
+        className="shiprlift-filter-container"
+        data-aos="fade-up"
+      >
+
+        <div className="shiprlift-filter-header">
+
+          <h2>
+            Shipment Services
+          </h2>
+
+          <p>
+            Use the options below to manage or get
+            additional information about your shipment.
+          </p>
+
+        </div>
+
+      </div>
+
+      <ShiprliftFilter />
+
     </div>
   );
 };

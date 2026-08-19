@@ -3,7 +3,7 @@ import "./App.css";
 import ShiprliftHome from "./components/ShiprliftHome.jsx"; 
 import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
 import Track from "./components/Track.jsx";
-import Tracknow from "./components/Tracknow.jsx";
+import Tracknow from "./components/Track.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import OurServices from "./components/OurServices.jsx";
