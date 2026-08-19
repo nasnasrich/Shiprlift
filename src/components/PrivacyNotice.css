@@ -2,6 +2,7 @@
 .privacy-container {
   max-width: 900px;
   margin: auto;
+  margin-top: 2px;
   padding: 40px 20px;
   font-family: "Arial", sans-serif;
 }

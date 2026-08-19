@@ -5,6 +5,7 @@
 .terms-page {
   width: 100%;
   min-height: 100vh;
+  margin-top: 2px;
   background: #f5f5f5;
   color: #333;
 }

@@ -5,6 +5,7 @@
 .tracking-dashboard {
   width: 100%;
   min-height: 100vh;
+  margin-top: 1px;
   padding: 25px;
   box-sizing: border-box;
   background: #f4f6fb;
