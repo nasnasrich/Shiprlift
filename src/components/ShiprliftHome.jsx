@@ -859,9 +859,7 @@ data-aos="zoom-in"
 
 
      <div
-className="live-contact"
-data-aos="fade-left"
->
+className="live-contact">
 
 <a href="mailto:shiprlift@gmail.com">
 <img src={mail} alt="mail" />
