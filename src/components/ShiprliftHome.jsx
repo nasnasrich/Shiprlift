@@ -360,6 +360,35 @@ useEffect(() => {
   return (
     <div className="shiprlift-home">
 
+    <div className="live-contact">
+
+  <a href="mailto:shiprlift@gmail.com">
+    <img
+      src={mail}
+      alt="Email"
+      loading="eager"
+      fetchPriority="high"
+      decoding="sync"
+    />
+  </a>
+
+  <a
+    href={`https://wa.me/14796524016?text=${message}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src={whatsappoffer}
+      alt="WhatsApp"
+      className="whatsapp-beep"
+      loading="eager"
+      fetchPriority="high"
+      decoding="sync"
+    />
+  </a>
+
+</div>
+
     <div
 className="hero"
 data-aos="zoom-in"
@@ -866,7 +895,10 @@ data-aos="zoom-in"
            <img src={logo6} alt="cargo" />
          </div>
      </div>
-
+     
+  <div className="footer">
+   <ShiprliftFilter />
+</div>
 
 </div>
   );
