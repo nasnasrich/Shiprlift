@@ -801,7 +801,7 @@ ref={(el) => (counterRef.current[1] = el)}
 className="testimonials-section"
 data-aos="fade-up"
 >
-  <h2 data-aos="zoom-in" className="testimonials-title">What Our Customers Say</h2>
+  <h2 data-aos="zoom-in" className="testimonials-title">Trusted by Customers Worldwide</h2>
 
   <div className="testimonials-container">
     {testimonials.map((user) => (
