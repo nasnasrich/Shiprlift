@@ -1,91 +1,179 @@
-import { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import React, { useState } from "react";
+import { sendMail } from "./controllers/mailController";
+import "./ShiprliftFilter.css";
 
-import ShiprliftHome from "./components/ShiprliftHome.jsx";
-import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
-import Track from "./components/Track.jsx";
-import Tracknow from "./components/Track.jsx";
-import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
-import OurServices from "./components/OurServices.jsx";
-import ContactPage from "./components/ContactPage.jsx";
-import PrivacyNotice from "./components/PrivacyNotice";
-import Terms from "./components/Terms";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import XIcon from "@mui/icons-material/X";
 
-/* WHATSAPP + EMAIL IMAGES */
-import mail from "./assets/mail.png";
-import whatsappoffer from "./assets/whatsapp.png";
+import shirlogo from "../assets/shirlogo.png";
 
-function App() {
+const ShiprliftFilter = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const message = encodeURIComponent(
+  const whatsappMessage = encodeURIComponent(
     "Hello Shiprlift, I would like to make an enquiry."
   );
 
-  useEffect(() => {
-    // Preload the contact images immediately
-    const images = [mail, whatsappoffer];
+  const whatsappLink = `https://wa.me/14796524016?text=${whatsappMessage}`;
 
-    images.forEach((src) => {
-      const image = new Image();
-      image.src = src;
-    });
-  }, []);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!email || loading) return;
+
+  setLoading(true);
+
+  try {
+    await sendMail(
+      e,
+      import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE,
+      "newsletterForm",
+      "Thanks for subscribing!"
+    );
+
+    setEmail("");
+  } catch (error) {
+    console.error("Newsletter subscription failed:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
-    <>
-      <ResponsiveAppBar />
+    <footer className="shiprlift-footer">
+      <div className="footer-container">
 
-      {/* FLOATING EMAIL + WHATSAPP */}
-      <div className="live-contact">
+        {/* COMPANY */}
+        <div className="footer-column footer-company">
+          <div className="footer-brand">
+            <img src={shirlogo} alt="Shiprlift logo" />
 
-        {/* EMAIL */}
-        <a href="mailto:shiprlift@gmail.com">
-          <img
-            src={mail}
-            alt="Email"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </a>
+            <div>
+              <h2>SHIPRLIFT</h2>
+              <span>CARGO EXPRESS</span>
+            </div>
+          </div>
 
-        {/* WHATSAPP */}
-        <a
-          href={`https://wa.me/14796524016?text=${message}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={whatsappoffer}
-            alt="WhatsApp"
-            className="whatsapp-beep"
-            loading="eager"
-            fetchPriority="high"
-          />
-        </a>
+          <p className="footer-description">
+            Shiprlift is a global logistics company delivering reliable cargo,
+            vessel operations, emergency support, and installation services
+            worldwide.
+          </p>
 
+          <div className="footer-socials">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="social-icon"
+            >
+              <WhatsAppIcon />
+            </a>
+
+            <a
+              href="#"
+              aria-label="X"
+              className="social-icon"
+            >
+              <XIcon />
+            </a>
+          </div>
+        </div>
+
+        {/* QUICK LINKS */}
+        <div className="footer-column footer-links">
+          <h3>Quick Links</h3>
+
+          <a href="/">Home</a>
+          <a href="/about">About Us</a>
+          <a href="/OurServices">Services</a>
+          <a href="/Tracknow">Track Shipment</a>
+          <a href="/contact">Contact Us</a>
+        </div>
+
+        {/* OFFICIAL INFO */}
+        <div className="footer-column footer-info">
+          <h3>Official Info</h3>
+
+          <p>
+            Office 1, Alwakalat Street
+            <br />
+            Alfoyhat, Ahmed Mehdawi Building
+            <br />
+            Benghazi, Libya
+          </p>
+
+          <div className="footer-contact">
+            <EmailIcon />
+            <a href="mailto:mail@shiprlift.com">
+               mail@shiprlift.com
+            </a>
+          </div>
+
+          <div className="footer-contact">
+            <PhoneIcon />
+            <a href="tel:+14796524016">
+              +1 479-652-4016
+            </a>
+          </div>
+        </div>
+
+        {/* NEWSLETTER */}
+        <div className="footer-column footer-newsletter">
+          <h3>Newsletter</h3>
+
+          <p>
+            Subscribe to receive the latest news, articles, and resources
+            directly in your inbox.
+          </p>
+
+          <form
+            id="newsletterForm"
+            className="footer-newsletter-form"
+            onSubmit={handleSubmit}
+          >
+          
+
+            <input
+              type="email"
+              name="user_email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <button type="submit" disabled={loading}>
+              {loading ? "..." : "Subscribe"}
+            </button>
+          </form>
+
+          <div className="footer-hours">
+            <h4>Open Hours</h4>
+            <p>Mon - Sat: 8am - 5pm</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
       </div>
 
-      <Routes>
-        <Route path="/" element={<ShiprliftHome />} />
-        <Route path="/Track" element={<Track />} />
-        <Route path="/Tracknow" element={<Tracknow />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/OurServices" element={<OurServices />} />
-        <Route path="/ContactPage" element={<ContactPage />} />
-        <Route path="/PrivacyNotice" element={<PrivacyNotice />} />
-        <Route path="/Terms" element={<Terms />} />
+      {/* BOTTOM FOOTER */}
+      <div className="footer-bottom">
+        <p>
+          © {new Date().getFullYear()} Shiprlift. All Rights Reserved.
+        </p>
 
-        {/* SAFETY NET */}
-        <Route
-          path="*"
-          element={<h2 style={{ padding: 40 }}>Page not found</h2>}
-        />
-      </Routes>
-    </>
+        <div className="footer-bottom-links">
+          <a href="/PrivacyNotice">Privacy Policy</a>
+          <span>|</span>
+          <a href="/Terms">Terms & Conditions</a>
+        </div>
+      </div>
+    </footer>
   );
-}
+};
 
-export default App;
+export default ShiprliftFilter;
