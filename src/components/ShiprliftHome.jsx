@@ -346,10 +346,49 @@ useEffect(() => {
     offset: 100,
     easing: "ease-in-out",
   });
+
+  // Load WhatsApp and email images immediately
+  const preloadImages = [mail, whatsappoffer];
+
+  preloadImages.forEach((src) => {
+    const image = new Image();
+    image.src = src;
+  });
+
 }, []);
 
   return (
     <div className="shiprlift-home">
+
+    <div className="live-contact">
+
+  <a href="mailto:shiprlift@gmail.com">
+    <img
+      src={mail}
+      alt="Email"
+      loading="eager"
+      fetchPriority="high"
+      decoding="sync"
+    />
+  </a>
+
+  <a
+    href={`https://wa.me/14796524016?text=${message}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src={whatsappoffer}
+      alt="WhatsApp"
+      className="whatsapp-beep"
+      loading="eager"
+      fetchPriority="high"
+      decoding="sync"
+    />
+  </a>
+
+</div>
+
     <div
 className="hero"
 data-aos="zoom-in"
@@ -857,28 +896,6 @@ data-aos="zoom-in"
          </div>
      </div>
 
-
-     <div
-className="live-contact">
-
-<a href="mailto:shiprlift@gmail.com">
-<img src={mail} alt="mail" />
-</a>
-
-<a
-href={`https://wa.me/14796524016?text=${message}`}
-target="_blank"
-rel="noopener noreferrer"
->
-<img src={whatsappoffer} alt="whatsapp" className="whatsapp-beep"/>
-</a>
-
-</div>
-
-
-     <div className="footer">
-   <ShiprliftFilter />
-</div>
 
 </div>
   );
