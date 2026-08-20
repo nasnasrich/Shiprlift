@@ -362,7 +362,7 @@ useEffect(() => {
 
     <div className="live-contact">
 
-  <a href="mailto:shiprlift@gmail.com">
+  <a href="mailto:mail@shiprlift.com">
     <img
       src={mail}
       alt="Email"
@@ -895,7 +895,7 @@ data-aos="zoom-in"
            <img src={logo6} alt="cargo" />
          </div>
      </div>
-     
+
   <div className="footer">
    <ShiprliftFilter />
 </div>
