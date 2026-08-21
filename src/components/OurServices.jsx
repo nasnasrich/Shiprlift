@@ -374,12 +374,12 @@ const OurServices = () => {
             <form onSubmit={handleSubmit} id="shipmentForm">
               <div className="form-group">
                 <label>Name *</label>
-                <input type="text" name="user_name" placeholder="e.g. John Chen" required />
+                <input type="text" name="user_name" placeholder="e.g. Isaac Palmer" required />
               </div>
 
               <div className="form-group" data-aos="fade-up">
                 <label>Email *</label>
-                <input type="email" name="user_email" placeholder="e.g. john@example.com" required />
+                <input type="email" name="user_email" placeholder="e.g. Isaac@example.com" required />
               </div>
 
               <div className="form-group">
