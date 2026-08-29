@@ -46,7 +46,24 @@ import {
   FaWarehouse,
   FaBoxOpen,
   FaLayerGroup,
-  FaClipboardList
+  FaClipboardList,
+  FaTruck,
+  FaSmile,
+  FaAward,
+  FaUsers,
+  FaClipboardCheck,
+  FaRoute,
+  FaMapMarkedAlt,
+  FaShieldAlt,
+  FaLock,
+  FaSearchLocation,
+  FaGlobeAmericas,
+  FaShoppingCart,
+  FaIndustry,
+  FaHeartbeat,
+  FaLaptop,
+  FaArrowRight,
+  FaCheckCircle
 } from "react-icons/fa";
 
 
@@ -108,7 +125,7 @@ const whyChooseCards = [
 ];
 
 /* ================= STATS COUNTER ================= */
-import { FaTruck, FaSmile, FaAward, FaUsers } from "react-icons/fa";
+// import { FaTruck, FaSmile, FaAward, FaUsers } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 // Keep raw numbers
@@ -587,10 +604,7 @@ data-aos="fade-right"
 
 
       {/* FORM & IMAGE SIDE BY SIDE */}
-       <div
-className="frommmmto"
-data-aos="fade-left"
->
+       <div className="frommmmto" data-aos="fade-left">
         <div className="frompic">
           <img
             src={shipepo}
@@ -720,22 +734,20 @@ data-aos="fade-left"
 
       {/* SERVICES */}
       <div
-className="carddad"
-data-aos="fade-up"
->
+        className="carddad"data-aos="fade-up">
         <div className="cardtext">
           <h2 data-aos="flip-left">Why Choose Us?</h2>
           <p data-aos="zoom-in">Find reasons to choose us as your freight partner</p>
         </div>
 
         <div className="cardone">
-  {whyChooseCards.map((card) => (
-   <Card
-key={card.id}
-data-aos="zoom-up"
-data-aos-delay={card.id * 150}
-sx={{ maxWidth: 317 }}
->
+    {whyChooseCards.map((card) => (
+    <Card
+      key={card.id}
+      data-aos="zoom-up"
+      data-aos-delay={card.id * 150}
+      sx={{ maxWidth: 317 }}
+      >
       <CardActionArea>
         <CardMedia component="img" height="210" image={card.image} />
         <CardContent>
@@ -785,32 +797,20 @@ sx={{ maxWidth: 317 }}
 
 
       {/* CARDNUMBER with StatsCounter */}
-    <div
-className="cardnumber"
-data-aos="zoom-in"
-ref={(el) => (counterRef.current[1] = el)}
->
+    <div className="cardnumber" data-aos="zoom-in" ref={(el) => (counterRef.current[1]= el)}>
         <h3 data-aos="zoom-in">WE SPECIALISE IN THE TRANSPORTATION</h3>
         <h4 data-aos="zoom-in">Together, we have your logistical challenges covered</h4>
         <StatsCounter startCount={startCount} />
-      </div>
+    </div>
 
 
        {/* TESTIMONIALS */}
-<div
-className="testimonials-section"
-data-aos="fade-up"
->
+<div className="testimonials-section" data-aos="fade-up">
   <h2 data-aos="zoom-in" className="testimonials-title">Trusted by Customers Worldwide</h2>
 
   <div className="testimonials-container">
     {testimonials.map((user) => (
-      <div
-key={user.id}
-className="testimonial-card"
-data-aos="fade-up"
-data-aos-delay={user.id * 200}
->
+  <div key={user.id} className="testimonial-card" data-aos="fade-up"data-aos-delay={user.id *200}>
         <img
           src={user.image}
           alt={user.name}
@@ -825,10 +825,7 @@ data-aos-delay={user.id * 200}
   </div>
 </div>
 
-  <section
-className="faq-section"
-data-aos="fade-up"
->
+  <section className="faq-section"data-aos="fade-up">
       <h2 data-aos="zoom-in" className="faq-title">Frequently Asked Questions</h2>
 
       <div className="faq-flex">
@@ -863,10 +860,375 @@ data-aos="fade-up"
     </section>
 
 
-     <div
-className="bigcar"
-data-aos="flip-left"
->
+
+{/* =========================================
+    HOW IT WORKS SECTION
+========================================= */}
+
+<section className="how-it-works-section" data-aos="fade-up">
+
+  <div className="section-heading">
+    <span>OUR PROCESS</span>
+    <h2>Shipping Made Simple</h2>
+    <p>
+      From your first request to final delivery, Shiprlift makes
+      international shipping simple, transparent and reliable.
+    </p>
+  </div>
+
+  <div className="shipping-steps">
+
+    <div className="shipping-step" data-aos="fade-up">
+      <div className="step-number">01</div>
+
+      <div className="step-icon">
+        <FaClipboardCheck />
+      </div>
+
+      <h3>Request a Shipment</h3>
+
+      <p>
+        Tell us about your cargo, destination and preferred shipping method.
+      </p>
+    </div>
+
+
+    <div className="shipping-step" data-aos="fade-up" data-aos-delay="100">
+      <div className="step-number">02</div>
+
+      <div className="step-icon">
+        <FaBoxOpen />
+      </div>
+
+      <h3>We Prepare Your Cargo</h3>
+
+      <p>
+        Our logistics team coordinates collection, packaging and shipment preparation.
+      </p>
+    </div>
+
+
+    <div className="shipping-step" data-aos="fade-up" data-aos-delay="200">
+      <div className="step-number">03</div>
+
+      <div className="step-icon">
+        <FaRoute />
+      </div>
+
+      <h3>Track Your Shipment</h3>
+
+      <p>
+        Monitor your cargo throughout its journey with convenient shipment tracking.
+      </p>
+    </div>
+
+
+    <div className="shipping-step" data-aos="fade-up" data-aos-delay="300">
+      <div className="step-number">04</div>
+
+      <div className="step-icon">
+        <FaCheckCircle />
+      </div>
+
+      <h3>Safe Delivery</h3>
+
+      <p>
+        Your shipment reaches its destination safely with professional delivery support.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+{/* =========================================
+    WORLDWIDE COVERAGE SECTION
+========================================= */}
+
+<section className="worldwide-section" data-aos="fade-up">
+
+  <div className="worldwide-content">
+
+    <div className="worldwide-text">
+
+      <span className="small-title">
+        GLOBAL REACH
+      </span>
+
+      <h2>
+        Connecting Businesses Across the World
+      </h2>
+
+      <p>
+        Shiprlift connects businesses, suppliers and customers through
+        dependable international freight solutions. Our logistics network
+        helps move cargo efficiently across major global markets.
+      </p>
+
+
+      <div className="coverage-list">
+
+        <div className="coverage-item">
+          <FaGlobeAmericas />
+          <span>International freight coordination</span>
+        </div>
+
+        <div className="coverage-item">
+          <FaMapMarkedAlt />
+          <span>Global route planning and support</span>
+        </div>
+
+        <div className="coverage-item">
+          <FaSearchLocation />
+          <span>Shipment visibility and tracking</span>
+        </div>
+
+      </div>
+
+
+      <Link style={{ textDecoration: 'none' }} to="/OurServices">
+        <button className="coverage-btn">
+          Explore Our Services
+          <FaArrowRight />
+        </button>
+      </Link>
+
+    </div>
+
+
+    <div className="worldwide-map">
+
+      <div className="map-circle circle-one"></div>
+      <div className="map-circle circle-two"></div>
+      <div className="map-circle circle-three"></div>
+
+      <FaGlobeAmericas className="globe-icon" />
+
+      <div className="location-dot dot-one"></div>
+      <div className="location-dot dot-two"></div>
+      <div className="location-dot dot-three"></div>
+      <div className="location-dot dot-four"></div>
+
+      <div className="coverage-card">
+        <strong>Global Logistics</strong>
+        <span>Connected across international routes</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+{/* =========================================
+    CARGO SECURITY SECTION
+========================================= */}
+
+<section className="security-section" data-aos="fade-up">
+
+  <div className="section-heading security-heading">
+    <span>SHIP WITH CONFIDENCE</span>
+    <h2>Your Cargo Is Our Responsibility</h2>
+    <p>
+      Every shipment deserves careful coordination, secure handling and
+      reliable communication from origin to destination.
+    </p>
+  </div>
+
+
+  <div className="security-grid">
+
+    <div className="security-card" data-aos="zoom-in">
+
+      <div className="security-icon">
+        <FaShieldAlt />
+      </div>
+
+      <h3>Protected Handling</h3>
+
+      <p>
+        We focus on careful cargo handling and professional coordination
+        throughout the shipping process.
+      </p>
+
+    </div>
+
+
+    <div className="security-card featured-security" data-aos="zoom-in" data-aos-delay="100">
+
+      <div className="security-icon">
+        <FaSearchLocation />
+      </div>
+
+      <h3>Shipment Visibility</h3>
+
+      <p>
+        Stay informed about your shipment and follow its journey with
+        convenient tracking updates.
+      </p>
+
+    </div>
+
+
+    <div className="security-card" data-aos="zoom-in" data-aos-delay="200">
+
+      <div className="security-icon">
+        <FaLock />
+      </div>
+
+      <h3>Reliable Coordination</h3>
+
+      <p>
+        Our logistics team works to ensure every stage of your shipment
+        is properly planned and managed.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+{/* =========================================
+    INDUSTRIES SECTION
+========================================= */}
+
+<section className="industries-section" data-aos="fade-up">
+
+  <div className="section-heading">
+
+    <span>WHO WE SUPPORT</span>
+
+    <h2>Industries We Serve</h2>
+
+    <p>
+      Flexible logistics solutions designed to support businesses and
+      customers across different industries.
+    </p>
+
+  </div>
+
+
+  <div className="industries-grid">
+
+    <div className="industry-card" data-aos="fade-up">
+      <div className="industry-icon">
+        <FaShoppingCart />
+      </div>
+
+      <h3>Retail & E-Commerce</h3>
+
+      <p>
+        Reliable shipping support for products moving between suppliers,
+        warehouses and customers.
+      </p>
+    </div>
+
+
+    <div className="industry-card" data-aos="fade-up" data-aos-delay="100">
+      <div className="industry-icon">
+        <FaIndustry />
+      </div>
+
+      <h3>Manufacturing</h3>
+
+      <p>
+        Freight solutions for equipment, materials and commercial supply chains.
+      </p>
+    </div>
+
+
+    <div className="industry-card" data-aos="fade-up" data-aos-delay="200">
+      <div className="industry-icon">
+        <FaHeartbeat />
+      </div>
+
+      <h3>Healthcare</h3>
+
+      <p>
+        Coordinated logistics support for important and time-sensitive shipments.
+      </p>
+    </div>
+
+
+    <div className="industry-card" data-aos="fade-up" data-aos-delay="300">
+      <div className="industry-icon">
+        <FaLaptop />
+      </div>
+
+      <h3>Technology</h3>
+
+      <p>
+        Careful shipping coordination for electronics, equipment and technology products.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+{/* =========================================
+    FINAL CALL TO ACTION
+========================================= */}
+
+<section className="ship-now-section" data-aos="zoom-in">
+
+  <div className="ship-now-overlay">
+
+    <div className="ship-now-content">
+
+      <span>READY WHEN YOU ARE</span>
+
+      <h2>
+        Ready to Move Your Cargo?
+      </h2>
+
+      <p>
+        Get started with Shiprlift today and let our logistics team help
+        you plan your next shipment.
+      </p>
+
+
+      <div className="ship-now-buttons">
+
+        <Link to="/Contact">
+          <button className="ship-now-primary">
+            Request a Shipment
+            <FaArrowRight />
+          </button>
+        </Link>
+
+
+        <Link to="/Track">
+          <button className="ship-now-secondary">
+            Track Your Cargo
+          </button>
+        </Link>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+     <div className="bigcar"data-aos="flip-left">
         <div className="bigcarmom">
           <div className="intext">
             <h2 data-aos="zoom-in">Reliable Shiplift & Transportation Solutions for Every Cargo Need</h2>
@@ -881,10 +1243,11 @@ data-aos="flip-left"
      </div>
 
 
-     <div
-className="colaboss"
-data-aos="zoom-in"
->
+
+
+
+
+     <div className="colaboss" data-aos="zoom-in">
          <h4 data-aos="zoom-in">Built on Reliable Partnerships</h4>
         <div className="colabospic">
            <img src={logo1} alt="cargo" />
