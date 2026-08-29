@@ -1012,8 +1012,8 @@ data-aos="fade-right"
       <div className="location-dot dot-four"></div>
 
       <div className="coverage-card">
-        <strong>Global Logistics</strong>
-        <span>Connected across international routes</span>
+          <strong>Global Logistics</strong>
+        <marquee><span>Connected across international routes</span></marquee>
       </div>
 
     </div>
@@ -1199,7 +1199,7 @@ data-aos="fade-right"
 
       <div className="ship-now-buttons">
 
-        <Link to="/Contact">
+        <Link style={{ textDecoration: 'none' }} to="/Contact">
           <button className="ship-now-primary">
             Request a Shipment
             <FaArrowRight />

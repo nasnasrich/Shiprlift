@@ -1227,7 +1227,7 @@ margin-right: 1%;
 
 .how-it-works-section {
   padding: 90px 5%;
-  background: #f8fafc;
+  /* background: #f8fafc; */
   border: 1px solid black;
   margin-top: 2px;
 }
@@ -1344,11 +1344,11 @@ margin-right: 1%;
 .small-title {
   display: inline-block;
   color: #1976d2;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin-bottom: 15px;
+  margin-bottom: 1px;
 }
 
 .worldwide-text h2 {
@@ -1498,7 +1498,7 @@ margin-right: 1%;
   right: 30px;
   padding: 18px;
   background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
   border-radius: 10px;
   color: white;
   display: flex;
@@ -1695,13 +1695,16 @@ margin-right: 1%;
 ========================================= */
 
 .ship-now-section {
-  margin: 70px 5%;
+  margin: 0px 5%;
+  margin-top: 4vh;
+  margin-bottom: 0%;
   border-radius: 20px;
   overflow: hidden;
-  /* width: 50%; */
-  background:
+  size:50% ;
+
+  /* background: */
     /* linear-gradient(rgba(15,23,42,0.78), rgba(15,23,42,0.88)), */
-    url("../assets/blue-compass.webp");
+    /* url("../assets/blue-compass.jpeg"); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1713,7 +1716,8 @@ margin-right: 1%;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 60px 25px;
+  padding: 0px 25px;
+  border: 1px solid black;
 }
 
 .ship-now-content {
@@ -1722,7 +1726,7 @@ margin-right: 1%;
 }
 
 .ship-now-content span {
-  color: #93c5fd;
+  color: #1976d2;
   letter-spacing: 2px;
   font-size: 12px;
   font-weight: 700;
@@ -1731,15 +1735,19 @@ margin-right: 1%;
 .ship-now-content h2 {
   font-size: 48px;
   margin: 20px 0;
-  color: white;
+  /* color: rgb(12, 12, 12); */
+  color: #1976d2;
 }
 
 .ship-now-content p {
   max-width: 650px;
   margin: auto;
-  color: rgba(255,255,255,0.85);
+  color: rgba(0, 0, 0, 0.85);
+  /* color: #1976d2; */
   line-height: 1.8;
   font-size: 17px;
+  text-decoration: solid 1px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .ship-now-buttons {
@@ -1764,7 +1772,7 @@ margin-right: 1%;
   align-items: center;
   gap: 10px;
   border: none;
-  background: #1976d2;
+  background: #000000;
   color: white;
 }
 
@@ -1774,14 +1782,15 @@ margin-right: 1%;
 }
 
 .ship-now-secondary {
-  background: transparent;
+  /* background: transparent; */
+  background:#1565c0;
   color: white;
-  border: 1px solid rgba(255,255,255,0.7);
+  /* border: 1px solid rgba(23, 21, 21, 0.7); */
 }
 
 .ship-now-secondary:hover {
-  background: white;
-  color: #111827;
+  background:transparent;
+  color: black;
 }
 
 
@@ -1829,7 +1838,13 @@ margin-right: 1%;
 
 
 @media (max-width: 560px) {
-
+.ship-now-section {
+    margin: 0px 15px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-top: 0%;
+    background-repeat: no-repeat;
+  }
  /* ================= HERO ================= */
 @media (max-width:768px) {
 
@@ -2591,7 +2606,11 @@ animation: trackingBeepblack 1.5s infinite;
   }
 
   .ship-now-section {
-    margin: 40px 15px;
+    margin: 0px 15px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-top: 0%;
+    background-repeat: no-repeat;
   }
 
   .ship-now-content h2 {
