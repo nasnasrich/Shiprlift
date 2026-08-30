@@ -2610,7 +2610,7 @@ animation: trackingBeepblack 1.5s infinite;
   .ship-now-section {
     margin: 0px 15px;
     margin-top: 0%;
-    margin-bottom: 0%;
+    margin-bottom: 3%;
     padding-top: 0%;
     background-repeat: no-repeat;
   }
