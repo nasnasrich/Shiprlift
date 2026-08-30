@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Components
 import ShiprliftHome from "./components/ShiprliftHome.jsx";
@@ -21,6 +22,8 @@ function App() {
     <>
       {/* Navigation Bar */}
       <ResponsiveAppBar />
+      {/* Scroll to top whenever the page route changes */}
+        <ScrollToTop />
 
       {/* Application Routes */}
       <Routes>
