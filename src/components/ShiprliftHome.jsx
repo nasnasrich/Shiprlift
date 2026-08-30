@@ -1228,7 +1228,7 @@ data-aos="fade-right"
 
 
 
-     <div className="bigcar"data-aos="flip-left">
+     <div className="bigcar">
         <div className="bigcarmom">
           <div className="intext">
             <h2 data-aos="zoom-in">Reliable Shiplift & Transportation Solutions for Every Cargo Need</h2>
