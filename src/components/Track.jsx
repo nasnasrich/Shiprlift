@@ -654,19 +654,29 @@ const Track = () => {
      TRACK SHIPMENT
   ========================= */
   const handleTrack = () => {
-    const trackingCode = code.trim().toUpperCase();
-    const data = shipmentsData[trackingCode];
+  const trackingCode = code.trim().toUpperCase();
 
-    if (!data) {
-      setShipment(null);
-      setError("Incorrect tracking code.");
-      return;
-    }
+  // Check if the tracking number is empty
+  if (!trackingCode) {
+    setShipment(null);
+    setError("Please enter your tracking number.");
+    return;
+  }
 
-    setError("");
-    setShipment(data);
-    setIndex(0);
-  };
+  const data = shipmentsData[trackingCode];
+
+  // Check if the tracking number is incorrect
+  if (!data) {
+    setShipment(null);
+    setError("Incorrect tracking code.");
+    return;
+  }
+
+  // Tracking number is correct
+  setError("");
+  setShipment(data);
+  setIndex(0);
+};
 
 
   /* =========================
