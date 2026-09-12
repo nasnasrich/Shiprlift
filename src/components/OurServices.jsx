@@ -328,7 +328,7 @@ const OurServices = () => {
         </h1>
       </div>
 
-      <div className="imgesout" data-aos="flip-left">
+      <div className="imgesout" >
         <h5>...</h5>
         <div className="imgesoutP"><p data-aos="zoom-in">More Than 10 Years Mastering Secure Cargo Transport</p></div>
       </div>
