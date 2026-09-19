@@ -123,7 +123,7 @@ const ContactPage = () => {
                 >
                 {images.map((img, index) => (
                     <div key={index} className="shiprlift-contactpage-slide">
-                    <img src={img} alt="slide" />
+                    {/* <img src={img} alt="slide" /> */}
                     </div>
                 ))}
                 </Slide>
