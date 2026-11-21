@@ -450,7 +450,8 @@ flex-wrap:nowrap;
 
 .shiprlift-contactpage-hero p{
   font-family:unset ;
-  display: none;
+  /* display: none; */
+  width: 90%;
 } 
 
 .shiprlift-contactpage-slider{
