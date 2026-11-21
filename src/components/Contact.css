@@ -536,7 +536,7 @@ align-items:center;
 .shiprlift-contactpage-forms{
 flex-direction:column;
 display: grid;
- background-color: #0b7dda;
+ /* background-color: #0b7dda; */
 padding: 0%;
 align-items:center;
 }
@@ -552,7 +552,7 @@ align-items:center;
   color: white;
   box-shadow: 2px 2px 2px rgb(0, 0, 0);
   background-color: black;
-  border-radius: 0%;
+  border-radius: 1%;
 }
 
 
@@ -619,11 +619,11 @@ align-items:center;
   display: block;
   margin-top: 0vh;
   margin-right: 0%;
-   padding-right: 0%;
+  padding-right: 0%;
 }
 
 .phoneopicc img{
-   width:50%;
+   width:20%;
 }
 
 .shiprlift-contactpage-map{
