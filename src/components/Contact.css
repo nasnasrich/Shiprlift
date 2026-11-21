@@ -439,6 +439,7 @@ flex-wrap:nowrap;
 .shiprlift-contactpage-hero h2{
   font-size:30px;
   margin-bottom: 0%;
+  padding-top: 10vh;
 } 
 
 .shiprlift-contactpage-hero h1{
@@ -493,8 +494,10 @@ border-radius:4px;
 }
 
 .shiprlift-contactpage-whycard{
-background: white;
-color: black;
+/* background: white; */
+ background-color: #0b7dda;
+
+color: white;
 }
 
 .shiprlift-contactpage-herotext{
@@ -526,11 +529,14 @@ align-items:center;
 
 .shiprlift-contactpage-formbox{
  margin-left:2%;
+  border-radius: 0%;
+  margin-bottom: 0%;
 }
 
 .shiprlift-contactpage-forms{
 flex-direction:column;
 display: grid;
+ background-color: #0b7dda;
 padding: 0%;
 align-items:center;
 }
