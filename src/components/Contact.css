@@ -8,12 +8,16 @@ font-family:system-ui;
 
 .shiprlift-contactpage-hero{
 display:flex;
+background-image: url("../assets/Professional.png");
+/* background-attachment: fixed; */
+background-size: cover;
+/* background-attachment: fixed; */
 margin-top: 3px;
 box-shadow: 2px 2px 2px rgb(0, 0, 0);
 justify-content:space-between;
 align-items:center;
-padding:50px;
-background:#383737;
+padding:75px;
+/* background:#383737; */
 color:white;
 flex-wrap:wrap;
 }
